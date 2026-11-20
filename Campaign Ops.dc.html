@@ -24,7 +24,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
   <header style="background:#fff;border-bottom:1px solid #DCE6ED;position:sticky;top:0;z-index:20">
     <div style="padding:10px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
       <a href="Publicity%20Admin.dc.html" style="display:flex;align-items:center;gap:10px;color:#10273A;text-decoration:none">
-        <span role="img" aria-label="Popular Hospital" style="width:34px;height:34px;border-radius:9px;background:#02548A url('assets/logo/hospital-mark.svg') center/cover no-repeat;color:#fff;display:grid;place-items:center;font-weight:700;font-size:13px"></span>
+        <span role="img" aria-label="Popular Hospital" style="width:34px;height:34px;border-radius:8px;background:#02548A url('assets/logo/hospital-mark.svg') center/cover no-repeat;color:#fff;display:grid;place-items:center;font-weight:700;font-size:13px"></span>
         <span style="line-height:1.2"><b style="font-size:14px">Free Diabetes &amp; BP Screening Camp</b><br><span style="font-size:13px;color:#5B6B7A">Popular Hospital · Sat, 28 Nov 2026 · Ground floor lobby</span></span>
       </a>
       <div style="flex:1"></div>
@@ -43,35 +43,35 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
 <sc-if value="{{ on.rules }}" hint-placeholder-val="{{ true }}">
   <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
     <div><div style="font-size:18px;font-weight:700">Booth 1 · Blood sugar &amp; BP</div><div style="color:#5B6B7A">4 doctors · 2 campaign guests. Rules decide who each patient can be called by.</div></div>
-    <button onClick="{{ saveRules }}" style="height:38px;padding:0 16px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:700;cursor:pointer" style-hover="background:#023A60">Save rules</button>
+    <button onClick="{{ saveRules }}" style="height:36px;padding:0 16px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:700;cursor:pointer" style-hover="background:#023A60">Save rules</button>
   </div>
   <div style="display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap">
     <div style="flex:3 1 640px;min-width:0;display:flex;flex-direction:column;gap:16px">
-      <section style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:8px">
+      <section style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px">
         <b style="font-size:14px">Distribution method</b>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:8px">
           <sc-for list="{{ methods }}" as="m" hint-placeholder-count="4">
-            <button onClick="{{ m.pick }}" style="display:flex;gap:10px;align-items:flex-start;text-align:left;padding:10px 12px;border-radius:9px;border:1.5px solid {{ m.bd }};background:{{ m.bg }};cursor:pointer;color:#10273A">
+            <button onClick="{{ m.pick }}" style="display:flex;gap:10px;align-items:flex-start;text-align:left;padding:10px 12px;border-radius:8px;border:1.5px solid {{ m.bd }};background:{{ m.bg }};cursor:pointer;color:#10273A">
               <span style="width:16px;height:16px;border-radius:99px;border:2px solid #02548A;display:grid;place-items:center;flex:none;margin-top:2px"><span style="width:8px;height:8px;border-radius:99px;background:{{ m.dot }}"></span></span>
               <span style="line-height:1.35"><b>{{ m.label }}</b><sc-if value="{{ m.rec }}" hint-placeholder-val="{{ false }}"> <span style="font-size:12px;font-weight:700;color:#1D7A46;background:#E3F4EA;border-radius:99px;padding:1px 7px">Recommended</span></sc-if><br><span style="font-size:13px;color:#5B6B7A">{{ m.sub }}</span></span>
             </button>
           </sc-for>
         </div>
       </section>
-      <section style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;overflow:hidden">
-        <div style="padding:12px 16px;border-bottom:1px solid #E6EFF5;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><div><b style="font-size:14px">Rules</b> <span style="color:#5B6B7A">· checked top to bottom, first match wins</span></div><button onClick="{{ addRule }}" style="height:30px;padding:0 12px;border-radius:8px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;cursor:pointer">+ Add rule</button></div>
+      <section style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;overflow:hidden">
+        <div style="padding:12px 16px;border-bottom:1px solid #E6EFF5;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><div><b style="font-size:14px">Rules</b> <span style="color:#5B6B7A">· checked top to bottom, first match wins</span></div><button onClick="{{ addRule }}" style="height:28px;padding:0 12px;border-radius:8px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;cursor:pointer">+ Add rule</button></div>
         <sc-for list="{{ rules }}" as="r" hint-placeholder-count="3">
           <div style="padding:12px 16px;border-bottom:1px solid #EEF3F6;display:flex;flex-direction:column;gap:8px">
             <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
               <span style="width:24px;height:24px;border-radius:6px;background:#E6EFF5;color:#02548A;display:grid;place-items:center;font-weight:700;font-size:13px;flex:none">{{ r.n }}</span>
               <b style="color:#5B6B7A;font-size:13px">IF patient</b>
-              <select value="{{ r.field }}" onChange="{{ r.onField }}" style="height:32px;border:1px solid #C9D6E0;border-radius:7px;padding:0 6px;font-size:13px;background:#fff"><option value="gender">gender</option><option value="age">age</option><option value="priority">priority</option></select>
-              <select value="{{ r.op }}" onChange="{{ r.onOp }}" style="height:32px;border:1px solid #C9D6E0;border-radius:7px;padding:0 6px;font-size:13px;background:#fff"><sc-for list="{{ r.ops }}" as="o" hint-placeholder-count="1"><option value="{{ o.v }}">{{ o.l }}</option></sc-for></select>
-              <sc-if value="{{ r.hasVals }}" hint-placeholder-val="{{ true }}"><select value="{{ r.val }}" onChange="{{ r.onVal }}" style="height:32px;border:1px solid #C9D6E0;border-radius:7px;padding:0 6px;font-size:13px;background:#fff"><sc-for list="{{ r.vals }}" as="o" hint-placeholder-count="2"><option value="{{ o.v }}">{{ o.l }}</option></sc-for></select></sc-if>
-              <sc-if value="{{ r.isAge }}" hint-placeholder-val="{{ false }}"><input value="{{ r.val }}" onChange="{{ r.onAge }}" style="width:56px;height:32px;border:1px solid #C9D6E0;border-radius:7px;padding:0 8px;font-size:13px"></input><span style="font-size:13px;color:#5B6B7A">years</span></sc-if>
+              <select value="{{ r.field }}" onChange="{{ r.onField }}" style="height:36px;border:1px solid #C9D6E0;border-radius:6px;padding:0 6px;font-size:13px;background:#fff"><option value="gender">gender</option><option value="age">age</option><option value="priority">priority</option></select>
+              <select value="{{ r.op }}" onChange="{{ r.onOp }}" style="height:36px;border:1px solid #C9D6E0;border-radius:6px;padding:0 6px;font-size:13px;background:#fff"><sc-for list="{{ r.ops }}" as="o" hint-placeholder-count="1"><option value="{{ o.v }}">{{ o.l }}</option></sc-for></select>
+              <sc-if value="{{ r.hasVals }}" hint-placeholder-val="{{ true }}"><select value="{{ r.val }}" onChange="{{ r.onVal }}" style="height:36px;border:1px solid #C9D6E0;border-radius:6px;padding:0 6px;font-size:13px;background:#fff"><sc-for list="{{ r.vals }}" as="o" hint-placeholder-count="2"><option value="{{ o.v }}">{{ o.l }}</option></sc-for></select></sc-if>
+              <sc-if value="{{ r.isAge }}" hint-placeholder-val="{{ false }}"><input value="{{ r.val }}" onChange="{{ r.onAge }}" style="width:56px;height:36px;border:1px solid #C9D6E0;border-radius:6px;padding:0 8px;font-size:13px"></input><span style="font-size:13px;color:#5B6B7A">years</span></sc-if>
               <b style="color:#5B6B7A;font-size:13px">THEN send to</b>
-              <select value="{{ r.target }}" onChange="{{ r.onTarget }}" style="height:32px;border:1px solid #C9D6E0;border-radius:7px;padding:0 6px;font-size:13px;background:#fff"><option value="docs">these doctors</option><option value="booth">another booth</option></select>
-              <sc-if value="{{ r.isBooth }}" hint-placeholder-val="{{ false }}"><select value="{{ r.booth }}" onChange="{{ r.onBooth }}" style="height:32px;border:1px solid #C9D6E0;border-radius:7px;padding:0 6px;font-size:13px;background:#fff"><sc-for list="{{ boothOpts }}" as="o" hint-placeholder-count="2"><option value="{{ o.v }}">{{ o.l }}</option></sc-for></select></sc-if>
+              <select value="{{ r.target }}" onChange="{{ r.onTarget }}" style="height:36px;border:1px solid #C9D6E0;border-radius:6px;padding:0 6px;font-size:13px;background:#fff"><option value="docs">these doctors</option><option value="booth">another booth</option></select>
+              <sc-if value="{{ r.isBooth }}" hint-placeholder-val="{{ false }}"><select value="{{ r.booth }}" onChange="{{ r.onBooth }}" style="height:36px;border:1px solid #C9D6E0;border-radius:6px;padding:0 6px;font-size:13px;background:#fff"><sc-for list="{{ boothOpts }}" as="o" hint-placeholder-count="2"><option value="{{ o.v }}">{{ o.l }}</option></sc-for></select></sc-if>
               <div style="margin-left:auto;display:flex;gap:4px">
                 <button onClick="{{ r.up }}" title="Move up" style="width:28px;height:28px;border-radius:6px;border:1px solid #DCE6ED;background:#fff;cursor:pointer;color:#33485A">↑</button>
                 <button onClick="{{ r.down }}" title="Move down" style="width:28px;height:28px;border-radius:6px;border:1px solid #DCE6ED;background:#fff;cursor:pointer;color:#33485A">↓</button>
@@ -83,7 +83,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
                 <sc-for list="{{ r.chips }}" as="c" hint-placeholder-count="4"><button onClick="{{ c.toggle }}" style="height:28px;padding:0 10px;border-radius:99px;border:1px solid {{ c.bd }};background:{{ c.bg }};color:{{ c.fg }};font-weight:600;font-size:13px;cursor:pointer">{{ c.g }} {{ c.name }}<span style="font-weight:400;opacity:.8">{{ c.guest }}</span></button></sc-for>
               </div>
               <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding-left:32px">
-                <div style="display:flex;background:#F1F6F9;border-radius:7px;padding:2px"><sc-for list="{{ r.modes }}" as="m" hint-placeholder-count="2"><button onClick="{{ m.pick }}" style="height:26px;padding:0 10px;border:none;border-radius:5px;background:{{ m.bg }};color:{{ m.fg }};box-shadow:{{ m.sh }};font-weight:600;font-size:13px;cursor:pointer">{{ m.label }}</button></sc-for></div>
+                <div style="display:flex;background:#F1F6F9;border-radius:6px;padding:2px"><sc-for list="{{ r.modes }}" as="m" hint-placeholder-count="2"><button onClick="{{ m.pick }}" style="height:28px;padding:0 10px;border:none;border-radius:6px;background:{{ m.bg }};color:{{ m.fg }};box-shadow:{{ m.sh }};font-weight:600;font-size:13px;cursor:pointer">{{ m.label }}</button></sc-for></div>
                 <sc-if value="{{ r.isPrefer }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;color:#33485A">fall back to any doctor after</span><input value="{{ r.mins }}" onChange="{{ r.onMins }}" style="width:48px;height:28px;border:1px solid #C9D6E0;border-radius:6px;padding:0 6px;font-size:13px"></input><span style="font-size:13px;color:#33485A">min wait</span></sc-if>
                 <span style="font-size:13px;color:#5B6B7A">{{ r.modeHint }}</span>
                 <span style="font-size:13px;color:#B42318;font-weight:600">{{ r.warn }}</span>
@@ -92,7 +92,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
           </div>
         </sc-for>
       </section>
-      <section style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+      <section style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;padding:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
         <div style="display:flex;flex-direction:column;gap:6px">
           <button onClick="{{ toggleSep }}" style="display:flex;gap:10px;align-items:center;border:none;background:none;padding:0;cursor:pointer;color:#10273A"><span style="width:36px;height:20px;border-radius:99px;background:{{ sepTrk }};position:relative;flex:none"><span style="position:absolute;top:2px;left:{{ sepKnob }};width:16px;height:16px;border-radius:99px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.2)"></span></span><b>Separate male &amp; female queues</b></button>
           <span style="font-size:13px;color:#5B6B7A;text-wrap:pretty">{{ sepText }}</span>
@@ -103,7 +103,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
         </div>
       </section>
     </div>
-    <section style="flex:2 1 380px;min-width:0;background:#fff;border:1px solid #DCE6ED;border-radius:10px;overflow:hidden;position:sticky;top:120px">
+    <section style="flex:2 1 380px;min-width:0;background:#fff;border:1px solid #DCE6ED;border-radius:12px;overflow:hidden;position:sticky;top:120px">
       <div style="padding:12px 16px;border-bottom:1px solid #E6EFF5"><b style="font-size:14px">Live preview</b> <span style="color:#5B6B7A">· 10 sample patients with the current rules</span></div>
       <sc-for list="{{ preview }}" as="p" hint-placeholder-count="10">
         <div style="display:grid;grid-template-columns:64px minmax(0,1fr);gap:10px;padding:8px 16px;border-bottom:1px solid #EEF3F6;align-items:center">
@@ -121,26 +121,26 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
 
 <sc-if value="{{ on.desk }}" hint-placeholder-val="{{ false }}">
   <div style="display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap">
-    <section style="flex:2 1 460px;min-width:0;background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:12px">
+    <section style="flex:2 1 460px;min-width:0;background:#fff;border:1px solid #DCE6ED;border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:12px">
       <b style="font-size:16px">Register patient</b>
       <div style="display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1.4fr) 90px;gap:10px">
-        <label style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Name *</span><input value="{{ form.name }}" onChange="{{ fOn.name }}" placeholder="Full name" style="height:40px;border:1px solid #C9D6E0;border-radius:8px;padding:0 10px;font-size:14px;outline:none" style-focus="border-color:#0EA5E9;box-shadow:0 0 0 3px rgba(14,165,233,.18)"></input></label>
-        <label style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Mobile</span><input value="{{ form.phone }}" onChange="{{ fOn.phone }}" placeholder="01XXXXXXXXX" style="height:40px;border:1px solid #C9D6E0;border-radius:8px;padding:0 10px;font-size:14px;outline:none"></input></label>
-        <label style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Age *</span><input value="{{ form.age }}" onChange="{{ fOn.age }}" placeholder="Years" style="height:40px;border:1px solid #C9D6E0;border-radius:8px;padding:0 10px;font-size:14px;outline:none"></input></label>
+        <label style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Name *</span><input value="{{ form.name }}" onChange="{{ fOn.name }}" placeholder="Full name" style="height:44px;border:1px solid #C9D6E0;border-radius:8px;padding:0 10px;font-size:14px;outline:none" style-focus="border-color:#0EA5E9;box-shadow:0 0 0 3px rgba(14,165,233,.18)"></input></label>
+        <label style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Mobile</span><input value="{{ form.phone }}" onChange="{{ fOn.phone }}" placeholder="01XXXXXXXXX" style="height:44px;border:1px solid #C9D6E0;border-radius:8px;padding:0 10px;font-size:14px;outline:none"></input></label>
+        <label style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Age *</span><input value="{{ form.age }}" onChange="{{ fOn.age }}" placeholder="Years" style="height:44px;border:1px solid #C9D6E0;border-radius:8px;padding:0 10px;font-size:14px;outline:none"></input></label>
       </div>
       <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end">
-        <div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Gender *</span><div style="display:flex;gap:6px"><sc-for list="{{ fG }}" as="g" hint-placeholder-count="2"><button onClick="{{ g.pick }}" style="width:96px;height:40px;border-radius:8px;border:1px solid {{ g.bd }};background:{{ g.bg }};color:{{ g.fg }};font-weight:700;cursor:pointer">{{ g.label }}</button></sc-for></div></div>
-        <div style="display:flex;gap:6px;flex-wrap:wrap"><sc-for list="{{ fFlags }}" as="f" hint-placeholder-count="2"><button onClick="{{ f.toggle }}" style="height:32px;padding:0 12px;border-radius:99px;border:1px solid {{ f.bd }};background:{{ f.bg }};color:{{ f.fg }};font-weight:600;font-size:13px;cursor:pointer">{{ f.mark }}{{ f.label }}</button></sc-for></div>
+        <div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Gender *</span><div style="display:flex;gap:6px"><sc-for list="{{ fG }}" as="g" hint-placeholder-count="2"><button onClick="{{ g.pick }}" style="width:96px;height:44px;border-radius:8px;border:1px solid {{ g.bd }};background:{{ g.bg }};color:{{ g.fg }};font-weight:700;cursor:pointer">{{ g.label }}</button></sc-for></div></div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap"><sc-for list="{{ fFlags }}" as="f" hint-placeholder-count="2"><button onClick="{{ f.toggle }}" style="height:36px;padding:0 12px;border-radius:99px;border:1px solid {{ f.bd }};background:{{ f.bg }};color:{{ f.fg }};font-weight:600;font-size:13px;cursor:pointer">{{ f.mark }}{{ f.label }}</button></sc-for></div>
       </div>
-      <div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Problem</span><div style="display:flex;gap:6px;flex-wrap:wrap"><sc-for list="{{ fProb }}" as="p" hint-placeholder-count="6"><button onClick="{{ p.pick }}" style="height:30px;padding:0 12px;border-radius:99px;border:1px solid {{ p.bd }};background:{{ p.bg }};color:{{ p.fg }};font-weight:600;font-size:13px;cursor:pointer">{{ p.label }}</button></sc-for></div></div>
+      <div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Problem</span><div style="display:flex;gap:6px;flex-wrap:wrap"><sc-for list="{{ fProb }}" as="p" hint-placeholder-count="6"><button onClick="{{ p.pick }}" style="height:28px;padding:0 12px;border-radius:99px;border:1px solid {{ p.bd }};background:{{ p.bg }};color:{{ p.fg }};font-weight:600;font-size:13px;cursor:pointer">{{ p.label }}</button></sc-for></div></div>
       <sc-if value="{{ sugg.ready }}" hint-placeholder-val="{{ false }}">
-        <div style="background:#F1F6F9;border-radius:10px;padding:12px 14px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:center">
+        <div style="background:#F1F6F9;border-radius:12px;padding:12px 14px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:center">
           <div style="text-align:center;line-height:1"><div style="font-size:12px;color:#5B6B7A;font-weight:600">NEXT TOKEN</div><div style="font-size:30px;font-weight:800;color:#02548A">{{ sugg.token }}</div></div>
           <div style="line-height:1.45"><b>{{ sugg.booth }} · {{ sugg.queue }}</b><sc-if value="{{ sugg.prio }}" hint-placeholder-val="{{ false }}"> <span style="font-size:12px;font-weight:700;color:#A34F00;background:#FFF0E0;border-radius:99px;padding:1px 7px">Priority</span></sc-if><div style="font-size:13px;color:#33485A">{{ sugg.assignText }}</div><div style="font-size:13px;color:#5B6B7A">{{ sugg.rule }}</div></div>
         </div>
       </sc-if>
       <sc-if value="{{ form.err }}" hint-placeholder-val="{{ false }}"><div style="font-size:13px;color:#B42318;background:#FDECEC;border-radius:8px;padding:8px 12px">{{ form.err }}</div></sc-if>
-      <button onClick="{{ register }}" style="height:46px;border-radius:10px;border:none;background:#02548A;color:#fff;font-weight:700;font-size:16px;cursor:pointer" style-hover="background:#023A60">Issue token &amp; print slip</button>
+      <button onClick="{{ register }}" style="height:44px;border-radius:12px;border:none;background:#02548A;color:#fff;font-weight:700;font-size:16px;cursor:pointer" style-hover="background:#023A60">Issue token &amp; print slip</button>
     </section>
     <div style="flex:1 1 300px;min-width:280px;display:flex;flex-direction:column;gap:16px">
       <sc-if value="{{ hasSlip }}" hint-placeholder-val="{{ false }}">
@@ -160,7 +160,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
           <button onClick="{{ printSlip }}" style="height:36px;padding:0 14px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:600;cursor:pointer">Print again</button>
         </div>
       </sc-if>
-      <section style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;overflow:hidden">
+      <section style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;overflow:hidden">
         <div style="padding:10px 14px;border-bottom:1px solid #E6EFF5;font-weight:700">Latest registrations</div>
         <sc-for list="{{ recent }}" as="r" hint-placeholder-count="5"><div style="display:grid;grid-template-columns:60px minmax(0,1fr) auto;gap:8px;padding:8px 14px;border-bottom:1px solid #EEF3F6;align-items:center"><b>{{ r.token }}</b><span style="min-width:0">{{ r.name }} <span style="color:#5B6B7A;font-size:13px">{{ r.meta }}</span></span><span style="font-size:13px;color:#5B6B7A">{{ r.st }}</span></div></sc-for>
       </section>
@@ -170,7 +170,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
 
 <sc-if value="{{ on.doctor }}" hint-placeholder-val="{{ false }}">
   <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"><span style="font-size:13px;color:#5B6B7A">Viewing as</span>
-    <sc-for list="{{ docTabs }}" as="d" hint-placeholder-count="5"><button onClick="{{ d.pick }}" style="display:flex;gap:8px;align-items:center;padding:6px 12px;border-radius:9px;border:1px solid {{ d.bd }};background:{{ d.bg }};cursor:pointer;text-align:left;line-height:1.2"><span style="width:8px;height:8px;border-radius:99px;background:{{ d.dot }}"></span><span><b style="font-size:13px;color:{{ d.fg }}">{{ d.label }}</b><br><span style="font-size:12px;color:{{ d.sfg }}">{{ d.sub }}</span></span></button></sc-for>
+    <sc-for list="{{ docTabs }}" as="d" hint-placeholder-count="5"><button onClick="{{ d.pick }}" style="display:flex;gap:8px;align-items:center;padding:6px 12px;border-radius:8px;border:1px solid {{ d.bd }};background:{{ d.bg }};cursor:pointer;text-align:left;line-height:1.2"><span style="width:8px;height:8px;border-radius:99px;background:{{ d.dot }}"></span><span><b style="font-size:13px;color:{{ d.fg }}">{{ d.label }}</b><br><span style="font-size:12px;color:{{ d.sfg }}">{{ d.sub }}</span></span></button></sc-for>
   </div>
   <div style="display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap">
     <section style="flex:1 1 360px;min-width:0;background:#fff;border:1px solid #DCE6ED;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:14px">
@@ -179,13 +179,13 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
         <div style="border:2px solid #FF8000;border-radius:12px;padding:16px;display:flex;gap:16px;align-items:center;background:#FFF8F0">
           <div style="line-height:1;text-align:center"><div style="font-size:12px;font-weight:700;color:#A34F00">WITH YOU</div><div style="font-size:40px;font-weight:800;color:#FF8000">{{ cur.token }}</div></div>
           <div style="flex:1;min-width:0;line-height:1.4"><b style="font-size:16px">{{ cur.name }}</b><div style="font-size:13px;color:#33485A">{{ cur.meta }}</div><div style="font-size:13px;color:#5B6B7A">{{ cur.since }}</div></div>
-          <button onClick="{{ cur.transfer }}" style="height:32px;padding:0 12px;border-radius:8px;border:1px solid #DCE6ED;background:#fff;color:#33485A;font-weight:600;cursor:pointer">Transfer</button>
+          <button onClick="{{ cur.transfer }}" style="height:36px;padding:0 12px;border-radius:8px;border:1px solid #DCE6ED;background:#fff;color:#33485A;font-weight:600;cursor:pointer">Transfer</button>
         </div>
       </sc-if>
       <sc-if value="{{ noCur }}" hint-placeholder-val="{{ false }}"><div style="border:1px dashed #BFD3E1;border-radius:12px;padding:18px;text-align:center;color:#5B6B7A">No patient with you. Press Call next.</div></sc-if>
       <sc-if value="{{ vd.up }}" hint-placeholder-val="{{ true }}">
         <button onClick="{{ callNext }}" style="height:64px;border-radius:12px;border:none;background:#02548A;color:#fff;font-weight:800;font-size:20px;cursor:pointer" style-hover="background:#023A60">Call next →</button>
-        <button onClick="{{ openUnavail }}" style="height:38px;border-radius:9px;border:1px solid #F3C9C4;background:#fff;color:#B42318;font-weight:600;cursor:pointer" style-hover="background:#FDECEC">I’m unavailable</button>
+        <button onClick="{{ openUnavail }}" style="height:36px;border-radius:8px;border:1px solid #F3C9C4;background:#fff;color:#B42318;font-weight:600;cursor:pointer" style-hover="background:#FDECEC">I’m unavailable</button>
       </sc-if>
       <sc-if value="{{ vd.down }}" hint-placeholder-val="{{ false }}"><button onClick="{{ back }}" style="height:48px;border-radius:12px;border:none;background:#1D7A46;color:#fff;font-weight:700;font-size:16px;cursor:pointer">I’m back · resume calling</button></sc-if>
     </section>
@@ -204,8 +204,8 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
 </sc-if>
 
 <sc-if value="{{ on.board }}" hint-placeholder-val="{{ false }}">
-  <sc-if value="{{ noAlerts }}" hint-placeholder-val="{{ false }}"><div style="background:#E3F4EA;color:#1D7A46;border-radius:10px;padding:10px 14px;font-weight:600">All queues are moving. No alerts.</div></sc-if>
-  <div style="display:flex;flex-direction:column;gap:6px"><sc-for list="{{ alerts }}" as="a" hint-placeholder-count="2"><div style="background:{{ a.bg }};color:{{ a.c }};border-radius:10px;padding:9px 14px;font-weight:600">⚠ {{ a.t }}</div></sc-for></div>
+  <sc-if value="{{ noAlerts }}" hint-placeholder-val="{{ false }}"><div style="background:#E3F4EA;color:#1D7A46;border-radius:12px;padding:10px 14px;font-weight:600">All queues are moving. No alerts.</div></sc-if>
+  <div style="display:flex;flex-direction:column;gap:6px"><sc-for list="{{ alerts }}" as="a" hint-placeholder-count="2"><div style="background:{{ a.bg }};color:{{ a.c }};border-radius:12px;padding:9px 14px;font-weight:600"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;vertical-align:-3px;margin-right:6px"><path d="M12 3 2 21h20z"/><path d="M12 10v5M12 18h.01"/></svg>{{ a.t }}</div></sc-for></div>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px">
     <sc-for list="{{ lanes }}" as="l" hint-placeholder-count="3">
       <section style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;overflow:hidden">
@@ -218,7 +218,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
       </section>
     </sc-for>
   </div>
-  <section style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;overflow:hidden">
+  <section style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;overflow:hidden">
     <div style="overflow-x:auto">
     <table style="width:100%;border-collapse:collapse;min-width:720px">
       <thead><tr>
@@ -249,11 +249,11 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
 </sc-if>
 
 <sc-if value="{{ on.tv }}" hint-placeholder-val="{{ false }}">
-  <div style="background:#011B2E;color:#fff;border-radius:14px;padding:24px;min-height:620px;display:flex;flex-direction:column;gap:20px">
+  <div style="background:#011B2E;color:#fff;border-radius:16px;padding:24px;min-height:620px;display:flex;flex-direction:column;gap:20px">
     <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><b style="font-size:26px">{{ tvTitle }}</b><span style="font-size:30px;font-weight:700;font-variant-numeric:tabular-nums">{{ clock }}</span></div>
     <div style="flex:1;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px">
       <sc-for list="{{ tvLanes }}" as="l" hint-placeholder-count="3">
-        <section style="background:#022A47;border-radius:14px;overflow:hidden;display:flex;flex-direction:column">
+        <section style="background:#022A47;border-radius:16px;overflow:hidden;display:flex;flex-direction:column">
           <div style="padding:12px 18px;background:{{ l.bg }};color:{{ l.fg }};font-size:22px;font-weight:800">{{ l.title }}</div>
           <div style="padding:16px 18px;display:flex;flex-direction:column;gap:12px;flex:1">
             <div style="font-size:15px;color:#7CC8F0;font-weight:600">{{ tvNow }}</div>
@@ -272,8 +272,8 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
     <div style="width:440px;max-width:100%;background:#fff;border-radius:12px;box-shadow:0 20px 48px rgba(2,40,70,.25);display:flex;flex-direction:column">
       <div style="padding:16px 20px;border-bottom:1px solid #E6EFF5"><b style="font-size:16px">Transfer {{ tp.token }} · {{ tp.name }}</b></div>
       <div style="padding:18px 20px;display:flex;flex-direction:column;gap:12px">
-        <label style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Send to</span><select value="{{ transfer.to }}" onChange="{{ onTTo }}" style="height:38px;border:1px solid #C9D6E0;border-radius:8px;padding:0 10px;font-size:14px;background:#fff"><sc-for list="{{ tOpts }}" as="o" hint-placeholder-count="4"><option value="{{ o.v }}">{{ o.l }}</option></sc-for></select></label>
-        <label style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Reason</span><input value="{{ transfer.reason }}" onChange="{{ onTReason }}" style="height:38px;border:1px solid #C9D6E0;border-radius:8px;padding:0 10px;font-size:14px;outline:none"></input></label>
+        <label style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Send to</span><select value="{{ transfer.to }}" onChange="{{ onTTo }}" style="height:36px;border:1px solid #C9D6E0;border-radius:8px;padding:0 10px;font-size:14px;background:#fff"><sc-for list="{{ tOpts }}" as="o" hint-placeholder-count="4"><option value="{{ o.v }}">{{ o.l }}</option></sc-for></select></label>
+        <label style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Reason</span><input value="{{ transfer.reason }}" onChange="{{ onTReason }}" style="height:36px;border:1px solid #C9D6E0;border-radius:8px;padding:0 10px;font-size:14px;outline:none"></input></label>
         <span style="font-size:13px;color:#5B6B7A">The patient keeps their token and their place by registration time.</span>
       </div>
       <div style="padding:14px 20px;border-top:1px solid #E6EFF5;display:flex;justify-content:flex-end;gap:8px"><button onClick="{{ closeTransfer }}" style="height:36px;padding:0 14px;border-radius:8px;border:none;background:transparent;color:#5B6B7A;font-weight:600;cursor:pointer">Cancel</button><button onClick="{{ doTransfer }}" style="height:36px;padding:0 16px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:600;cursor:pointer">Transfer</button></div>
@@ -294,7 +294,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
   </div>
 </sc-if>
   </main>
-  <sc-if value="{{ toast }}" hint-placeholder-val="{{ false }}"><div style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#10273A;color:#fff;padding:10px 16px;border-radius:10px;font-weight:600;box-shadow:0 10px 28px rgba(2,40,70,.25);z-index:60;max-width:90vw">{{ toast }}</div></sc-if>
+  <sc-if value="{{ toast }}" hint-placeholder-val="{{ false }}"><div style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#10273A;color:#fff;padding:10px 16px;border-radius:12px;font-weight:600;box-shadow:0 10px 28px rgba(2,40,70,.25);z-index:60;max-width:90vw">{{ toast }}</div></sc-if>
 <sc-if value="{{ idxShow }}" hint-placeholder-val="{{ true }}"><a href="Prototype%20Index.dc.html" class="idx-link no-print" style="position:fixed;right:12px;bottom:12px;z-index:80;font-size:13px;font-weight:600;color:#5B6B7A;background:rgba(255,255,255,.9);border:1px solid #DCE6ED;border-radius:99px;padding:4px 10px;text-decoration:none">← Index</a></sc-if>
 </div>
 </x-dc>
@@ -402,7 +402,7 @@ class Component extends DCLogic {
       const vals=r.field==='gender'?[['F','Female'],['M','Male']]:r.field==='priority'?[['elderly','Elderly (65+)'],['pregnant','Pregnant'],['disabled','Disabled']]:null;
       return {...r,n:String(i+1),isAge:r.field==='age',hasVals:!!vals,vals:(vals||[]).map(([v,l])=>({v,l})),ops:(r.field==='age'?[['<','is under'],['>=','is at least']]:[['=','is']]).map(([v,l])=>({v,l})),
         isDocs:r.target==='docs',isBooth:r.target==='booth',isPrefer:r.mode==='prefer'&&r.target==='docs',
-        chips:b1Docs.map(d=>{ const s=r.docs.includes(d.id); return {name:d.name.replace('Dr. ',''),g:d.g==='F'?'♀':'♂',guest:d.guest?' · guest':'',bg:s?'#02548A':'#fff',fg:s?'#fff':'#33485A',bd:s?'#02548A':'#C9D6E0',toggle:()=>this.setRule(r.id,{docs:s?r.docs.filter(x=>x!==d.id):[...r.docs,d.id]})}; }),
+        chips:b1Docs.map(d=>{ const s=r.docs.includes(d.id); return {name:d.name.replace('Dr. ',''),g:d.g==='F'?'♀︎':'♂︎',guest:d.guest?' · guest':'',bg:s?'#02548A':'#fff',fg:s?'#fff':'#33485A',bd:s?'#02548A':'#C9D6E0',toggle:()=>this.setRule(r.id,{docs:s?r.docs.filter(x=>x!==d.id):[...r.docs,d.id]})}; }),
         modes:[['strict','Strict'],['prefer','Prefer']].map(([k,l])=>({label:l,bg:r.mode===k?'#fff':'transparent',fg:r.mode===k?'#02548A':'#5B6B7A',sh:r.mode===k?'0 1px 2px rgba(2,40,70,.15)':'none',pick:()=>this.setRule(r.id,{mode:k})})),
         modeHint:r.target==='booth'?'Routes to that booth’s doctors':r.mode==='strict'?'Only these doctors':'Any doctor after '+r.mins+' min wait',
         onField:e=>{ const f=e.target.value; this.setRule(r.id,{field:f,op:f==='age'?'<':'=',val:f==='gender'?'F':f==='age'?'12':'elderly'}); },

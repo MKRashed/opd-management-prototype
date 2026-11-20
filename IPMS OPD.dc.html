@@ -32,7 +32,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
 <div style="min-height:100vh;display:grid;place-items:center;padding:32px 16px;background:#F1F6F9">
   <div style="width:100%;max-width:400px;display:flex;flex-direction:column;gap:18px">
     <div style="display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center">
-      <div role="img" aria-label="Popular Hospital" style="width:64px;height:64px;border-radius:14px;background:#02548A url('assets/logo/hospital-mark.svg') center/cover no-repeat;color:#fff;display:grid;place-items:center;font-size:22px;font-weight:700"></div>
+      <div role="img" aria-label="Popular Hospital" style="width:64px;height:64px;border-radius:16px;background:#02548A url('assets/logo/hospital-mark.svg') center/cover no-repeat;color:#fff;display:grid;place-items:center;font-size:22px;font-weight:700"></div>
       <div><div class="en" style="font-size:20px;font-weight:700">{{ hosp.name }}</div><div class="bn" style="font-size:14px;color:#5B6B7A">{{ hosp.bn }}</div></div>
       <div style="font-size:13px;color:#02548A;background:#E6EFF5;padding:3px 10px;border-radius:99px">{{ hosp.slug }}.ipms.health</div>
     </div>
@@ -42,15 +42,15 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
         <span style="font-size:13px;font-weight:600;color:#33485A"><span class="en">Mobile number</span><span class="bn" style="font-weight:400;color:#5B6B7A">মোবাইল নম্বর</span></span>
         <div style="display:flex;border:1px solid #C9D6E0;border-radius:8px;overflow:hidden;background:#fff">
           <span style="padding:0 10px;display:flex;align-items:center;background:#F1F6F9;color:#5B6B7A;border-right:1px solid #C9D6E0">+880</span>
-          <input value="{{ login.phone }}" onChange="{{ onLoginPhone }}" style="flex:1;min-width:0;height:38px;border:none;padding:0 10px;font-size:14px;outline:none;color:#10273A"></input>
+          <input value="{{ login.phone }}" onChange="{{ onLoginPhone }}" style="flex:1;min-width:0;height:36px;border:none;padding:0 10px;font-size:14px;outline:none;color:#10273A"></input>
         </div>
       </label>
       <label style="display:flex;flex-direction:column;gap:5px">
         <span style="font-size:13px;font-weight:600;color:#33485A"><span class="en">Password</span><span class="bn" style="font-weight:400;color:#5B6B7A">পাসওয়ার্ড</span></span>
-        <input type="password" value="{{ login.pass }}" onChange="{{ onLoginPass }}" style="height:40px;border:1px solid #C9D6E0;border-radius:8px;padding:0 10px;font-size:14px;outline:none;color:#10273A" style-focus="border-color:#0EA5E9;box-shadow:0 0 0 3px rgba(14,165,233,.18)"></input>
+        <input type="password" value="{{ login.pass }}" onChange="{{ onLoginPass }}" style="height:44px;border:1px solid #C9D6E0;border-radius:8px;padding:0 10px;font-size:14px;outline:none;color:#10273A" style-focus="border-color:#0EA5E9;box-shadow:0 0 0 3px rgba(14,165,233,.18)"></input>
       </label>
       <sc-if value="{{ loginErr }}" hint-placeholder-val="{{ false }}"><div style="font-size:13px;color:#B42318;background:#FDECEC;padding:8px 10px;border-radius:8px">{{ loginErr }}</div></sc-if>
-      <button onClick="{{ doLogin }}" style="height:42px;border:none;border-radius:8px;background:#02548A;color:#fff;font-size:14px;font-weight:600;cursor:pointer" style-hover="background:#023A60"><span class="en">Sign in</span><span class="bn">লগইন</span></button>
+      <button onClick="{{ doLogin }}" style="height:44px;border:none;border-radius:8px;background:#02548A;color:#fff;font-size:14px;font-weight:600;cursor:pointer" style-hover="background:#023A60"><span class="en">Sign in</span><span class="bn">লগইন</span></button>
       <div style="display:flex;justify-content:space-between;font-size:13px;gap:8px;flex-wrap:wrap"><a href="#">Forgot password?</a><span style="color:#5B6B7A">No account? Ask your hospital admin.</span></div>
     </div>
     <div style="text-align:center;font-size:13px;color:#5B6B7A;display:flex;justify-content:center;align-items:center;gap:6px"><span style="width:7px;height:7px;border-radius:99px;background:#FF8000"></span>IPMS OPD · powered by IPMS</div>
@@ -62,7 +62,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
 <div style="display:flex;min-height:100vh">
   <aside class="no-print" style="width:224px;flex:none;background:#fff;border-right:1px solid #DCE6ED;display:flex;flex-direction:column;position:sticky;top:0;height:100vh">
     <div style="padding:14px 16px;display:flex;gap:10px;align-items:center;border-bottom:1px solid #E6EFF5">
-      <div role="img" aria-label="Popular Hospital" style="width:36px;height:36px;flex:none;border-radius:9px;background:#02548A url('assets/logo/hospital-mark.svg') center/cover no-repeat;color:#fff;display:grid;place-items:center;font-weight:700;font-size:14px"></div>
+      <div role="img" aria-label="Popular Hospital" style="width:36px;height:36px;flex:none;border-radius:8px;background:#02548A url('assets/logo/hospital-mark.svg') center/cover no-repeat;color:#fff;display:grid;place-items:center;font-weight:700;font-size:14px"></div>
       <div style="min-width:0"><div style="font-weight:700;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ hosp.name }}</div><div style="font-size:12px;color:#5B6B7A">{{ hosp.slug }}.ipms.health</div></div>
     </div>
     <nav style="flex:1;overflow:auto;padding:12px 10px;display:flex;flex-direction:column;gap:2px">
@@ -90,13 +90,13 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
   <main style="flex:1;min-width:0;display:flex;flex-direction:column">
     <header class="no-print" style="height:60px;flex:none;background:#fff;border-bottom:1px solid #DCE6ED;display:flex;align-items:center;gap:16px;padding:0 24px;position:sticky;top:0;z-index:20">
       <div style="flex:0 1 520px;min-width:200px;position:relative">
-        <div style="display:flex;align-items:center;gap:8px;height:38px;border:1px solid #C9D6E0;border-radius:9px;padding:0 10px;background:#F7FAFC">
+        <div style="display:flex;align-items:center;gap:8px;height:38px;border:1px solid #C9D6E0;border-radius:8px;padding:0 10px;background:#F7FAFC">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5B6B7A" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
           <input ref="{{ gRef }}" value="{{ gq }}" onChange="{{ onGq }}" onFocus="{{ gFocus }}" onBlur="{{ gBlur }}" placeholder="Search patients, doctors, tokens" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font-size:14px;color:#10273A"></input>
-          <span style="font-size:12px;color:#5B6B7A;border:1px solid #DCE6ED;border-radius:5px;padding:0 6px;background:#fff">F2</span>
+          <span style="font-size:12px;color:#5B6B7A;border:1px solid #DCE6ED;border-radius:6px;padding:0 6px;background:#fff">F2</span>
         </div>
         <sc-if value="{{ gShow }}" hint-placeholder-val="{{ false }}">
-          <div style="position:absolute;left:0;right:0;top:44px;background:#fff;border:1px solid #DCE6ED;border-radius:10px;box-shadow:0 12px 32px rgba(2,40,70,.16);z-index:40;max-height:440px;overflow:auto;padding:6px">
+          <div style="position:absolute;left:0;right:0;top:44px;background:#fff;border:1px solid #DCE6ED;border-radius:12px;box-shadow:0 12px 32px rgba(2,40,70,.16);z-index:40;max-height:440px;overflow:auto;padding:6px">
             <sc-if value="{{ gHasP }}" hint-placeholder-val="{{ false }}"><div style="font-size:12px;font-weight:700;color:#5B6B7A;text-transform:uppercase;letter-spacing:.6px;padding:6px 8px">Patients</div><sc-for list="{{ gRes.patients }}" as="r" hint-placeholder-count="2"><button onMouseDown="{{ r.go }}" style="display:flex;flex-direction:column;width:100%;text-align:left;padding:7px 8px;border:none;border-radius:6px;background:#fff;cursor:pointer;color:#10273A" style-hover="background:#F1F6F9"><b style="font-size:14px">{{ r.title }}</b><span style="font-size:13px;color:#5B6B7A">{{ r.sub }}</span></button></sc-for></sc-if>
             <sc-if value="{{ gHasD }}" hint-placeholder-val="{{ false }}"><div style="font-size:12px;font-weight:700;color:#5B6B7A;text-transform:uppercase;letter-spacing:.6px;padding:8px 8px 6px">Doctors</div><sc-for list="{{ gRes.doctors }}" as="r" hint-placeholder-count="2"><button onMouseDown="{{ r.go }}" style="display:flex;flex-direction:column;width:100%;text-align:left;padding:7px 8px;border:none;border-radius:6px;background:#fff;cursor:pointer;color:#10273A" style-hover="background:#F1F6F9"><b style="font-size:14px">{{ r.title }}</b><span style="font-size:13px;color:#5B6B7A">{{ r.sub }}</span></button></sc-for></sc-if>
             <sc-if value="{{ gHasT }}" hint-placeholder-val="{{ false }}"><div style="font-size:12px;font-weight:700;color:#5B6B7A;text-transform:uppercase;letter-spacing:.6px;padding:8px 8px 6px">Today’s tokens</div><sc-for list="{{ gRes.tokens }}" as="r" hint-placeholder-count="2"><button onMouseDown="{{ r.go }}" style="display:flex;flex-direction:column;width:100%;text-align:left;padding:7px 8px;border:none;border-radius:6px;background:#fff;cursor:pointer;color:#10273A" style-hover="background:#F1F6F9"><b style="font-size:14px">{{ r.title }}</b><span style="font-size:13px;color:#5B6B7A">{{ r.sub }}</span></button></sc-for></sc-if>
@@ -107,11 +107,11 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
       <div style="flex:1"></div>
       <div style="font-size:13px;color:#5B6B7A;text-align:right;line-height:1.3">Thu, 19 Nov 2026 · 10:36 am<br class="bn"><span class="bn">বৃহস্পতিবার, ১৯ নভেম্বর</span></div>
       
-      <button onClick="{{ openKeys }}" title="Keyboard shortcuts (?)" style="width:36px;height:36px;border-radius:9px;border:1px solid #DCE6ED;background:#fff;cursor:pointer;font-weight:700;color:#33485A">?</button>
+      <button onClick="{{ openKeys }}" title="Keyboard shortcuts (?)" style="width:36px;height:36px;border-radius:8px;border:1px solid #DCE6ED;background:#fff;cursor:pointer;font-weight:700;color:#33485A">?</button>
       <div style="position:relative">
-        <button onClick="{{ toggleNotif }}" title="Notifications" style="position:relative;width:36px;height:36px;border-radius:9px;border:1px solid #DCE6ED;background:#fff;cursor:pointer;display:grid;place-items:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#33485A" stroke-width="2"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 8 3 8H3s3-1 3-8"></path><path d="M10 20a2 2 0 0 0 4 0"></path></svg><sc-if value="{{ unread }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;top:-5px;right:-5px;min-width:17px;height:17px;border-radius:99px;background:#FF8000;color:#fff;font-size:11px;font-weight:700;display:grid;place-items:center;padding:0 4px">{{ unread }}</span></sc-if></button>
+        <button onClick="{{ toggleNotif }}" title="Notifications" style="position:relative;width:36px;height:36px;border-radius:8px;border:1px solid #DCE6ED;background:#fff;cursor:pointer;display:grid;place-items:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#33485A" stroke-width="2"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 8 3 8H3s3-1 3-8"></path><path d="M10 20a2 2 0 0 0 4 0"></path></svg><sc-if value="{{ unread }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;top:-5px;right:-5px;min-width:17px;height:17px;border-radius:99px;background:#FF8000;color:#fff;font-size:11px;font-weight:700;display:grid;place-items:center;padding:0 4px">{{ unread }}</span></sc-if></button>
         <sc-if value="{{ notifOpen }}" hint-placeholder-val="{{ false }}">
-          <div style="position:absolute;right:0;top:46px;width:340px;background:#fff;border:1px solid #DCE6ED;border-radius:10px;box-shadow:0 12px 32px rgba(2,40,70,.16);z-index:40;overflow:hidden">
+          <div style="position:absolute;right:0;top:46px;width:340px;background:#fff;border:1px solid #DCE6ED;border-radius:12px;box-shadow:0 12px 32px rgba(2,40,70,.16);z-index:40;overflow:hidden">
             <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid #E6EFF5"><b>Notifications</b><button onClick="{{ readAll }}" style="border:none;background:none;color:#02548A;font-weight:600;font-size:13px;cursor:pointer">Mark all read</button></div>
             <sc-for list="{{ notifs }}" as="n" hint-placeholder-count="4"><button onClick="{{ n.go }}" style="display:grid;grid-template-columns:10px minmax(0,1fr) auto;gap:10px;align-items:start;width:100%;text-align:left;padding:10px 14px;border:none;border-bottom:1px solid #EEF3F6;background:{{ n.bg }};cursor:pointer;color:#10273A" style-hover="background:#F1F6F9"><span style="width:8px;height:8px;border-radius:99px;background:{{ n.dot }};margin-top:6px"></span><span style="line-height:1.35"><b style="font-size:13px">{{ n.t }}</b><br><span style="font-size:13px;color:#5B6B7A">{{ n.sub }}</span></span><span style="font-size:12px;color:#5B6B7A;white-space:nowrap">{{ n.when }}</span></button></sc-for>
           </div>
@@ -123,7 +123,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
           <span style="display:flex;flex-direction:column;text-align:left;line-height:1.2"><span style="font-weight:600;font-size:13px">{{ user.name }}</span><span style="font-size:12px;color:#5B6B7A">{{ user.role }}</span></span>
         </button>
         <sc-if value="{{ menu }}" hint-placeholder-val="{{ false }}">
-          <div style="position:absolute;right:0;top:46px;width:250px;background:#fff;border:1px solid #DCE6ED;border-radius:10px;box-shadow:0 12px 32px rgba(2,40,70,.14);padding:8px;display:flex;flex-direction:column;gap:2px;z-index:30">
+          <div style="position:absolute;right:0;top:46px;width:250px;background:#fff;border:1px solid #DCE6ED;border-radius:12px;box-shadow:0 12px 32px rgba(2,40,70,.14);padding:8px;display:flex;flex-direction:column;gap:2px;z-index:30">
             <div style="font-size:12px;font-weight:700;color:#5B6B7A;text-transform:uppercase;letter-spacing:.6px;padding:6px 8px">Switch role (prototype)</div>
             <button onClick="{{ asReception }}" style="text-align:left;padding:8px;border:none;border-radius:6px;background:{{ roleBg.reception }};cursor:pointer;font-size:14px;color:#10273A" style-hover="background:#F1F6F9">Nasima Akter · Receptionist</button>
             <button onClick="{{ asAdmin }}" style="text-align:left;padding:8px;border:none;border-radius:6px;background:{{ roleBg.admin }};cursor:pointer;font-size:14px;color:#10273A" style-hover="background:#F1F6F9">Md. Jalal Uddin · Hospital admin</button>
@@ -148,7 +148,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
 <sc-if value="{{ on.dashboard }}" hint-placeholder-val="{{ false }}">
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px">
     <sc-for list="{{ stats }}" as="s" hint-placeholder-count="5">
-      <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:4px">
+      <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:4px">
         <div style="display:flex;justify-content:space-between;align-items:baseline;gap:6px"><span class="en" style="font-weight:600;color:#33485A">{{ s.label }}</span><span class="bn" style="font-size:13px;color:#5B6B7A">{{ s.bn }}</span></div>
         <sc-if value="{{ loading }}" hint-placeholder-val="{{ false }}"><div style="height:34px;width:56px;border-radius:6px;background:#E6EFF5;margin:2px 0"></div></sc-if>
         <sc-if value="{{ notLoading }}" hint-placeholder-val="{{ true }}"><div style="font-size:30px;font-weight:700;line-height:1.15;color:{{ s.color }}">{{ s.value }}</div></sc-if>
@@ -163,7 +163,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
   <sc-if value="{{ loading }}" hint-placeholder-val="{{ false }}">
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:12px">
       <sc-for list="{{ skel4 }}" as="k" hint-placeholder-count="4">
-        <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:14px">
+        <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:14px">
           <div style="height:14px;width:40%;border-radius:6px;background:#E6EFF5"></div>
           <div style="display:flex;gap:10px;align-items:center"><div style="width:36px;height:36px;border-radius:99px;background:#E6EFF5"></div><div style="flex:1;display:flex;flex-direction:column;gap:6px"><div style="height:11px;width:60%;border-radius:6px;background:#E6EFF5"></div><div style="height:10px;width:35%;border-radius:6px;background:#F1F6F9"></div></div><div style="width:54px;height:30px;border-radius:6px;background:#F1F6F9"></div></div>
           <div style="display:flex;gap:10px;align-items:center"><div style="width:36px;height:36px;border-radius:99px;background:#E6EFF5"></div><div style="flex:1;display:flex;flex-direction:column;gap:6px"><div style="height:11px;width:50%;border-radius:6px;background:#E6EFF5"></div><div style="height:10px;width:30%;border-radius:6px;background:#F1F6F9"></div></div><div style="width:54px;height:30px;border-radius:6px;background:#F1F6F9"></div></div>
@@ -173,11 +173,11 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
   </sc-if>
   <sc-if value="{{ hasAlerts }}" hint-placeholder-val="{{ false }}">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px">
-      <sc-for list="{{ dashAlerts }}" as="a" hint-placeholder-count="2"><button onClick="{{ a.go }}" style="display:flex;gap:12px;align-items:center;text-align:left;padding:12px 14px;border-radius:10px;border:1px solid {{ a.bd }};background:{{ a.bg }};cursor:pointer;color:#10273A"><span style="width:30px;height:30px;border-radius:8px;background:#fff;color:{{ a.fg }};display:grid;place-items:center;font-weight:800;flex:none">{{ a.n }}</span><span style="flex:1;line-height:1.35"><b>{{ a.t }}</b><br><span style="font-size:13px;color:#5B6B7A">{{ a.sub }}</span></span><span style="color:{{ a.fg }};font-weight:700">→</span></button></sc-for>
+      <sc-for list="{{ dashAlerts }}" as="a" hint-placeholder-count="2"><button onClick="{{ a.go }}" style="display:flex;gap:12px;align-items:center;text-align:left;padding:12px 14px;border-radius:12px;border:1px solid {{ a.bd }};background:{{ a.bg }};cursor:pointer;color:#10273A"><span style="width:30px;height:30px;border-radius:8px;background:#fff;color:{{ a.fg }};display:grid;place-items:center;font-weight:800;flex:none">{{ a.n }}</span><span style="flex:1;line-height:1.35"><b>{{ a.t }}</b><br><span style="font-size:13px;color:#5B6B7A">{{ a.sub }}</span></span><span style="color:{{ a.fg }};font-weight:700">→</span></button></sc-for>
     </div>
   </sc-if>
   <sc-if value="{{ dashEmpty }}" hint-placeholder-val="{{ false }}">
-    <div style="background:#fff;border:1px dashed #BFD3E1;border-radius:10px;padding:40px 20px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center">
+    <div style="background:#fff;border:1px dashed #BFD3E1;border-radius:12px;padding:40px 20px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center">
       <div style="font-size:16px;font-weight:700">No appointments booked yet today</div>
       <div style="color:#5B6B7A;max-width:440px;text-wrap:pretty"><span class="en">Doctor status and current tokens appear here once patients are booked.</span><span class="bn">আজ এখনো কোনো অ্যাপয়েন্টমেন্ট নেই।</span></div>
       <button onClick="{{ go.book }}" style="margin-top:6px;height:36px;padding:0 14px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:600;cursor:pointer" style-hover="background:#023A60">Book first appointment</button>
@@ -186,7 +186,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
   <sc-if value="{{ dashShow }}" hint-placeholder-val="{{ true }}">
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:12px;align-items:start">
       <sc-for list="{{ deptOverview }}" as="d" hint-placeholder-count="4">
-        <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;overflow:hidden">
+        <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;overflow:hidden">
           <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 14px;background:#F7FAFC;border-bottom:1px solid #E6EFF5">
             <div style="font-weight:700"><span class="en">{{ d.name }}</span><span class="bn" style="font-weight:500;color:#5B6B7A">{{ d.bn }}</span></div>
             <div style="font-size:13px;color:#5B6B7A;white-space:nowrap">Room {{ d.room }} · {{ d.count }}</div>
@@ -216,14 +216,14 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
     <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
       <input value="{{ dirQ }}" onChange="{{ onDirQ }}" placeholder="Filter by name, MRN or mobile" style="height:36px;width:280px;max-width:100%;border:1px solid #C9D6E0;border-radius:8px;padding:0 10px;font-size:14px;outline:none"></input>
       <span style="font-size:13px;color:#5B6B7A">{{ dirPager.text }}</span>
-      <div style="margin-left:auto;position:relative"><button onClick="{{ togglePCols }}" style="height:34px;padding:0 12px;border-radius:8px;border:1px solid #DCE6ED;background:#fff;color:#33485A;font-weight:600;cursor:pointer;white-space:nowrap">Columns ▾</button>
-        <sc-if value="{{ pColsOpen }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;right:0;top:40px;width:180px;background:#fff;border:1px solid #DCE6ED;border-radius:10px;box-shadow:0 12px 32px rgba(2,40,70,.14);padding:6px;z-index:30"><sc-for list="{{ pColOpts }}" as="c" hint-placeholder-count="3"><button onClick="{{ c.toggle }}" style="display:flex;gap:8px;align-items:center;width:100%;padding:7px 8px;border:none;border-radius:6px;background:#fff;cursor:pointer;color:#10273A" style-hover="background:#F1F6F9"><span style="width:18px;height:18px;border-radius:4px;border:1.5px solid #02548A;color:#fff;font-size:12px;display:grid;place-items:center;cursor:pointer;padding:0;background:{{ c.cb }}">{{ c.ck }}</span>{{ c.label }}</button></sc-for></div></sc-if>
+      <div style="margin-left:auto;position:relative"><button onClick="{{ togglePCols }}" style="height:36px;padding:0 12px;border-radius:8px;border:1px solid #DCE6ED;background:#fff;color:#33485A;font-weight:600;cursor:pointer;white-space:nowrap">Columns <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><path d="m6 9 6 6 6-6"/></svg></button>
+        <sc-if value="{{ pColsOpen }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;right:0;top:40px;width:180px;background:#fff;border:1px solid #DCE6ED;border-radius:12px;box-shadow:0 12px 32px rgba(2,40,70,.14);padding:6px;z-index:30"><sc-for list="{{ pColOpts }}" as="c" hint-placeholder-count="3"><button onClick="{{ c.toggle }}" style="display:flex;gap:8px;align-items:center;width:100%;padding:7px 8px;border:none;border-radius:6px;background:#fff;cursor:pointer;color:#10273A" style-hover="background:#F1F6F9"><span style="width:18px;height:18px;border-radius:6px;border:1.5px solid #02548A;color:#fff;font-size:12px;display:grid;place-items:center;cursor:pointer;padding:0;background:{{ c.cb }}">{{ c.ck }}</span>{{ c.label }}</button></sc-for></div></sc-if>
       </div>
     </div>
-    <sc-if value="{{ pBulkOn }}" hint-placeholder-val="{{ false }}"><div style="background:#10273A;color:#fff;border-radius:10px;padding:8px 12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap"><b>{{ pSelN }} selected</b><button onClick="{{ pBulkSms }}" style="height:28px;padding:0 10px;border-radius:6px;border:none;background:#fff;color:#10273A;font-weight:600;font-size:13px;cursor:pointer">Send SMS</button><button onClick="{{ pBulkCards }}" style="height:28px;padding:0 10px;border-radius:6px;border:none;background:#fff;color:#10273A;font-weight:600;font-size:13px;cursor:pointer">Print MRN cards</button><button onClick="{{ pBulkExport }}" style="height:28px;padding:0 10px;border-radius:6px;border:none;background:#fff;color:#10273A;font-weight:600;font-size:13px;cursor:pointer">Export</button><button onClick="{{ pClear }}" style="margin-left:auto;height:28px;padding:0 10px;border-radius:6px;border:1px solid #5B6B7A;background:transparent;color:#fff;font-weight:600;font-size:13px;cursor:pointer">Clear</button></div></sc-if>
-    <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;overflow:hidden"><div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;min-width:760px">
+    <sc-if value="{{ pBulkOn }}" hint-placeholder-val="{{ false }}"><div style="background:#10273A;color:#fff;border-radius:12px;padding:8px 12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap"><b>{{ pSelN }} selected</b><button onClick="{{ pBulkSms }}" style="height:28px;padding:0 10px;border-radius:6px;border:none;background:#fff;color:#10273A;font-weight:600;font-size:13px;cursor:pointer">Send SMS</button><button onClick="{{ pBulkCards }}" style="height:28px;padding:0 10px;border-radius:6px;border:none;background:#fff;color:#10273A;font-weight:600;font-size:13px;cursor:pointer">Print MRN cards</button><button onClick="{{ pBulkExport }}" style="height:28px;padding:0 10px;border-radius:6px;border:none;background:#fff;color:#10273A;font-weight:600;font-size:13px;cursor:pointer">Export</button><button onClick="{{ pClear }}" style="margin-left:auto;height:28px;padding:0 10px;border-radius:6px;border:1px solid #5B6B7A;background:transparent;color:#fff;font-weight:600;font-size:13px;cursor:pointer">Clear</button></div></sc-if>
+    <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;overflow:hidden"><div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;min-width:760px">
       <thead><tr>
-        <th style="padding:8px 0 8px 16px;border-bottom:1px solid #E1E9EF;background:#F7FAFC;width:34px"><button onClick="{{ dirSelAll }}" title="Select page" style="width:18px;height:18px;border-radius:4px;border:1.5px solid #02548A;color:#fff;font-size:12px;display:grid;place-items:center;cursor:pointer;padding:0;background:#fff;color:#02548A">–</button></th>
+        <th style="padding:8px 0 8px 16px;border-bottom:1px solid #E1E9EF;background:#F7FAFC;width:34px"><button onClick="{{ dirSelAll }}" title="Select page" style="width:18px;height:18px;border-radius:6px;border:1.5px solid #02548A;color:#fff;font-size:12px;display:grid;place-items:center;cursor:pointer;padding:0;background:#fff;color:#02548A">–</button></th>
         <th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:7px 12px;border-bottom:1px solid #E1E9EF;background:#F7FAFC"><button onClick="{{ pSortH.name.go }}" style="border:none;background:none;padding:0;font:inherit;color:inherit;cursor:pointer">Name {{ pSortH.name.ar }}</button></th>
         <th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:7px 12px;border-bottom:1px solid #E1E9EF;background:#F7FAFC"><button onClick="{{ pSortH.mrn.go }}" style="border:none;background:none;padding:0;font:inherit;color:inherit;cursor:pointer">MRN {{ pSortH.mrn.ar }}</button></th>
         <sc-if value="{{ pCols.phone }}" hint-placeholder-val="{{ true }}"><th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:7px 12px;border-bottom:1px solid #E1E9EF;background:#F7FAFC">Mobile</th></sc-if>
@@ -234,7 +234,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
         <th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:7px 12px;border-bottom:1px solid #E1E9EF;background:#F7FAFC"></th>
       </tr></thead>
       <tbody><sc-for list="{{ dirRows }}" as="p" hint-placeholder-count="10"><tr style-hover="background:#F7FAFC">
-        <td style="padding:8px 0 8px 16px;border-bottom:1px solid #EEF3F6"><button onClick="{{ p.toggle }}" style="width:18px;height:18px;border-radius:4px;border:1.5px solid #02548A;color:#fff;font-size:12px;display:grid;place-items:center;cursor:pointer;padding:0;background:{{ p.cb }}">{{ p.ck }}</button></td>
+        <td style="padding:8px 0 8px 16px;border-bottom:1px solid #EEF3F6"><button onClick="{{ p.toggle }}" style="width:18px;height:18px;border-radius:6px;border:1.5px solid #02548A;color:#fff;font-size:12px;display:grid;place-items:center;cursor:pointer;padding:0;background:{{ p.cb }}">{{ p.ck }}</button></td>
         <td style="padding:8px 12px;border-bottom:1px solid #EEF3F6;font-weight:600">{{ p.name }}</td>
         <td style="padding:8px 12px;border-bottom:1px solid #EEF3F6;color:#02548A;font-weight:600">{{ p.mrn }}</td>
         <sc-if value="{{ pCols.phone }}" hint-placeholder-val="{{ true }}"><td style="padding:8px 12px;border-bottom:1px solid #EEF3F6">{{ p.phone }}</td></sc-if>
@@ -244,12 +244,12 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
         <sc-if value="{{ pCols.last }}" hint-placeholder-val="{{ true }}"><td style="padding:8px 12px;border-bottom:1px solid #EEF3F6;color:#5B6B7A">{{ p.last }}</td></sc-if>
         <td style="padding:8px 16px;border-bottom:1px solid #EEF3F6;text-align:right"><button onClick="{{ p.open }}" style="height:28px;padding:0 10px;border-radius:6px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;font-size:13px;cursor:pointer">Open</button></td>
       </tr></sc-for></tbody></table></div>
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 16px;gap:8px;flex-wrap:wrap"><span style="font-size:13px;color:#5B6B7A">{{ dirPager.text }}</span><div style="display:flex;gap:4px"><button onClick="{{ dirPager.prev }}" style="height:30px;padding:0 10px;border-radius:6px;border:1px solid #DCE6ED;background:#fff;cursor:pointer;opacity:{{ dirPager.prevOp }}">‹ Prev</button><sc-for list="{{ dirPager.nums }}" as="n" hint-placeholder-count="5"><button onClick="{{ n.go }}" style="width:30px;height:30px;border-radius:6px;border:1px solid #DCE6ED;background:{{ n.bg }};color:{{ n.fg }};font-weight:600;cursor:pointer">{{ n.n }}</button></sc-for><button onClick="{{ dirPager.next }}" style="height:30px;padding:0 10px;border-radius:6px;border:1px solid #DCE6ED;background:#fff;cursor:pointer;opacity:{{ dirPager.nextOp }}">Next ›</button></div></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 16px;gap:8px;flex-wrap:wrap"><span style="font-size:13px;color:#5B6B7A">{{ dirPager.text }}</span><div style="display:flex;gap:4px"><button onClick="{{ dirPager.prev }}" style="height:28px;padding:0 10px;border-radius:6px;border:1px solid #DCE6ED;background:#fff;cursor:pointer;opacity:{{ dirPager.prevOp }}">‹ Prev</button><sc-for list="{{ dirPager.nums }}" as="n" hint-placeholder-count="5"><button onClick="{{ n.go }}" style="width:30px;height:28px;border-radius:6px;border:1px solid #DCE6ED;background:{{ n.bg }};color:{{ n.fg }};font-weight:600;cursor:pointer">{{ n.n }}</button></sc-for><button onClick="{{ dirPager.next }}" style="height:28px;padding:0 10px;border-radius:6px;border:1px solid #DCE6ED;background:#fff;cursor:pointer;opacity:{{ dirPager.nextOp }}">Next ›</button></div></div>
     </div>
   </sc-if>
   <sc-if value="{{ pSearch }}" hint-placeholder-val="{{ true }}">
-  <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-    <div style="flex:1;min-width:260px;display:flex;align-items:center;gap:8px;height:44px;border:1.5px solid #9FC0D6;border-radius:9px;padding:0 12px;background:#fff">
+  <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;padding:14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+    <div style="flex:1;min-width:260px;display:flex;align-items:center;gap:8px;height:44px;border:1.5px solid #9FC0D6;border-radius:8px;padding:0 12px;background:#fff">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#02548A" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
       <input value="{{ q }}" onChange="{{ onQ }}" placeholder="Search by phone, name or MRN" style="flex:1;min-width:0;border:none;outline:none;font-size:14px;color:#10273A;background:transparent"></input>
       <sc-if value="{{ q }}" hint-placeholder-val="{{ false }}"><button onClick="{{ clearQ }}" style="border:none;background:#F1F6F9;color:#5B6B7A;border-radius:6px;padding:3px 8px;cursor:pointer;font-size:13px">Clear</button></sc-if>
@@ -260,7 +260,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
     
   </div>
   <div style="display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap">
-    <div style="flex:1 1 300px;max-width:400px;min-width:280px;background:#fff;border:1px solid #DCE6ED;border-radius:10px;overflow:hidden">
+    <div style="flex:1 1 300px;max-width:400px;min-width:280px;background:#fff;border:1px solid #DCE6ED;border-radius:12px;overflow:hidden">
       <div style="padding:10px 14px;border-bottom:1px solid #E6EFF5;display:flex;justify-content:space-between;font-size:13px;color:#5B6B7A"><span style="font-weight:600;color:#33485A">{{ listTitle }}</span><span>{{ listCount }}</span></div>
       <sc-if value="{{ loading }}" hint-placeholder-val="{{ false }}">
         <sc-for list="{{ skel4 }}" as="k" hint-placeholder-count="4"><div style="padding:12px 14px;border-bottom:1px solid #EEF3F6;display:flex;flex-direction:column;gap:6px"><div style="height:12px;width:55%;border-radius:6px;background:#E6EFF5"></div><div style="height:10px;width:75%;border-radius:6px;background:#F1F6F9"></div></div></sc-for>
@@ -277,16 +277,16 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
     </div>
     <div style="flex:2 1 420px;min-width:0;display:flex;flex-direction:column;gap:16px">
 <sc-if value="{{ fam.on }}" hint-placeholder-val="{{ false }}">
-        <div style="background:#fff;border:1.5px solid #0EA5E9;border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:10px">
+        <div style="background:#fff;border:1.5px solid #0EA5E9;border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:10px">
           <div><b>{{ fam.n }} people share {{ fam.phone }}</b><div style="font-size:13px;color:#5B6B7A">Same phone, different person? Pick who is here today, or add a new person on this number.</div></div>
           <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px">
-            <sc-for list="{{ fam.people }}" as="p" hint-placeholder-count="3"><button onClick="{{ p.pick }}" style="text-align:left;padding:10px 12px;border-radius:9px;border:1.5px solid {{ p.bd }};background:{{ p.bg }};cursor:pointer;color:#10273A;line-height:1.35"><b>{{ p.name }}</b><br><span style="font-size:13px;color:#5B6B7A">{{ p.age }} y · {{ p.sex }} · {{ p.mrn }}</span></button></sc-for>
-            <button onClick="{{ fam.add }}" style="padding:10px 12px;border-radius:9px;border:1.5px dashed #9FC0D6;background:#F7FAFC;cursor:pointer;color:#02548A;font-weight:600">+ Add another person on this number</button>
+            <sc-for list="{{ fam.people }}" as="p" hint-placeholder-count="3"><button onClick="{{ p.pick }}" style="text-align:left;padding:10px 12px;border-radius:8px;border:1.5px solid {{ p.bd }};background:{{ p.bg }};cursor:pointer;color:#10273A;line-height:1.35"><b>{{ p.name }}</b><br><span style="font-size:13px;color:#5B6B7A">{{ p.age }} y · {{ p.sex }} · {{ p.mrn }}</span></button></sc-for>
+            <button onClick="{{ fam.add }}" style="padding:10px 12px;border-radius:8px;border:1.5px dashed #9FC0D6;background:#F7FAFC;cursor:pointer;color:#02548A;font-weight:600">+ Add another person on this number</button>
           </div>
         </div>
       </sc-if>
       <sc-if value="{{ showReg }}" hint-placeholder-val="{{ false }}">
-        <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;overflow:hidden">
+        <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;overflow:hidden">
           <sc-if value="{{ noMatch }}" hint-placeholder-val="{{ false }}">
             <div style="padding:10px 16px;background:#FFF6EC;border-bottom:1px solid #FBE3C8;font-size:13px;color:#7A3D00"><span class="en">No patient at {{ hosp.name }} matches “{{ q }}”. Register them below.</span><span class="bn">কোনো রোগী পাওয়া যায়নি।</span></div>
           </sc-if>
@@ -310,8 +310,8 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
                 <span style="font-size:13px;font-weight:600;color:#33485A"><span class="en">Age or date of birth *</span><span class="bn" style="font-weight:400;color:#5B6B7A">বয়স / জন্মতারিখ</span></span>
                 <div style="display:flex;gap:6px">
                   <div style="display:flex;background:#F1F6F9;border-radius:8px;padding:3px;flex:none">
-                    <button onClick="{{ ageModeAge }}" style="border:none;border-radius:6px;padding:0 10px;height:30px;font-size:13px;font-weight:600;cursor:pointer;background:{{ ageSeg.ageBg }};color:{{ ageSeg.ageFg }}">Age</button>
-                    <button onClick="{{ ageModeDob }}" style="border:none;border-radius:6px;padding:0 10px;height:30px;font-size:13px;font-weight:600;cursor:pointer;background:{{ ageSeg.dobBg }};color:{{ ageSeg.dobFg }}">DOB</button>
+                    <button onClick="{{ ageModeAge }}" style="border:none;border-radius:6px;padding:0 10px;height:28px;font-size:13px;font-weight:600;cursor:pointer;background:{{ ageSeg.ageBg }};color:{{ ageSeg.ageFg }}">Age</button>
+                    <button onClick="{{ ageModeDob }}" style="border:none;border-radius:6px;padding:0 10px;height:28px;font-size:13px;font-weight:600;cursor:pointer;background:{{ ageSeg.dobBg }};color:{{ ageSeg.dobFg }}">DOB</button>
                   </div>
                   <sc-if value="{{ ageSeg.isAge }}" hint-placeholder-val="{{ true }}"><input value="{{ reg.age }}" onChange="{{ regOn.age }}" placeholder="Years" style="flex:1;min-width:0;height:36px;border:1px solid {{ regBd.age }};border-radius:8px;padding:0 10px;font-size:14px;outline:none"></input></sc-if>
                   <sc-if value="{{ ageSeg.isDob }}" hint-placeholder-val="{{ false }}"><input type="date" value="{{ reg.dob }}" onChange="{{ regOn.dob }}" style="flex:1;min-width:0;height:36px;border:1px solid {{ regBd.age }};border-radius:8px;padding:0 10px;font-size:14px;outline:none"></input></sc-if>
@@ -343,7 +343,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
         </div>
       </sc-if>
       <sc-if value="{{ showDetail }}" hint-placeholder-val="{{ false }}">
-        <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:16px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+        <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;padding:16px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
           <div style="display:flex;gap:12px;align-items:center;min-width:0">
             <div style="width:48px;height:48px;flex:none;border-radius:99px;background:#E6EFF5;color:#02548A;display:grid;place-items:center;font-weight:700;font-size:16px">{{ selP.ini }}</div>
             <div style="min-width:0">
@@ -351,9 +351,9 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
               <div style="color:#5B6B7A;font-size:13px">{{ selP.phone }} · {{ selP.age }} y · {{ selP.sex }} · {{ selP.address }}</div>
             </div>
           </div>
-          <div style="display:flex;gap:8px"><button onClick="{{ openRecord }}" style="height:38px;padding:0 14px;border-radius:8px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;cursor:pointer">Open record</button><button onClick="{{ bookSel }}" style="height:38px;padding:0 16px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:600;cursor:pointer" style-hover="background:#023A60">Book appointment →</button></div>
+          <div style="display:flex;gap:8px"><button onClick="{{ openRecord }}" style="height:36px;padding:0 14px;border-radius:8px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;cursor:pointer">Open record</button><button onClick="{{ bookSel }}" style="height:36px;padding:0 16px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:600;cursor:pointer" style-hover="background:#023A60">Book appointment →</button></div>
         </div>
-        <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;overflow:hidden">
+        <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;overflow:hidden">
           <div style="padding:12px 16px;border-bottom:1px solid #E6EFF5;display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap"><span style="font-weight:700"><span class="en">Visits at {{ hosp.name }}</span><span class="bn" style="font-weight:500;color:#5B6B7A">এই হাসপাতালে ভিজিট</span></span><span style="font-size:13px;color:#5B6B7A">Only visits at this hospital are shown</span></div>
           <sc-if value="{{ noVisits }}" hint-placeholder-val="{{ false }}"><div style="padding:28px 16px;text-align:center;color:#5B6B7A"><div style="font-weight:600;color:#10273A">No visits yet</div><div style="font-size:13px">Past and upcoming appointments for this patient will be listed here.</div></div></sc-if>
           <sc-if value="{{ hasVisits }}" hint-placeholder-val="{{ true }}">
@@ -388,7 +388,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
         </div>
       </sc-if>
       <sc-if value="{{ showHint }}" hint-placeholder-val="{{ true }}">
-        <div style="background:#fff;border:1px dashed #BFD3E1;border-radius:10px;padding:40px 24px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;color:#5B6B7A">
+        <div style="background:#fff;border:1px dashed #BFD3E1;border-radius:12px;padding:40px 24px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;color:#5B6B7A">
           <div style="font-size:16px;font-weight:700;color:#10273A">Find a patient to start</div>
           <div style="max-width:420px;text-wrap:pretty">Search by mobile number, name or MRN. Pick a result to see their visits at {{ hosp.name }}. If nobody matches, a quick-register form opens here.</div>
           <div class="bn" style="font-size:13px">রোগীর মোবাইল নম্বর, নাম বা MRN দিয়ে খুঁজুন</div>
@@ -400,16 +400,16 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
 </sc-if>
 
 <sc-if value="{{ on.book }}" hint-placeholder-val="{{ false }}">
-  <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+  <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
     <sc-if value="{{ bookHasP }}" hint-placeholder-val="{{ false }}">
       <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span style="font-size:13px;color:#5B6B7A">Booking for</span><b style="font-size:14px">{{ bP.name }}</b><span style="font-size:13px;font-weight:700;color:#02548A;background:#E6EFF5;border-radius:6px;padding:1px 8px">{{ bP.mrn }}</span><span style="color:#5B6B7A;font-size:13px">{{ bP.phone }} · {{ bP.age }} y · {{ bP.sex }}</span>
         <sc-if value="{{ isResched }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;font-weight:600;color:#A34F00;background:#FFF0E0;border-radius:99px;padding:2px 9px">Rescheduling {{ resToken }} · old token is cancelled on confirm</span></sc-if>
       </div>
-      <button onClick="{{ findPatient }}" style="height:32px;padding:0 12px;border-radius:8px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;cursor:pointer" style-hover="background:#F1F6F9">Change patient</button>
+      <button onClick="{{ findPatient }}" style="height:36px;padding:0 12px;border-radius:8px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;cursor:pointer" style-hover="background:#F1F6F9">Change patient</button>
     </sc-if>
     <sc-if value="{{ bookNoP }}" hint-placeholder-val="{{ true }}">
       <div style="display:flex;gap:8px;align-items:center"><span style="width:8px;height:8px;border-radius:99px;background:#FF8000"></span><span><b>No patient selected.</b> <span style="color:#5B6B7A">You can browse slots, but confirming needs a patient.</span></span></div>
-      <button onClick="{{ findPatient }}" style="height:32px;padding:0 12px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:600;cursor:pointer" style-hover="background:#023A60">Find patient</button>
+      <button onClick="{{ findPatient }}" style="height:36px;padding:0 12px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:600;cursor:pointer" style-hover="background:#023A60">Find patient</button>
     </sc-if>
   </div>
 
@@ -428,7 +428,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
   <sc-if value="{{ step1 }}" hint-placeholder-val="{{ true }}">
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px">
       <sc-for list="{{ bookDepts }}" as="d" hint-placeholder-count="6">
-        <button onClick="{{ d.pick }}" style="opacity:{{ d.op }};text-align:left;background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:6px;cursor:pointer;color:#10273A" style-hover="border-color:#02548A;box-shadow:0 0 0 3px #E6EFF5">
+        <button onClick="{{ d.pick }}" style="opacity:{{ d.op }};text-align:left;background:#fff;border:1px solid #DCE6ED;border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:6px;cursor:pointer;color:#10273A" style-hover="border-color:#02548A;box-shadow:0 0 0 3px #E6EFF5">
           <span class="en" style="font-size:16px;font-weight:700">{{ d.name }}</span>
           <span class="bn" style="font-size:14px;color:#5B6B7A;margin-top:-4px">{{ d.bn }}</span>
           <span style="display:flex;justify-content:space-between;gap:8px;font-size:13px;margin-top:6px"><span style="color:#5B6B7A">Room {{ d.room }} · {{ d.meta }}</span><span style="font-weight:600;color:{{ d.leftColor }}">{{ d.leftText }}</span></span>
@@ -441,9 +441,9 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
     <div style="display:flex;align-items:center;gap:10px"><button onClick="{{ backToStep1 }}" style="border:none;background:transparent;color:#02548A;font-weight:600;cursor:pointer;padding:0">← Departments</button><span style="color:#5B6B7A">/</span><b class="en">{{ bookDept.name }}</b><span class="bn" style="color:#5B6B7A">{{ bookDept.bn }}</span></div>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px">
       <sc-for list="{{ bookDocs }}" as="d" hint-placeholder-count="2">
-        <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:12px">
+        <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px">
           <div style="display:flex;gap:12px">
-            <div style="width:64px;height:64px;flex:none;border-radius:10px;background:#E6EFF5 {{ d.avBg }} center/cover no-repeat;color:#02548A;display:grid;place-items:center;font-weight:700;font-size:18px;line-height:1">{{ d.avIni }}</div>
+            <div style="width:64px;height:64px;flex:none;border-radius:12px;background:#E6EFF5 {{ d.avBg }} center/cover no-repeat;color:#02548A;display:grid;place-items:center;font-weight:700;font-size:18px;line-height:1">{{ d.avIni }}</div>
             <div style="min-width:0;display:flex;flex-direction:column;gap:1px">
               <span class="en" style="font-size:14px;font-weight:700">{{ d.name }}</span>
               <span class="bn" style="font-size:13px;color:#5B6B7A">{{ d.bn }}</span>
@@ -465,8 +465,8 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
   <sc-if value="{{ step3 }}" hint-placeholder-val="{{ false }}">
     <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap"><button onClick="{{ backToStep1 }}" style="border:none;background:transparent;color:#02548A;font-weight:600;cursor:pointer;padding:0">← Departments</button><span style="color:#5B6B7A">/</span><button onClick="{{ backToStep2 }}" style="border:none;background:transparent;color:#02548A;font-weight:600;cursor:pointer;padding:0">{{ bookDept.name }}</button><span style="color:#5B6B7A">/</span><b>{{ bDoc.name }}</b></div>
     <div style="display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap">
-      <div style="flex:0 1 260px;min-width:220px;background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:10px">
-        <div style="display:flex;gap:10px;align-items:center"><div style="width:48px;height:48px;border-radius:10px;background:#E6EFF5 {{ bDoc.avBg }} center/cover no-repeat;color:#02548A;display:grid;place-items:center;font-weight:700;flex:none">{{ bDoc.avIni }}</div><div><div style="font-weight:700">{{ bDoc.name }}</div><div style="font-size:13px;color:#5B6B7A">{{ bDoc.deg }}</div></div></div>
+      <div style="flex:0 1 260px;min-width:220px;background:#fff;border:1px solid #DCE6ED;border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;gap:10px;align-items:center"><div style="width:48px;height:48px;border-radius:12px;background:#E6EFF5 {{ bDoc.avBg }} center/cover no-repeat;color:#02548A;display:grid;place-items:center;font-weight:700;flex:none">{{ bDoc.avIni }}</div><div><div style="font-weight:700">{{ bDoc.name }}</div><div style="font-size:13px;color:#5B6B7A">{{ bDoc.deg }}</div></div></div>
         <div style="font-size:13px;color:#33485A;display:flex;flex-direction:column;gap:4px;border-top:1px solid #EEF3F6;padding-top:10px">
           <span>Room {{ bDoc.room }}</span><span>{{ bDoc.hours }}</span><span>{{ bDoc.lenText }}</span>
         </div>
@@ -478,26 +478,26 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
       <div style="flex:1 1 480px;min-width:0;display:flex;flex-direction:column;gap:12px">
         <div style="display:grid;grid-template-columns:repeat(7,minmax(72px,1fr));gap:8px;overflow-x:auto">
           <sc-for list="{{ dateStrip }}" as="d" hint-placeholder-count="7">
-            <button onClick="{{ d.pick }}" style="border:1px solid {{ d.bd }};background:{{ d.bg }};color:{{ d.fg }};border-radius:9px;padding:8px 6px;cursor:pointer;display:flex;flex-direction:column;align-items:center;line-height:1.25">
+            <button onClick="{{ d.pick }}" style="border:1px solid {{ d.bd }};background:{{ d.bg }};color:{{ d.fg }};border-radius:8px;padding:8px 6px;cursor:pointer;display:flex;flex-direction:column;align-items:center;line-height:1.25">
               <span style="font-size:13px;font-weight:600">{{ d.wd }}</span><span style="font-size:14px;font-weight:700">{{ d.day }}</span><span style="font-size:12px;font-weight:600;color:{{ d.txtC }}">{{ d.txt }}</span>
             </button>
           </sc-for>
         </div>
-        <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:14px">
+        <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:14px">
           <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center">
             <div style="font-weight:700">{{ slotsSummary }}</div>
             <div style="display:flex;gap:12px;font-size:13px;color:#5B6B7A;flex-wrap:wrap">
-              <span style="display:flex;align-items:center;gap:5px"><span style="width:14px;height:14px;border-radius:4px;border:1px solid #9FC0D6;background:#fff"></span>Available</span>
-              <span style="display:flex;align-items:center;gap:5px"><span style="width:14px;height:14px;border-radius:4px;background:#EEF2F5;border:1px solid #E1E8ED"></span>Booked</span>
-              <span style="display:flex;align-items:center;gap:5px"><span style="width:14px;height:14px;border-radius:4px;background:repeating-linear-gradient(135deg,#F4F6F8 0 3px,#E3E8EC 3px 6px);border:1px solid #E1E8ED"></span>Blocked</span>
-              <span style="display:flex;align-items:center;gap:5px"><span style="width:14px;height:14px;border-radius:4px;background:#F7F9FA;border:1px solid #EEF2F5"></span>Passed</span>
+              <span style="display:flex;align-items:center;gap:5px"><span style="width:14px;height:14px;border-radius:6px;border:1px solid #9FC0D6;background:#fff"></span>Available</span>
+              <span style="display:flex;align-items:center;gap:5px"><span style="width:14px;height:14px;border-radius:6px;background:#EEF2F5;border:1px solid #E1E8ED"></span>Booked</span>
+              <span style="display:flex;align-items:center;gap:5px"><span style="width:14px;height:14px;border-radius:6px;background:repeating-linear-gradient(135deg,#F4F6F8 0 3px,#E3E8EC 3px 6px);border:1px solid #E1E8ED"></span>Blocked</span>
+              <span style="display:flex;align-items:center;gap:5px"><span style="width:14px;height:14px;border-radius:6px;background:#F7F9FA;border:1px solid #EEF2F5"></span>Passed</span>
             </div>
           </div>
           <sc-if value="{{ noSlots }}" hint-placeholder-val="{{ false }}">
-            <div style="border:1px dashed #BFD3E1;border-radius:10px;padding:28px 20px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px">
+            <div style="border:1px dashed #BFD3E1;border-radius:12px;padding:28px 20px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px">
               <div style="font-size:16px;font-weight:700"><span class="en">No slots available</span><span class="bn">কোনো স্লট খালি নেই</span></div>
               <div style="color:#5B6B7A;max-width:440px;text-wrap:pretty">{{ noSlotsMsg }}</div>
-              <sc-if value="{{ hasNext }}" hint-placeholder-val="{{ true }}"><button onClick="{{ goNext }}" style="margin-top:6px;height:34px;padding:0 14px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:600;cursor:pointer" style-hover="background:#023A60">{{ nextLabel }}</button></sc-if>
+              <sc-if value="{{ hasNext }}" hint-placeholder-val="{{ true }}"><button onClick="{{ goNext }}" style="margin-top:6px;height:36px;padding:0 14px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:600;cursor:pointer" style-hover="background:#023A60">{{ nextLabel }}</button></sc-if>
             </div>
           </sc-if>
           <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:8px">
@@ -550,14 +550,14 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
       <sc-if value="{{ isA5 }}" hint-placeholder-val="{{ false }}">
         <div class="slip" style="width:420px;height:595px;background:#fff;box-shadow:0 8px 24px rgba(2,40,70,.18);padding:28px;display:flex;flex-direction:column;gap:16px;color:#10273A">
           <div style="display:flex;gap:12px;align-items:center;padding-bottom:14px;border-bottom:2px solid #02548A">
-            <div role="img" aria-label="Popular Hospital" style="width:44px;height:44px;border-radius:9px;background:#02548A url('assets/logo/hospital-mark.svg') center/cover no-repeat;color:#fff;display:grid;place-items:center;font-weight:700"></div>
+            <div role="img" aria-label="Popular Hospital" style="width:44px;height:44px;border-radius:8px;background:#02548A url('assets/logo/hospital-mark.svg') center/cover no-repeat;color:#fff;display:grid;place-items:center;font-weight:700"></div>
             <div style="line-height:1.3"><div style="font-size:16px;font-weight:700"><span class="en">{{ hosp.name }}</span><span class="bn" style="font-weight:500;font-size:13px">{{ hosp.bn }}</span></div><div style="font-size:10.5px;color:#5B6B7A">{{ hosp.address }} · {{ hosp.phone }}</div></div>
           </div>
           <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
             <div style="line-height:1.1"><div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#5B6B7A"><span class="en">OPD TOKEN</span><span class="bn">টোকেন</span></div><div style="font-size:72px;font-weight:700;color:#02548A">{{ slip.token }}</div></div>
             <div style="text-align:right;line-height:1.4;font-size:12px"><div style="font-weight:700;font-size:14px">{{ slip.time }}</div><div>{{ slip.date }}</div><div style="color:#5B6B7A">{{ slip.ahead }}</div></div>
           </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;background:#F1F6F9;border-radius:10px;padding:14px;font-size:12px">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;background:#F1F6F9;border-radius:12px;padding:14px;font-size:12px">
             <div><div style="color:#5B6B7A;font-size:10.5px"><span class="en">Doctor</span><span class="bn">ডাক্তার</span></div><b>{{ slip.doc }}</b><div style="font-size:10.5px;color:#5B6B7A">{{ slip.deg }}</div></div>
             <div><div style="color:#5B6B7A;font-size:10.5px"><span class="en">Department</span><span class="bn">বিভাগ</span></div><b class="en">{{ slip.dept }}</b><div class="bn" style="font-size:10.5px">{{ slip.deptBn }}</div></div>
             <div><div style="color:#5B6B7A;font-size:10.5px"><span class="en">Room</span><span class="bn">রুম</span></div><b>{{ slip.room }}</b></div>
@@ -570,13 +570,13 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
       </sc-if>
     </div>
     <div class="no-print" style="flex:0 1 300px;min-width:260px;display:flex;flex-direction:column;gap:12px">
-      <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:12px">
+      <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px">
         <div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:15px">Token {{ slip.token }}</b><span style="display:inline-flex;font-size:11.5px;font-weight:600;padding:2px 9px;border-radius:99px;background:{{ slip.chipBg }};color:{{ slip.chipFg }}"><span class="en">{{ slip.status }}</span><span class="bn">{{ slip.chipBn }}</span></span></div>
         <div style="display:flex;background:#F1F6F9;border-radius:8px;padding:3px">
-          <sc-for list="{{ fmtSeg }}" as="f" hint-placeholder-count="2"><button onClick="{{ f.pick }}" style="flex:1;height:32px;border:none;border-radius:6px;background:{{ f.bg }};color:{{ f.fg }};box-shadow:{{ f.sh }};font-weight:600;font-size:12.5px;cursor:pointer">{{ f.label }}</button></sc-for>
+          <sc-for list="{{ fmtSeg }}" as="f" hint-placeholder-count="2"><button onClick="{{ f.pick }}" style="flex:1;height:36px;border:none;border-radius:6px;background:{{ f.bg }};color:{{ f.fg }};box-shadow:{{ f.sh }};font-weight:600;font-size:12.5px;cursor:pointer">{{ f.label }}</button></sc-for>
         </div>
-        <button onClick="{{ printSlip }}" style="height:40px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px" style-hover="background:#023A60"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M6 9V3h12v6"></path><rect x="3" y="9" width="18" height="8" rx="2"></rect><path d="M6 14h12v7H6z"></path></svg><span class="en">Print token</span><span class="bn">প্রিন্ট</span></button>
-        <sc-if value="{{ slipCanArrive }}" hint-placeholder-val="{{ true }}"><button onClick="{{ markArrived }}" style="height:40px;border-radius:8px;border:1px solid #9FC0D6;background:#fff;color:#02548A;font-weight:600;cursor:pointer" style-hover="background:#F1F6F9"><span class="en">Mark arrived now</span><span class="bn">উপস্থিত</span></button></sc-if>
+        <button onClick="{{ printSlip }}" style="height:44px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px" style-hover="background:#023A60"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M6 9V3h12v6"></path><rect x="3" y="9" width="18" height="8" rx="2"></rect><path d="M6 14h12v7H6z"></path></svg><span class="en">Print token</span><span class="bn">প্রিন্ট</span></button>
+        <sc-if value="{{ slipCanArrive }}" hint-placeholder-val="{{ true }}"><button onClick="{{ markArrived }}" style="height:44px;border-radius:8px;border:1px solid #9FC0D6;background:#fff;color:#02548A;font-weight:600;cursor:pointer" style-hover="background:#F1F6F9"><span class="en">Mark arrived now</span><span class="bn">উপস্থিত</span></button></sc-if>
         <div style="font-size:11.5px;color:#5B6B7A">Default format is set in Hospital settings. Printer: Desk 1.</div>
       </div>
       <div style="display:flex;gap:8px">
@@ -592,9 +592,9 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
     <sc-for list="{{ qViews }}" as="t" hint-placeholder-count="2"><button onClick="{{ t.go }}" style="border:none;background:transparent;border-bottom:3px solid {{ t.bd }};padding:8px 14px;cursor:pointer;font-weight:700;color:{{ t.fg }};display:flex;gap:6px;align-items:center">{{ t.label }}<sc-if value="{{ t.n }}" hint-placeholder-val="{{ false }}"><span style="min-width:20px;height:20px;border-radius:99px;background:#FF8000;color:#fff;font-size:12px;display:grid;place-items:center;padding:0 6px">{{ t.n }}</span></sc-if></button></sc-for>
   </div>
   <sc-if value="{{ qNeeds }}" hint-placeholder-val="{{ false }}">
-    <div style="background:#FFF6EC;border:1px solid #FBE3C8;border-radius:10px;padding:10px 14px;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap"><span style="color:#7A3D00"><b>Dr. Tanvir Hasan blocked Mon, 23 Nov 2026</b> (conference) on 15 Nov. These bookings fall outside his published schedule now.</span><button onClick="{{ smsAllNeeds }}" style="height:32px;padding:0 12px;border-radius:8px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;cursor:pointer">SMS all patients</button></div>
-    <sc-if value="{{ needsEmpty }}" hint-placeholder-val="{{ false }}"><div style="background:#fff;border:1px dashed #BFD3E1;border-radius:10px;padding:32px;text-align:center;color:#5B6B7A"><b style="color:#10273A">Nothing to reschedule</b><div>All affected appointments have been handled.</div></div></sc-if>
-    <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;overflow:hidden"><div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;min-width:820px">
+    <div style="background:#FFF6EC;border:1px solid #FBE3C8;border-radius:12px;padding:10px 14px;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap"><span style="color:#7A3D00"><b>Dr. Tanvir Hasan blocked Mon, 23 Nov 2026</b> (conference) on 15 Nov. These bookings fall outside his published schedule now.</span><button onClick="{{ smsAllNeeds }}" style="height:36px;padding:0 12px;border-radius:8px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;cursor:pointer">SMS all patients</button></div>
+    <sc-if value="{{ needsEmpty }}" hint-placeholder-val="{{ false }}"><div style="background:#fff;border:1px dashed #BFD3E1;border-radius:12px;padding:32px;text-align:center;color:#5B6B7A"><b style="color:#10273A">Nothing to reschedule</b><div>All affected appointments have been handled.</div></div></sc-if>
+    <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;overflow:hidden"><div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;min-width:820px">
       <thead><tr><th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:8px 16px;border-bottom:1px solid #E1E9EF">Token</th><th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:8px 12px;border-bottom:1px solid #E1E9EF">Patient</th><th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:8px 12px;border-bottom:1px solid #E1E9EF">MRN</th><th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:8px 12px;border-bottom:1px solid #E1E9EF">Was booked for</th><th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:8px 12px;border-bottom:1px solid #E1E9EF">Doctor</th><th style="text-align:right;font-size:13px;font-weight:600;color:#5B6B7A;padding:8px 16px;border-bottom:1px solid #E1E9EF">Actions</th></tr></thead>
       <tbody><sc-for list="{{ needRows }}" as="r" hint-placeholder-count="6"><tr>
         <td style="padding:8px 16px;border-bottom:1px solid #EEF3F6;font-weight:700">{{ r.token }}</td>
@@ -606,7 +606,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
       </tr></sc-for></tbody></table></div></div>
   </sc-if>
   <sc-if value="{{ qToday }}" hint-placeholder-val="{{ true }}">
-  <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:10px">
+  <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:10px">
     <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
       <select value="{{ qDept }}" onChange="{{ onQDept }}" style="height:36px;border:1px solid #C9D6E0;border-radius:8px;padding:0 10px;font-size:14px;color:#10273A;background:#fff;min-width:170px">
         <sc-for list="{{ qDeptOpts }}" as="o" hint-placeholder-count="3"><option value="{{ o.id }}">{{ o.name }}</option></sc-for>
@@ -625,14 +625,14 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
   </div>
   <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
     <span style="font-size:13px;color:#5B6B7A">Views</span>
-    <sc-for list="{{ qViewChips }}" as="v" hint-placeholder-count="4"><button onClick="{{ v.go }}" style="height:28px;padding:0 10px;border-radius:7px;border:1px solid {{ v.bd }};background:{{ v.bg }};color:{{ v.fg }};font-weight:600;font-size:13px;cursor:pointer;white-space:nowrap">{{ v.label }}</button></sc-for>
-    <button onClick="{{ saveView }}" style="height:28px;padding:0 10px;border-radius:7px;border:1px dashed #9FC0D6;background:#fff;color:#02548A;font-weight:600;font-size:13px;cursor:pointer;white-space:nowrap">+ Save current view</button>
-    <div style="margin-left:auto;position:relative"><button onClick="{{ toggleCols }}" style="height:30px;padding:0 12px;border-radius:8px;border:1px solid #DCE6ED;background:#fff;color:#33485A;font-weight:600;font-size:13px;cursor:pointer;white-space:nowrap">Columns ▾</button>
-      <sc-if value="{{ qColsOpen }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;right:0;top:36px;width:180px;background:#fff;border:1px solid #DCE6ED;border-radius:10px;box-shadow:0 12px 32px rgba(2,40,70,.14);padding:6px;z-index:30"><sc-for list="{{ colOpts }}" as="c" hint-placeholder-count="3"><button onClick="{{ c.toggle }}" style="display:flex;gap:8px;align-items:center;width:100%;padding:7px 8px;border:none;border-radius:6px;background:#fff;cursor:pointer;color:#10273A" style-hover="background:#F1F6F9"><span style="width:18px;height:18px;border-radius:4px;border:1.5px solid #02548A;color:#fff;font-size:12px;display:grid;place-items:center;cursor:pointer;padding:0;background:{{ c.cb }}">{{ c.ck }}</span>{{ c.label }}</button></sc-for></div></sc-if>
+    <sc-for list="{{ qViewChips }}" as="v" hint-placeholder-count="4"><button onClick="{{ v.go }}" style="height:28px;padding:0 10px;border-radius:6px;border:1px solid {{ v.bd }};background:{{ v.bg }};color:{{ v.fg }};font-weight:600;font-size:13px;cursor:pointer;white-space:nowrap">{{ v.label }}</button></sc-for>
+    <button onClick="{{ saveView }}" style="height:28px;padding:0 10px;border-radius:6px;border:1px dashed #9FC0D6;background:#fff;color:#02548A;font-weight:600;font-size:13px;cursor:pointer;white-space:nowrap">+ Save current view</button>
+    <div style="margin-left:auto;position:relative"><button onClick="{{ toggleCols }}" style="height:28px;padding:0 12px;border-radius:8px;border:1px solid #DCE6ED;background:#fff;color:#33485A;font-weight:600;font-size:13px;cursor:pointer;white-space:nowrap">Columns <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><path d="m6 9 6 6 6-6"/></svg></button>
+      <sc-if value="{{ qColsOpen }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;right:0;top:36px;width:180px;background:#fff;border:1px solid #DCE6ED;border-radius:12px;box-shadow:0 12px 32px rgba(2,40,70,.14);padding:6px;z-index:30"><sc-for list="{{ colOpts }}" as="c" hint-placeholder-count="3"><button onClick="{{ c.toggle }}" style="display:flex;gap:8px;align-items:center;width:100%;padding:7px 8px;border:none;border-radius:6px;background:#fff;cursor:pointer;color:#10273A" style-hover="background:#F1F6F9"><span style="width:18px;height:18px;border-radius:6px;border:1.5px solid #02548A;color:#fff;font-size:12px;display:grid;place-items:center;cursor:pointer;padding:0;background:{{ c.cb }}">{{ c.ck }}</span>{{ c.label }}</button></sc-for></div></sc-if>
     </div>
   </div>
   <sc-if value="{{ qBulkOn }}" hint-placeholder-val="{{ false }}">
-    <div style="position:sticky;top:68px;z-index:15;background:#10273A;color:#fff;border-radius:10px;padding:8px 12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;box-shadow:0 8px 20px rgba(2,40,70,.2)">
+    <div style="position:sticky;top:68px;z-index:15;background:#10273A;color:#fff;border-radius:12px;padding:8px 12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;box-shadow:0 8px 20px rgba(2,40,70,.2)">
       <b>{{ qSelN }} selected</b>
       <button onClick="{{ bulkArrive }}" style="height:28px;padding:0 10px;border-radius:6px;border:none;background:#fff;color:#10273A;font-weight:600;font-size:13px;cursor:pointer">Mark arrived <span style="opacity:.6">A</span></button>
       <button onClick="{{ bulkAbsent }}" style="height:28px;padding:0 10px;border-radius:6px;border:none;background:#fff;color:#10273A;font-weight:600;font-size:13px;cursor:pointer">Mark absent</button>
@@ -642,20 +642,20 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
     </div>
   </sc-if>
   <sc-if value="{{ loading }}" hint-placeholder-val="{{ false }}">
-    <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;overflow:hidden">
+    <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;overflow:hidden">
       <div style="padding:14px 16px;border-bottom:1px solid #E6EFF5"><div style="height:14px;width:220px;border-radius:6px;background:#E6EFF5"></div></div>
       <sc-for list="{{ skel4 }}" as="k" hint-placeholder-count="4"><div style="display:grid;grid-template-columns:60px 1.4fr 1fr 1fr 1fr 1.6fr;gap:16px;padding:14px 16px;border-bottom:1px solid #EEF3F6"><div style="height:12px;border-radius:6px;background:#E6EFF5"></div><div style="height:12px;border-radius:6px;background:#E6EFF5"></div><div style="height:12px;border-radius:6px;background:#F1F6F9"></div><div style="height:12px;border-radius:6px;background:#F1F6F9"></div><div style="height:12px;border-radius:99px;background:#E6EFF5"></div><div style="height:12px;border-radius:6px;background:#F1F6F9"></div></div></sc-for>
     </div>
   </sc-if>
   <sc-if value="{{ qEmpty }}" hint-placeholder-val="{{ false }}">
-    <div style="background:#fff;border:1px dashed #BFD3E1;border-radius:10px;padding:40px 20px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px">
+    <div style="background:#fff;border:1px dashed #BFD3E1;border-radius:12px;padding:40px 20px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px">
       <div style="font-size:16px;font-weight:700">{{ qEmptyTitle }}</div><div style="color:#5B6B7A">{{ qEmptyText }}</div>
-      <button onClick="{{ clearFilters }}" style="margin-top:6px;height:34px;padding:0 14px;border-radius:8px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;cursor:pointer">Reset filters</button>
+      <button onClick="{{ clearFilters }}" style="margin-top:6px;height:36px;padding:0 14px;border-radius:8px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;cursor:pointer">Reset filters</button>
     </div>
   </sc-if>
   <sc-if value="{{ qShow }}" hint-placeholder-val="{{ true }}">
     <sc-for list="{{ qGroups }}" as="g" hint-placeholder-count="2">
-      <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;overflow:hidden">
+      <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;overflow:hidden">
         <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid #E6EFF5;background:#F7FAFC;flex-wrap:wrap">
           <div style="display:flex;gap:10px;align-items:center"><span style="width:32px;height:32px;border-radius:99px;background:#E6EFF5 {{ g.avBg }} center/cover no-repeat;color:#02548A;display:grid;place-items:center;font-weight:700;font-size:13px;flex:none">{{ g.avIni }}</span><div style="line-height:1.25"><div style="font-weight:700">{{ g.name }}</div><div style="font-size:13px;color:#5B6B7A">{{ g.dept }} · Room {{ g.room }} · {{ g.lv }} · {{ g.sum }}</div></div></div>
           <div style="display:flex;align-items:baseline;gap:8px"><span style="font-size:12px;color:#5B6B7A"><span class="en">Now serving</span><span class="bn">এখন</span></span><span style="font-size:22px;font-weight:700;color:{{ g.nowC }}">{{ g.now }}</span></div>
@@ -674,7 +674,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
           <tbody>
             <sc-for list="{{ g.rows }}" as="r" hint-placeholder-count="5">
               <tr style="background:{{ r.rowBg }}">
-                <td style="padding:7px 0 7px 16px;border-bottom:1px solid #EEF3F6"><button onClick="{{ r.toggleSel }}" style="width:18px;height:18px;border-radius:4px;border:1.5px solid #02548A;color:#fff;font-size:12px;display:grid;place-items:center;cursor:pointer;padding:0;background:{{ r.cb }}">{{ r.ck }}</button></td>
+                <td style="padding:7px 0 7px 16px;border-bottom:1px solid #EEF3F6"><button onClick="{{ r.toggleSel }}" style="width:18px;height:18px;border-radius:6px;border:1.5px solid #02548A;color:#fff;font-size:12px;display:grid;place-items:center;cursor:pointer;padding:0;background:{{ r.cb }}">{{ r.ck }}</button></td>
                 <td style="padding:7px 12px;border-bottom:1px solid #EEF3F6;font-weight:700;font-size:14px">{{ r.token }}</td>
                 <td style="padding:7px 12px;border-bottom:1px solid #EEF3F6"><div style="font-weight:600;text-decoration:{{ r.nameDeco }}">{{ r.name }}</div><sc-if value="{{ qCols.phone }}" hint-placeholder-val="{{ true }}"><div style="font-size:13px;color:#5B6B7A">{{ r.phone }}</div></sc-if></td>
                 <sc-if value="{{ qCols.mrn }}" hint-placeholder-val="{{ true }}"><td style="padding:7px 12px;border-bottom:1px solid #EEF3F6;color:#33485A">{{ r.mrn }}</td></sc-if>
@@ -701,7 +701,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
 </sc-if>
 
 <sc-if value="{{ on.rx }}" hint-placeholder-val="{{ false }}">
-  <div class="no-print" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;background:#FFF6EC;border:1px solid #FBE3C8;border-radius:10px;padding:10px 14px">
+  <div class="no-print" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;background:#FFF6EC;border:1px solid #FBE3C8;border-radius:12px;padding:10px 14px">
     <div style="display:flex;gap:10px;align-items:center">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A34F00" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
       <div style="line-height:1.3"><div style="font-weight:700;color:#7A3D00">Read only — written by {{ rx.doc }}</div><div style="font-size:12px;color:#7A3D00"><span class="en">Staff can view and print, not edit</span><span class="bn">শুধু দেখা ও প্রিন্ট করা যাবে</span></div></div>
@@ -713,9 +713,9 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
     </div>
   </div>
   <sc-if value="{{ rx.left }}" hint-placeholder-val="{{ false }}">
-    <div style="background:#EEF1F4;border-radius:10px;padding:10px 14px;font-size:12.5px;color:#33485A">{{ rx.doc }} left {{ hosp.name }} on {{ rx.leftOn }}. This prescription stays on the patient’s record and remains viewable here.</div>
+    <div style="background:#EEF1F4;border-radius:12px;padding:10px 14px;font-size:12.5px;color:#33485A">{{ rx.doc }} left {{ hosp.name }} on {{ rx.leftOn }}. This prescription stays on the patient’s record and remains viewable here.</div>
   </sc-if>
-  <div style="background:#fff;box-shadow:0 4px 18px rgba(2,40,70,.10);border-radius:4px;max-width:820px;width:100%;align-self:center;padding:32px 36px;display:flex;flex-direction:column;gap:18px">
+  <div style="background:#fff;box-shadow:0 4px 18px rgba(2,40,70,.10);border-radius:6px;max-width:820px;width:100%;align-self:center;padding:32px 36px;display:flex;flex-direction:column;gap:18px">
     <div style="display:flex;justify-content:space-between;gap:20px;padding-bottom:14px;border-bottom:2px solid #02548A;flex-wrap:wrap">
       <div style="line-height:1.4"><div class="en" style="font-size:18px;font-weight:700;color:#02548A">{{ rx.doc }}</div><div class="bn" style="font-size:13px">{{ rx.docBn }}</div><div style="font-size:12px;color:#33485A">{{ rx.deg }}</div><div style="font-size:11.5px;color:#5B6B7A">BMDC Reg. {{ rx.bmdc }}</div></div>
       <div style="text-align:right;line-height:1.4"><div style="font-weight:700">{{ hosp.name }}</div><div style="font-size:12px;color:#5B6B7A">{{ rx.dept }} OPD · Room {{ rx.room }}</div><div style="font-size:11.5px;color:#5B6B7A">{{ hosp.address }}</div></div>
@@ -754,7 +754,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
     <div style="color:#5B6B7A">Departments appear on token slips, the TV display and the public website.</div>
     
   </div>
-  <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;overflow:hidden">
+  <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;overflow:hidden">
     <table style="width:100%;border-collapse:collapse">
       <thead><tr>
         <th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:9px 16px;background:#F7FAFC;border-bottom:1px solid #E1E9EF">Department</th>
@@ -783,8 +783,8 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
     <sc-for list="{{ docViews }}" as="t" hint-placeholder-count="2"><button onClick="{{ t.go }}" style="border:none;background:transparent;border-bottom:3px solid {{ t.bd }};padding:8px 14px;cursor:pointer;font-weight:700;color:{{ t.fg }};display:flex;gap:6px;align-items:center">{{ t.label }}<sc-if value="{{ t.n }}" hint-placeholder-val="{{ false }}"><span style="min-width:20px;height:20px;border-radius:99px;background:#0EA5E9;color:#fff;font-size:12px;display:grid;place-items:center;padding:0 6px">{{ t.n }}</span></sc-if></button></sc-for>
   </div>
   <sc-if value="{{ docInv }}" hint-placeholder-val="{{ false }}">
-    <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center"><div style="display:flex;gap:6px;flex-wrap:wrap"><sc-for list="{{ invTabs }}" as="t" hint-placeholder-count="5"><button onClick="{{ t.pick }}" style="height:32px;padding:0 12px;border-radius:99px;border:1px solid {{ t.bd }};background:{{ t.bg }};color:{{ t.fg }};font-weight:600;font-size:13px;cursor:pointer">{{ t.label }}</button></sc-for></div></div>
-    <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;overflow:hidden"><div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;min-width:820px">
+    <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center"><div style="display:flex;gap:6px;flex-wrap:wrap"><sc-for list="{{ invTabs }}" as="t" hint-placeholder-count="5"><button onClick="{{ t.pick }}" style="height:36px;padding:0 12px;border-radius:99px;border:1px solid {{ t.bd }};background:{{ t.bg }};color:{{ t.fg }};font-weight:600;font-size:13px;cursor:pointer">{{ t.label }}</button></sc-for></div></div>
+    <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;overflow:hidden"><div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;min-width:820px">
       <thead><tr><th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:9px 16px;background:#F7FAFC;border-bottom:1px solid #E1E9EF">Doctor</th><th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:9px 12px;background:#F7FAFC;border-bottom:1px solid #E1E9EF">Department · type</th><th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:9px 12px;background:#F7FAFC;border-bottom:1px solid #E1E9EF">Sent</th><th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:9px 12px;background:#F7FAFC;border-bottom:1px solid #E1E9EF">Status</th><th style="text-align:right;font-size:13px;font-weight:600;color:#5B6B7A;padding:9px 16px;background:#F7FAFC;border-bottom:1px solid #E1E9EF"></th></tr></thead>
       <tbody><sc-for list="{{ invRows }}" as="r" hint-placeholder-count="5"><tr>
         <td style="padding:9px 16px;border-bottom:1px solid #EEF3F6"><b>{{ r.name }}</b><div style="font-size:13px;color:#5B6B7A">{{ r.via }}</div></td>
@@ -799,12 +799,12 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
   <sc-if value="{{ docList }}" hint-placeholder-val="{{ true }}">
   <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
     <div style="display:flex;gap:6px;flex-wrap:wrap">
-      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4"><button onClick="{{ t.pick }}" style="height:32px;padding:0 12px;border-radius:99px;border:1px solid {{ t.bd }};background:{{ t.bg }};color:{{ t.fg }};font-weight:600;font-size:13px;cursor:pointer">{{ t.label }}</button></sc-for>
+      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4"><button onClick="{{ t.pick }}" style="height:36px;padding:0 12px;border-radius:99px;border:1px solid {{ t.bd }};background:{{ t.bg }};color:{{ t.fg }};font-weight:600;font-size:13px;cursor:pointer">{{ t.label }}</button></sc-for>
     </div>
     
   </div>
   <div style="font-size:13px;color:#5B6B7A;background:#F1F6F9;border-radius:8px;padding:8px 12px">Doctors join only after accepting the invitation in their IPMS app. Each doctor publishes and manages their own OPD schedule.</div>
-  <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;overflow:hidden">
+  <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;overflow:hidden">
     <div style="overflow-x:auto">
     <table style="width:100%;border-collapse:collapse;min-width:760px">
       <thead><tr>
@@ -835,7 +835,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
 
 <sc-if value="{{ on.doctor }}" hint-placeholder-val="{{ false }}">
   <div><button onClick="{{ backToDoctors }}" style="border:none;background:transparent;color:#02548A;font-weight:600;cursor:pointer;padding:0">← All doctors</button></div>
-  <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:18px;display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+  <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;padding:18px;display:flex;gap:16px;align-items:center;flex-wrap:wrap">
     <div style="width:72px;height:72px;border-radius:12px;background:#E6EFF5 {{ doctor.avBg }} center/cover no-repeat;color:#02548A;display:grid;place-items:center;font-size:22px;font-weight:700;flex:none">{{ doctor.avIni }}</div>
     <div style="flex:1;min-width:220px;line-height:1.4">
       <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><span style="font-size:18px;font-weight:700">{{ doctor.name }}</span><span style="display:inline-flex;font-size:13px;font-weight:600;padding:2px 9px;border-radius:99px;background:{{ doctor.aBg }};color:{{ doctor.aFg }}"><span class="en">{{ doctor.acctL }}</span><span class="bn">{{ doctor.aBn }}</span></span></div>
@@ -848,34 +848,34 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
   <div style="display:flex;gap:4px;border-bottom:1px solid #DCE6ED"><sc-for list="{{ dTabs }}" as="t" hint-placeholder-count="4"><button onClick="{{ t.go }}" style="border:none;background:transparent;border-bottom:3px solid {{ t.bd }};padding:8px 14px;cursor:pointer;font-weight:700;color:{{ t.fg }}">{{ t.label }}</button></sc-for></div>
   <sc-if value="{{ dtAppts }}" hint-placeholder-val="{{ false }}">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;align-items:start">
-      <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;overflow:hidden"><div style="padding:10px 16px;border-bottom:1px solid #E6EFF5;font-weight:700">Today</div>
+      <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;overflow:hidden"><div style="padding:10px 16px;border-bottom:1px solid #E6EFF5;font-weight:700">Today</div>
         <sc-for list="{{ dToday }}" as="a" hint-placeholder-count="5"><div style="display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:10px;padding:7px 16px;border-bottom:1px solid #EEF3F6;align-items:center"><b>{{ a.token }}</b><span>{{ a.name }} <span style="color:#5B6B7A;font-size:13px">{{ a.time }}</span></span><span style="font-size:12px;font-weight:600;padding:1px 8px;border-radius:99px;background:{{ a.bg }};color:{{ a.fg }}">{{ a.status }}</span></div></sc-for>
         <sc-if value="{{ noDToday }}" hint-placeholder-val="{{ false }}"><div style="padding:20px;text-align:center;color:#5B6B7A">No appointments today.</div></sc-if>
       </div>
-      <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;overflow:hidden"><div style="padding:10px 16px;border-bottom:1px solid #E6EFF5;font-weight:700">Next 6 days</div>
+      <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;overflow:hidden"><div style="padding:10px 16px;border-bottom:1px solid #E6EFF5;font-weight:700">Next 6 days</div>
         <sc-for list="{{ dUp }}" as="u" hint-placeholder-count="6"><div style="display:flex;justify-content:space-between;padding:9px 16px;border-bottom:1px solid #EEF3F6"><span>{{ u.day }}</span><span><b>{{ u.n }}</b> <span style="color:#1D7A46;font-size:13px">{{ u.free }}</span></span></div></sc-for>
       </div>
     </div>
   </sc-if>
   <sc-if value="{{ dtRx }}" hint-placeholder-val="{{ false }}">
     <div style="font-size:13px;color:#5B6B7A">Prescriptions this doctor wrote at Popular Hospital. Staff can view and print them, not edit.</div>
-    <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;overflow:hidden"><sc-for list="{{ dRx }}" as="r" hint-placeholder-count="4"><div style="display:grid;grid-template-columns:110px 70px minmax(0,1fr) auto;gap:10px;padding:8px 16px;border-bottom:1px solid #EEF3F6;align-items:center"><span style="color:#5B6B7A;font-size:13px">{{ r.date }}</span><b>{{ r.token }}</b><span>{{ r.name }} <span style="color:#5B6B7A;font-size:13px">{{ r.mrn }}</span></span><button onClick="{{ r.open }}" style="height:28px;padding:0 10px;border-radius:6px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;font-size:13px;cursor:pointer">View Rx</button></div></sc-for>
+    <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;overflow:hidden"><sc-for list="{{ dRx }}" as="r" hint-placeholder-count="4"><div style="display:grid;grid-template-columns:110px 70px minmax(0,1fr) auto;gap:10px;padding:8px 16px;border-bottom:1px solid #EEF3F6;align-items:center"><span style="color:#5B6B7A;font-size:13px">{{ r.date }}</span><b>{{ r.token }}</b><span>{{ r.name }} <span style="color:#5B6B7A;font-size:13px">{{ r.mrn }}</span></span><button onClick="{{ r.open }}" style="height:28px;padding:0 10px;border-radius:6px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;font-size:13px;cursor:pointer">View Rx</button></div></sc-for>
       <sc-if value="{{ noDRx }}" hint-placeholder-val="{{ false }}"><div style="padding:24px;text-align:center;color:#5B6B7A">No prescriptions written here yet.</div></sc-if></div>
   </sc-if>
-  <sc-if value="{{ dtHist }}" hint-placeholder-val="{{ false }}"><div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;overflow:hidden"><sc-for list="{{ dHist }}" as="h" hint-placeholder-count="3"><div style="display:grid;grid-template-columns:150px minmax(0,1fr) auto;gap:12px;padding:9px 16px;border-bottom:1px solid #EEF3F6;align-items:center"><span style="color:#5B6B7A;font-size:13px">{{ h.when }}</span><span><b>{{ h.act }}</b> · {{ h.rec }}</span><span style="font-size:13px;color:#5B6B7A">{{ h.who }}</span></div></sc-for><sc-if value="{{ noDHist }}" hint-placeholder-val="{{ false }}"><div style="padding:24px;text-align:center;color:#5B6B7A">No logged activity yet.</div></sc-if></div></sc-if>
+  <sc-if value="{{ dtHist }}" hint-placeholder-val="{{ false }}"><div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;overflow:hidden"><sc-for list="{{ dHist }}" as="h" hint-placeholder-count="3"><div style="display:grid;grid-template-columns:150px minmax(0,1fr) auto;gap:12px;padding:9px 16px;border-bottom:1px solid #EEF3F6;align-items:center"><span style="color:#5B6B7A;font-size:13px">{{ h.when }}</span><span><b>{{ h.act }}</b> · {{ h.rec }}</span><span style="font-size:13px;color:#5B6B7A">{{ h.who }}</span></div></sc-for><sc-if value="{{ noDHist }}" hint-placeholder-val="{{ false }}"><div style="padding:24px;text-align:center;color:#5B6B7A">No logged activity yet.</div></sc-if></div></sc-if>
   <sc-if value="{{ dtDetails }}" hint-placeholder-val="{{ true }}">
-  <sc-if value="{{ doctor.canRemove }}" hint-placeholder-val="{{ false }}"><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px"><sc-for list="{{ doctor.load }}" as="l" hint-placeholder-count="3"><div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:12px 14px"><div style="font-size:13px;color:#5B6B7A">{{ l.l }}</div><div style="font-size:22px;font-weight:700;color:#02548A">{{ l.v }}</div></div></sc-for></div></sc-if>
-  <sc-if value="{{ doctor.isUnclaimed }}" hint-placeholder-val="{{ false }}"><div style="background:#FFF6EC;border:1px solid #FBE3C8;border-radius:10px;padding:12px 16px;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;color:#7A3D00"><span><b>Unclaimed profile.</b> {{ doctor.name }} can’t write prescriptions and can’t be booked until they claim this profile. Activation SMS sent to {{ doctor.phone }} on 18 Nov 2026.</span><div style="display:flex;gap:8px"><a href="Doctor%20Mobile.dc.html" style="font-weight:600;font-size:13px;align-self:center">See claim flow ↗</a><button onClick="{{ resendClaim }}" style="height:32px;padding:0 12px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:600;cursor:pointer">Resend SMS</button></div></div></sc-if>
-  <sc-if value="{{ doctor.isPending }}" hint-placeholder-val="{{ false }}"><div style="background:#F0F9F3;border:1px solid #CDEBD8;border-radius:10px;padding:12px 16px;color:#1D5A35"><b>Joined, schedule pending.</b> {{ doctor.name }} accepted but hasn’t published OPD hours yet, so reception can’t book them. The doctor sets hours in the IPMS app.</div></sc-if>
-  <sc-if value="{{ doctor.isGuest }}" hint-placeholder-val="{{ false }}"><div style="background:#EEF2FF;border:1px solid #D9DEFA;border-radius:10px;padding:12px 16px;color:#3730A3"><b>Campaign guest.</b> Works only at health camps (booths assigned in Campaigns). Not bookable in regular OPD.</div></sc-if>
+  <sc-if value="{{ doctor.canRemove }}" hint-placeholder-val="{{ false }}"><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px"><sc-for list="{{ doctor.load }}" as="l" hint-placeholder-count="3"><div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;padding:12px 14px"><div style="font-size:13px;color:#5B6B7A">{{ l.l }}</div><div style="font-size:22px;font-weight:700;color:#02548A">{{ l.v }}</div></div></sc-for></div></sc-if>
+  <sc-if value="{{ doctor.isUnclaimed }}" hint-placeholder-val="{{ false }}"><div style="background:#FFF6EC;border:1px solid #FBE3C8;border-radius:12px;padding:12px 16px;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;color:#7A3D00"><span><b>Unclaimed profile.</b> {{ doctor.name }} can’t write prescriptions and can’t be booked until they claim this profile. Activation SMS sent to {{ doctor.phone }} on 18 Nov 2026.</span><div style="display:flex;gap:8px"><a href="Doctor%20Mobile.dc.html" style="font-weight:600;font-size:13px;align-self:center">See claim flow ↗</a><button onClick="{{ resendClaim }}" style="height:36px;padding:0 12px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:600;cursor:pointer">Resend SMS</button></div></div></sc-if>
+  <sc-if value="{{ doctor.isPending }}" hint-placeholder-val="{{ false }}"><div style="background:#F0F9F3;border:1px solid #CDEBD8;border-radius:12px;padding:12px 16px;color:#1D5A35"><b>Joined, schedule pending.</b> {{ doctor.name }} accepted but hasn’t published OPD hours yet, so reception can’t book them. The doctor sets hours in the IPMS app.</div></sc-if>
+  <sc-if value="{{ doctor.isGuest }}" hint-placeholder-val="{{ false }}"><div style="background:#EEF2FF;border:1px solid #D9DEFA;border-radius:12px;padding:12px 16px;color:#3730A3"><b>Campaign guest.</b> Works only at health camps (booths assigned in Campaigns). Not bookable in regular OPD.</div></sc-if>
   <sc-if value="{{ doctor.isLeft }}" hint-placeholder-val="{{ false }}">
-    <div style="background:#EEF1F4;border-radius:10px;padding:12px 16px;color:#33485A;line-height:1.5"><b>{{ doctor.since }}.</b> The doctor no longer appears in booking, the queue or the TV display. They keep read-only access to the {{ doctor.rxCount }} prescriptions they wrote here, and staff can still view and print them from patient records.</div>
+    <div style="background:#EEF1F4;border-radius:12px;padding:12px 16px;color:#33485A;line-height:1.5"><b>{{ doctor.since }}.</b> The doctor no longer appears in booking, the queue or the TV display. They keep read-only access to the {{ doctor.rxCount }} prescriptions they wrote here, and staff can still view and print them from patient records.</div>
   </sc-if>
   <sc-if value="{{ doctor.isInvited }}" hint-placeholder-val="{{ false }}">
-    <div style="background:#fff;border:1px dashed #BFD3E1;border-radius:10px;padding:32px 20px;text-align:center;color:#5B6B7A;display:flex;flex-direction:column;gap:4px;align-items:center"><div style="font-weight:700;color:#10273A;font-size:16px">Waiting for the doctor to accept</div><div style="max-width:460px;text-wrap:pretty">The invitation is in their IPMS doctor app. Their OPD schedule appears here once they accept and publish hours for {{ hosp.name }}.</div></div>
+    <div style="background:#fff;border:1px dashed #BFD3E1;border-radius:12px;padding:32px 20px;text-align:center;color:#5B6B7A;display:flex;flex-direction:column;gap:4px;align-items:center"><div style="font-weight:700;color:#10273A;font-size:16px">Waiting for the doctor to accept</div><div style="max-width:460px;text-wrap:pretty">The invitation is in their IPMS doctor app. Their OPD schedule appears here once they accept and publish hours for {{ hosp.name }}.</div></div>
   </sc-if>
   <sc-if value="{{ doctor.isActive }}" hint-placeholder-val="{{ true }}">
-    <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;overflow:hidden">
+    <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;overflow:hidden">
       <div style="padding:12px 16px;border-bottom:1px solid #E6EFF5;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
         <div style="display:flex;gap:8px;align-items:center"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5B6B7A" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg><b><span class="en">Published OPD schedule</span><span class="bn">ওপিডি সময়সূচি</span></b></div>
         <span style="font-size:13px;color:#5B6B7A">Last updated by the doctor on {{ doctor.upd }}</span>
@@ -917,7 +917,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
     <div style="color:#5B6B7A">Staff sign in at {{ hosp.slug }}.ipms.health with their mobile number. Deactivated staff can’t sign in.</div>
     
   </div>
-  <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;overflow:hidden">
+  <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;overflow:hidden">
     <div style="overflow-x:auto">
     <table style="width:100%;border-collapse:collapse;min-width:680px">
       <thead><tr>
@@ -949,28 +949,28 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
   <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
     <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
       <div style="display:flex;background:#E6EFF5;border-radius:8px;padding:3px">
-        <sc-for list="{{ ranges }}" as="r" hint-placeholder-count="3"><button onClick="{{ r.pick }}" style="height:30px;padding:0 12px;border:none;border-radius:6px;background:{{ r.bg }};color:{{ r.fg }};box-shadow:{{ r.sh }};font-weight:600;font-size:13px;cursor:pointer">{{ r.label }}</button></sc-for>
+        <sc-for list="{{ ranges }}" as="r" hint-placeholder-count="3"><button onClick="{{ r.pick }}" style="height:28px;padding:0 12px;border:none;border-radius:6px;background:{{ r.bg }};color:{{ r.fg }};box-shadow:{{ r.sh }};font-weight:600;font-size:13px;cursor:pointer">{{ r.label }}</button></sc-for>
       </div>
-      <div style="display:flex;gap:6px;align-items:center;font-size:13px;color:#5B6B7A">Custom <input type="date" value="2026-11-01" style="height:32px;border:1px solid #C9D6E0;border-radius:8px;padding:0 8px;font-size:13px"></input> – <input type="date" value="2026-11-19" style="height:32px;border:1px solid #C9D6E0;border-radius:8px;padding:0 8px;font-size:13px"></input></div>
+      <div style="display:flex;gap:6px;align-items:center;font-size:13px;color:#5B6B7A">Custom <input type="date" value="2026-11-01" style="height:36px;border:1px solid #C9D6E0;border-radius:8px;padding:0 8px;font-size:13px"></input> – <input type="date" value="2026-11-19" style="height:36px;border:1px solid #C9D6E0;border-radius:8px;padding:0 8px;font-size:13px"></input></div>
     </div>
     
   </div>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px">
     <sc-for list="{{ repTotals }}" as="s" hint-placeholder-count="4">
-      <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:14px 16px"><div style="display:flex;justify-content:space-between;font-size:13px"><b class="en" style="color:#33485A">{{ s.l }}</b><span class="bn" style="color:#5B6B7A">{{ s.bn }}</span></div><div style="font-size:28px;font-weight:700;color:#02548A">{{ s.v }}</div></div>
+      <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;padding:14px 16px"><div style="display:flex;justify-content:space-between;font-size:13px"><b class="en" style="color:#33485A">{{ s.l }}</b><span class="bn" style="color:#5B6B7A">{{ s.bn }}</span></div><div style="font-size:28px;font-weight:700;color:#02548A">{{ s.v }}</div></div>
     </sc-for>
   </div>
-  <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:12px">
+  <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px">
     <div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap"><b><span class="en">Patients by department</span><span class="bn">বিভাগভিত্তিক রোগী</span></b><span style="font-size:13px;color:#5B6B7A">{{ rangeText }}</span></div>
     <sc-for list="{{ repDepts }}" as="d" hint-placeholder-count="6">
       <div style="display:grid;grid-template-columns:minmax(120px,190px) minmax(0,1fr) 48px;gap:12px;align-items:center">
         <span style="font-size:13px"><b class="en">{{ d.name }}</b> <span class="bn" style="color:#5B6B7A">{{ d.bn }}</span></span>
-        <div style="height:18px;background:#F1F6F9;border-radius:4px;overflow:hidden"><div style="height:100%;width:{{ d.w }};background:#02548A;border-radius:4px"></div></div>
+        <div style="height:18px;background:#F1F6F9;border-radius:6px;overflow:hidden"><div style="height:100%;width:{{ d.w }};background:#02548A;border-radius:6px"></div></div>
         <span style="text-align:right;font-weight:700">{{ d.v }}</span>
       </div>
     </sc-for>
   </div>
-  <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;overflow:hidden">
+  <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;overflow:hidden">
     <div style="padding:12px 16px;border-bottom:1px solid #E6EFF5;font-weight:700"><span class="en">By doctor</span><span class="bn">ডাক্তারভিত্তিক</span></div>
     <div style="overflow-x:auto">
     <table style="width:100%;border-collapse:collapse;min-width:620px">
@@ -1001,11 +1001,11 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
 
 <sc-if value="{{ on.settings }}" hint-placeholder-val="{{ false }}">
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px;align-items:start">
-    <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:14px">
+    <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:14px">
       <b style="font-size:14px"><span class="en">Hospital identity</span><span class="bn">পরিচিতি</span></b>
       <div style="display:flex;gap:14px;align-items:center">
         <div role="img" aria-label="Popular Hospital" style="width:72px;height:72px;border-radius:12px;background:#02548A url('assets/logo/hospital-mark.svg') center/cover no-repeat;color:#fff;display:grid;place-items:center;font-size:22px;font-weight:700"></div>
-        <div style="display:flex;flex-direction:column;gap:6px"><button style="height:32px;padding:0 12px;border-radius:8px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;cursor:pointer">Upload logo</button><span style="font-size:13px;color:#5B6B7A">Square PNG or SVG, at least 256 px</span></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><button style="height:36px;padding:0 12px;border-radius:8px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;cursor:pointer">Upload logo</button><span style="font-size:13px;color:#5B6B7A">Square PNG or SVG, at least 256 px</span></div>
       </div>
       <label style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Hospital name (English)</span><input value="{{ hosp.name }}" onChange="{{ hOn.name }}" style="height:36px;border:1px solid #C9D6E0;border-radius:8px;padding:0 10px;font-size:14px;outline:none" style-focus="border-color:#0EA5E9"></input></label>
       <label style="display:flex;flex-direction:column;gap:5px"><span class="bn" style="font-size:13px;font-weight:600;color:#33485A">হাসপাতালের নাম (বাংলা)</span><input value="{{ hosp.bn }}" onChange="{{ hOn.bn }}" style="height:36px;border:1px solid #C9D6E0;border-radius:8px;padding:0 10px;font-size:14px;outline:none" style-focus="border-color:#0EA5E9"></input></label>
@@ -1014,7 +1014,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
       <div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Subdomain</span><div style="height:36px;border:1px solid #DCE6ED;background:#F7FAFC;border-radius:8px;padding:0 10px;display:flex;align-items:center;justify-content:space-between;color:#5B6B7A">{{ hosp.slug }}.ipms.health<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8596A4" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg></div><span style="font-size:13px;color:#5B6B7A">Set by IPMS when the hospital was onboarded.</span></div>
     </div>
     <div style="display:flex;flex-direction:column;gap:16px">
-      <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:12px">
+      <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:12px">
         <b style="font-size:14px"><span class="en">Patient records</span><span class="bn">রোগীর রেকর্ড</span></b>
         <div style="display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap">
           <label style="display:flex;flex-direction:column;gap:5px;width:120px"><span style="font-size:13px;font-weight:600;color:#33485A">MRN prefix</span><input value="{{ hosp.prefix }}" onChange="{{ hOn.prefix }}" style="height:36px;border:1px solid #C9D6E0;border-radius:8px;padding:0 10px;font-size:14px;font-weight:700;outline:none;letter-spacing:1px"></input></label>
@@ -1022,18 +1022,18 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
         </div>
         <span style="font-size:13px;color:#5B6B7A">Applies to newly registered patients. Existing MRNs don’t change.</span>
       </div>
-      <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:10px">
+      <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:10px">
         <b style="font-size:14px"><span class="en">Token slip format</span><span class="bn">টোকেন স্লিপ</span></b>
         <sc-for list="{{ slipOpts }}" as="o" hint-placeholder-count="2">
-          <button onClick="{{ o.pick }}" style="display:flex;gap:10px;align-items:center;text-align:left;padding:12px;border-radius:9px;border:1.5px solid {{ o.bd }};background:{{ o.bg }};cursor:pointer;color:#10273A">
+          <button onClick="{{ o.pick }}" style="display:flex;gap:10px;align-items:center;text-align:left;padding:12px;border-radius:8px;border:1.5px solid {{ o.bd }};background:{{ o.bg }};cursor:pointer;color:#10273A">
             <span style="width:16px;height:16px;border-radius:99px;border:2px solid #02548A;display:grid;place-items:center;flex:none"><span style="width:8px;height:8px;border-radius:99px;background:{{ o.dot }}"></span></span>
             <span style="display:flex;flex-direction:column"><b>{{ o.label }}</b><span style="font-size:13px;color:#5B6B7A">{{ o.sub }}</span></span>
           </button>
         </sc-for>
       </div>
-      <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:8px">
+      <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:8px">
         <b style="font-size:14px">SMS balance</b>
-        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap"><div><div style="font-size:28px;font-weight:700;color:#02548A;line-height:1.1">12,450</div><div style="font-size:13px;color:#5B6B7A">credits · 3,214 used this month · sender ID POPULAR</div></div><button onClick="{{ topUp }}" style="height:32px;padding:0 12px;border-radius:8px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;cursor:pointer">Request top-up</button></div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap"><div><div style="font-size:28px;font-weight:700;color:#02548A;line-height:1.1">12,450</div><div style="font-size:13px;color:#5B6B7A">credits · 3,214 used this month · sender ID POPULAR</div></div><button onClick="{{ topUp }}" style="height:36px;padding:0 12px;border-radius:8px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;cursor:pointer">Request top-up</button></div>
         <span style="font-size:13px;color:#5B6B7A">Used for token confirmations, reschedule notices and broadcasts. Alert admins below 2,000 credits.</span>
       </div>
       
@@ -1048,7 +1048,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
     <span style="color:#5B6B7A;font-size:13px">Every view, print and change of a patient record or prescription is logged. Logs can’t be edited.</span>
     
   </div>
-  <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;overflow:hidden"><div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;min-width:820px">
+  <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;overflow:hidden"><div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;min-width:820px">
     <thead><tr><th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:9px 16px;background:#F7FAFC;border-bottom:1px solid #E1E9EF">When</th><th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:9px 12px;background:#F7FAFC;border-bottom:1px solid #E1E9EF">Who</th><th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:9px 12px;background:#F7FAFC;border-bottom:1px solid #E1E9EF">Action</th><th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:9px 12px;background:#F7FAFC;border-bottom:1px solid #E1E9EF">Record</th><th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:9px 16px;background:#F7FAFC;border-bottom:1px solid #E1E9EF">Device</th></tr></thead>
     <tbody><sc-for list="{{ auRows }}" as="r" hint-placeholder-count="8"><tr>
       <td style="padding:8px 16px;border-bottom:1px solid #EEF3F6;white-space:nowrap;color:#33485A">{{ r.when }}</td>
@@ -1057,43 +1057,43 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
       <td style="padding:8px 12px;border-bottom:1px solid #EEF3F6">{{ r.rec }}</td>
       <td style="padding:8px 16px;border-bottom:1px solid #EEF3F6;color:#5B6B7A;font-size:13px">{{ r.dev }}</td>
     </tr></sc-for></tbody></table></div>
-    <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 16px;gap:8px;flex-wrap:wrap"><span style="font-size:13px;color:#5B6B7A">{{ auPager.text }}</span><div style="display:flex;gap:4px"><button onClick="{{ auPager.prev }}" style="height:30px;padding:0 10px;border-radius:6px;border:1px solid #DCE6ED;background:#fff;cursor:pointer;opacity:{{ auPager.prevOp }}">‹ Prev</button><sc-for list="{{ auPager.nums }}" as="n" hint-placeholder-count="2"><button onClick="{{ n.go }}" style="width:30px;height:30px;border-radius:6px;border:1px solid #DCE6ED;background:{{ n.bg }};color:{{ n.fg }};font-weight:600;cursor:pointer">{{ n.n }}</button></sc-for><button onClick="{{ auPager.next }}" style="height:30px;padding:0 10px;border-radius:6px;border:1px solid #DCE6ED;background:#fff;cursor:pointer;opacity:{{ auPager.nextOp }}">Next ›</button></div></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 16px;gap:8px;flex-wrap:wrap"><span style="font-size:13px;color:#5B6B7A">{{ auPager.text }}</span><div style="display:flex;gap:4px"><button onClick="{{ auPager.prev }}" style="height:28px;padding:0 10px;border-radius:6px;border:1px solid #DCE6ED;background:#fff;cursor:pointer;opacity:{{ auPager.prevOp }}">‹ Prev</button><sc-for list="{{ auPager.nums }}" as="n" hint-placeholder-count="2"><button onClick="{{ n.go }}" style="width:30px;height:28px;border-radius:6px;border:1px solid #DCE6ED;background:{{ n.bg }};color:{{ n.fg }};font-weight:600;cursor:pointer">{{ n.n }}</button></sc-for><button onClick="{{ auPager.next }}" style="height:28px;padding:0 10px;border-radius:6px;border:1px solid #DCE6ED;background:#fff;cursor:pointer;opacity:{{ auPager.nextOp }}">Next ›</button></div></div>
   </div>
 </sc-if>
 
 <sc-if value="{{ on.patient }}" hint-placeholder-val="{{ false }}">
   <sc-if value="{{ hasRec }}" hint-placeholder-val="{{ true }}">
-  <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:16px;display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+  <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;padding:16px;display:flex;gap:14px;align-items:center;flex-wrap:wrap">
     <div style="width:52px;height:52px;border-radius:99px;background:#E6EFF5;color:#02548A;display:grid;place-items:center;font-weight:700;font-size:18px">{{ rec.ini }}</div>
     <div style="flex:1;min-width:220px;line-height:1.4"><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><b style="font-size:18px">{{ rec.name }}</b><span style="font-size:13px;font-weight:700;color:#02548A;background:#E6EFF5;border-radius:6px;padding:1px 8px">{{ rec.mrn }}</span></div><div style="color:#5B6B7A;font-size:13px">{{ rec.phone }} · {{ rec.age }} y · {{ rec.sex }} · {{ rec.address }}</div></div>
     <button onClick="{{ editPatient }}" style="height:36px;padding:0 14px;border-radius:8px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;cursor:pointer">Edit details</button>
   </div>
   <div style="display:flex;gap:4px;border-bottom:1px solid #DCE6ED"><sc-for list="{{ recTabs }}" as="t" hint-placeholder-count="4"><button onClick="{{ t.go }}" style="border:none;background:transparent;border-bottom:3px solid {{ t.bd }};padding:8px 14px;cursor:pointer;font-weight:700;color:{{ t.fg }};display:flex;gap:6px;align-items:center">{{ t.label }}<sc-if value="{{ t.n }}" hint-placeholder-val="{{ false }}"><span style="font-size:12px;color:#5B6B7A;background:#EEF1F4;border-radius:99px;padding:0 7px">{{ t.n }}</span></sc-if></button></sc-for></div>
-  <sc-if value="{{ rtDetails }}" hint-placeholder-val="{{ true }}"><div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px 24px"><sc-for list="{{ rec.fields }}" as="x" hint-placeholder-count="8"><div><div style="font-size:13px;color:#5B6B7A">{{ x.l }}</div><div style="font-weight:600">{{ x.v }}</div></div></sc-for></div></sc-if>
-  <sc-if value="{{ rtVisits }}" hint-placeholder-val="{{ false }}"><div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;overflow:hidden"><div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;min-width:620px"><thead><tr><th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:8px 12px;background:#F7FAFC;border-bottom:1px solid #E1E9EF;padding-left:16px">Date</th><th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:8px 12px;background:#F7FAFC;border-bottom:1px solid #E1E9EF">Doctor</th><th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:8px 12px;background:#F7FAFC;border-bottom:1px solid #E1E9EF">Department</th><th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:8px 12px;background:#F7FAFC;border-bottom:1px solid #E1E9EF">Token</th><th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:8px 12px;background:#F7FAFC;border-bottom:1px solid #E1E9EF">Status</th><th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:8px 12px;background:#F7FAFC;border-bottom:1px solid #E1E9EF"></th></tr></thead><tbody><sc-for list="{{ visitRows }}" as="v" hint-placeholder-count="3"><tr><td style="padding:8px 12px;border-bottom:1px solid #EEF3F6;padding-left:16px;white-space:nowrap">{{ v.date }}</td><td style="padding:8px 12px;border-bottom:1px solid #EEF3F6">{{ v.doctor }}</td><td style="padding:8px 12px;border-bottom:1px solid #EEF3F6;color:#5B6B7A">{{ v.dept }}</td><td style="padding:8px 12px;border-bottom:1px solid #EEF3F6;font-weight:700">{{ v.token }}</td><td style="padding:8px 12px;border-bottom:1px solid #EEF3F6"><span style="font-size:13px;font-weight:600;padding:2px 9px;border-radius:99px;background:{{ v.chipBg }};color:{{ v.chipFg }}">{{ v.status }}</span></td><td style="padding:8px 12px;border-bottom:1px solid #EEF3F6;text-align:right"><sc-if value="{{ v.hasRx }}" hint-placeholder-val="{{ false }}"><button onClick="{{ v.onRx }}" style="height:28px;padding:0 10px;border-radius:6px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;font-size:13px;cursor:pointer">View Rx</button></sc-if></td></tr></sc-for></tbody></table></div><sc-if value="{{ noVisits }}" hint-placeholder-val="{{ false }}"><div style="padding:24px;text-align:center;color:#5B6B7A">No visits at Popular Hospital yet.</div></sc-if></div></sc-if>
-  <sc-if value="{{ rtRx }}" hint-placeholder-val="{{ false }}"><div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;overflow:hidden"><sc-for list="{{ recRx }}" as="v" hint-placeholder-count="2"><div style="display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:10px;padding:9px 16px;border-bottom:1px solid #EEF3F6;align-items:center"><span style="color:#5B6B7A;font-size:13px">{{ v.date }}</span><span><b>{{ v.doctor }}</b> · {{ v.dept }}<sc-if value="{{ v.docLeft }}" hint-placeholder-val="{{ false }}"> <span style="font-size:12px;color:#5B6B7A;background:#EEF1F4;border-radius:99px;padding:1px 7px">Doctor left</span></sc-if></span><button onClick="{{ v.onRx }}" style="height:28px;padding:0 10px;border-radius:6px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;font-size:13px;cursor:pointer">View · Print</button></div></sc-for><sc-if value="{{ noRecRx }}" hint-placeholder-val="{{ false }}"><div style="padding:24px;text-align:center;color:#5B6B7A">No prescriptions yet.</div></sc-if></div></sc-if>
-  <sc-if value="{{ rtHist }}" hint-placeholder-val="{{ false }}"><div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;overflow:hidden"><sc-for list="{{ recHist }}" as="h" hint-placeholder-count="3"><div style="display:grid;grid-template-columns:150px minmax(0,1fr) auto;gap:12px;padding:9px 16px;border-bottom:1px solid #EEF3F6;align-items:center"><span style="color:#5B6B7A;font-size:13px">{{ h.when }}</span><span><b>{{ h.act }}</b> · {{ h.rec }}</span><span style="font-size:13px;color:#5B6B7A">{{ h.who }}</span></div></sc-for><sc-if value="{{ noRecHist }}" hint-placeholder-val="{{ false }}"><div style="padding:24px;text-align:center;color:#5B6B7A">No logged activity yet.</div></sc-if></div></sc-if>
+  <sc-if value="{{ rtDetails }}" hint-placeholder-val="{{ true }}"><div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;padding:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px 24px"><sc-for list="{{ rec.fields }}" as="x" hint-placeholder-count="8"><div><div style="font-size:13px;color:#5B6B7A">{{ x.l }}</div><div style="font-weight:600">{{ x.v }}</div></div></sc-for></div></sc-if>
+  <sc-if value="{{ rtVisits }}" hint-placeholder-val="{{ false }}"><div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;overflow:hidden"><div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;min-width:620px"><thead><tr><th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:8px 12px;background:#F7FAFC;border-bottom:1px solid #E1E9EF;padding-left:16px">Date</th><th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:8px 12px;background:#F7FAFC;border-bottom:1px solid #E1E9EF">Doctor</th><th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:8px 12px;background:#F7FAFC;border-bottom:1px solid #E1E9EF">Department</th><th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:8px 12px;background:#F7FAFC;border-bottom:1px solid #E1E9EF">Token</th><th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:8px 12px;background:#F7FAFC;border-bottom:1px solid #E1E9EF">Status</th><th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:8px 12px;background:#F7FAFC;border-bottom:1px solid #E1E9EF"></th></tr></thead><tbody><sc-for list="{{ visitRows }}" as="v" hint-placeholder-count="3"><tr><td style="padding:8px 12px;border-bottom:1px solid #EEF3F6;padding-left:16px;white-space:nowrap">{{ v.date }}</td><td style="padding:8px 12px;border-bottom:1px solid #EEF3F6">{{ v.doctor }}</td><td style="padding:8px 12px;border-bottom:1px solid #EEF3F6;color:#5B6B7A">{{ v.dept }}</td><td style="padding:8px 12px;border-bottom:1px solid #EEF3F6;font-weight:700">{{ v.token }}</td><td style="padding:8px 12px;border-bottom:1px solid #EEF3F6"><span style="font-size:13px;font-weight:600;padding:2px 9px;border-radius:99px;background:{{ v.chipBg }};color:{{ v.chipFg }}">{{ v.status }}</span></td><td style="padding:8px 12px;border-bottom:1px solid #EEF3F6;text-align:right"><sc-if value="{{ v.hasRx }}" hint-placeholder-val="{{ false }}"><button onClick="{{ v.onRx }}" style="height:28px;padding:0 10px;border-radius:6px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;font-size:13px;cursor:pointer">View Rx</button></sc-if></td></tr></sc-for></tbody></table></div><sc-if value="{{ noVisits }}" hint-placeholder-val="{{ false }}"><div style="padding:24px;text-align:center;color:#5B6B7A">No visits at Popular Hospital yet.</div></sc-if></div></sc-if>
+  <sc-if value="{{ rtRx }}" hint-placeholder-val="{{ false }}"><div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;overflow:hidden"><sc-for list="{{ recRx }}" as="v" hint-placeholder-count="2"><div style="display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:10px;padding:9px 16px;border-bottom:1px solid #EEF3F6;align-items:center"><span style="color:#5B6B7A;font-size:13px">{{ v.date }}</span><span><b>{{ v.doctor }}</b> · {{ v.dept }}<sc-if value="{{ v.docLeft }}" hint-placeholder-val="{{ false }}"> <span style="font-size:12px;color:#5B6B7A;background:#EEF1F4;border-radius:99px;padding:1px 7px">Doctor left</span></sc-if></span><button onClick="{{ v.onRx }}" style="height:28px;padding:0 10px;border-radius:6px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;font-size:13px;cursor:pointer">View · Print</button></div></sc-for><sc-if value="{{ noRecRx }}" hint-placeholder-val="{{ false }}"><div style="padding:24px;text-align:center;color:#5B6B7A">No prescriptions yet.</div></sc-if></div></sc-if>
+  <sc-if value="{{ rtHist }}" hint-placeholder-val="{{ false }}"><div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;overflow:hidden"><sc-for list="{{ recHist }}" as="h" hint-placeholder-count="3"><div style="display:grid;grid-template-columns:150px minmax(0,1fr) auto;gap:12px;padding:9px 16px;border-bottom:1px solid #EEF3F6;align-items:center"><span style="color:#5B6B7A;font-size:13px">{{ h.when }}</span><span><b>{{ h.act }}</b> · {{ h.rec }}</span><span style="font-size:13px;color:#5B6B7A">{{ h.who }}</span></div></sc-for><sc-if value="{{ noRecHist }}" hint-placeholder-val="{{ false }}"><div style="padding:24px;text-align:center;color:#5B6B7A">No logged activity yet.</div></sc-if></div></sc-if>
   </sc-if>
 </sc-if>
 
 <sc-if value="{{ on.roles }}" hint-placeholder-val="{{ false }}">
   <div style="font-size:13px;color:#5B6B7A">Choose what each staff role can do at Popular Hospital. Locked rows are fixed by IPMS.</div>
-  <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;overflow:hidden"><div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;min-width:640px">
+  <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;overflow:hidden"><div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;min-width:640px">
     <thead><tr><th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:8px 12px;background:#F7FAFC;border-bottom:1px solid #E1E9EF;padding-left:16px">Permission</th><sc-for list="{{ roleCols }}" as="c" hint-placeholder-count="3"><th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:8px 12px;background:#F7FAFC;border-bottom:1px solid #E1E9EF;text-align:center;width:150px">{{ c.label }}<div style="font-weight:400;font-size:12px">{{ c.n }}</div></th></sc-for></tr></thead>
     <tbody><sc-for list="{{ permGroups }}" as="g" hint-placeholder-count="6">
       <tr><td colspan="4" style="padding:10px 16px 6px;font-size:12px;font-weight:700;color:#5B6B7A;text-transform:uppercase;letter-spacing:.6px;border-bottom:1px solid #EEF3F6;background:#FBFCFD">{{ g.g }}</td></tr>
-      <sc-for list="{{ g.rows }}" as="r" hint-placeholder-count="3"><tr><td style="padding:8px 12px;border-bottom:1px solid #EEF3F6;padding-left:16px">{{ r.l }}<sc-if value="{{ r.note }}" hint-placeholder-val="{{ false }}"><div style="font-size:13px;color:#5B6B7A">Locked · {{ r.note }}</div></sc-if></td><sc-for list="{{ r.cells }}" as="c" hint-placeholder-count="3"><td style="padding:8px 12px;border-bottom:1px solid #EEF3F6;text-align:center"><button onClick="{{ c.toggle }}" style="width:24px;height:24px;border-radius:6px;border:1.5px solid {{ c.bd }};background:{{ c.bg }};color:{{ c.fg }};font-weight:700;cursor:{{ c.cur }};padding:0">{{ c.mark }}</button></td></sc-for></tr></sc-for>
+      <sc-for list="{{ g.rows }}" as="r" hint-placeholder-count="3"><tr><td style="padding:8px 12px;border-bottom:1px solid #EEF3F6;padding-left:16px">{{ r.l }}<sc-if value="{{ r.note }}" hint-placeholder-val="{{ false }}"><div style="font-size:13px;color:#5B6B7A">Locked · {{ r.note }}</div></sc-if></td><sc-for list="{{ r.cells }}" as="c" hint-placeholder-count="3"><td style="padding:8px 12px;border-bottom:1px solid #EEF3F6;text-align:center"><button onClick="{{ c.toggle }}" style="width:24px;height:28px;border-radius:6px;border:1.5px solid {{ c.bd }};background:{{ c.bg }};color:{{ c.fg }};font-weight:700;cursor:{{ c.cur }};padding:0">{{ c.mark }}</button></td></sc-for></tr></sc-for>
     </sc-for></tbody></table></div></div>
 </sc-if>
 
 <sc-if value="{{ on.denied }}" hint-placeholder-val="{{ false }}">
   <div style="display:grid;place-items:center;padding:60px 16px">
     <div style="max-width:440px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px">
-      <div style="width:56px;height:56px;border-radius:14px;background:#E6EFF5;display:grid;place-items:center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#02548A" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg></div>
+      <div style="width:56px;height:56px;border-radius:16px;background:#E6EFF5;display:grid;place-items:center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#02548A" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg></div>
       <div style="font-size:18px;font-weight:700">You don’t have access to this page</div>
       <div class="bn" style="font-size:14px;color:#33485A">এই পাতায় আপনার প্রবেশাধিকার নেই</div>
       <div style="color:#5B6B7A;text-wrap:pretty">Admin pages are available to hospital admins only. If you need access, ask Md. Jalal Uddin (Hospital admin).</div>
-      <button onClick="{{ go.dashboard }}" style="margin-top:8px;height:38px;padding:0 16px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:600;cursor:pointer" style-hover="background:#023A60">Back to dashboard</button>
+      <button onClick="{{ go.dashboard }}" style="margin-top:8px;height:36px;padding:0 16px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:600;cursor:pointer" style-hover="background:#023A60">Back to dashboard</button>
     </div>
   </div>
 </sc-if>
@@ -1108,14 +1108,14 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
   <div style="position:fixed;top:0;right:0;bottom:0;width:420px;max-width:100%;background:#fff;z-index:51;display:flex;flex-direction:column;box-shadow:-12px 0 32px rgba(2,40,70,.18)">
     <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid #E6EFF5">
       <div><div style="font-size:16px;font-weight:700">Confirm appointment</div><div class="bn" style="font-size:13px;color:#5B6B7A">অ্যাপয়েন্টমেন্ট নিশ্চিত করুন</div></div>
-      <button onClick="{{ closeDrawer }}" style="width:32px;height:32px;border-radius:8px;border:none;background:#F1F6F9;cursor:pointer;font-size:16px;color:#33485A">×</button>
+      <button onClick="{{ closeDrawer }}" style="width:32px;height:36px;border-radius:8px;border:none;background:#F1F6F9;cursor:pointer;font-size:16px;color:#33485A">×</button>
     </div>
     <div style="flex:1;overflow:auto;padding:18px 20px;display:flex;flex-direction:column;gap:16px">
       <sc-if value="{{ drawerErr }}" hint-placeholder-val="{{ false }}">
-        <div style="background:#FDECEC;border:1px solid #F3C9C4;border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:8px">
+        <div style="background:#FDECEC;border:1px solid #F3C9C4;border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:8px">
           <div style="font-weight:700;color:#B42318"><span class="en">Slot no longer available</span><span class="bn">স্লটটি আর খালি নেই</span></div>
           <div style="font-size:13px;color:#7A1A12;text-wrap:pretty">{{ drawerErr.slot }} was booked by {{ drawerErr.by }} a moment ago. Nothing was saved for this patient. Pick another time.</div>
-          <button onClick="{{ pickAnother }}" style="align-self:flex-start;height:32px;padding:0 12px;border-radius:8px;border:none;background:#B42318;color:#fff;font-weight:600;cursor:pointer">Pick another slot</button>
+          <button onClick="{{ pickAnother }}" style="align-self:flex-start;height:36px;padding:0 12px;border-radius:8px;border:none;background:#B42318;color:#fff;font-weight:600;cursor:pointer">Pick another slot</button>
         </div>
       </sc-if>
       <div style="display:grid;grid-template-columns:96px 1fr;row-gap:10px;column-gap:12px;font-size:14px">
@@ -1133,8 +1133,8 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
       <sc-if value="{{ bookNoP }}" hint-placeholder-val="{{ false }}"><div style="font-size:13px;color:#7A3D00;background:#FFF6EC;border-radius:8px;padding:10px 12px">Select a patient before confirming. <button onClick="{{ findPatient }}" style="border:none;background:none;color:#02548A;font-weight:700;cursor:pointer;padding:0">Find patient →</button></div></sc-if>
     </div>
     <div style="padding:14px 20px;border-top:1px solid #E6EFF5;display:flex;gap:8px">
-      <button onClick="{{ confirmOnly }}" style="flex:1;height:42px;border-radius:8px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;cursor:pointer" style-hover="background:#F1F6F9">Confirm</button>
-      <button onClick="{{ confirmPrint }}" style="flex:1.4;height:42px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:600;cursor:pointer" style-hover="background:#023A60">Confirm &amp; print token</button>
+      <button onClick="{{ confirmOnly }}" style="flex:1;height:44px;border-radius:8px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;cursor:pointer" style-hover="background:#F1F6F9">Confirm</button>
+      <button onClick="{{ confirmPrint }}" style="flex:1.4;height:44px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:600;cursor:pointer" style-hover="background:#023A60">Confirm &amp; print token</button>
     </div>
   </div>
 </sc-if>
@@ -1142,7 +1142,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
 <sc-if value="{{ deptModalOn }}" hint-placeholder-val="{{ false }}">
   <div style="position:fixed;inset:0;background:rgba(2,30,50,.38);z-index:50;display:grid;place-items:center;padding:16px">
     <div style="width:440px;max-width:100%;background:#fff;border-radius:12px;box-shadow:0 20px 48px rgba(2,40,70,.25);display:flex;flex-direction:column">
-      <div style="padding:16px 20px;border-bottom:1px solid #E6EFF5;display:flex;justify-content:space-between;align-items:center"><b style="font-size:16px">{{ deptModalTitle }}</b><button onClick="{{ closeDeptModal }}" style="width:30px;height:30px;border-radius:8px;border:none;background:#F1F6F9;cursor:pointer">×</button></div>
+      <div style="padding:16px 20px;border-bottom:1px solid #E6EFF5;display:flex;justify-content:space-between;align-items:center"><b style="font-size:16px">{{ deptModalTitle }}</b><button onClick="{{ closeDeptModal }}" style="width:30px;height:28px;border-radius:8px;border:none;background:#F1F6F9;cursor:pointer">×</button></div>
       <div style="padding:18px 20px;display:flex;flex-direction:column;gap:12px">
         <label style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Name (English) *</span><input value="{{ deptModal.name }}" onChange="{{ dmOn.name }}" placeholder="e.g. Dermatology" style="height:36px;border:1px solid #C9D6E0;border-radius:8px;padding:0 10px;font-size:14px;outline:none" style-focus="border-color:#0EA5E9"></input></label>
         <label style="display:flex;flex-direction:column;gap:5px"><span class="bn" style="font-size:13px;font-weight:600;color:#33485A">বাংলা নাম</span><input value="{{ deptModal.bn }}" onChange="{{ dmOn.bn }}" placeholder="যেমন: চর্মরোগ" style="height:36px;border:1px solid #C9D6E0;border-radius:8px;padding:0 10px;font-size:14px;outline:none" style-focus="border-color:#0EA5E9"></input></label>
@@ -1157,13 +1157,13 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
 <sc-if value="{{ addOn }}" hint-placeholder-val="{{ false }}">
   <div style="position:fixed;inset:0;background:rgba(2,30,50,.38);z-index:50;display:grid;place-items:center;padding:16px">
     <div style="width:560px;max-width:100%;max-height:92vh;background:#fff;border-radius:12px;box-shadow:0 20px 48px rgba(2,40,70,.25);display:flex;flex-direction:column">
-      <div style="padding:16px 20px;border-bottom:1px solid #E6EFF5;display:flex;justify-content:space-between;align-items:center"><div><b style="font-size:16px">Add doctor</b><div style="font-size:13px;color:#5B6B7A">{{ add.stepText }}</div></div><button onClick="{{ closeAdd }}" style="width:30px;height:30px;border-radius:8px;border:none;background:#F1F6F9;cursor:pointer">×</button></div>
+      <div style="padding:16px 20px;border-bottom:1px solid #E6EFF5;display:flex;justify-content:space-between;align-items:center"><div><b style="font-size:16px">Add doctor</b><div style="font-size:13px;color:#5B6B7A">{{ add.stepText }}</div></div><button onClick="{{ closeAdd }}" style="width:30px;height:28px;border-radius:8px;border:none;background:#F1F6F9;cursor:pointer">×</button></div>
       <div style="padding:18px 20px;display:flex;flex-direction:column;gap:14px;overflow:auto">
         <sc-if value="{{ add.isSearch }}" hint-placeholder-val="{{ true }}">
-          <div style="display:flex;gap:8px"><div style="flex:1;display:flex;align-items:center;gap:8px;height:42px;border:1.5px solid #9FC0D6;border-radius:9px;padding:0 12px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#02548A" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><input value="{{ add.q }}" onChange="{{ onAddQ }}" placeholder="BMDC no. or mobile, e.g. A-60214" style="flex:1;border:none;outline:none;font-size:14px"></input></div><button onClick="{{ addSearch }}" style="height:42px;padding:0 16px;border-radius:9px;border:none;background:#02548A;color:#fff;font-weight:600;cursor:pointer">Search IPMS</button></div>
+          <div style="display:flex;gap:8px"><div style="flex:1;display:flex;align-items:center;gap:8px;height:42px;border:1.5px solid #9FC0D6;border-radius:8px;padding:0 12px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#02548A" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><input value="{{ add.q }}" onChange="{{ onAddQ }}" placeholder="BMDC no. or mobile, e.g. A-60214" style="flex:1;border:none;outline:none;font-size:14px"></input></div><button onClick="{{ addSearch }}" style="height:44px;padding:0 16px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:600;cursor:pointer">Search IPMS</button></div>
           <div style="font-size:13px;color:#5B6B7A">Try <b>60214</b> (found), <b>48213</b> (already here) or <b>99999</b> (not on IPMS).</div>
-          <sc-if value="{{ add.exists }}" hint-placeholder-val="{{ false }}"><div style="border:1px solid #DCE6ED;border-radius:10px;padding:14px;color:#33485A"><b>{{ add.existName }}</b> is already linked to this hospital ({{ add.existAcct }}).</div></sc-if>
-          <sc-if value="{{ add.none }}" hint-placeholder-val="{{ false }}"><div style="border:1px dashed #BFD3E1;border-radius:10px;padding:18px;text-align:center;display:flex;flex-direction:column;gap:8px;align-items:center"><b>No IPMS doctor matches “{{ add.q }}”</b><span style="font-size:13px;color:#5B6B7A">Create a profile on their behalf. They’ll get an SMS to claim it.</span><button onClick="{{ toCreate }}" style="height:36px;padding:0 14px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:600;cursor:pointer">Create doctor profile</button></div></sc-if>
+          <sc-if value="{{ add.exists }}" hint-placeholder-val="{{ false }}"><div style="border:1px solid #DCE6ED;border-radius:12px;padding:14px;color:#33485A"><b>{{ add.existName }}</b> is already linked to this hospital ({{ add.existAcct }}).</div></sc-if>
+          <sc-if value="{{ add.none }}" hint-placeholder-val="{{ false }}"><div style="border:1px dashed #BFD3E1;border-radius:12px;padding:18px;text-align:center;display:flex;flex-direction:column;gap:8px;align-items:center"><b>No IPMS doctor matches “{{ add.q }}”</b><span style="font-size:13px;color:#5B6B7A">Create a profile on their behalf. They’ll get an SMS to claim it.</span><button onClick="{{ toCreate }}" style="height:36px;padding:0 14px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:600;cursor:pointer">Create doctor profile</button></div></sc-if>
         </sc-if>
         <sc-if value="{{ add.isFound }}" hint-placeholder-val="{{ false }}">
           <div style="border:1.5px solid #02548A;border-radius:12px;padding:14px;display:flex;gap:14px;align-items:center;background:#F7FAFC">
@@ -1171,20 +1171,20 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
             <div style="line-height:1.4;flex:1;min-width:0"><div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap"><b style="font-size:16px">Dr. Mehedi Hasan</b><span style="font-size:12px;font-weight:700;color:#1D7A46;background:#E3F4EA;border-radius:99px;padding:1px 8px">✓ BMDC verified</span></div><div style="font-size:13px;color:#33485A">MBBS, MD (Neurology) · Neurologist · Male</div><div style="font-size:13px;color:#5B6B7A">BMDC A-60214 · 01711-458207 · on IPMS since 2024</div></div>
           </div>
           <label style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Department</span><select value="{{ add.dept }}" onChange="{{ onAddDept }}" style="height:36px;border:1px solid #C9D6E0;border-radius:8px;padding:0 10px;font-size:14px;background:#fff"><sc-for list="{{ addDeptOpts }}" as="o" hint-placeholder-count="3"><option value="{{ o.id }}">{{ o.name }}</option></sc-for></select></label>
-          <div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Membership type</span><div style="display:flex;gap:8px"><sc-for list="{{ addTypes }}" as="t" hint-placeholder-count="2"><button onClick="{{ t.pick }}" style="flex:1;text-align:left;padding:10px 12px;border-radius:9px;border:1.5px solid {{ t.bd }};background:{{ t.bg }};cursor:pointer;color:#10273A;line-height:1.35"><b>{{ t.label }}</b><br><span style="font-size:13px;color:#5B6B7A">{{ t.sub }}</span></button></sc-for></div></div>
+          <div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Membership type</span><div style="display:flex;gap:8px"><sc-for list="{{ addTypes }}" as="t" hint-placeholder-count="2"><button onClick="{{ t.pick }}" style="flex:1;text-align:left;padding:10px 12px;border-radius:8px;border:1.5px solid {{ t.bd }};background:{{ t.bg }};cursor:pointer;color:#10273A;line-height:1.35"><b>{{ t.label }}</b><br><span style="font-size:13px;color:#5B6B7A">{{ t.sub }}</span></button></sc-for></div></div>
           <div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Sent in the IPMS app and by SMS</span><div style="background:#E9EEF2;border-radius:12px;padding:12px"><div style="background:#fff;border-radius:12px 12px 12px 4px;padding:10px 12px;font-size:14px;line-height:1.5">{{ add.sms }}</div></div></div>
         </sc-if>
         <sc-if value="{{ add.isCreate }}" hint-placeholder-val="{{ false }}">
-          <sc-if value="{{ add.dupe }}" hint-placeholder-val="{{ false }}"><div style="background:#FFF6EC;border:1px solid #FBE3C8;border-radius:10px;padding:12px 14px;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;color:#7A3D00"><span><b>This doctor is already on IPMS</b> (Dr. Mehedi Hasan, BMDC A-60214). Send an invite instead.</span><button onClick="{{ dupeToInvite }}" style="height:32px;padding:0 12px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:600;cursor:pointer">Send invite instead</button></div></sc-if>
+          <sc-if value="{{ add.dupe }}" hint-placeholder-val="{{ false }}"><div style="background:#FFF6EC;border:1px solid #FBE3C8;border-radius:12px;padding:12px 14px;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;color:#7A3D00"><span><b>This doctor is already on IPMS</b> (Dr. Mehedi Hasan, BMDC A-60214). Send an invite instead.</span><button onClick="{{ dupeToInvite }}" style="height:36px;padding:0 12px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:600;cursor:pointer">Send invite instead</button></div></sc-if>
           <div style="display:flex;gap:12px;align-items:center"><div style="width:64px;height:64px;border-radius:12px;border:1.5px dashed #9FC0D6;background:#F7FAFC;display:grid;place-items:center;font-size:12px;color:#5B6B7A;text-align:center">Photo</div><span style="font-size:13px;color:#5B6B7A">Optional. The doctor can change it after claiming.</span></div>
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px">
             <sc-for list="{{ addFields }}" as="x" hint-placeholder-count="8"><label style="display:flex;flex-direction:column;gap:4px"><span style="font-size:13px;font-weight:600;color:#33485A">{{ x.l }}</span><input value="{{ x.v }}" onChange="{{ x.on }}" placeholder="{{ x.ph }}" style="height:36px;border:1px solid #C9D6E0;border-radius:8px;padding:0 10px;font-size:14px;outline:none"></input></label></sc-for>
           </div>
-          <div style="display:flex;gap:8px;align-items:center"><span style="font-size:13px;font-weight:600;color:#33485A">Gender</span><sc-for list="{{ addGenders }}" as="g" hint-placeholder-count="2"><button onClick="{{ g.pick }}" style="height:32px;padding:0 14px;border-radius:8px;border:1px solid {{ g.bd }};background:{{ g.bg }};color:{{ g.fg }};font-weight:600;cursor:pointer">{{ g.label }}</button></sc-for></div>
+          <div style="display:flex;gap:8px;align-items:center"><span style="font-size:13px;font-weight:600;color:#33485A">Gender</span><sc-for list="{{ addGenders }}" as="g" hint-placeholder-count="2"><button onClick="{{ g.pick }}" style="height:36px;padding:0 14px;border-radius:8px;border:1px solid {{ g.bd }};background:{{ g.bg }};color:{{ g.fg }};font-weight:600;cursor:pointer">{{ g.label }}</button></sc-for></div>
           <sc-if value="{{ add.err }}" hint-placeholder-val="{{ false }}"><div style="font-size:13px;color:#B42318">{{ add.err }}</div></sc-if>
         </sc-if>
         <sc-if value="{{ add.isSent }}" hint-placeholder-val="{{ false }}"><div style="text-align:center;padding:12px;display:flex;flex-direction:column;gap:6px;align-items:center"><div style="width:52px;height:52px;border-radius:99px;background:#E3F4EA;color:#1D7A46;display:grid;place-items:center;font-size:24px;font-weight:700">✓</div><b style="font-size:16px">Invitation sent to Dr. Mehedi Hasan</b><span style="color:#5B6B7A">Shows as Pending under Invitations. Expires in 7 days.</span></div></sc-if>
-        <sc-if value="{{ add.isUnclaimed }}" hint-placeholder-val="{{ false }}"><div style="text-align:center;padding:12px;display:flex;flex-direction:column;gap:8px;align-items:center"><span style="font-size:13px;font-weight:700;padding:2px 10px;border-radius:99px;background:#FFF6EC;color:#7A3D00">Unclaimed · activation SMS sent</span><b style="font-size:16px">{{ add.newName }} added</b><span style="color:#5B6B7A;max-width:380px;text-wrap:pretty">They can’t prescribe or be booked until they claim the profile from the SMS link and verify their phone.</span><button onClick="{{ resendClaim }}" style="height:34px;padding:0 14px;border-radius:8px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;cursor:pointer">Resend SMS</button></div></sc-if>
+        <sc-if value="{{ add.isUnclaimed }}" hint-placeholder-val="{{ false }}"><div style="text-align:center;padding:12px;display:flex;flex-direction:column;gap:8px;align-items:center"><span style="font-size:13px;font-weight:700;padding:2px 10px;border-radius:99px;background:#FFF6EC;color:#7A3D00">Unclaimed · activation SMS sent</span><b style="font-size:16px">{{ add.newName }} added</b><span style="color:#5B6B7A;max-width:380px;text-wrap:pretty">They can’t prescribe or be booked until they claim the profile from the SMS link and verify their phone.</span><button onClick="{{ resendClaim }}" style="height:36px;padding:0 14px;border-radius:8px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;cursor:pointer">Resend SMS</button></div></sc-if>
       </div>
       <div style="padding:14px 20px;border-top:1px solid #E6EFF5;display:flex;justify-content:flex-end;gap:8px">
         <button onClick="{{ closeAdd }}" style="height:36px;padding:0 14px;border-radius:8px;border:none;background:transparent;color:#5B6B7A;font-weight:600;cursor:pointer">{{ add.closeL }}</button>
@@ -1200,14 +1200,14 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
     <div style="width:640px;max-width:100%;max-height:92vh;background:#fff;border-radius:12px;box-shadow:0 20px 48px rgba(2,40,70,.25);display:flex;flex-direction:column">
       <div style="padding:16px 20px;border-bottom:1px solid #E6EFF5"><b style="font-size:16px">Remove {{ doctor.name }}?</b><div style="font-size:13px;color:#5B6B7A">{{ rmCount }} future appointments need a decision. The doctor keeps read-only access to prescriptions written here.</div></div>
       <div style="padding:10px 20px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;border-bottom:1px solid #EEF3F6;background:#F7FAFC">
-        <button onClick="{{ rmAll }}" style="height:30px;padding:0 10px;border-radius:6px;border:1px solid #DCE6ED;background:#fff;font-weight:600;font-size:13px;cursor:pointer">{{ rmAllL }}</button>
+        <button onClick="{{ rmAll }}" style="height:28px;padding:0 10px;border-radius:6px;border:1px solid #DCE6ED;background:#fff;font-weight:600;font-size:13px;cursor:pointer">{{ rmAllL }}</button>
         <span style="font-size:13px;color:#5B6B7A">{{ rmSelN }} selected →</span>
-        <select value="{{ rmTo }}" onChange="{{ onRmTo }}" style="height:30px;border:1px solid #C9D6E0;border-radius:6px;padding:0 8px;font-size:13px;background:#fff"><sc-for list="{{ rmToOpts }}" as="o" hint-placeholder-count="2"><option value="{{ o.id }}">{{ o.name }}</option></sc-for></select>
-        <button onClick="{{ rmReassign }}" style="height:30px;padding:0 10px;border-radius:6px;border:none;background:#02548A;color:#fff;font-weight:600;font-size:13px;cursor:pointer">Reassign</button>
-        <button onClick="{{ rmCancel }}" style="height:30px;padding:0 10px;border-radius:6px;border:1px solid #F3C9C4;background:#fff;color:#B42318;font-weight:600;font-size:13px;cursor:pointer">Cancel</button>
+        <select value="{{ rmTo }}" onChange="{{ onRmTo }}" style="height:28px;border:1px solid #C9D6E0;border-radius:6px;padding:0 8px;font-size:13px;background:#fff"><sc-for list="{{ rmToOpts }}" as="o" hint-placeholder-count="2"><option value="{{ o.id }}">{{ o.name }}</option></sc-for></select>
+        <button onClick="{{ rmReassign }}" style="height:28px;padding:0 10px;border-radius:6px;border:none;background:#02548A;color:#fff;font-weight:600;font-size:13px;cursor:pointer">Reassign</button>
+        <button onClick="{{ rmCancel }}" style="height:28px;padding:0 10px;border-radius:6px;border:1px solid #F3C9C4;background:#fff;color:#B42318;font-weight:600;font-size:13px;cursor:pointer">Cancel</button>
       </div>
       <div style="overflow:auto;flex:1">
-        <sc-for list="{{ rmRows }}" as="r" hint-placeholder-count="6"><button onClick="{{ r.toggle }}" style="display:grid;grid-template-columns:22px 60px minmax(0,1fr) auto;gap:10px;align-items:center;width:100%;padding:8px 20px;border:none;border-bottom:1px solid #EEF3F6;background:#fff;text-align:left;cursor:pointer;color:#10273A"><span style="width:16px;height:16px;border-radius:4px;border:1.5px solid #02548A;background:{{ r.cb }};color:#fff;font-size:12px;display:grid;place-items:center">{{ r.ck }}</span><b>{{ r.token }}</b><span style="min-width:0">{{ r.name }} <span style="color:#5B6B7A;font-size:13px">{{ r.when }}</span></span><span style="font-size:13px;font-weight:600;color:{{ r.fg }}">{{ r.out }}</span></button></sc-for>
+        <sc-for list="{{ rmRows }}" as="r" hint-placeholder-count="6"><button onClick="{{ r.toggle }}" style="display:grid;grid-template-columns:22px 60px minmax(0,1fr) auto;gap:10px;align-items:center;width:100%;padding:8px 20px;border:none;border-bottom:1px solid #EEF3F6;background:#fff;text-align:left;cursor:pointer;color:#10273A"><span style="width:16px;height:16px;border-radius:6px;border:1.5px solid #02548A;background:{{ r.cb }};color:#fff;font-size:12px;display:grid;place-items:center">{{ r.ck }}</span><b>{{ r.token }}</b><span style="min-width:0">{{ r.name }} <span style="color:#5B6B7A;font-size:13px">{{ r.when }}</span></span><span style="font-size:13px;font-weight:600;color:{{ r.fg }}">{{ r.out }}</span></button></sc-for>
       </div>
       <div style="padding:12px 20px;border-top:1px solid #EEF3F6"><div style="font-size:13px;font-weight:600;color:#33485A;margin-bottom:6px">Patient SMS preview</div><div style="background:#E9EEF2;border-radius:12px;padding:10px"><div style="background:#fff;border-radius:12px 12px 12px 4px;padding:10px 12px;font-size:14px;line-height:1.55">{{ rmSms }}</div></div></div>
       <div style="padding:14px 20px;border-top:1px solid #E6EFF5;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><span style="font-size:13px;color:#5B6B7A">{{ rmSummary }}</span><div style="display:flex;gap:8px"><button onClick="{{ closeRemove }}" style="height:36px;padding:0 14px;border-radius:8px;border:none;background:transparent;color:#5B6B7A;font-weight:600;cursor:pointer">Keep doctor</button><button onClick="{{ confirmRemove }}" style="height:36px;padding:0 16px;border-radius:8px;border:none;background:{{ rmBtnBg }};color:#fff;font-weight:600;cursor:pointer">Remove &amp; send SMS</button></div></div>
@@ -1218,7 +1218,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
 <sc-if value="{{ staffModalOn }}" hint-placeholder-val="{{ false }}">
   <div style="position:fixed;inset:0;background:rgba(2,30,50,.38);z-index:50;display:grid;place-items:center;padding:16px">
     <div style="width:440px;max-width:100%;background:#fff;border-radius:12px;box-shadow:0 20px 48px rgba(2,40,70,.25);display:flex;flex-direction:column">
-      <div style="padding:16px 20px;border-bottom:1px solid #E6EFF5;display:flex;justify-content:space-between;align-items:center"><b style="font-size:16px"><span class="en">Add staff</span><span class="bn">স্টাফ যোগ করুন</span></b><button onClick="{{ closeStaff }}" style="width:30px;height:30px;border-radius:8px;border:none;background:#F1F6F9;cursor:pointer">×</button></div>
+      <div style="padding:16px 20px;border-bottom:1px solid #E6EFF5;display:flex;justify-content:space-between;align-items:center"><b style="font-size:16px"><span class="en">Add staff</span><span class="bn">স্টাফ যোগ করুন</span></b><button onClick="{{ closeStaff }}" style="width:30px;height:28px;border-radius:8px;border:none;background:#F1F6F9;cursor:pointer">×</button></div>
       <div style="padding:18px 20px;display:flex;flex-direction:column;gap:12px">
         <label style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Full name *</span><input value="{{ staffModal.name }}" onChange="{{ smOn.name }}" placeholder="e.g. Tahmina Ferdous" style="height:36px;border:1px solid #C9D6E0;border-radius:8px;padding:0 10px;font-size:14px;outline:none" style-focus="border-color:#0EA5E9"></input></label>
         <label style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Mobile * <span style="font-weight:400;color:#5B6B7A">· used to sign in</span></span><input value="{{ staffModal.phone }}" onChange="{{ smOn.phone }}" placeholder="01XXXXXXXXX" style="height:36px;border:1px solid #C9D6E0;border-radius:8px;padding:0 10px;font-size:14px;outline:none" style-focus="border-color:#0EA5E9"></input></label>
@@ -1241,7 +1241,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
 </sc-if>
 
 <sc-if value="{{ toastOn }}" hint-placeholder-val="{{ false }}">
-  <div class="no-print" style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:{{ toastBg }};color:#fff;padding:10px 16px;border-radius:10px;font-weight:600;font-size:14px;box-shadow:0 10px 28px rgba(2,40,70,.25);z-index:60;max-width:90vw">{{ toastMsg }}</div>
+  <div class="no-print" style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:{{ toastBg }};color:#fff;padding:10px 16px;border-radius:12px;font-weight:600;font-size:14px;box-shadow:0 10px 28px rgba(2,40,70,.25);z-index:60;max-width:90vw">{{ toastMsg }}</div>
 </sc-if>
 
 <a href="Prototype%20Index.dc.html" class="idx-link no-print" style="position:fixed;right:12px;bottom:12px;z-index:80;font-size:13px;font-weight:600;color:#5B6B7A;background:rgba(255,255,255,.9);border:1px solid #DCE6ED;border-radius:99px;padding:4px 10px;text-decoration:none">← Index</a>

@@ -33,7 +33,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
   <header style="position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid #E6EFF5">
     <div style="max-width:1200px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
       <button onClick="{{ go.home }}" style="display:flex;align-items:center;gap:10px;border:none;background:none;cursor:pointer;padding:0;color:#10273A;text-align:left">
-        <span role="img" aria-label="Popular Hospital" style="width:42px;height:42px;border-radius:10px;background:#02548A url('assets/logo/hospital-mark.svg') center/cover no-repeat;color:#fff;display:grid;place-items:center;font-weight:700"></span>
+        <span role="img" aria-label="Popular Hospital" style="width:42px;height:42px;border-radius:12px;background:#02548A url('assets/logo/hospital-mark.svg') center/cover no-repeat;color:#fff;display:grid;place-items:center;font-weight:700"></span>
         <span style="line-height:1.2"><b style="font-size:16px">Popular Hospital</b><br><span class="bn" style="font-size:13px;color:#5B6B7A">পপুলার হসপিটাল</span></span>
       </button>
       <nav style="flex:1;display:flex;gap:2px;flex-wrap:wrap;justify-content:flex-end">
@@ -42,7 +42,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
         </sc-for>
       </nav>
       <div style="display:flex;background:#F1F6F9;border:1px solid #DCE6ED;border-radius:8px;padding:2px;flex:none"><button onClick="{{ lang.toEn }}" style="height:28px;padding:0 10px;border:none;border-radius:6px;background:{{ lang.enBg }};color:{{ lang.enFg }};box-shadow:{{ lang.enSh }};font-weight:700;font-size:13px;cursor:pointer">EN</button><button onClick="{{ lang.toBn }}" style="height:28px;padding:0 10px;border:none;border-radius:6px;background:{{ lang.bnBg }};color:{{ lang.bnFg }};box-shadow:{{ lang.bnSh }};font-weight:700;font-size:13px;cursor:pointer">বাংলা</button></div>
-      <button onClick="{{ startBooking }}" style="height:42px;padding:0 18px;border-radius:9px;border:none;background:#02548A;color:#fff;font-weight:700;cursor:pointer" style-hover="background:#023A60">Book appointment</button>
+      <button onClick="{{ startBooking }}" style="height:44px;padding:0 18px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:700;cursor:pointer" style-hover="background:#023A60">Book appointment</button>
     </div>
   </header>
   <main style="flex:1">
@@ -55,8 +55,8 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
         <p class="bn" style="margin:0;font-size:18px;color:#33485A">বিশেষজ্ঞ ডাক্তারের সিরিয়াল নিন অনলাইনে — বাসা থেকেই</p>
         <p style="margin:0;color:#5B6B7A;max-width:500px;text-wrap:pretty">Pick a department and doctor, choose a free time, and confirm with your mobile number. Your token number arrives by SMS.</p>
         <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px">
-          <button onClick="{{ startBooking }}" style="height:48px;padding:0 22px;border-radius:10px;border:none;background:#02548A;color:#fff;font-weight:700;font-size:16px;cursor:pointer" style-hover="background:#023A60"><span class="en">Book appointment</span><span class="bn">সিরিয়াল নিন</span></button>
-          <button onClick="{{ go.doctors }}" style="height:48px;padding:0 20px;border-radius:10px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;font-size:16px;cursor:pointer" style-hover="background:#E6EFF5">Find a doctor</button>
+          <button onClick="{{ startBooking }}" style="height:48px;padding:0 22px;border-radius:12px;border:none;background:#02548A;color:#fff;font-weight:700;font-size:16px;cursor:pointer" style-hover="background:#023A60"><span class="en">Book appointment</span><span class="bn">সিরিয়াল নিন</span></button>
+          <button onClick="{{ go.doctors }}" style="height:48px;padding:0 20px;border-radius:12px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;font-size:16px;cursor:pointer" style-hover="background:#E6EFF5">Find a doctor</button>
         </div>
       </div>
       <div style="position:relative;height:360px;border-radius:16px;overflow:hidden"><image-slot id="pub-hero" src="assets/img/hospital-hero.svg" shape="rounded" radius="16" placeholder="Hospital building or OPD photo"></image-slot></div>
@@ -84,7 +84,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
             <button onClick="{{ d.open }}" style="border:none;background:none;padding:0;text-align:left;cursor:pointer;font-weight:700;font-size:16px;color:#10273A">{{ d.name }}</button>
             <span style="font-size:13px;color:#5B6B7A">{{ d.deg }}</span>
             <span style="font-size:13px;color:#33485A">{{ d.deptName }} · {{ d.hours }}</span>
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;gap:8px"><span style="font-size:13px;color:#1D7A46;font-weight:600">Next: {{ d.next }}</span><button onClick="{{ d.book }}" style="height:32px;padding:0 12px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:600;font-size:13px;cursor:pointer" style-hover="background:#023A60">Book</button></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;gap:8px"><span style="font-size:13px;color:#1D7A46;font-weight:600">Next: {{ d.next }}</span><button onClick="{{ d.book }}" style="height:36px;padding:0 12px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:600;font-size:13px;cursor:pointer" style-hover="background:#023A60">Book</button></div>
           </div>
         </div>
       </sc-for>
@@ -97,7 +97,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
         <span style="font-size:26px;font-weight:700;line-height:1.2">Free Diabetes &amp; Blood Pressure Screening Camp</span>
         <span class="bn" style="font-size:16px;color:#CFE3F1">বিনামূল্যে ডায়াবেটিস ও উচ্চ রক্তচাপ পরীক্ষা ক্যাম্প</span>
         <span style="font-size:14px;color:#CFE3F1">Saturday, 28 Nov 2026 · 9:00 am – 1:00 pm · Ground floor lobby</span>
-        <span style="align-self:flex-start;margin-top:6px;background:#fff;color:#02548A;font-weight:700;border-radius:9px;padding:10px 18px">Register now · {{ regLeft }} spots left</span>
+        <span style="align-self:flex-start;margin-top:6px;background:#fff;color:#02548A;font-weight:700;border-radius:8px;padding:10px 18px">Register now · {{ regLeft }} spots left</span>
       </div>
       <div style="position:relative;min-height:220px"><image-slot id="pub-camp-teaser" src="assets/img/health-camp.svg" shape="rect" placeholder="Health camp banner"></image-slot></div>
     </button>
@@ -113,13 +113,13 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
     </div>
   </section>
   <section style="max-width:1200px;margin:0 auto;padding:48px 24px 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:24px;align-items:stretch">
-    <div style="background:#F1F6F9;border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:10px">
+    <div style="background:#F1F6F9;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:10px">
       <h2 style="margin:0;font-size:20px"><span class="en">Contact</span><span class="bn">যোগাযোগ</span></h2>
       <div><b>Address</b><br>House 16, Road 2, Dhanmondi, Dhaka 1205<br><span class="bn" style="color:#5B6B7A">বাড়ি ১৬, রোড ২, ধানমন্ডি, ঢাকা ১২০৫</span></div>
       <div><b>Hotline</b> 09613-787801 · <b>Emergency</b> 01819-787800</div>
       <div><b>OPD</b> Sat–Thu, 8:00 am – 9:00 pm · Friday closed</div>
     </div>
-    <div style="min-height:240px;border-radius:14px;background:repeating-linear-gradient(135deg,#E6EFF5 0 12px,#F1F6F9 12px 24px);border:1px solid #DCE6ED;display:grid;place-items:center;color:#5B6B7A;font-size:14px;text-align:center;padding:16px">Map embed · Dhanmondi Road 2<br>(Google Maps)</div>
+    <div style="min-height:240px;border-radius:16px;background:repeating-linear-gradient(135deg,#E6EFF5 0 12px,#F1F6F9 12px 24px);border:1px solid #DCE6ED;display:grid;place-items:center;color:#5B6B7A;font-size:14px;text-align:center;padding:16px">Map embed · Dhanmondi Road 2<br>(Google Maps)</div>
   </section>
 </sc-if>
 
@@ -127,10 +127,10 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
   <section style="max-width:1200px;margin:0 auto;padding:32px 24px 0;display:flex;flex-direction:column;gap:18px">
     <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
       <h1 style="margin:0;font-size:30px"><span class="en">Find a doctor</span><span class="bn" style="font-weight:500;color:#5B6B7A;font-size:20px">ডাক্তার খুঁজুন</span></h1>
-      <input value="{{ docQ }}" onChange="{{ onDocQ }}" placeholder="Search doctor name" style="height:42px;width:320px;max-width:100%;border:1.5px solid #9FC0D6;border-radius:10px;padding:0 14px;font-size:14px;outline:none"></input>
+      <input value="{{ docQ }}" onChange="{{ onDocQ }}" placeholder="Search doctor name" style="height:44px;width:320px;max-width:100%;border:1.5px solid #9FC0D6;border-radius:12px;padding:0 14px;font-size:14px;outline:none"></input>
     </div>
     <div style="display:flex;gap:6px;flex-wrap:wrap">
-      <sc-for list="{{ docFilters }}" as="f" hint-placeholder-count="7"><button onClick="{{ f.pick }}" style="height:34px;padding:0 14px;border-radius:99px;border:1px solid {{ f.bd }};background:{{ f.bg }};color:{{ f.fg }};font-weight:600;font-size:14px;cursor:pointer">{{ f.label }} <span class="bn" style="font-weight:400">{{ f.bn }}</span></button></sc-for>
+      <sc-for list="{{ docFilters }}" as="f" hint-placeholder-count="7"><button onClick="{{ f.pick }}" style="height:36px;padding:0 14px;border-radius:99px;border:1px solid {{ f.bd }};background:{{ f.bg }};color:{{ f.fg }};font-weight:600;font-size:14px;cursor:pointer">{{ f.label }} <span class="bn" style="font-weight:400">{{ f.bn }}</span></button></sc-for>
     </div>
     <sc-if value="{{ noDocs }}" hint-placeholder-val="{{ false }}"><div style="border:1px dashed #BFD3E1;border-radius:12px;padding:32px;text-align:center;color:#5B6B7A">No doctors match. Try another name or department.</div></sc-if>
     <div style="display:flex;flex-direction:column;gap:12px">
@@ -153,7 +153,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
   <section style="max-width:1000px;margin:0 auto;padding:32px 24px 0;display:flex;flex-direction:column;gap:20px">
     <button onClick="{{ go.doctors }}" style="align-self:flex-start;border:none;background:none;color:#02548A;font-weight:600;cursor:pointer;padding:0">← All doctors</button>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;align-items:start">
-      <div style="aspect-ratio:4/5;border-radius:14px;background:#E6EFF5;overflow:hidden"><img src="{{ doc.photo }}" alt="{{ doc.name }}" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+      <div style="aspect-ratio:4/5;border-radius:16px;background:#E6EFF5;overflow:hidden"><img src="{{ doc.photo }}" alt="{{ doc.name }}" style="width:100%;height:100%;object-fit:cover;display:block"></div>
       <div style="display:flex;flex-direction:column;gap:14px">
         <div><h1 class="en" style="margin:0;font-size:28px">{{ doc.name }}</h1><div class="bn" style="font-size:18px;color:#5B6B7A">{{ doc.bn }}</div></div>
         <div style="color:#33485A">{{ doc.deg }}<br><span class="en">{{ doc.deptName }}</span><span class="bn">{{ doc.deptBn }}</span> · {{ doc.exp }} experience</div>
@@ -163,7 +163,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
           <sc-for list="{{ doc.sched }}" as="s" hint-placeholder-count="7"><div style="display:flex;justify-content:space-between;padding:8px 14px;border-bottom:1px solid #EEF3F6;color:{{ s.fg }}"><span style="font-weight:{{ s.w }}">{{ s.day }} <span class="bn" style="font-weight:400;color:#5B6B7A;font-size:13px">{{ s.bn }}</span></span><span>{{ s.time }}</span></div></sc-for>
           <sc-if value="{{ doc.offNote }}" hint-placeholder-val="{{ false }}"><div style="padding:8px 14px;font-size:13px;color:#A34F00;background:#FFF6EC">{{ doc.offNote }}</div></sc-if>
         </div>
-        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap"><button onClick="{{ bookThis }}" style="height:46px;padding:0 22px;border-radius:10px;border:none;background:#02548A;color:#fff;font-weight:700;font-size:16px;cursor:pointer" style-hover="background:#023A60"><span class="en">Book appointment</span><span class="bn">সিরিয়াল নিন</span></button><span style="font-size:14px;color:#1D7A46;font-weight:600">Next available: {{ doc.next }}</span></div>
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap"><button onClick="{{ bookThis }}" style="height:44px;padding:0 22px;border-radius:12px;border:none;background:#02548A;color:#fff;font-weight:700;font-size:16px;cursor:pointer" style-hover="background:#023A60"><span class="en">Book appointment</span><span class="bn">সিরিয়াল নিন</span></button><span style="font-size:14px;color:#1D7A46;font-weight:600">Next available: {{ doc.next }}</span></div>
       </div>
     </div>
   </section>
@@ -193,7 +193,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
       <div style="display:flex;flex-direction:column;gap:10px">
         <sc-for list="{{ bkDocs }}" as="d" hint-placeholder-count="2">
           <button onClick="{{ d.pick }}" style="text-align:left;background:#fff;border:1px solid #DCE6ED;border-radius:12px;padding:14px;display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:14px;align-items:center;cursor:pointer;color:#10273A" style-hover="border-color:#02548A;box-shadow:0 0 0 3px #E6EFF5">
-            <span style="width:64px;height:64px;border-radius:10px;background:#E6EFF5;overflow:hidden;flex:none;display:block"><img src="{{ d.photo }}" alt="{{ d.name }}" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+            <span style="width:64px;height:64px;border-radius:12px;background:#E6EFF5;overflow:hidden;flex:none;display:block"><img src="{{ d.photo }}" alt="{{ d.name }}" style="width:100%;height:100%;object-fit:cover;display:block"></span>
             <span style="display:flex;flex-direction:column;gap:1px;min-width:0"><b style="font-size:16px">{{ d.name }}</b><span style="font-size:14px;color:#33485A">{{ d.deg }}</span><span style="font-size:13px;color:#5B6B7A">{{ d.hours }}</span></span>
             <span style="font-size:13px;font-weight:600;color:#1D7A46;text-align:right">Next: {{ d.next }}<br><span style="color:#02548A">Choose →</span></span>
           </button>
@@ -204,17 +204,17 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
     <sc-if value="{{ s3 }}" hint-placeholder-val="{{ false }}">
       <button onClick="{{ bkBack2 }}" style="align-self:flex-start;border:none;background:none;color:#02548A;font-weight:600;cursor:pointer;padding:0">← {{ bkInfo.doc }} · change doctor</button>
       <div style="display:grid;grid-template-columns:repeat(7,minmax(76px,1fr));gap:8px;overflow-x:auto">
-        <sc-for list="{{ dates }}" as="d" hint-placeholder-count="7"><button onClick="{{ d.pick }}" style="border:1px solid {{ d.bd }};background:{{ d.bg }};color:{{ d.fg }};border-radius:10px;padding:8px 4px;cursor:pointer;display:flex;flex-direction:column;align-items:center;line-height:1.25"><span style="font-size:13px;font-weight:600">{{ d.wd }}</span><b style="font-size:16px">{{ d.day }}</b><span style="font-size:13px;font-weight:600;color:{{ d.txtC }}">{{ d.txt }}</span></button></sc-for>
+        <sc-for list="{{ dates }}" as="d" hint-placeholder-count="7"><button onClick="{{ d.pick }}" style="border:1px solid {{ d.bd }};background:{{ d.bg }};color:{{ d.fg }};border-radius:12px;padding:8px 4px;cursor:pointer;display:flex;flex-direction:column;align-items:center;line-height:1.25"><span style="font-size:13px;font-weight:600">{{ d.wd }}</span><b style="font-size:16px">{{ d.day }}</b><span style="font-size:13px;font-weight:600;color:{{ d.txtC }}">{{ d.txt }}</span></button></sc-for>
       </div>
-      <sc-if value="{{ noSlots }}" hint-placeholder-val="{{ false }}"><div style="border:1px dashed #BFD3E1;border-radius:12px;padding:28px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px"><b style="font-size:16px"><span class="en">No slots available</span><span class="bn">স্লট খালি নেই</span></b><span style="color:#5B6B7A">{{ noSlotsText }}</span><sc-if value="{{ hasNext }}" hint-placeholder-val="{{ true }}"><button onClick="{{ goNext }}" style="height:38px;padding:0 16px;border-radius:9px;border:none;background:#02548A;color:#fff;font-weight:600;cursor:pointer">{{ nextText }}</button></sc-if></div></sc-if>
+      <sc-if value="{{ noSlots }}" hint-placeholder-val="{{ false }}"><div style="border:1px dashed #BFD3E1;border-radius:12px;padding:28px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px"><b style="font-size:16px"><span class="en">No slots available</span><span class="bn">স্লট খালি নেই</span></b><span style="color:#5B6B7A">{{ noSlotsText }}</span><sc-if value="{{ hasNext }}" hint-placeholder-val="{{ true }}"><button onClick="{{ goNext }}" style="height:36px;padding:0 16px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:600;cursor:pointer">{{ nextText }}</button></sc-if></div></sc-if>
       <sc-if value="{{ hasSlots }}" hint-placeholder-val="{{ true }}">
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:8px">
-          <sc-for list="{{ slots }}" as="s" hint-placeholder-count="12"><button onClick="{{ s.pick }}" style="height:46px;border-radius:9px;border:1px solid {{ s.bd }};background:{{ s.bg }};color:{{ s.fg }};text-decoration:{{ s.deco }};cursor:{{ s.cur }};font-weight:600;font-size:14px">{{ s.time }}</button></sc-for>
+          <sc-for list="{{ slots }}" as="s" hint-placeholder-count="12"><button onClick="{{ s.pick }}" style="height:44px;border-radius:8px;border:1px solid {{ s.bd }};background:{{ s.bg }};color:{{ s.fg }};text-decoration:{{ s.deco }};cursor:{{ s.cur }};font-weight:600;font-size:14px">{{ s.time }}</button></sc-for>
         </div>
       </sc-if>
       <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border-top:1px solid #E6EFF5;padding-top:16px">
         <span style="color:#33485A">{{ bkInfo.date }} · <b>{{ bkInfo.time }}</b> · {{ bkInfo.room }}</span>
-        <sc-if value="{{ hasSlot }}" hint-placeholder-val="{{ false }}"><button onClick="{{ toDetails }}" style="height:44px;padding:0 20px;border-radius:10px;border:none;background:#02548A;color:#fff;font-weight:700;cursor:pointer" style-hover="background:#023A60">Continue →</button></sc-if>
+        <sc-if value="{{ hasSlot }}" hint-placeholder-val="{{ false }}"><button onClick="{{ toDetails }}" style="height:44px;padding:0 20px;border-radius:12px;border:none;background:#02548A;color:#fff;font-weight:700;cursor:pointer" style-hover="background:#023A60">Continue →</button></sc-if>
         <sc-if value="{{ noSlotSel }}" hint-placeholder-val="{{ true }}"><span style="font-size:14px;color:#5B6B7A">Choose a time to continue</span></sc-if>
       </div>
     </sc-if>
@@ -224,19 +224,19 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:20px;align-items:start">
         <div style="border:1px solid #DCE6ED;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:14px">
           <b style="font-size:16px"><span class="en">Patient details</span><span class="bn">রোগীর তথ্য</span></b>
-          <label style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A"><span class="en">Patient name</span><span class="bn">রোগীর নাম</span></span><input value="{{ bk.name }}" onChange="{{ onBkName }}" placeholder="Full name" style="height:42px;border:1px solid #C9D6E0;border-radius:9px;padding:0 12px;font-size:14px;outline:none" style-focus="border-color:#0EA5E9;box-shadow:0 0 0 3px rgba(14,165,233,.18)"></input></label>
+          <label style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A"><span class="en">Patient name</span><span class="bn">রোগীর নাম</span></span><input value="{{ bk.name }}" onChange="{{ onBkName }}" placeholder="Full name" style="height:44px;border:1px solid #C9D6E0;border-radius:8px;padding:0 12px;font-size:14px;outline:none" style-focus="border-color:#0EA5E9;box-shadow:0 0 0 3px rgba(14,165,233,.18)"></input></label>
           <div style="display:flex;gap:10px">
-            <label style="display:flex;flex-direction:column;gap:5px;width:90px"><span style="font-size:13px;font-weight:600;color:#33485A"><span class="en">Age</span><span class="bn">বয়স</span></span><input value="{{ bk.age }}" onChange="{{ onBkAge }}" placeholder="Years" style="height:42px;border:1px solid #C9D6E0;border-radius:9px;padding:0 12px;font-size:14px;outline:none"></input></label>
-            <div style="flex:1;display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A"><span class="en">Gender</span><span class="bn">লিঙ্গ</span></span><div style="display:flex;gap:6px"><sc-for list="{{ genders }}" as="g" hint-placeholder-count="3"><button onClick="{{ g.pick }}" style="flex:1;height:42px;border-radius:9px;border:1px solid {{ g.bd }};background:{{ g.bg }};color:{{ g.fg }};font-weight:600;font-size:14px;cursor:pointer">{{ g.label }}</button></sc-for></div></div>
+            <label style="display:flex;flex-direction:column;gap:5px;width:90px"><span style="font-size:13px;font-weight:600;color:#33485A"><span class="en">Age</span><span class="bn">বয়স</span></span><input value="{{ bk.age }}" onChange="{{ onBkAge }}" placeholder="Years" style="height:44px;border:1px solid #C9D6E0;border-radius:8px;padding:0 12px;font-size:14px;outline:none"></input></label>
+            <div style="flex:1;display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A"><span class="en">Gender</span><span class="bn">লিঙ্গ</span></span><div style="display:flex;gap:6px"><sc-for list="{{ genders }}" as="g" hint-placeholder-count="3"><button onClick="{{ g.pick }}" style="flex:1;height:44px;border-radius:8px;border:1px solid {{ g.bd }};background:{{ g.bg }};color:{{ g.fg }};font-weight:600;font-size:14px;cursor:pointer">{{ g.label }}</button></sc-for></div></div>
           </div>
-          <label style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A"><span class="en">Mobile number</span><span class="bn">মোবাইল নম্বর</span></span><input value="{{ bk.phone }}" onChange="{{ onBkPhone }}" placeholder="01XXXXXXXXX" style="height:42px;border:1px solid #C9D6E0;border-radius:9px;padding:0 12px;font-size:16px;outline:none;letter-spacing:.5px" style-focus="border-color:#0EA5E9;box-shadow:0 0 0 3px rgba(14,165,233,.18)"></input><span style="font-size:13px;color:#5B6B7A">Try 01712458930 to see a returning patient.</span></label>
-          <sc-if value="{{ otpNotSent }}" hint-placeholder-val="{{ true }}"><button onClick="{{ sendOtp }}" style="height:44px;border-radius:10px;border:none;background:#02548A;color:#fff;font-weight:700;cursor:pointer" style-hover="background:#023A60"><span class="en">Send verification code</span><span class="bn">কোড পাঠান</span></button></sc-if>
+          <label style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A"><span class="en">Mobile number</span><span class="bn">মোবাইল নম্বর</span></span><input value="{{ bk.phone }}" onChange="{{ onBkPhone }}" placeholder="01XXXXXXXXX" style="height:44px;border:1px solid #C9D6E0;border-radius:8px;padding:0 12px;font-size:16px;outline:none;letter-spacing:.5px" style-focus="border-color:#0EA5E9;box-shadow:0 0 0 3px rgba(14,165,233,.18)"></input><span style="font-size:13px;color:#5B6B7A">Try 01712458930 to see a returning patient.</span></label>
+          <sc-if value="{{ otpNotSent }}" hint-placeholder-val="{{ true }}"><button onClick="{{ sendOtp }}" style="height:44px;border-radius:12px;border:none;background:#02548A;color:#fff;font-weight:700;cursor:pointer" style-hover="background:#023A60"><span class="en">Send verification code</span><span class="bn">কোড পাঠান</span></button></sc-if>
           <sc-if value="{{ otpSent }}" hint-placeholder-val="{{ false }}">
-            <div style="display:flex;flex-direction:column;gap:8px;background:#F1F6F9;border-radius:10px;padding:14px">
+            <div style="display:flex;flex-direction:column;gap:8px;background:#F1F6F9;border-radius:12px;padding:14px">
               <span style="font-size:14px">Enter the 6-digit code sent to <b>{{ bk.phone }}</b></span>
-              <input value="{{ bk.otp }}" onChange="{{ onOtp }}" placeholder="••••••" inputmode="numeric" style="height:50px;border:1.5px solid #9FC0D6;border-radius:10px;padding:0 14px;font-size:24px;letter-spacing:12px;text-align:center;font-weight:700;outline:none;background:#fff"></input>
+              <input value="{{ bk.otp }}" onChange="{{ onOtp }}" placeholder="••••••" inputmode="numeric" style="height:48px;border:1.5px solid #9FC0D6;border-radius:12px;padding:0 14px;font-size:24px;letter-spacing:12px;text-align:center;font-weight:700;outline:none;background:#fff"></input>
               <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px"><span style="color:#5B6B7A">Any 6 digits work in this prototype; 000000 fails.</span><sc-if value="{{ resendWait }}" hint-placeholder-val="{{ true }}"><span style="color:#5B6B7A">{{ resendText }}</span></sc-if><sc-if value="{{ canResend }}" hint-placeholder-val="{{ false }}"><button onClick="{{ sendOtp }}" style="border:none;background:none;color:#02548A;font-weight:600;cursor:pointer;padding:0">Resend code</button></sc-if></div>
-              <button onClick="{{ verify }}" style="height:44px;border-radius:10px;border:none;background:#02548A;color:#fff;font-weight:700;cursor:pointer" style-hover="background:#023A60">Verify &amp; confirm booking</button>
+              <button onClick="{{ verify }}" style="height:44px;border-radius:12px;border:none;background:#02548A;color:#fff;font-weight:700;cursor:pointer" style-hover="background:#023A60">Verify &amp; confirm booking</button>
             </div>
           </sc-if>
           <sc-if value="{{ bk.err }}" hint-placeholder-val="{{ false }}"><div style="font-size:14px;color:#B42318;background:#FDECEC;border-radius:8px;padding:8px 12px">{{ bk.err }}</div></sc-if>
@@ -270,7 +270,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
         <sc-if value="{{ isNewP }}" hint-placeholder-val="{{ true }}"><div style="margin:0 24px;font-size:14px;background:#F1F6F9;color:#33485A;border-radius:8px;padding:8px 12px">A new patient record ({{ R.mrn }}) was created at Popular Hospital.</div></sc-if>
         <div style="padding:16px 24px 24px;display:flex;flex-direction:column;gap:12px">
           <span style="font-size:14px;color:#5B6B7A">We sent these details to {{ bk.phone }} by SMS. Please arrive 15 minutes early and show the SMS at reception.</span>
-          <div style="display:flex;gap:8px;flex-wrap:wrap"><button onClick="{{ bookAgain }}" style="height:40px;padding:0 16px;border-radius:9px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;cursor:pointer">Book another</button><button onClick="{{ go.home }}" style="height:40px;padding:0 16px;border-radius:9px;border:none;background:#02548A;color:#fff;font-weight:600;cursor:pointer">Back to home</button></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap"><button onClick="{{ bookAgain }}" style="height:44px;padding:0 16px;border-radius:8px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;cursor:pointer">Book another</button><button onClick="{{ go.home }}" style="height:44px;padding:0 16px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:600;cursor:pointer">Back to home</button></div>
         </div>
       </div>
     </sc-if>
@@ -311,21 +311,21 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
         </sc-for>
         <div style="font-size:14px;color:#5B6B7A;text-wrap:pretty">Come fasting if you can (no food for 8 hours) for an accurate sugar test. Bring any previous reports and your current medicines.</div>
       </div>
-      <div style="border:1px solid #DCE6ED;border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:14px;background:#fff">
+      <div style="border:1px solid #DCE6ED;border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:14px;background:#fff">
         <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px"><h2 style="margin:0;font-size:20px"><span class="en">Register</span><span class="bn">নিবন্ধন</span></h2><span style="font-size:14px;color:#5B6B7A">{{ regCount }} of 300 registered</span></div>
         <div style="height:6px;border-radius:99px;background:#E6EFF5;overflow:hidden"><div style="height:100%;width:{{ regPct }};background:#02548A"></div></div>
         <sc-if value="{{ crForm }}" hint-placeholder-val="{{ true }}">
-          <label style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A"><span class="en">Full name</span><span class="bn">পুরো নাম</span></span><input value="{{ cr.name }}" onChange="{{ crOn.name }}" style="height:42px;border:1px solid #C9D6E0;border-radius:9px;padding:0 12px;font-size:14px;outline:none"></input></label>
+          <label style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A"><span class="en">Full name</span><span class="bn">পুরো নাম</span></span><input value="{{ cr.name }}" onChange="{{ crOn.name }}" style="height:44px;border:1px solid #C9D6E0;border-radius:8px;padding:0 12px;font-size:14px;outline:none"></input></label>
           <div style="display:flex;gap:10px">
-            <label style="flex:1;display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A"><span class="en">Mobile</span><span class="bn">মোবাইল</span></span><input value="{{ cr.phone }}" onChange="{{ crOn.phone }}" placeholder="01XXXXXXXXX" style="height:42px;border:1px solid #C9D6E0;border-radius:9px;padding:0 12px;font-size:14px;outline:none"></input></label>
-            <label style="width:90px;display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A"><span class="en">Age</span><span class="bn">বয়স</span></span><input value="{{ cr.age }}" onChange="{{ crOn.age }}" style="height:42px;border:1px solid #C9D6E0;border-radius:9px;padding:0 12px;font-size:14px;outline:none"></input></label>
+            <label style="flex:1;display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A"><span class="en">Mobile</span><span class="bn">মোবাইল</span></span><input value="{{ cr.phone }}" onChange="{{ crOn.phone }}" placeholder="01XXXXXXXXX" style="height:44px;border:1px solid #C9D6E0;border-radius:8px;padding:0 12px;font-size:14px;outline:none"></input></label>
+            <label style="width:90px;display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A"><span class="en">Age</span><span class="bn">বয়স</span></span><input value="{{ cr.age }}" onChange="{{ crOn.age }}" style="height:44px;border:1px solid #C9D6E0;border-radius:8px;padding:0 12px;font-size:14px;outline:none"></input></label>
           </div>
-          <div style="display:flex;gap:6px"><sc-for list="{{ crGenders }}" as="g" hint-placeholder-count="3"><button onClick="{{ g.pick }}" style="flex:1;height:40px;border-radius:9px;border:1px solid {{ g.bd }};background:{{ g.bg }};color:{{ g.fg }};font-weight:600;cursor:pointer">{{ g.label }} <span class="bn" style="font-weight:400">{{ g.bn }}</span></button></sc-for></div>
+          <div style="display:flex;gap:6px"><sc-for list="{{ crGenders }}" as="g" hint-placeholder-count="3"><button onClick="{{ g.pick }}" style="flex:1;height:44px;border-radius:8px;border:1px solid {{ g.bd }};background:{{ g.bg }};color:{{ g.fg }};font-weight:600;cursor:pointer">{{ g.label }} <span class="bn" style="font-weight:400">{{ g.bn }}</span></button></sc-for></div>
           <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:13px;font-weight:600;color:#33485A"><span class="en">Main booth</span><span class="bn">প্রধান বুথ</span></span>
-            <sc-for list="{{ booths }}" as="b" hint-placeholder-count="4"><button onClick="{{ b.pick }}" style="display:flex;gap:10px;align-items:center;text-align:left;padding:9px 12px;border-radius:9px;border:1.5px solid {{ b.bd }};background:{{ b.bg }};cursor:pointer;color:#10273A"><span style="width:14px;height:14px;border-radius:99px;border:2px solid #02548A;display:grid;place-items:center;flex:none"><span style="width:6px;height:6px;border-radius:99px;background:{{ b.dot }}"></span></span>{{ b.name }}</button></sc-for>
+            <sc-for list="{{ booths }}" as="b" hint-placeholder-count="4"><button onClick="{{ b.pick }}" style="display:flex;gap:10px;align-items:center;text-align:left;padding:9px 12px;border-radius:8px;border:1.5px solid {{ b.bd }};background:{{ b.bg }};cursor:pointer;color:#10273A"><span style="width:14px;height:14px;border-radius:99px;border:2px solid #02548A;display:grid;place-items:center;flex:none"><span style="width:6px;height:6px;border-radius:99px;background:{{ b.dot }}"></span></span>{{ b.name }}</button></sc-for>
           </div>
           <sc-if value="{{ cr.err }}" hint-placeholder-val="{{ false }}"><div style="font-size:14px;color:#B42318;background:#FDECEC;border-radius:8px;padding:8px 12px">{{ cr.err }}</div></sc-if>
-          <button onClick="{{ register }}" style="height:46px;border-radius:10px;border:none;background:#02548A;color:#fff;font-weight:700;font-size:16px;cursor:pointer" style-hover="background:#023A60"><span class="en">Register for free</span><span class="bn">নিবন্ধন করুন</span></button>
+          <button onClick="{{ register }}" style="height:44px;border-radius:12px;border:none;background:#02548A;color:#fff;font-weight:700;font-size:16px;cursor:pointer" style-hover="background:#023A60"><span class="en">Register for free</span><span class="bn">নিবন্ধন করুন</span></button>
         </sc-if>
         <sc-if value="{{ crDone }}" hint-placeholder-val="{{ false }}">
           <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 0">
@@ -333,7 +333,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
             <span style="font-size:40px;font-weight:700;color:#02548A;line-height:1.1">{{ cr.done.no }}</span>
             <span style="color:#33485A">{{ cr.done.name }} · {{ cr.done.booth }}</span>
             <span style="font-size:14px;color:#5B6B7A;max-width:340px;text-wrap:pretty">Show this number or the SMS at the camp check-in desk on 28 November.</span>
-            <button onClick="{{ newReg }}" style="margin-top:6px;height:38px;padding:0 14px;border-radius:9px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;cursor:pointer">Register someone else</button>
+            <button onClick="{{ newReg }}" style="margin-top:6px;height:36px;padding:0 14px;border-radius:8px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;cursor:pointer">Register someone else</button>
           </div>
         </sc-if>
       </div>
@@ -387,7 +387,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
       <div style="display:flex;flex-direction:column;gap:6px;justify-content:flex-end;font-size:13px;color:#8FB0C6"><span style="display:flex;align-items:center;gap:6px"><span style="width:7px;height:7px;border-radius:99px;background:#FF8000"></span>popular.ipms.health · powered by IPMS</span><a href="IPMS%20OPD.dc.html" style="color:#8FB0C6">Staff login</a></div>
     </div>
   </footer>
-  <sc-if value="{{ toast }}" hint-placeholder-val="{{ false }}"><div style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#10273A;color:#fff;padding:10px 16px;border-radius:10px;font-weight:600;box-shadow:0 10px 28px rgba(2,40,70,.25);z-index:60">{{ toast }}</div></sc-if>
+  <sc-if value="{{ toast }}" hint-placeholder-val="{{ false }}"><div style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#10273A;color:#fff;padding:10px 16px;border-radius:12px;font-weight:600;box-shadow:0 10px 28px rgba(2,40,70,.25);z-index:60">{{ toast }}</div></sc-if>
 <a href="Prototype%20Index.dc.html" class="idx-link no-print" style="position:fixed;right:12px;bottom:12px;z-index:80;font-size:13px;font-weight:600;color:#5B6B7A;background:rgba(255,255,255,.9);border:1px solid #DCE6ED;border-radius:99px;padding:4px 10px;text-decoration:none">← Index</a>
 </div>
 </x-dc>
