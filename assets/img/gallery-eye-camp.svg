@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" preserveAspectRatio="xMidYMid slice">
+<rect width="480" height="360" fill="#FFF4E8"/><rect y="270" width="480" height="90" fill="#F3E3CC"/><rect y="266" width="480" height="6" fill="#C9D6E0"/>
+<rect x="60" y="40" width="170" height="220" rx="8" fill="#fff" stroke="#C9D6E0" stroke-width="4"/>
+<text x="145" y="100" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="56" font-weight="700" fill="#10273A">E</text>
+<text x="145" y="164" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="700" fill="#10273A">F P</text>
+<text x="145" y="210" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#10273A">T O Z</text>
+<text x="145" y="246" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#10273A">L P E D</text>
+<text x="145" y="274" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#10273A">P E C F D</text>
+<path d="M300 150c40-50 120-50 160 0c-40 50-120 50-160 0z" fill="#fff" stroke="#02548A" stroke-width="6"/><circle cx="380" cy="150" r="26" fill="#02548A"/><circle cx="380" cy="150" r="10" fill="#011B2E"/><circle cx="388" cy="142" r="5" fill="#fff"/>
+<g transform="translate(330 330) scale(0.75)"><rect x="-9" y="-48" width="7" height="48" rx="3" fill="#4F7894"/><rect x="2" y="-48" width="7" height="48" rx="3" fill="#4F7894"/><rect x="-16" y="-100" width="32" height="58" rx="13" fill="#fff"/><path d="M-17 -112a17 19 0 0 1 34 0v14c0 8-8 12-17 12s-17-4-17-12z" fill="#4F7D6A"/><ellipse cx="0" cy="-116" rx="11" ry="13" fill="#D9A066"/><path d="M-15 -118a15 17 0 0 1 30 0c-4-8-9-10-15-10s-11 2-15 10z" fill="#4F7D6A"/></g>
+<g transform="translate(420 330) scale(0.7)"><rect x="-9" y="-48" width="7" height="48" rx="3" fill="#33485A"/><rect x="2" y="-48" width="7" height="48" rx="3" fill="#33485A"/><rect x="-16" y="-100" width="32" height="58" rx="13" fill="#FF8000"/><ellipse cx="0" cy="-118" rx="14" ry="16" fill="#C68B59"/><path d="M-14 -120c0-12 6-16 14-16s14 4 14 16c-4-7-9-8-14-8s-10 1-14 8z" fill="#77716B"/></g>
+</svg>

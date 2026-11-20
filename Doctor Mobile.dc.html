@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700&amp;display=swap">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#E9EEF2;font-family:'Noto Sans Bengali',sans-serif;-webkit-font-smoothing:antialiased}
+button,input,select{font-family:inherit}
+a{color:#02548A;text-decoration:none}
+a:hover{color:#023A60;text-decoration:underline}
+@media print{.idx-link{display:none !important}}
+input:focus,select:focus,textarea:focus{box-shadow:0 0 0 3px rgba(14,165,233,.3) !important}
+button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outline-offset:2px}
+</style>
+</helmet>
+<div style="min-height:100vh;padding:28px 24px 48px;display:flex;flex-direction:column;align-items:center;gap:20px;font-family:'Noto Sans Bengali',sans-serif;color:#10273A;font-size:14px;line-height:1.45">
+  <div style="display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center">
+    <b style="font-size:18px">IPMS doctor · mobile flows</b>
+    <div style="display:flex;background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:3px">
+      <sc-for list="{{ flows }}" as="f" hint-placeholder-count="2"><button onClick="{{ f.pick }}" style="height:34px;padding:0 14px;border:none;border-radius:8px;background:{{ f.bg }};color:{{ f.fg }};font-weight:600;cursor:pointer">{{ f.label }}</button></sc-for>
+    </div>
+    <sc-if value="{{ isInvite }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;gap:6px;align-items:center;font-size:13px;color:#5B6B7A">Link state
+        <sc-for list="{{ linkStates }}" as="s" hint-placeholder-count="3"><button onClick="{{ s.pick }}" style="height:28px;padding:0 10px;border-radius:99px;border:1px solid {{ s.bd }};background:{{ s.bg }};color:{{ s.fg }};font-weight:600;font-size:13px;cursor:pointer">{{ s.label }}</button></sc-for>
+      </div>
+    </sc-if>
+    <button onClick="{{ restart }}" style="border:none;background:none;color:#02548A;font-weight:600;cursor:pointer;font-size:13px">↺ Restart flow</button>
+  </div>
+
+  <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" width="{{ w }}" height="{{ h }}" hint-size="390px,844px">
+    <div style="min-height:100%;background:#fff;font-family:'Noto Sans Bengali',sans-serif;color:#10273A;font-size:14px;line-height:1.45;padding:56px 0 40px;display:flex;flex-direction:column">
+
+      <sc-if value="{{ st.sms }}" hint-placeholder-val="{{ true }}">
+        <div style="background:#F2F2F7;flex:1;display:flex;flex-direction:column">
+          <div style="text-align:center;padding:8px 0 12px;border-bottom:1px solid #DDD;background:#F7F7F9"><div style="width:40px;height:40px;border-radius:99px;background:#02548A;color:#fff;display:grid;place-items:center;margin:0 auto 4px;font-weight:700;font-size:13px">IP</div><b style="font-size:14px">{{ smsFrom }}</b></div>
+          <div style="padding:16px;display:flex;flex-direction:column;gap:6px">
+            <span style="text-align:center;font-size:12px;color:#8E8E93">Today 10:42 am</span>
+            <div style="align-self:flex-start;max-width:85%;background:#E5E5EA;border-radius:18px 18px 18px 4px;padding:10px 14px;font-size:14px;line-height:1.45">{{ smsText }} <button onClick="{{ openLink }}" style="border:none;background:none;padding:0;color:#0A66D6;text-decoration:underline;font-size:14px;cursor:pointer">{{ smsLink }}</button></div>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ st.signin }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:20px;display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;gap:10px;align-items:center"><span style="width:36px;height:36px;border-radius:9px;background:#02548A;color:#fff;display:grid;place-items:center;font-weight:700;font-size:13px">IP</span><b style="font-size:18px">Sign in to IPMS</b></div>
+          <div style="font-size:14px;color:#5B6B7A">Use your own IPMS account to respond to Popular Hospital.</div>
+          <label style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Mobile or BMDC no.</span><input value="01716-330952" style="height:46px;border:1px solid #C9D6E0;border-radius:10px;padding:0 12px;font-size:16px"></input></label>
+          <label style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Password</span><input type="password" value="ayesha2026" style="height:46px;border:1px solid #C9D6E0;border-radius:10px;padding:0 12px;font-size:16px"></input></label>
+          <button onClick="{{ toInvite }}" style="height:48px;border-radius:12px;border:none;background:#02548A;color:#fff;font-weight:700;font-size:16px;cursor:pointer">Sign in</button>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ st.invite }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:16px 20px;display:flex;flex-direction:column;gap:14px">
+          <div style="font-size:13px;color:#5B6B7A">Signed in as <b>Dr. Ayesha Siddiqua</b> · BMDC A-60488</div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;padding:8px 0">
+            <div role="img" aria-label="Popular Hospital" style="width:64px;height:64px;border-radius:14px;background:#02548A url('assets/logo/hospital-mark.svg') center/cover no-repeat;color:#fff;display:grid;place-items:center;font-weight:700;font-size:20px"></div>
+            <div><b style="font-size:18px">Popular Hospital</b><div style="font-size:13px;color:#5B6B7A">House 16, Road 2, Dhanmondi, Dhaka 1205</div></div>
+            <div style="font-size:14px;text-wrap:balance">invited you to join their OPD</div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <div style="background:#F1F6F9;border-radius:10px;padding:10px 12px"><div style="font-size:12px;color:#5B6B7A">Department</div><b>Medicine</b></div>
+            <div style="background:#F1F6F9;border-radius:10px;padding:10px 12px"><div style="font-size:12px;color:#5B6B7A">Membership</div><b>OPD doctor</b></div>
+            <div style="background:#F1F6F9;border-radius:10px;padding:10px 12px"><div style="font-size:12px;color:#5B6B7A">Invited by</div><b style="font-size:14px">Md. Jalal Uddin</b></div>
+            <div style="background:#F1F6F9;border-radius:10px;padding:10px 12px"><div style="font-size:12px;color:#5B6B7A">Expires</div><b style="font-size:14px">in 4 days</b></div>
+          </div>
+          <div style="border:1px solid #BFD3E1;border-radius:12px;padding:12px 14px;display:flex;gap:10px;background:#F7FAFC">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#02548A" stroke-width="2" style="flex:none;margin-top:2px"><path d="M12 3l8 3v6c0 4.5-3.4 8.4-8 9-4.6-.6-8-4.5-8-9V6l8-3z"></path></svg>
+            <div style="font-size:14px;line-height:1.5"><b>Data policy</b><br>Patient data belongs to the hospital. If you leave, you keep read-only access to prescriptions you wrote.</div>
+          </div>
+          <div style="font-size:13px;color:#5B6B7A">After accepting you’ll set your own OPD days and slots. The hospital can only book into slots you publish.</div>
+          <button onClick="{{ accept }}" style="height:50px;border-radius:12px;border:none;background:#02548A;color:#fff;font-weight:700;font-size:16px;cursor:pointer">Accept invitation</button>
+          <button onClick="{{ openDecline }}" style="height:46px;border-radius:12px;border:1px solid #DCE6ED;background:#fff;color:#33485A;font-weight:600;cursor:pointer">Decline</button>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ st.decline }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:20px;display:flex;flex-direction:column;gap:12px">
+          <b style="font-size:18px">Decline invitation</b>
+          <div style="font-size:14px;color:#5B6B7A">Popular Hospital will see your reason.</div>
+          <sc-for list="{{ reasons }}" as="r" hint-placeholder-count="4"><button onClick="{{ r.pick }}" style="display:flex;gap:10px;align-items:center;text-align:left;padding:12px 14px;border-radius:12px;border:1.5px solid {{ r.bd }};background:{{ r.bg }};cursor:pointer;color:#10273A;font-size:14px"><span style="width:18px;height:18px;border-radius:99px;border:2px solid #02548A;display:grid;place-items:center;flex:none"><span style="width:8px;height:8px;border-radius:99px;background:{{ r.dot }}"></span></span>{{ r.label }}</button></sc-for>
+          <button onClick="{{ decline }}" style="height:48px;border-radius:12px;border:none;background:#B42318;color:#fff;font-weight:700;cursor:pointer;margin-top:6px">Decline</button>
+          <button onClick="{{ toInvite }}" style="height:44px;border-radius:12px;border:none;background:transparent;color:#5B6B7A;font-weight:600;cursor:pointer">Back</button>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ st.accepted }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:32px 24px;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center">
+          <div style="width:64px;height:64px;border-radius:99px;background:#E3F4EA;color:#1D7A46;display:grid;place-items:center;font-size:30px;font-weight:700">✓</div>
+          <b style="font-size:20px">You’ve joined Popular Hospital</b>
+          <div style="color:#5B6B7A;text-wrap:pretty">Medicine OPD. Reception can’t book you until you publish your schedule.</div>
+          <a href="Doctor%20App.dc.html#wizard" style="width:100%;height:50px;border-radius:12px;background:#02548A;color:#fff;font-weight:700;font-size:16px;display:grid;place-items:center;text-decoration:none;margin-top:8px">Set your OPD schedule →</a>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ st.declined }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:32px 24px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center"><b style="font-size:18px">Invitation declined</b><div style="color:#5B6B7A">Reason sent: {{ reasonText }}</div></div>
+      </sc-if>
+
+      <sc-if value="{{ st.expired }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:40px 24px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center">
+          <div style="width:56px;height:56px;border-radius:14px;background:#FFF0E0;color:#A34F00;display:grid;place-items:center;font-size:24px;font-weight:700">!</div>
+          <b style="font-size:18px">This invitation has expired</b>
+          <div style="color:#5B6B7A;text-wrap:pretty">Popular Hospital’s invite expired on 16 Nov 2026. Ask the hospital admin to send a new one.</div>
+          <a href="tel:09613787801" style="font-weight:600">Call Popular Hospital · 09613-787801</a>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ st.used }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:40px 24px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center">
+          <div style="width:56px;height:56px;border-radius:14px;background:#E6EFF5;color:#02548A;display:grid;place-items:center;font-size:24px;font-weight:700">✓</div>
+          <b style="font-size:18px">This link has already been used</b>
+          <div style="color:#5B6B7A;text-wrap:pretty">You joined Popular Hospital on 19 Nov 2026. Open IPMS to manage your OPD schedule.</div>
+          <a href="Doctor%20App.dc.html" style="font-weight:600">Open IPMS →</a>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ st.review }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:16px 20px;display:flex;flex-direction:column;gap:12px">
+          <div style="font-size:13px;font-weight:700;color:#0369A1">STEP 1 OF 3</div>
+          <b style="font-size:18px">Check your profile</b>
+          <div style="font-size:14px;color:#5B6B7A">Popular Hospital created this profile for you. Correct anything that’s wrong.</div>
+          <div style="display:flex;gap:12px;align-items:center"><div style="width:64px;height:64px;border-radius:14px;background:#E6EFF5;color:#02548A;display:grid;place-items:center;font-weight:700;font-size:20px">MK</div><button style="height:34px;padding:0 12px;border-radius:9px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600">Change photo</button></div>
+          <sc-for list="{{ profile }}" as="f" hint-placeholder-count="7"><label style="display:flex;flex-direction:column;gap:4px"><span style="font-size:13px;font-weight:600;color:#33485A">{{ f.l }}</span><input value="{{ f.v }}" onChange="{{ f.on }}" style="height:42px;border:1px solid #C9D6E0;border-radius:10px;padding:0 12px;font-size:14px;outline:none"></input></label></sc-for>
+          <button onClick="{{ toOtp }}" style="height:50px;border-radius:12px;border:none;background:#02548A;color:#fff;font-weight:700;font-size:16px;cursor:pointer;margin-top:4px">Looks right · continue</button>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ st.otp }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:16px 20px;display:flex;flex-direction:column;gap:12px">
+          <div style="font-size:13px;font-weight:700;color:#0369A1">STEP 2 OF 3</div>
+          <b style="font-size:18px">Verify your phone</b>
+          <div style="font-size:14px;color:#5B6B7A">We sent a 6-digit code to 01716-224093.</div>
+          <input value="{{ otp }}" onChange="{{ onOtp }}" inputmode="numeric" placeholder="••••••" style="height:58px;border:1.5px solid #9FC0D6;border-radius:12px;font-size:28px;letter-spacing:14px;text-align:center;font-weight:700;outline:none"></input>
+          <sc-if value="{{ otpErr }}" hint-placeholder-val="{{ false }}"><div style="font-size:14px;color:#B42318">{{ otpErr }}</div></sc-if>
+          <span style="font-size:13px;color:#5B6B7A">Any 6 digits work in this prototype; 000000 fails.</span>
+          <button onClick="{{ verifyOtp }}" style="height:50px;border-radius:12px;border:none;background:#02548A;color:#fff;font-weight:700;font-size:16px;cursor:pointer">Verify</button>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ st.password }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:16px 20px;display:flex;flex-direction:column;gap:12px">
+          <div style="font-size:13px;font-weight:700;color:#0369A1">STEP 3 OF 3</div>
+          <b style="font-size:18px">Set your IPMS password</b>
+          <div style="font-size:14px;color:#5B6B7A">You’ll use it to sign in and write prescriptions at every hospital you join.</div>
+          <input type="password" value="{{ pw }}" onChange="{{ onPw }}" placeholder="At least 8 characters" style="height:46px;border:1px solid #C9D6E0;border-radius:10px;padding:0 12px;font-size:16px;outline:none"></input>
+          <div style="height:6px;border-radius:99px;background:#E6EFF5;overflow:hidden"><div style="height:100%;width:{{ pwW }};background:{{ pwC }}"></div></div>
+          <span style="font-size:13px;color:#5B6B7A">{{ pwText }}</span>
+          <button onClick="{{ finish }}" style="height:50px;border-radius:12px;border:none;background:#02548A;color:#fff;font-weight:700;font-size:16px;cursor:pointer">Create account</button>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ st.claimed }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:32px 24px;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center">
+          <div style="width:64px;height:64px;border-radius:99px;background:#E3F4EA;color:#1D7A46;display:grid;place-items:center;font-size:30px;font-weight:700">✓</div>
+          <b style="font-size:20px">Profile claimed</b>
+          <div style="color:#5B6B7A;text-wrap:pretty">Your Popular Hospital invitation was accepted automatically. You can now write prescriptions in IPMS.</div>
+          <div style="width:100%;background:#F1F6F9;border-radius:12px;padding:12px;text-align:left;font-size:14px">Next: publish your Medicine OPD hours so reception can book you.</div>
+          <a href="Doctor%20App.dc.html#wizard" style="width:100%;height:50px;border-radius:12px;background:#02548A;color:#fff;font-weight:700;font-size:16px;display:grid;place-items:center;text-decoration:none">Set OPD schedule →</a>
+        </div>
+      </sc-if>
+    </div>
+  </x-import>
+  <div style="font-size:13px;color:#5B6B7A;max-width:420px;text-align:center">Responses sync to the hospital app in this prototype. Open <a href="IPMS%20OPD.dc.html#doctors">Admin · Doctors</a> to see the status change.</div>
+<a href="Prototype%20Index.dc.html" class="idx-link no-print" style="position:fixed;right:12px;bottom:12px;z-index:80;font-size:13px;font-weight:600;color:#5B6B7A;background:rgba(255,255,255,.9);border:1px solid #DCE6ED;border-radius:99px;padding:4px 10px;text-decoration:none">← Index</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;flow&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;invite&quot;,&quot;claim&quot;],&quot;default&quot;:&quot;invite&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Prototype&quot;}}">
+class Component extends DCLogic {
+  state={...this.fromHash(),step:'sms',reason:0,otp:'',otpErr:'',pw:'',prof:{name:'Dr. Mahmudul Karim',bn:'ডা. মাহমুদুল করিম',bmdc:'A-62715',phone:'01716-224093',deg:'MBBS, FCPS (Medicine)',spec:'Internal Medicine',desig:'Consultant'}};
+  fromHash(){ let h=''; try{ h=(window.location.hash||'').slice(1); }catch(e){} if(h==='claim') return {flow:'claim',link:'valid'}; if(h==='expired'||h==='used') return {flow:'invite',link:h}; return {flow:this.props.flow||'invite',link:'valid'}; }
+  REASONS=['My schedule is full','Location is too far','I’ll join later','Other'];
+  flag(k,v){ try{ const o=JSON.parse(localStorage.getItem('ipms_demo_flow')||'{}'); o[k]=v; localStorage.setItem('ipms_demo_flow',JSON.stringify(o)); }catch(e){} }
+  componentDidUpdate(pp){ if(this.props.flow&&pp.flow!==this.props.flow) this.setState({flow:this.props.flow,step:'sms'}); }
+  renderVals(){
+    const S=this.state, inv=S.flow==='invite';
+    const st={}; ['sms','signin','invite','decline','accepted','declined','expired','used','review','otp','password','claimed'].forEach(k=>st[k]=S.step===k);
+    const flows=[['invite','Invite · existing doctor'],['claim','Claim · hospital-created profile']].map(([k,l])=>({label:l,bg:S.flow===k?'#02548A':'transparent',fg:S.flow===k?'#fff':'#33485A',pick:()=>this.setState({flow:k,step:'sms',otp:'',otpErr:'',pw:''})}));
+    const linkStates=[['valid','Valid'],['expired','Expired'],['used','Already used']].map(([k,l])=>({label:l,bg:S.link===k?'#10273A':'#fff',fg:S.link===k?'#fff':'#33485A',bd:S.link===k?'#10273A':'#DCE6ED',pick:()=>this.setState({link:k,step:'sms'})}));
+    const P=S.prof, pf=(k,l)=>({l,v:P[k],on:e=>this.setState({prof:{...P,[k]:e.target.value}})});
+    const pwS=S.pw.length>=12?3:S.pw.length>=8?2:S.pw.length?1:0;
+    return {
+      flows,linkStates,isInvite:inv,st,w:390,h:844,
+      smsFrom:inv?'IPMS':'IPMS',
+      smsText:inv?'Popular Hospital invited you to join their Medicine OPD on IPMS. Respond here:':'Dr. Mahmudul Karim, Popular Hospital created your IPMS doctor profile. Claim it to start prescribing:',
+      smsLink:inv?'ipms.health/i/PH8K2Q':'ipms.health/c/7KQ2MX',
+      openLink:()=>this.setState({step:inv?(S.link==='expired'?'expired':S.link==='used'?'used':'signin'):'review'}),
+      toInvite:()=>this.setState({step:'invite'}),
+      accept:()=>{ this.flag('ayesha','accepted'); this.setState({step:'accepted'}); },
+      openDecline:()=>this.setState({step:'decline'}),
+      reasons:this.REASONS.map((r,i)=>({label:r,bd:S.reason===i?'#02548A':'#DCE6ED',bg:S.reason===i?'#F1F6F9':'#fff',dot:S.reason===i?'#02548A':'#fff',pick:()=>this.setState({reason:i})})),
+      decline:()=>{ this.flag('ayesha','declined:'+this.REASONS[S.reason]); this.setState({step:'declined'}); },reasonText:this.REASONS[S.reason],
+      profile:[pf('name','Name (English)'),pf('bn','Name (Bangla)'),pf('phone','Mobile'),pf('bmdc','BMDC no.'),pf('deg','Degrees'),pf('spec','Speciality'),pf('desig','Designation')],
+      toOtp:()=>this.setState({step:'otp'}),otp:S.otp,otpErr:S.otpErr,onOtp:e=>this.setState({otp:e.target.value.replace(/\D/g,'').slice(0,6),otpErr:''}),
+      verifyOtp:()=>{ if(S.otp.length!==6) return this.setState({otpErr:'Enter all 6 digits'}); if(S.otp==='000000') return this.setState({otpErr:'That code is incorrect'}); this.setState({step:'password'}); },
+      pw:S.pw,onPw:e=>this.setState({pw:e.target.value}),pwW:['0%','33%','66%','100%'][pwS],pwC:['#C9D6E0','#B42318','#A34F00','#1D7A46'][pwS],pwText:['Use 8 or more characters','Too short','Good','Strong'][pwS],
+      finish:()=>{ if(S.pw.length<8) return; this.flag('mahmud','claimed'); this.setState({step:'claimed'}); },
+      restart:()=>this.setState({step:'sms',otp:'',otpErr:'',pw:''})
+    };
+  }
+}
+
+</script>
+</body>
+</html>

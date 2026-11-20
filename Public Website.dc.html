@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700&amp;display=swap">
+<script src="./image-slot.js"></script>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#fff;font-family:'Noto Sans Bengali',sans-serif;-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font-family:inherit}
+a{color:#02548A;text-decoration:none}
+a:hover{color:#023A60;text-decoration:underline}
+html:not([data-lang="bn"]) .bn{display:none !important}
+html[data-lang="bn"] .en{display:none !important}
+@media print{.idx-link{display:none !important}}
+input:focus,select:focus,textarea:focus{box-shadow:0 0 0 3px rgba(14,165,233,.3) !important}
+button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outline-offset:2px}
+</style>
+</helmet>
+<div style="font-family:'Noto Sans Bengali',sans-serif;color:#10273A;font-size:14px;line-height:1.5;min-height:100vh;display:flex;flex-direction:column;background:#fff">
+  <div style="background:#02548A;color:#fff;font-size:13px">
+    <div style="max-width:1200px;margin:0 auto;padding:6px 24px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <span>House 16, Road 2, Dhanmondi, Dhaka 1205</span>
+      <span style="display:flex;gap:16px;flex-wrap:wrap"><span>Hotline <b>09613-787801</b></span><span><span class="en">Emergency 24/7</span><span class="bn">জরুরি</span><b style="color:#FFB866">01819-787800</b></span></span>
+    </div>
+  </div>
+  <header style="position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid #E6EFF5">
+    <div style="max-width:1200px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+      <button onClick="{{ go.home }}" style="display:flex;align-items:center;gap:10px;border:none;background:none;cursor:pointer;padding:0;color:#10273A;text-align:left">
+        <span role="img" aria-label="Popular Hospital" style="width:42px;height:42px;border-radius:10px;background:#02548A url('assets/logo/hospital-mark.svg') center/cover no-repeat;color:#fff;display:grid;place-items:center;font-weight:700"></span>
+        <span style="line-height:1.2"><b style="font-size:16px">Popular Hospital</b><br><span class="bn" style="font-size:13px;color:#5B6B7A">পপুলার হসপিটাল</span></span>
+      </button>
+      <nav style="flex:1;display:flex;gap:2px;flex-wrap:wrap;justify-content:flex-end">
+        <sc-for list="{{ nav }}" as="n" hint-placeholder-count="6">
+          <button onClick="{{ n.go }}" style="border:none;background:{{ n.bg }};color:{{ n.fg }};border-radius:8px;padding:6px 10px;cursor:pointer;line-height:1.2;text-align:center" style-hover="background:#F1F6F9"><span style="font-weight:600;font-size:14px">{{ n.label }}</span><br><span class="bn" style="font-size:12px;color:#5B6B7A">{{ n.bn }}</span></button>
+        </sc-for>
+      </nav>
+      <div style="display:flex;background:#F1F6F9;border:1px solid #DCE6ED;border-radius:8px;padding:2px;flex:none"><button onClick="{{ lang.toEn }}" style="height:28px;padding:0 10px;border:none;border-radius:6px;background:{{ lang.enBg }};color:{{ lang.enFg }};box-shadow:{{ lang.enSh }};font-weight:700;font-size:13px;cursor:pointer">EN</button><button onClick="{{ lang.toBn }}" style="height:28px;padding:0 10px;border:none;border-radius:6px;background:{{ lang.bnBg }};color:{{ lang.bnFg }};box-shadow:{{ lang.bnSh }};font-weight:700;font-size:13px;cursor:pointer">বাংলা</button></div>
+      <button onClick="{{ startBooking }}" style="height:42px;padding:0 18px;border-radius:9px;border:none;background:#02548A;color:#fff;font-weight:700;cursor:pointer" style-hover="background:#023A60">Book appointment</button>
+    </div>
+  </header>
+  <main style="flex:1">
+<sc-if value="{{ on.home }}" hint-placeholder-val="{{ true }}">
+  <section style="background:#F1F6F9">
+    <div style="max-width:1200px;margin:0 auto;padding:48px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:40px;align-items:center">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <span style="align-self:flex-start;font-size:13px;font-weight:600;color:#02548A;background:#fff;border:1px solid #DCE6ED;border-radius:99px;padding:3px 12px">Outpatient department · Sat–Thu</span>
+        <h1 style="margin:0;font-size:clamp(28px,6vw,40px);line-height:1.15;font-weight:700;text-wrap:balance">See a specialist in Dhanmondi without the wait</h1>
+        <p class="bn" style="margin:0;font-size:18px;color:#33485A">বিশেষজ্ঞ ডাক্তারের সিরিয়াল নিন অনলাইনে — বাসা থেকেই</p>
+        <p style="margin:0;color:#5B6B7A;max-width:500px;text-wrap:pretty">Pick a department and doctor, choose a free time, and confirm with your mobile number. Your token number arrives by SMS.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px">
+          <button onClick="{{ startBooking }}" style="height:48px;padding:0 22px;border-radius:10px;border:none;background:#02548A;color:#fff;font-weight:700;font-size:16px;cursor:pointer" style-hover="background:#023A60"><span class="en">Book appointment</span><span class="bn">সিরিয়াল নিন</span></button>
+          <button onClick="{{ go.doctors }}" style="height:48px;padding:0 20px;border-radius:10px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;font-size:16px;cursor:pointer" style-hover="background:#E6EFF5">Find a doctor</button>
+        </div>
+      </div>
+      <div style="position:relative;height:360px;border-radius:16px;overflow:hidden"><image-slot id="pub-hero" src="assets/img/hospital-hero.svg" shape="rounded" radius="16" placeholder="Hospital building or OPD photo"></image-slot></div>
+    </div>
+  </section>
+  <section style="max-width:1200px;margin:0 auto;padding:48px 24px 0;display:flex;flex-direction:column;gap:20px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap"><h2 style="margin:0;font-size:24px"><span class="en">Departments</span><span class="bn" style="font-weight:500;color:#5B6B7A;font-size:18px">বিভাগসমূহ</span></h2></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">
+      <sc-for list="{{ depts }}" as="d" hint-placeholder-count="6">
+        <button onClick="{{ d.pick }}" style="text-align:left;background:#fff;border:1px solid #DCE6ED;border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:4px;cursor:pointer;color:#10273A" style-hover="border-color:#02548A;box-shadow:0 0 0 3px #E6EFF5">
+          <span style="font-size:16px;font-weight:700"><span class="en">{{ d.name }}</span><span class="bn" style="font-weight:500;color:#5B6B7A">{{ d.bn }}</span></span>
+          <span style="font-size:14px;color:#5B6B7A">{{ d.desc }}</span>
+          <span style="font-size:13px;color:#02548A;font-weight:600;margin-top:6px">{{ d.count }} →</span>
+        </button>
+      </sc-for>
+    </div>
+  </section>
+  <section style="max-width:1200px;margin:0 auto;padding:48px 24px 0;display:flex;flex-direction:column;gap:20px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap"><h2 style="margin:0;font-size:24px"><span class="en">Our doctors</span><span class="bn" style="font-weight:500;color:#5B6B7A;font-size:18px">আমাদের ডাক্তার</span></h2><button onClick="{{ go.doctors }}" style="border:none;background:none;color:#02548A;font-weight:600;cursor:pointer">All doctors →</button></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px">
+      <sc-for list="{{ featured }}" as="d" hint-placeholder-count="4">
+        <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;overflow:hidden;display:flex;flex-direction:column">
+          <button onClick="{{ d.open }}" style="border:none;padding:0;cursor:pointer;height:180px;background:#E6EFF5;display:block;overflow:hidden"><img src="{{ d.photo }}" alt="{{ d.name }}" style="width:100%;height:100%;object-fit:cover;display:block"></button>
+          <div style="padding:14px;display:flex;flex-direction:column;gap:2px;flex:1">
+            <button onClick="{{ d.open }}" style="border:none;background:none;padding:0;text-align:left;cursor:pointer;font-weight:700;font-size:16px;color:#10273A">{{ d.name }}</button>
+            <span style="font-size:13px;color:#5B6B7A">{{ d.deg }}</span>
+            <span style="font-size:13px;color:#33485A">{{ d.deptName }} · {{ d.hours }}</span>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;gap:8px"><span style="font-size:13px;color:#1D7A46;font-weight:600">Next: {{ d.next }}</span><button onClick="{{ d.book }}" style="height:32px;padding:0 12px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:600;font-size:13px;cursor:pointer" style-hover="background:#023A60">Book</button></div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+  <section style="max-width:1200px;margin:0 auto;padding:48px 24px 0">
+    <button onClick="{{ go.campaign }}" style="width:100%;border:none;padding:0;cursor:pointer;text-align:left;background:#02548A;border-radius:16px;overflow:hidden;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));color:#fff">
+      <div style="padding:32px;display:flex;flex-direction:column;gap:10px">
+        <span style="align-self:flex-start;background:#FF8000;color:#1A0C00;font-weight:700;font-size:13px;border-radius:99px;padding:3px 12px">Upcoming health camp · Free</span>
+        <span style="font-size:26px;font-weight:700;line-height:1.2">Free Diabetes &amp; Blood Pressure Screening Camp</span>
+        <span class="bn" style="font-size:16px;color:#CFE3F1">বিনামূল্যে ডায়াবেটিস ও উচ্চ রক্তচাপ পরীক্ষা ক্যাম্প</span>
+        <span style="font-size:14px;color:#CFE3F1">Saturday, 28 Nov 2026 · 9:00 am – 1:00 pm · Ground floor lobby</span>
+        <span style="align-self:flex-start;margin-top:6px;background:#fff;color:#02548A;font-weight:700;border-radius:9px;padding:10px 18px">Register now · {{ regLeft }} spots left</span>
+      </div>
+      <div style="position:relative;min-height:220px"><image-slot id="pub-camp-teaser" src="assets/img/health-camp.svg" shape="rect" placeholder="Health camp banner"></image-slot></div>
+    </button>
+  </section>
+  <section style="max-width:1200px;margin:0 auto;padding:48px 24px 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:24px">
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline"><h2 style="margin:0;font-size:20px"><span class="en">Notices</span><span class="bn">নোটিশ</span></h2><button onClick="{{ go.notices }}" style="border:none;background:none;color:#02548A;font-weight:600;cursor:pointer">All →</button></div>
+      <sc-for list="{{ homeNotices }}" as="n" hint-placeholder-count="3"><button onClick="{{ n.open }}" style="text-align:left;border:none;border-bottom:1px solid #E6EFF5;background:none;padding:10px 0;cursor:pointer;color:#10273A;display:flex;flex-direction:column;gap:2px"><span style="font-size:13px;color:#5B6B7A">{{ n.date }}</span><b class="en">{{ n.title }}</b><span class="bn" style="font-size:14px;color:#5B6B7A">{{ n.bn }}</span></button></sc-for>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline"><h2 style="margin:0;font-size:20px"><span class="en">Health articles</span><span class="bn">স্বাস্থ্য পরামর্শ</span></h2><button onClick="{{ go.notices }}" style="border:none;background:none;color:#02548A;font-weight:600;cursor:pointer">All →</button></div>
+      <sc-for list="{{ homeArticles }}" as="n" hint-placeholder-count="3"><button onClick="{{ n.open }}" style="text-align:left;border:none;border-bottom:1px solid #E6EFF5;background:none;padding:10px 0;cursor:pointer;color:#10273A;display:flex;flex-direction:column;gap:2px"><span style="font-size:13px;color:#5B6B7A">{{ n.by }} · {{ n.read }}</span><b class="en">{{ n.title }}</b><span class="bn" style="font-size:14px;color:#5B6B7A">{{ n.bn }}</span></button></sc-for>
+    </div>
+  </section>
+  <section style="max-width:1200px;margin:0 auto;padding:48px 24px 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:24px;align-items:stretch">
+    <div style="background:#F1F6F9;border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:10px">
+      <h2 style="margin:0;font-size:20px"><span class="en">Contact</span><span class="bn">যোগাযোগ</span></h2>
+      <div><b>Address</b><br>House 16, Road 2, Dhanmondi, Dhaka 1205<br><span class="bn" style="color:#5B6B7A">বাড়ি ১৬, রোড ২, ধানমন্ডি, ঢাকা ১২০৫</span></div>
+      <div><b>Hotline</b> 09613-787801 · <b>Emergency</b> 01819-787800</div>
+      <div><b>OPD</b> Sat–Thu, 8:00 am – 9:00 pm · Friday closed</div>
+    </div>
+    <div style="min-height:240px;border-radius:14px;background:repeating-linear-gradient(135deg,#E6EFF5 0 12px,#F1F6F9 12px 24px);border:1px solid #DCE6ED;display:grid;place-items:center;color:#5B6B7A;font-size:14px;text-align:center;padding:16px">Map embed · Dhanmondi Road 2<br>(Google Maps)</div>
+  </section>
+</sc-if>
+
+<sc-if value="{{ on.doctors }}" hint-placeholder-val="{{ false }}">
+  <section style="max-width:1200px;margin:0 auto;padding:32px 24px 0;display:flex;flex-direction:column;gap:18px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
+      <h1 style="margin:0;font-size:30px"><span class="en">Find a doctor</span><span class="bn" style="font-weight:500;color:#5B6B7A;font-size:20px">ডাক্তার খুঁজুন</span></h1>
+      <input value="{{ docQ }}" onChange="{{ onDocQ }}" placeholder="Search doctor name" style="height:42px;width:320px;max-width:100%;border:1.5px solid #9FC0D6;border-radius:10px;padding:0 14px;font-size:14px;outline:none"></input>
+    </div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap">
+      <sc-for list="{{ docFilters }}" as="f" hint-placeholder-count="7"><button onClick="{{ f.pick }}" style="height:34px;padding:0 14px;border-radius:99px;border:1px solid {{ f.bd }};background:{{ f.bg }};color:{{ f.fg }};font-weight:600;font-size:14px;cursor:pointer">{{ f.label }} <span class="bn" style="font-weight:400">{{ f.bn }}</span></button></sc-for>
+    </div>
+    <sc-if value="{{ noDocs }}" hint-placeholder-val="{{ false }}"><div style="border:1px dashed #BFD3E1;border-radius:12px;padding:32px;text-align:center;color:#5B6B7A">No doctors match. Try another name or department.</div></sc-if>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <sc-for list="{{ dirDocs }}" as="d" hint-placeholder-count="5">
+        <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;padding:16px;display:flex;flex-wrap:wrap;gap:16px;align-items:center">
+          <div style="width:80px;height:80px;border-radius:12px;background:#E6EFF5;overflow:hidden;flex:none"><img src="{{ d.photo }}" alt="{{ d.name }}" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+          <div style="flex:1 1 200px;min-width:0;display:flex;flex-direction:column;gap:2px">
+            <button onClick="{{ d.open }}" style="border:none;background:none;padding:0;text-align:left;cursor:pointer;font-weight:700;font-size:16px;color:#10273A"><span class="en">{{ d.name }}</span><span class="bn" style="font-weight:500;color:#5B6B7A;font-size:14px">{{ d.bn }}</span></button>
+            <span style="font-size:14px;color:#33485A">{{ d.deg }} · {{ d.deptName }}</span>
+            <span style="font-size:14px;color:#5B6B7A">OPD {{ d.hours }} · Room {{ d.room }}</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px"><span style="font-size:13px;color:#1D7A46;font-weight:600">Next: {{ d.next }}</span><div style="display:flex;gap:6px"><button onClick="{{ d.open }}" style="height:36px;padding:0 12px;border-radius:8px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;cursor:pointer">Profile</button><button onClick="{{ d.book }}" style="height:36px;padding:0 14px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:600;cursor:pointer" style-hover="background:#023A60">Book</button></div></div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+</sc-if>
+
+<sc-if value="{{ on.doctor }}" hint-placeholder-val="{{ false }}">
+  <section style="max-width:1000px;margin:0 auto;padding:32px 24px 0;display:flex;flex-direction:column;gap:20px">
+    <button onClick="{{ go.doctors }}" style="align-self:flex-start;border:none;background:none;color:#02548A;font-weight:600;cursor:pointer;padding:0">← All doctors</button>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;align-items:start">
+      <div style="aspect-ratio:4/5;border-radius:14px;background:#E6EFF5;overflow:hidden"><img src="{{ doc.photo }}" alt="{{ doc.name }}" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div><h1 class="en" style="margin:0;font-size:28px">{{ doc.name }}</h1><div class="bn" style="font-size:18px;color:#5B6B7A">{{ doc.bn }}</div></div>
+        <div style="color:#33485A">{{ doc.deg }}<br><span class="en">{{ doc.deptName }}</span><span class="bn">{{ doc.deptBn }}</span> · {{ doc.exp }} experience</div>
+        <p style="margin:0;color:#33485A;max-width:560px;text-wrap:pretty">{{ doc.about }}</p>
+        <div style="border:1px solid #DCE6ED;border-radius:12px;overflow:hidden">
+          <div style="padding:10px 14px;background:#F7FAFC;border-bottom:1px solid #E6EFF5;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap"><b><span class="en">OPD days &amp; times</span><span class="bn">চেম্বারের সময়</span></b><span style="font-size:13px;color:#5B6B7A">Room {{ doc.room }}</span></div>
+          <sc-for list="{{ doc.sched }}" as="s" hint-placeholder-count="7"><div style="display:flex;justify-content:space-between;padding:8px 14px;border-bottom:1px solid #EEF3F6;color:{{ s.fg }}"><span style="font-weight:{{ s.w }}">{{ s.day }} <span class="bn" style="font-weight:400;color:#5B6B7A;font-size:13px">{{ s.bn }}</span></span><span>{{ s.time }}</span></div></sc-for>
+          <sc-if value="{{ doc.offNote }}" hint-placeholder-val="{{ false }}"><div style="padding:8px 14px;font-size:13px;color:#A34F00;background:#FFF6EC">{{ doc.offNote }}</div></sc-if>
+        </div>
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap"><button onClick="{{ bookThis }}" style="height:46px;padding:0 22px;border-radius:10px;border:none;background:#02548A;color:#fff;font-weight:700;font-size:16px;cursor:pointer" style-hover="background:#023A60"><span class="en">Book appointment</span><span class="bn">সিরিয়াল নিন</span></button><span style="font-size:14px;color:#1D7A46;font-weight:600">Next available: {{ doc.next }}</span></div>
+      </div>
+    </div>
+  </section>
+</sc-if>
+
+<sc-if value="{{ on.book }}" hint-placeholder-val="{{ false }}">
+  <section style="max-width:960px;margin:0 auto;padding:32px 24px 0;display:flex;flex-direction:column;gap:20px">
+    <h1 style="margin:0;font-size:28px"><span class="en">Book an appointment</span><span class="bn" style="font-weight:500;color:#5B6B7A;font-size:20px">অনলাইনে সিরিয়াল</span></h1>
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+      <sc-for list="{{ steps }}" as="s" hint-placeholder-count="5">
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="width:26px;height:26px;border-radius:99px;display:grid;place-items:center;font-size:13px;font-weight:700;background:{{ s.bg }};color:{{ s.fg }};border:1.5px solid {{ s.bd }}">{{ s.n }}</span>
+          <span style="line-height:1.15"><b style="font-size:14px;color:{{ s.tc }}">{{ s.label }}</b><br><span class="bn" style="font-size:12px;color:#5B6B7A">{{ s.bn }}</span></span>
+          <sc-if value="{{ s.line }}" hint-placeholder-val="{{ true }}"><span style="width:28px;height:2px;border-radius:2px;background:{{ s.lineC }}"></span></sc-if>
+        </div>
+      </sc-for>
+    </div>
+
+    <sc-if value="{{ s1 }}" hint-placeholder-val="{{ true }}">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">
+        <sc-for list="{{ bkDepts }}" as="d" hint-placeholder-count="6"><button onClick="{{ d.pick }}" style="text-align:left;background:#fff;border:1px solid #DCE6ED;border-radius:12px;padding:18px;cursor:pointer;color:#10273A;display:flex;flex-direction:column;gap:2px" style-hover="border-color:#02548A;box-shadow:0 0 0 3px #E6EFF5"><b class="en" style="font-size:16px">{{ d.name }}</b><span class="bn" style="color:#5B6B7A">{{ d.bn }}</span><span style="font-size:13px;color:#5B6B7A;margin-top:4px">{{ d.desc }}</span></button></sc-for>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ s2 }}" hint-placeholder-val="{{ false }}">
+      <button onClick="{{ bkBack1 }}" style="align-self:flex-start;border:none;background:none;color:#02548A;font-weight:600;cursor:pointer;padding:0">← {{ bDept.name }} · change department</button>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <sc-for list="{{ bkDocs }}" as="d" hint-placeholder-count="2">
+          <button onClick="{{ d.pick }}" style="text-align:left;background:#fff;border:1px solid #DCE6ED;border-radius:12px;padding:14px;display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:14px;align-items:center;cursor:pointer;color:#10273A" style-hover="border-color:#02548A;box-shadow:0 0 0 3px #E6EFF5">
+            <span style="width:64px;height:64px;border-radius:10px;background:#E6EFF5;overflow:hidden;flex:none;display:block"><img src="{{ d.photo }}" alt="{{ d.name }}" style="width:100%;height:100%;object-fit:cover;display:block"></span>
+            <span style="display:flex;flex-direction:column;gap:1px;min-width:0"><b style="font-size:16px">{{ d.name }}</b><span style="font-size:14px;color:#33485A">{{ d.deg }}</span><span style="font-size:13px;color:#5B6B7A">{{ d.hours }}</span></span>
+            <span style="font-size:13px;font-weight:600;color:#1D7A46;text-align:right">Next: {{ d.next }}<br><span style="color:#02548A">Choose →</span></span>
+          </button>
+        </sc-for>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ s3 }}" hint-placeholder-val="{{ false }}">
+      <button onClick="{{ bkBack2 }}" style="align-self:flex-start;border:none;background:none;color:#02548A;font-weight:600;cursor:pointer;padding:0">← {{ bkInfo.doc }} · change doctor</button>
+      <div style="display:grid;grid-template-columns:repeat(7,minmax(76px,1fr));gap:8px;overflow-x:auto">
+        <sc-for list="{{ dates }}" as="d" hint-placeholder-count="7"><button onClick="{{ d.pick }}" style="border:1px solid {{ d.bd }};background:{{ d.bg }};color:{{ d.fg }};border-radius:10px;padding:8px 4px;cursor:pointer;display:flex;flex-direction:column;align-items:center;line-height:1.25"><span style="font-size:13px;font-weight:600">{{ d.wd }}</span><b style="font-size:16px">{{ d.day }}</b><span style="font-size:13px;font-weight:600;color:{{ d.txtC }}">{{ d.txt }}</span></button></sc-for>
+      </div>
+      <sc-if value="{{ noSlots }}" hint-placeholder-val="{{ false }}"><div style="border:1px dashed #BFD3E1;border-radius:12px;padding:28px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px"><b style="font-size:16px"><span class="en">No slots available</span><span class="bn">স্লট খালি নেই</span></b><span style="color:#5B6B7A">{{ noSlotsText }}</span><sc-if value="{{ hasNext }}" hint-placeholder-val="{{ true }}"><button onClick="{{ goNext }}" style="height:38px;padding:0 16px;border-radius:9px;border:none;background:#02548A;color:#fff;font-weight:600;cursor:pointer">{{ nextText }}</button></sc-if></div></sc-if>
+      <sc-if value="{{ hasSlots }}" hint-placeholder-val="{{ true }}">
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:8px">
+          <sc-for list="{{ slots }}" as="s" hint-placeholder-count="12"><button onClick="{{ s.pick }}" style="height:46px;border-radius:9px;border:1px solid {{ s.bd }};background:{{ s.bg }};color:{{ s.fg }};text-decoration:{{ s.deco }};cursor:{{ s.cur }};font-weight:600;font-size:14px">{{ s.time }}</button></sc-for>
+        </div>
+      </sc-if>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border-top:1px solid #E6EFF5;padding-top:16px">
+        <span style="color:#33485A">{{ bkInfo.date }} · <b>{{ bkInfo.time }}</b> · {{ bkInfo.room }}</span>
+        <sc-if value="{{ hasSlot }}" hint-placeholder-val="{{ false }}"><button onClick="{{ toDetails }}" style="height:44px;padding:0 20px;border-radius:10px;border:none;background:#02548A;color:#fff;font-weight:700;cursor:pointer" style-hover="background:#023A60">Continue →</button></sc-if>
+        <sc-if value="{{ noSlotSel }}" hint-placeholder-val="{{ true }}"><span style="font-size:14px;color:#5B6B7A">Choose a time to continue</span></sc-if>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ s4 }}" hint-placeholder-val="{{ false }}">
+      <button onClick="{{ bkBack3 }}" style="align-self:flex-start;border:none;background:none;color:#02548A;font-weight:600;cursor:pointer;padding:0">← Change time</button>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:20px;align-items:start">
+        <div style="border:1px solid #DCE6ED;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:14px">
+          <b style="font-size:16px"><span class="en">Patient details</span><span class="bn">রোগীর তথ্য</span></b>
+          <label style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A"><span class="en">Patient name</span><span class="bn">রোগীর নাম</span></span><input value="{{ bk.name }}" onChange="{{ onBkName }}" placeholder="Full name" style="height:42px;border:1px solid #C9D6E0;border-radius:9px;padding:0 12px;font-size:14px;outline:none" style-focus="border-color:#0EA5E9;box-shadow:0 0 0 3px rgba(14,165,233,.18)"></input></label>
+          <div style="display:flex;gap:10px">
+            <label style="display:flex;flex-direction:column;gap:5px;width:90px"><span style="font-size:13px;font-weight:600;color:#33485A"><span class="en">Age</span><span class="bn">বয়স</span></span><input value="{{ bk.age }}" onChange="{{ onBkAge }}" placeholder="Years" style="height:42px;border:1px solid #C9D6E0;border-radius:9px;padding:0 12px;font-size:14px;outline:none"></input></label>
+            <div style="flex:1;display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A"><span class="en">Gender</span><span class="bn">লিঙ্গ</span></span><div style="display:flex;gap:6px"><sc-for list="{{ genders }}" as="g" hint-placeholder-count="3"><button onClick="{{ g.pick }}" style="flex:1;height:42px;border-radius:9px;border:1px solid {{ g.bd }};background:{{ g.bg }};color:{{ g.fg }};font-weight:600;font-size:14px;cursor:pointer">{{ g.label }}</button></sc-for></div></div>
+          </div>
+          <label style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A"><span class="en">Mobile number</span><span class="bn">মোবাইল নম্বর</span></span><input value="{{ bk.phone }}" onChange="{{ onBkPhone }}" placeholder="01XXXXXXXXX" style="height:42px;border:1px solid #C9D6E0;border-radius:9px;padding:0 12px;font-size:16px;outline:none;letter-spacing:.5px" style-focus="border-color:#0EA5E9;box-shadow:0 0 0 3px rgba(14,165,233,.18)"></input><span style="font-size:13px;color:#5B6B7A">Try 01712458930 to see a returning patient.</span></label>
+          <sc-if value="{{ otpNotSent }}" hint-placeholder-val="{{ true }}"><button onClick="{{ sendOtp }}" style="height:44px;border-radius:10px;border:none;background:#02548A;color:#fff;font-weight:700;cursor:pointer" style-hover="background:#023A60"><span class="en">Send verification code</span><span class="bn">কোড পাঠান</span></button></sc-if>
+          <sc-if value="{{ otpSent }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:8px;background:#F1F6F9;border-radius:10px;padding:14px">
+              <span style="font-size:14px">Enter the 6-digit code sent to <b>{{ bk.phone }}</b></span>
+              <input value="{{ bk.otp }}" onChange="{{ onOtp }}" placeholder="••••••" inputmode="numeric" style="height:50px;border:1.5px solid #9FC0D6;border-radius:10px;padding:0 14px;font-size:24px;letter-spacing:12px;text-align:center;font-weight:700;outline:none;background:#fff"></input>
+              <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px"><span style="color:#5B6B7A">Any 6 digits work in this prototype; 000000 fails.</span><sc-if value="{{ resendWait }}" hint-placeholder-val="{{ true }}"><span style="color:#5B6B7A">{{ resendText }}</span></sc-if><sc-if value="{{ canResend }}" hint-placeholder-val="{{ false }}"><button onClick="{{ sendOtp }}" style="border:none;background:none;color:#02548A;font-weight:600;cursor:pointer;padding:0">Resend code</button></sc-if></div>
+              <button onClick="{{ verify }}" style="height:44px;border-radius:10px;border:none;background:#02548A;color:#fff;font-weight:700;cursor:pointer" style-hover="background:#023A60">Verify &amp; confirm booking</button>
+            </div>
+          </sc-if>
+          <sc-if value="{{ bk.err }}" hint-placeholder-val="{{ false }}"><div style="font-size:14px;color:#B42318;background:#FDECEC;border-radius:8px;padding:8px 12px">{{ bk.err }}</div></sc-if>
+        </div>
+        <div style="background:#F7FAFC;border:1px solid #E6EFF5;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:8px">
+          <b>Your appointment</b>
+          <span><b>{{ bkInfo.doc }}</b><br><span style="font-size:14px;color:#5B6B7A">{{ bkInfo.deg }}</span></span>
+          <span style="font-size:14px">{{ bkInfo.dept }}</span>
+          <span style="font-size:14px">{{ bkInfo.date }} · <b>{{ bkInfo.time }}</b></span>
+          <span style="font-size:14px">{{ bkInfo.room }} · Popular Hospital, Dhanmondi</span>
+          <span style="font-size:13px;color:#5B6B7A;border-top:1px solid #E6EFF5;padding-top:8px;margin-top:4px">No payment is taken online. Show your token SMS at reception when you arrive.</span>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ s5 }}" hint-placeholder-val="{{ false }}">
+      <div style="border:1px solid #DCE6ED;border-radius:16px;overflow:hidden;max-width:560px;width:100%;align-self:center">
+        <div style="background:#02548A;color:#fff;padding:24px;text-align:center;display:flex;flex-direction:column;gap:4px">
+          <span style="font-size:14px;color:#CFE3F1"><span class="en">Appointment confirmed</span><span class="bn">সিরিয়াল নিশ্চিত হয়েছে</span></span>
+          <span style="font-size:14px;color:#CFE3F1;margin-top:8px"><span class="en">Your token</span><span class="bn">আপনার টোকেন</span></span>
+          <span style="font-size:64px;font-weight:700;line-height:1;color:#FFB866">{{ R.token }}</span>
+        </div>
+        <div style="padding:20px 24px;display:grid;grid-template-columns:110px 1fr;row-gap:8px;font-size:14px">
+          <span style="color:#5B6B7A">Patient</span><b>{{ R.name }} · {{ R.mrn }}</b>
+          <span style="color:#5B6B7A">Doctor</span><b>{{ bkInfo.doc }}</b>
+          <span style="color:#5B6B7A">Department</span><span>{{ bkInfo.dept }}</span>
+          <span style="color:#5B6B7A">Date &amp; time</span><b>{{ bkInfo.date }} · {{ bkInfo.time }}</b>
+          <span style="color:#5B6B7A">Room</span><span>{{ bkInfo.room }}</span>
+        </div>
+        <sc-if value="{{ isKnown }}" hint-placeholder-val="{{ false }}"><div style="margin:0 24px;font-size:14px;background:#E3F4EA;color:#1D7A46;border-radius:8px;padding:8px 12px">Welcome back. We matched your number to your existing record at Popular Hospital.</div></sc-if>
+        <sc-if value="{{ isNewP }}" hint-placeholder-val="{{ true }}"><div style="margin:0 24px;font-size:14px;background:#F1F6F9;color:#33485A;border-radius:8px;padding:8px 12px">A new patient record ({{ R.mrn }}) was created at Popular Hospital.</div></sc-if>
+        <div style="padding:16px 24px 24px;display:flex;flex-direction:column;gap:12px">
+          <span style="font-size:14px;color:#5B6B7A">We sent these details to {{ bk.phone }} by SMS. Please arrive 15 minutes early and show the SMS at reception.</span>
+          <div style="display:flex;gap:8px;flex-wrap:wrap"><button onClick="{{ bookAgain }}" style="height:40px;padding:0 16px;border-radius:9px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;cursor:pointer">Book another</button><button onClick="{{ go.home }}" style="height:40px;padding:0 16px;border-radius:9px;border:none;background:#02548A;color:#fff;font-weight:600;cursor:pointer">Back to home</button></div>
+        </div>
+      </div>
+    </sc-if>
+  </section>
+</sc-if>
+
+<sc-if value="{{ on.campaign }}" hint-placeholder-val="{{ false }}">
+  <section style="position:relative;height:320px;background:#02548A">
+    <image-slot id="pub-camp-banner" src="assets/img/health-camp.svg" shape="rect" placeholder="Campaign banner image (1600×500)"></image-slot>
+  </section>
+  <section style="max-width:1200px;margin:0 auto;padding:0 24px;position:relative;margin-top:-80px;display:flex;flex-direction:column;gap:28px">
+    <div style="background:#fff;border:1px solid #DCE6ED;border-radius:16px;padding:28px;box-shadow:0 12px 32px rgba(2,40,70,.10);display:flex;flex-wrap:wrap;gap:24px;align-items:center">
+      <div style="flex:1 1 260px;display:flex;flex-direction:column;gap:8px;min-width:0">
+        <span style="align-self:flex-start;background:#FF8000;color:#1A0C00;font-weight:700;font-size:13px;border-radius:99px;padding:3px 12px"><span class="en">Free health camp</span><span class="bn">বিনামূল্যে</span></span>
+        <h1 style="margin:0;font-size:30px;line-height:1.2;text-wrap:balance">Free Diabetes &amp; Blood Pressure Screening Camp</h1>
+        <div class="bn" style="font-size:18px;color:#33485A">বিনামূল্যে ডায়াবেটিস ও উচ্চ রক্তচাপ পরীক্ষা ক্যাম্প</div>
+        <div style="display:flex;gap:24px;flex-wrap:wrap;margin-top:6px;font-size:14px">
+          <span><span style="color:#5B6B7A;font-size:13px"><span class="en">Date</span><span class="bn">তারিখ</span></span><br><b>Saturday, 28 Nov 2026</b></span>
+          <span><span style="color:#5B6B7A;font-size:13px"><span class="en">Time</span><span class="bn">সময়</span></span><br><b>9:00 am – 1:00 pm</b></span>
+          <span><span style="color:#5B6B7A;font-size:13px"><span class="en">Venue</span><span class="bn">স্থান</span></span><br><b>Ground floor lobby, Popular Hospital, Dhanmondi</b></span>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
+          <button onClick="{{ share }}" style="height:36px;padding:0 14px;border-radius:8px;border:1px solid #DCE6ED;background:#fff;color:#1877F2;font-weight:600;cursor:pointer">Share on Facebook</button>
+          <button onClick="{{ share }}" style="height:36px;padding:0 14px;border-radius:8px;border:1px solid #DCE6ED;background:#fff;color:#1D7A46;font-weight:600;cursor:pointer">WhatsApp</button>
+          <button onClick="{{ share }}" style="height:36px;padding:0 14px;border-radius:8px;border:1px solid #DCE6ED;background:#fff;color:#33485A;font-weight:600;cursor:pointer">Copy link</button>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px;border:1px solid #E6EFF5;border-radius:12px">{{ qrBig }}<span style="font-size:13px;color:#5B6B7A">Scan to register</span></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:28px;align-items:start">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <h2 style="margin:0;font-size:20px"><span class="en">Booths</span><span class="bn">বুথসমূহ</span></h2>
+        <sc-for list="{{ booths }}" as="b" hint-placeholder-count="4">
+          <div style="display:flex;gap:14px;align-items:flex-start;padding:14px;border:1px solid #DCE6ED;border-radius:12px">
+            <span style="width:32px;height:32px;flex:none;border-radius:8px;background:#E6EFF5;color:#02548A;display:grid;place-items:center;font-weight:700">{{ b.n }}</span>
+            <div style="line-height:1.4"><b class="en">{{ b.name }}</b> <span class="bn" style="color:#5B6B7A">{{ b.bn }}</span><div style="font-size:14px;color:#33485A">{{ b.spec }} · {{ b.docs }}</div></div>
+          </div>
+        </sc-for>
+        <div style="font-size:14px;color:#5B6B7A;text-wrap:pretty">Come fasting if you can (no food for 8 hours) for an accurate sugar test. Bring any previous reports and your current medicines.</div>
+      </div>
+      <div style="border:1px solid #DCE6ED;border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:14px;background:#fff">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px"><h2 style="margin:0;font-size:20px"><span class="en">Register</span><span class="bn">নিবন্ধন</span></h2><span style="font-size:14px;color:#5B6B7A">{{ regCount }} of 300 registered</span></div>
+        <div style="height:6px;border-radius:99px;background:#E6EFF5;overflow:hidden"><div style="height:100%;width:{{ regPct }};background:#02548A"></div></div>
+        <sc-if value="{{ crForm }}" hint-placeholder-val="{{ true }}">
+          <label style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A"><span class="en">Full name</span><span class="bn">পুরো নাম</span></span><input value="{{ cr.name }}" onChange="{{ crOn.name }}" style="height:42px;border:1px solid #C9D6E0;border-radius:9px;padding:0 12px;font-size:14px;outline:none"></input></label>
+          <div style="display:flex;gap:10px">
+            <label style="flex:1;display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A"><span class="en">Mobile</span><span class="bn">মোবাইল</span></span><input value="{{ cr.phone }}" onChange="{{ crOn.phone }}" placeholder="01XXXXXXXXX" style="height:42px;border:1px solid #C9D6E0;border-radius:9px;padding:0 12px;font-size:14px;outline:none"></input></label>
+            <label style="width:90px;display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A"><span class="en">Age</span><span class="bn">বয়স</span></span><input value="{{ cr.age }}" onChange="{{ crOn.age }}" style="height:42px;border:1px solid #C9D6E0;border-radius:9px;padding:0 12px;font-size:14px;outline:none"></input></label>
+          </div>
+          <div style="display:flex;gap:6px"><sc-for list="{{ crGenders }}" as="g" hint-placeholder-count="3"><button onClick="{{ g.pick }}" style="flex:1;height:40px;border-radius:9px;border:1px solid {{ g.bd }};background:{{ g.bg }};color:{{ g.fg }};font-weight:600;cursor:pointer">{{ g.label }} <span class="bn" style="font-weight:400">{{ g.bn }}</span></button></sc-for></div>
+          <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:13px;font-weight:600;color:#33485A"><span class="en">Main booth</span><span class="bn">প্রধান বুথ</span></span>
+            <sc-for list="{{ booths }}" as="b" hint-placeholder-count="4"><button onClick="{{ b.pick }}" style="display:flex;gap:10px;align-items:center;text-align:left;padding:9px 12px;border-radius:9px;border:1.5px solid {{ b.bd }};background:{{ b.bg }};cursor:pointer;color:#10273A"><span style="width:14px;height:14px;border-radius:99px;border:2px solid #02548A;display:grid;place-items:center;flex:none"><span style="width:6px;height:6px;border-radius:99px;background:{{ b.dot }}"></span></span>{{ b.name }}</button></sc-for>
+          </div>
+          <sc-if value="{{ cr.err }}" hint-placeholder-val="{{ false }}"><div style="font-size:14px;color:#B42318;background:#FDECEC;border-radius:8px;padding:8px 12px">{{ cr.err }}</div></sc-if>
+          <button onClick="{{ register }}" style="height:46px;border-radius:10px;border:none;background:#02548A;color:#fff;font-weight:700;font-size:16px;cursor:pointer" style-hover="background:#023A60"><span class="en">Register for free</span><span class="bn">নিবন্ধন করুন</span></button>
+        </sc-if>
+        <sc-if value="{{ crDone }}" hint-placeholder-val="{{ false }}">
+          <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 0">
+            <span style="font-size:14px;color:#1D7A46;font-weight:700"><span class="en">You’re registered</span><span class="bn">নিবন্ধন সম্পন্ন</span></span>
+            <span style="font-size:40px;font-weight:700;color:#02548A;line-height:1.1">{{ cr.done.no }}</span>
+            <span style="color:#33485A">{{ cr.done.name }} · {{ cr.done.booth }}</span>
+            <span style="font-size:14px;color:#5B6B7A;max-width:340px;text-wrap:pretty">Show this number or the SMS at the camp check-in desk on 28 November.</span>
+            <button onClick="{{ newReg }}" style="margin-top:6px;height:38px;padding:0 14px;border-radius:9px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;cursor:pointer">Register someone else</button>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+</sc-if>
+
+<sc-if value="{{ on.notices }}" hint-placeholder-val="{{ false }}">
+  <section style="max-width:1000px;margin:0 auto;padding:32px 24px 0;display:flex;flex-direction:column;gap:16px">
+    <h1 style="margin:0;font-size:28px"><span class="en">Notices &amp; health articles</span><span class="bn" style="font-weight:500;color:#5B6B7A;font-size:20px">নোটিশ ও স্বাস্থ্য পরামর্শ</span></h1>
+    <sc-for list="{{ posts }}" as="p" hint-placeholder-count="6">
+      <button onClick="{{ p.open }}" style="text-align:left;border:1px solid #DCE6ED;background:#fff;border-radius:12px;padding:16px 18px;cursor:pointer;color:#10273A;display:flex;flex-direction:column;gap:4px" style-hover="border-color:#02548A">
+        <span style="display:flex;gap:8px;align-items:center;font-size:13px;color:#5B6B7A"><span style="font-weight:700;border-radius:99px;padding:1px 8px;background:{{ p.tagBg }};color:{{ p.tagFg }}">{{ p.kind }}</span>{{ p.date }}</span>
+        <b class="en" style="font-size:16px">{{ p.title }}</b>
+        <span class="bn" style="color:#5B6B7A">{{ p.bn }}</span>
+      </button>
+    </sc-for>
+  </section>
+</sc-if>
+
+<sc-if value="{{ on.article }}" hint-placeholder-val="{{ false }}">
+  <article style="max-width:720px;margin:0 auto;padding:32px 24px 0;display:flex;flex-direction:column;gap:16px">
+    <button onClick="{{ go.notices }}" style="align-self:flex-start;border:none;background:none;color:#02548A;font-weight:600;cursor:pointer;padding:0">← Notices &amp; articles</button>
+    <span style="display:flex;gap:8px;align-items:center;font-size:13px;color:#5B6B7A"><span style="font-weight:700;border-radius:99px;padding:1px 8px;background:{{ art.tagBg }};color:{{ art.tagFg }}">{{ art.kind }}</span>{{ art.date }}</span>
+    <h1 class="en" style="margin:0;font-size:30px;line-height:1.25;text-wrap:balance">{{ art.title }}</h1>
+    <div class="bn" style="font-size:18px;color:#33485A">{{ art.bn }}</div>
+    <sc-if value="{{ artIsArt }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;gap:10px;align-items:center;font-size:14px;color:#5B6B7A;border-top:1px solid #E6EFF5;border-bottom:1px solid #E6EFF5;padding:10px 0"><b style="color:#10273A">{{ art.by }}</b> · {{ art.dept }} · {{ art.read }}</div>
+      <div style="position:relative;height:300px;border-radius:12px;overflow:hidden"><image-slot id="pub-article-cover" src="assets/img/article-cover.svg" shape="rounded" radius="12" placeholder="Article cover image"></image-slot></div>
+    </sc-if>
+    <sc-for list="{{ artBody }}" as="b" hint-placeholder-count="3"><p style="margin:0;font-size:16px;line-height:1.7;color:#22384B;text-wrap:pretty">{{ b.t }}</p></sc-for>
+  </article>
+</sc-if>
+
+<sc-if value="{{ on.gallery }}" hint-placeholder-val="{{ false }}">
+  <section style="max-width:1200px;margin:0 auto;padding:32px 24px 0;display:flex;flex-direction:column;gap:18px">
+    <h1 style="margin:0;font-size:28px"><span class="en">Gallery</span><span class="bn" style="font-weight:500;color:#5B6B7A;font-size:20px">গ্যালারি</span></h1>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px">
+      <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="6">
+        <figure style="margin:0;display:flex;flex-direction:column;gap:8px"><div style="position:relative;height:220px;border-radius:12px;overflow:hidden"><image-slot id="{{ g.id }}" src="{{ g.src }}" shape="rounded" radius="12" placeholder="Gallery photo"></image-slot></div><figcaption style="font-size:14px;color:#33485A">{{ g.cap }}</figcaption></figure>
+      </sc-for>
+    </div>
+  </section>
+</sc-if>
+  </main>
+  <footer style="background:#0B2236;color:#C9DDEA;margin-top:56px">
+    <div style="max-width:1200px;margin:0 auto;padding:36px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;font-size:14px">
+      <div style="display:flex;flex-direction:column;gap:6px"><b style="color:#fff;font-size:16px"><span class="en">Popular Hospital</span><span class="bn">পপুলার হসপিটাল</span></b><span>House 16, Road 2, Dhanmondi, Dhaka 1205</span><span>Hotline 09613-787801</span><span>info@popular.ipms.health</span></div>
+      <div style="display:flex;flex-direction:column;gap:6px"><b style="color:#fff"><span class="en">OPD hours</span><span class="bn">বহির্বিভাগ</span></b><span>Saturday – Thursday, 8:00 am – 9:00 pm</span><span><span class="en">Friday closed</span><span class="bn">শুক্রবার বন্ধ</span></span><span>Emergency open 24 hours</span></div>
+      <div style="display:flex;flex-direction:column;gap:6px"><b style="color:#fff">Quick links</b><button onClick="{{ go.doctors }}" style="border:none;background:none;color:#C9DDEA;padding:0;text-align:left;cursor:pointer;font-size:14px">Find a doctor</button><button onClick="{{ go.campaign }}" style="border:none;background:none;color:#C9DDEA;padding:0;text-align:left;cursor:pointer;font-size:14px">Health camps</button><button onClick="{{ go.notices }}" style="border:none;background:none;color:#C9DDEA;padding:0;text-align:left;cursor:pointer;font-size:14px">Notices &amp; articles</button></div>
+      <div style="display:flex;flex-direction:column;gap:6px;justify-content:flex-end;font-size:13px;color:#8FB0C6"><span style="display:flex;align-items:center;gap:6px"><span style="width:7px;height:7px;border-radius:99px;background:#FF8000"></span>popular.ipms.health · powered by IPMS</span><a href="IPMS%20OPD.dc.html" style="color:#8FB0C6">Staff login</a></div>
+    </div>
+  </footer>
+  <sc-if value="{{ toast }}" hint-placeholder-val="{{ false }}"><div style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#10273A;color:#fff;padding:10px 16px;border-radius:10px;font-weight:600;box-shadow:0 10px 28px rgba(2,40,70,.25);z-index:60">{{ toast }}</div></sc-if>
+<a href="Prototype%20Index.dc.html" class="idx-link no-print" style="position:fixed;right:12px;bottom:12px;z-index:80;font-size:13px;font-weight:600;color:#5B6B7A;background:rgba(255,255,255,.9);border:1px solid #DCE6ED;border-radius:99px;padding:4px 10px;text-decoration:none">← Index</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;startPage&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;doctors&quot;,&quot;doctor&quot;,&quot;book&quot;,&quot;campaign&quot;,&quot;notices&quot;,&quot;article&quot;,&quot;gallery&quot;],&quot;default&quot;:&quot;home&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Prototype&quot;}}">
+class Component extends DCLogic {
+  langInit = (()=>{ try{ const l=localStorage.getItem('ipms_lang')||'en'; document.documentElement.setAttribute('data-lang',l); return l; }catch(e){ return 'en'; } })();
+  setLang(l){ try{ localStorage.setItem('ipms_lang',l); }catch(e){} document.documentElement.setAttribute('data-lang',l); this.setState({lang:l}); }
+  renderVals(){ const v=this.renderVals0(); const l=(this.state&&this.state.lang)||this.langInit; const a=k=>l===k; return {...v,lang:{enBg:a('en')?'#fff':'transparent',enFg:a('en')?'#02548A':'#5B6B7A',enSh:a('en')?'0 1px 2px rgba(2,40,70,.15)':'none',bnBg:a('bn')?'#fff':'transparent',bnFg:a('bn')?'#02548A':'#5B6B7A',bnSh:a('bn')?'0 1px 2px rgba(2,40,70,.15)':'none',toEn:()=>this.setLang('en'),toBn:()=>this.setLang('bn')}}; }
+  PAGES=['home','doctors','doctor','book','campaign','notices','article','gallery'];
+  DEPTS=[{id:'med',name:'Medicine',bn:'মেডিসিন',desc:'Fever, diabetes, blood pressure, infections'},{id:'card',name:'Cardiology',bn:'কার্ডিওলজি',desc:'Heart disease, chest pain, ECG, echo'},{id:'paed',name:'Paediatrics',bn:'শিশু রোগ',desc:'Children from newborn to 16 years'},{id:'gyn',name:'Gynae & Obstetrics',bn:'স্ত্রীরোগ ও প্রসূতি',desc:'Pregnancy care, women’s health'},{id:'ortho',name:'Orthopaedics',bn:'অর্থোপেডিক্স',desc:'Bones, joints, back pain, fractures'},{id:'ent',name:'ENT',bn:'নাক-কান-গলা',desc:'Ear, nose, throat, hearing'}];
+  DOCS=[
+    {id:'d1',n:1,name:'Dr. Farhana Rahman',bn:'ডা. ফারহানা রহমান',deg:'MBBS, FCPS (Medicine)',dept:'med',room:'201',pre:'M',days:[6,0,1,2,3,4],start:540,end:780,len:10,brk:[660,680],exp:'14 years',about:'Consultant in internal medicine with a focus on diabetes, hypertension and respiratory infections.'},
+    {id:'d2',n:2,name:'Dr. Tanvir Hasan',bn:'ডা. তানভীর হাসান',deg:'MBBS, MD (Internal Medicine)',dept:'med',room:'202',pre:'N',days:[6,0,1,2,3,4],start:660,end:900,len:15,brk:[780,810],off:[4],exp:'9 years',about:'Treats fever, infectious diseases, thyroid and chronic kidney conditions.'},
+    {id:'d3',n:3,name:'Dr. Nusrat Jahan',bn:'ডা. নুসরাত জাহান',deg:'MBBS, MD (Cardiology)',dept:'card',room:'305',pre:'C',days:[6,1,3,4],start:600,end:780,len:15,exp:'16 years',about:'Cardiologist for chest pain, heart failure, rhythm problems and preventive heart check-ups.'},
+    {id:'d4',n:4,name:'Dr. Mahbub Alam',bn:'ডা. মাহবুব আলম',deg:'MBBS, DCH, FCPS (Paediatrics)',dept:'paed',room:'108',pre:'P',days:[6,0,1,2,3,4],start:480,end:630,len:10,exp:'18 years',about:'Child specialist for newborn care, growth, vaccination advice and childhood asthma.'},
+    {id:'d5',n:5,name:'Dr. Sharmin Akter',bn:'ডা. শারমিন আক্তার',deg:'MBBS, FCPS (Obs & Gynae)',dept:'gyn',room:'210',pre:'G',days:[0,2,4],start:570,end:750,len:15,exp:'12 years',about:'Antenatal care, high-risk pregnancy, menstrual problems and menopause care.'},
+    {id:'d6',n:6,name:'Dr. Rafiqul Islam',bn:'ডা. রফিকুল ইসলাম',deg:'MBBS, MS (Orthopaedics)',dept:'ortho',room:'112',pre:'O',days:[6,1,4],start:900,end:1080,len:15,exp:'20 years',about:'Joint pain, sports injuries, back pain and fracture follow-up.'},
+    {id:'d7',n:7,name:'Dr. Selina Parvin',bn:'ডা. সেলিনা পারভীন',deg:'MBBS, DLO (ENT)',dept:'ent',room:'118',pre:'E',days:[0,2,4],start:600,end:720,len:10,exp:'11 years',about:'Ear infections, sinus problems, tonsils and hearing assessment.'}
+  ];
+  DAYS=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  DAYSL=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  DAYSBN=['রবিবার','সোমবার','মঙ্গলবার','বুধবার','বৃহস্পতিবার','শুক্রবার','শনিবার'];
+  NOTICES=[
+    {id:'n1',kind:'Notice',date:'18 Nov 2026',title:'OPD closed on Friday, 20 November',bn:'শুক্রবার ২০ নভেম্বর বহির্বিভাগ বন্ধ',body:'Outpatient services are closed on Fridays. Emergency and pharmacy remain open 24 hours.'},
+    {id:'n2',kind:'Notice',date:'15 Nov 2026',title:'Dr. Tanvir Hasan unavailable on Monday, 23 November',bn:'২৩ নভেম্বর ডা. তানভীর হাসান অনুপস্থিত',body:'Patients booked for that day have been contacted by SMS to reschedule. Dr. Farhana Rahman holds Medicine OPD as usual.'},
+    {id:'n3',kind:'Notice',date:'10 Nov 2026',title:'Victory Day holiday — 16 December',bn:'বিজয় দিবসে বহির্বিভাগ বন্ধ',body:'All OPD chambers are closed on 16 December. Online booking reopens for 17 December.'}
+  ];
+  ARTICLES=[
+    {id:'a1',kind:'Article',date:'12 Nov 2026',title:'Pneumonia in children this winter: when to see a doctor',bn:'শীতে শিশুর নিউমোনিয়া: কখন ডাক্তার দেখাবেন',by:'Dr. Mahbub Alam',dept:'Paediatrics',read:'4 min read',body:['Coughs and colds are common in winter, and most get better at home with rest, fluids and time. Pneumonia is different: it affects the lungs and needs a doctor’s assessment.','Bring your child to a doctor the same day if they breathe fast, if you see the skin between the ribs pulling in with each breath, if they have a fever for more than three days, or if they refuse to feed.','Go to emergency straight away if your child’s lips look blue, if they are unusually drowsy or hard to wake, or if a baby under two months has any fever.','শিশুর দ্রুত শ্বাস, বুকের পাঁজর দেবে যাওয়া বা তিন দিনের বেশি জ্বর থাকলে দেরি না করে ডাক্তার দেখান।']},
+    {id:'a2',kind:'Article',date:'02 Nov 2026',title:'Checking your blood pressure at home',bn:'বাড়িতে রক্তচাপ মাপার সঠিক নিয়ম',by:'Dr. Farhana Rahman',dept:'Medicine',read:'3 min read',body:['Sit quietly for five minutes before measuring, with your back supported and feet flat on the floor.','Rest your arm at heart level and use a cuff that fits. Take two readings a minute apart and write both down.','Bring your notebook to your next visit. A week of readings tells your doctor far more than a single measurement in the clinic.']},
+    {id:'a3',kind:'Article',date:'24 Oct 2026',title:'Dengue: warning signs after the fever drops',bn:'ডেঙ্গু: জ্বর কমার পরের সতর্কসংকেত',by:'Dr. Tanvir Hasan',dept:'Medicine',read:'3 min read',body:['In dengue, the riskiest days often begin as the fever settles, usually on day three to seven.','Seek care quickly for severe stomach pain, repeated vomiting, bleeding from gums or nose, black stools, or feeling restless and very tired.','Drink plenty of fluids and use paracetamol only for fever. Avoid painkillers such as ibuprofen and aspirin unless a doctor advises them.']}
+  ];
+  BOOTHS=[
+    {id:'b1',name:'Blood sugar & blood pressure',bn:'রক্তে শর্করা ও রক্তচাপ',spec:'Medicine',docs:'Dr. Farhana Rahman, Dr. Tanvir Hasan'},
+    {id:'b2',name:'Heart check & ECG',bn:'হৃদ্‌রোগ পরীক্ষা ও ইসিজি',spec:'Cardiology',docs:'Dr. Nusrat Jahan'},
+    {id:'b3',name:'Child growth & nutrition',bn:'শিশুর বৃদ্ধি ও পুষ্টি',spec:'Paediatrics',docs:'Dr. Mahbub Alam'},
+    {id:'b4',name:'Women’s health',bn:'নারী স্বাস্থ্য',spec:'Gynae & Obstetrics',docs:'Dr. Sharmin Akter'}
+  ];
+  state={page:(()=>{ try{ const h=(window.location.hash||'').slice(1); if(['home','doctors','doctor','book','campaign','notices','article','gallery'].includes(h)) return h; }catch(e){} return this.props.startPage||'home'; })(),docId:'d1',docFilter:'all',docQ:'',bk:this.blankBk(),art:'a1',cr:{name:'',phone:'',age:'',gender:'F',booth:'b1',err:'',done:null},regCount:212,toast:''};
+  componentDidUpdate(pp){ if(this.props.startPage&&pp.startPage!==this.props.startPage) this.go(this.props.startPage); }
+  componentWillUnmount(){ clearTimeout(this._t); clearInterval(this._r); }
+  blankBk(){ return {step:1,dept:null,doc:null,di:0,slot:null,name:'',phone:'',age:'',gender:'M',otpSent:false,otp:'',err:'',resend:0,result:null}; }
+  go(p){ this.setState({page:p}); try{window.scrollTo(0,0);}catch(e){} }
+  toast(m){ clearTimeout(this._t); this.setState({toast:m}); this._t=setTimeout(()=>this.setState({toast:''}),2600); }
+  setBk(o){ this.setState(s=>({bk:{...s.bk,...o}})); }
+  h(a,b,c){ let x=Math.imul(a+7,374761393)^Math.imul(b+3,668265263)^Math.imul(c+11,-2048144777); x=Math.imul(x^(x>>>13),1274126177); return ((x^(x>>>16))>>>0)%1000/1000; }
+  fmt(t){ const h=Math.floor(t/60),m=t%60; return (((h+11)%12)+1)+':'+String(m).padStart(2,'0')+(h<12?' am':' pm'); }
+  ini(n){ return n.replace(/^Dr\.\s*/,'').split(' ').slice(0,2).map(w=>w[0]).join(''); }
+  GALLERY_IMG={g1:'assets/img/gallery-waiting-area.svg',g2:'assets/img/gallery-eye-camp.svg',g3:'assets/img/gallery-cath-lab.svg',g4:'assets/img/gallery-heart-walk.svg',g5:'assets/img/gallery-play-corner.svg',g6:'assets/img/gallery-blood-donation.svg'};
+  photo(n){ return 'assets/avatars/'+n.replace(/^Dr\.\s*/,'').toLowerCase().replace(/[^a-z]+/g,'-')+'.svg'; }
+  date(di){ const d=new Date(2026,10,19+di); const mon=d.getMonth()===10?'Nov':'Dec'; return {dow:d.getDay(),day:d.getDate(),mon,wd:this.DAYS[d.getDay()],full:this.DAYS[d.getDay()]+', '+d.getDate()+' '+mon+' 2026'}; }
+  daysText(days){ const o=[6,0,1,2,3,4].filter(d=>days.includes(d)); if(o.length===6) return 'Sat–Thu'; return o.map(d=>this.DAYS[d]).join(', '); }
+  slots(doc,di){ const dt=this.date(di); if(!doc.days.includes(dt.dow)||(doc.off||[]).includes(di)) return null; const r=[]; let i=0; for(let t=doc.start;t<doc.end;t+=doc.len,i++){ let st='free'; if(doc.brk&&t>=doc.brk[0]&&t<doc.brk[1]) st='blocked'; else if(this.h(doc.n,di,i)<(di===0?(doc.id==='d4'?1.01:0.82):Math.max(0.12,0.55-di*0.07))) st='booked'; else if(di===0&&t<650) st='past'; r.push({time:this.fmt(t),st}); } return r; }
+  nextFree(doc,from){ for(let i=from;i<7;i++){ const s=this.slots(doc,i); if(s&&s.some(x=>x.st==='free')) return i; } return -1; }
+  qr(seed,size){
+    const N=25, cells=[]; const fin=(x,y)=>{ const f=(a,b)=>x>=a&&x<a+7&&y>=b&&y<b+7; return f(0,0)||f(N-7,0)||f(0,N-7); };
+    const finOn=(x,y)=>{ for(const [a,b] of [[0,0],[N-7,0],[0,N-7]]){ if(x>=a&&x<a+7&&y>=b&&y<b+7){ const u=x-a,v=y-b; return u===0||u===6||v===0||v===6||(u>=2&&u<=4&&v>=2&&v<=4); } } return false; };
+    for(let y=0;y<N;y++) for(let x=0;x<N;x++){ const on=fin(x,y)?finOn(x,y):this.h(seed,x,y)<0.48; if(on) cells.push(React.createElement('rect',{key:x+'-'+y,x,y,width:1,height:1})); }
+    return React.createElement('svg',{viewBox:'-1 -1 '+(N+2)+' '+(N+2),width:size,height:size,style:{background:'#fff',display:'block'},fill:'#10273A',shapeRendering:'crispEdges'},cells);
+  }
+  renderVals0(){
+    const S=this.state, B=S.bk;
+    const go={}, on={}; this.PAGES.forEach(p=>{ go[p]=()=>this.go(p); on[p]=S.page===p; });
+    const deptBy=id=>this.DEPTS.find(d=>d.id===id)||{};
+    const docBy=id=>this.DOCS.find(d=>d.id===id);
+    const navAct=p=>S.page===p||(p==='doctors'&&S.page==='doctor')||(p==='notices'&&S.page==='article');
+    const nav=[['home','Home','হোম'],['doctors','Doctors','ডাক্তার'],['campaign','Health camps','স্বাস্থ্য ক্যাম্প'],['notices','Notices & articles','নোটিশ ও লেখা'],['gallery','Gallery','গ্যালারি']].map(([k,l,b])=>({label:l,bn:b,bg:navAct(k)?'#E6EFF5':'transparent',fg:navAct(k)?'#02548A':'#10273A',go:go[k]}));
+    const openDoc=id=>()=>{ this.setState({docId:id}); this.go('doctor'); };
+    const bookDoc=id=>()=>{ const d=docBy(id), nf=this.nextFree(d,0); this.setState({bk:{...this.blankBk(),step:3,dept:d.dept,doc:id,di:Math.max(0,nf)}}); this.go('book'); };
+    const docCard=d=>{ const nf=this.nextFree(d,0); return {...d,ini:this.ini(d.name),photo:this.photo(d.name),deptName:deptBy(d.dept).name,deptBn:deptBy(d.dept).bn,hours:this.daysText(d.days)+' · '+this.fmt(d.start)+' – '+this.fmt(d.end),next:nf===0?'Today':nf>0?this.date(nf).wd+' '+this.date(nf).day+' '+this.date(nf).mon:'—',open:openDoc(d.id),book:bookDoc(d.id)}; };
+    const depts=this.DEPTS.map(d=>({...d,count:this.DOCS.filter(x=>x.dept===d.id).length+(this.DOCS.filter(x=>x.dept===d.id).length===1?' doctor':' doctors'),pick:()=>{ this.setState({docFilter:d.id}); this.go('doctors'); }}));
+    const featured=['d1','d3','d4','d5'].map(id=>docCard(docBy(id)));
+    const q=S.docQ.trim().toLowerCase();
+    const dirDocs=this.DOCS.filter(d=>(S.docFilter==='all'||d.dept===S.docFilter)&&(!q||d.name.toLowerCase().includes(q)||d.bn.includes(S.docQ.trim()))).map(docCard);
+    const docFilters=[{id:'all',name:'All',bn:'সব'}].concat(this.DEPTS).map(d=>({label:d.name,bn:d.bn,bg:S.docFilter===d.id?'#02548A':'#fff',fg:S.docFilter===d.id?'#fff':'#33485A',bd:S.docFilter===d.id?'#02548A':'#DCE6ED',pick:()=>this.setState({docFilter:d.id})}));
+    const dd=docBy(S.docId), doc={...docCard(dd),sched:[6,0,1,2,3,4,5].map(k=>{ const o=dd.days.includes(k); return {day:this.DAYSL[k],bn:this.DAYSBN[k],time:o?this.fmt(dd.start)+' – '+this.fmt(dd.end):(k===5?'Closed':'No OPD'),fg:o?'#10273A':'#9AABB8',w:o?'600':'400'}; }),offNote:dd.off?'Unavailable Mon, 23 Nov 2026':''};
+    // booking
+    const bDoc=B.doc?docBy(B.doc):null, bDept=deptBy(B.dept);
+    const steps=[['Department','বিভাগ'],['Doctor','ডাক্তার'],['Time','সময়'],['Verify phone','ফোন যাচাই'],['Done','সম্পন্ন']].map((x,i)=>{ const n=i+1, done=B.step>n, cur=B.step===n; return {n:done?'✓':String(n),label:x[0],bn:x[1],bg:cur||done?'#02548A':'#fff',fg:cur||done?'#fff':'#8596A4',bd:cur||done?'#02548A':'#C9D6E0',tc:cur?'#10273A':done?'#02548A':'#8596A4',line:i<4,lineC:done?'#02548A':'#DCE6ED'}; });
+    const bkDepts=this.DEPTS.map(d=>({...d,pick:()=>this.setBk({dept:d.id,step:2})}));
+    const bkDocs=B.dept?this.DOCS.filter(d=>d.dept===B.dept).map(d=>({...docCard(d),pick:()=>{ const nf=this.nextFree(d,0); this.setBk({doc:d.id,step:3,di:Math.max(0,nf),slot:null}); }})):[];
+    const bSl=bDoc?this.slots(bDoc,B.di):null;
+    const dates=[0,1,2,3,4,5,6].map(i=>{ const dt=this.date(i), s=bDoc?this.slots(bDoc,i):null, f=s?s.filter(x=>x.st==='free').length:0, a=B.di===i; return {wd:i===0?'Today':dt.wd,day:dt.day+' '+dt.mon,txt:!s?(dt.dow===5?'Closed':'No OPD'):f?f+' free':'Full',txtC:a?'#CFE3F1':!s?'#8596A4':f?'#1D7A46':'#B42318',bg:a?'#02548A':'#fff',fg:a?'#fff':'#10273A',bd:a?'#02548A':'#DCE6ED',pick:()=>this.setBk({di:i,slot:null})}; });
+    const slots=(bSl||[]).filter(x=>x.st!=='past').map(x=>{ const sel=B.slot===x.time, fr=x.st==='free'; return {time:x.time,bg:sel?'#02548A':fr?'#fff':'#F1F4F6',fg:sel?'#fff':fr?'#02548A':'#A8B6C1',bd:sel?'#02548A':fr?'#9FC0D6':'#E6EBEF',cur:fr?'pointer':'not-allowed',deco:fr?'none':'line-through',pick:()=>{ if(fr) this.setBk({slot:x.time}); }}; });
+    const bFree=(bSl||[]).filter(x=>x.st==='free').length;
+    const nfi=bDoc?this.nextFree(bDoc,B.di+1):-1;
+    const bkInfo=bDoc?{doc:bDoc.name,deg:bDoc.deg,dept:bDept.name+' · '+bDept.bn,room:'Room '+bDoc.room,date:this.date(B.di).full,time:B.slot||'—'}:{};
+    const genders=[['M','Male','পুরুষ'],['F','Female','নারী'],['O','Other','অন্যান্য']].map(([k,l,b])=>({label:l,bn:b,bg:B.gender===k?'#E6EFF5':'#fff',bd:B.gender===k?'#02548A':'#C9D6E0',fg:B.gender===k?'#02548A':'#33485A',pick:()=>this.setBk({gender:k})}));
+    const sendOtp=()=>{ const ph=B.phone.replace(/\D/g,''); if(!B.name.trim()) return this.setBk({err:'Enter the patient’s name'}); if(!/^01[3-9]\d{8}$/.test(ph)) return this.setBk({err:'Enter an 11-digit mobile number, e.g. 01712345678'}); this.setBk({otpSent:true,err:'',resend:30,otp:''}); clearInterval(this._r); this._r=setInterval(()=>{ const r=this.state.bk.resend; if(r<=1){ clearInterval(this._r); this.setBk({resend:0}); } else this.setBk({resend:r-1}); },1000); this.toast('Code sent to '+B.phone); };
+    const verify=()=>{ if(B.otp.length!==6) return this.setBk({err:'Enter the 6-digit code from the SMS'}); if(B.otp==='000000') return this.setBk({err:'That code is incorrect. Check the SMS and try again.'}); const ph=B.phone.replace(/\D/g,''); const known=ph==='01712458930'; const s=bSl.filter(x=>x.st==='booked').length; clearInterval(this._r); this.setBk({step:5,err:'',result:{token:bDoc.pre+'-'+String(s+1).padStart(2,'0'),mrn:known?'PH-000231':'PH-000412',known,name:known?'Abdul Karim':B.name.trim()}}); };
+    const R=B.result||{};
+    // notices/articles
+    const posts=this.ARTICLES.map(a=>({...a,isArt:true})).concat(this.NOTICES.map(n=>({...n,isArt:false,by:'',read:''}))).map(p=>({...p,tagBg:p.isArt?'#E0F2FE':'#FFF0E0',tagFg:p.isArt?'#0369A1':'#A34F00',open:()=>{ this.setState({art:p.id}); this.go('article'); }}));
+    const art=posts.find(p=>p.id===S.art)||posts[0];
+    const artBody=(art.body&&Array.isArray(art.body)?art.body:[art.body]).map(t=>({t}));
+    const homeNotices=posts.filter(p=>!p.isArt);
+    const homeArticles=posts.filter(p=>p.isArt);
+    // campaign
+    const C=S.cr;
+    const crOn={name:e=>this.setState({cr:{...C,name:e.target.value,err:''}}),phone:e=>this.setState({cr:{...C,phone:e.target.value,err:''}}),age:e=>this.setState({cr:{...C,age:e.target.value.replace(/\D/g,'').slice(0,3)}})};
+    const crGenders=[['F','Female','নারী'],['M','Male','পুরুষ'],['O','Other','অন্যান্য']].map(([k,l,b])=>({label:l,bn:b,bg:C.gender===k?'#E6EFF5':'#fff',bd:C.gender===k?'#02548A':'#C9D6E0',fg:C.gender===k?'#02548A':'#33485A',pick:()=>this.setState({cr:{...C,gender:k}})}));
+    const booths=this.BOOTHS.map((b,i)=>({...b,n:String(i+1),bg:C.booth===b.id?'#F1F6F9':'#fff',bd:C.booth===b.id?'#02548A':'#DCE6ED',dot:C.booth===b.id?'#02548A':'#fff',pick:()=>this.setState({cr:{...C,booth:b.id}})}));
+    const register=()=>{ const ph=C.phone.replace(/\D/g,''); if(!C.name.trim()||!/^01[3-9]\d{8}$/.test(ph)) return this.setState({cr:{...C,err:'Enter your name and an 11-digit mobile number'}}); const b=this.BOOTHS.find(x=>x.id===C.booth); this.setState({cr:{...C,err:'',done:{no:'DC-'+String(S.regCount+1).padStart(4,'0'),booth:b.name,name:C.name.trim()}},regCount:S.regCount+1}); };
+    const gallery=[['g1','New OPD waiting area, 2nd floor'],['g2','Free eye camp, September 2026'],['g3','Cardiology cath lab'],['g4','World Heart Day walk'],['g5','Paediatric ward play corner'],['g6','Blood donation drive, October 2026']].map(([id,cap])=>({id,cap,src:this.GALLERY_IMG[id]}));
+    return {
+      on,go,nav,startBooking:()=>{ this.setState({bk:this.blankBk()}); this.go('book'); },
+      depts,featured,homeNotices,homeArticles,
+      docFilters,dirDocs,noDocs:dirDocs.length===0,docQ:S.docQ,onDocQ:e=>this.setState({docQ:e.target.value}),
+      doc,bookThis:bookDoc(dd.id),
+      bk:B,steps,s1:B.step===1,s2:B.step===2,s3:B.step===3,s4:B.step===4,s5:B.step===5,bkDepts,bkDocs,bDept,dates,slots,hasSlots:!!bSl&&bFree>0,noSlots:!!bDoc&&(!bSl||bFree===0),
+      noSlotsText:bDoc&&!bSl?(this.date(B.di).dow===5?'OPD is closed on Fridays.':(bDoc.off||[]).includes(B.di)?bDoc.name+' is unavailable on this day.':bDoc.name+' does not hold OPD on '+this.DAYSL[this.date(B.di).dow]+'s.'):'All slots on this day are booked.',
+      hasNext:nfi>=0,nextText:nfi>=0?'See '+this.date(nfi).wd+' '+this.date(nfi).day+' '+this.date(nfi).mon:'',goNext:()=>this.setBk({di:nfi,slot:null}),
+      hasSlot:!!B.slot,noSlotSel:!B.slot,toDetails:()=>this.setBk({step:4,err:''}),
+      bkInfo,genders,onBkName:e=>this.setBk({name:e.target.value,err:''}),onBkPhone:e=>this.setBk({phone:e.target.value,err:'',otpSent:false}),onBkAge:e=>this.setBk({age:e.target.value.replace(/\D/g,'').slice(0,3)}),
+      onOtp:e=>this.setBk({otp:e.target.value.replace(/\D/g,'').slice(0,6),err:''}),sendOtp,verify,otpSent:B.otpSent,otpNotSent:!B.otpSent,canResend:B.otpSent&&B.resend===0,resendWait:B.otpSent&&B.resend>0,resendText:'Resend in 0:'+String(B.resend).padStart(2,'0'),
+      bkBack1:()=>this.setBk({step:1,dept:null,doc:null}),bkBack2:()=>this.setBk({step:2,doc:null,slot:null}),bkBack3:()=>this.setBk({step:3,otpSent:false,err:''}),
+      R,isKnown:!!R.known,isNewP:!R.known,bookAgain:()=>{ this.setState({bk:this.blankBk()}); },
+      posts,art,artBody,artIsArt:!!art.isArt,
+      cr:C,crOn,crGenders,booths,register,crDone:!!C.done,crForm:!C.done,regCount:S.regCount,regLeft:300-S.regCount,regPct:Math.round(S.regCount/300*100)+'%',
+      newReg:()=>this.setState({cr:{name:'',phone:'',age:'',gender:'F',booth:'b1',err:'',done:null}}),
+      qrBig:this.qr(42,132),qrSmall:this.qr(42,96),
+      share:()=>this.toast('Link copied · popular.ipms.health/camp/diabetes-bp-nov26'),
+      gallery,toast:S.toast
+    };
+  }
+}
+
+</script>
+</body>
+</html>

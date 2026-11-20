@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800&amp;display=swap">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#F1F6F9;font-family:'Noto Sans Bengali',sans-serif;-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font-family:inherit}
+a{color:#02548A;text-decoration:none}
+a:hover{color:#023A60;text-decoration:underline}
+@media print{.idx-link{display:none !important}}
+input:focus,select:focus,textarea:focus{box-shadow:0 0 0 3px rgba(14,165,233,.3) !important}
+button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outline-offset:2px}
+</style>
+</helmet>
+<div style="min-height:100vh;color:#10273A;font-size:14px;line-height:1.45;font-family:'Noto Sans Bengali',sans-serif;background:#F1F6F9;display:flex;flex-direction:column">
+  <header style="background:#fff;border-bottom:1px solid #DCE6ED;position:sticky;top:0;z-index:20">
+    <div style="padding:10px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+      <a href="Publicity%20Admin.dc.html" style="display:flex;align-items:center;gap:10px;color:#10273A;text-decoration:none">
+        <span role="img" aria-label="Popular Hospital" style="width:34px;height:34px;border-radius:9px;background:#02548A url('assets/logo/hospital-mark.svg') center/cover no-repeat;color:#fff;display:grid;place-items:center;font-weight:700;font-size:13px"></span>
+        <span style="line-height:1.2"><b style="font-size:14px">Free Diabetes &amp; BP Screening Camp</b><br><span style="font-size:13px;color:#5B6B7A">Popular Hospital · Sat, 28 Nov 2026 · Ground floor lobby</span></span>
+      </a>
+      <div style="flex:1"></div>
+      <div style="display:flex;align-items:center;gap:8px;background:#F1F6F9;border-radius:8px;padding:4px 6px 4px 12px">
+        <span style="font-size:13px;color:#5B6B7A">Camp clock</span><b style="font-size:16px;font-variant-numeric:tabular-nums">{{ clock }}</b>
+        <button onClick="{{ tick }}" style="height:28px;padding:0 10px;border-radius:6px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;font-size:13px;cursor:pointer">+5 min</button>
+      </div>
+    </div>
+    <nav style="padding:0 24px;display:flex;gap:2px;overflow-x:auto">
+      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="5">
+        <button onClick="{{ t.go }}" style="border:none;background:transparent;border-bottom:3px solid {{ t.bd }};padding:8px 12px 7px;cursor:pointer;text-align:left;line-height:1.2;white-space:nowrap"><span style="font-weight:700;font-size:14px;color:{{ t.fg }}">{{ t.label }}</span><br><span style="font-size:12px;color:#5B6B7A">{{ t.role }}</span></button>
+      </sc-for>
+    </nav>
+  </header>
+  <main style="flex:1;padding:20px 24px 60px;display:flex;flex-direction:column;gap:16px;min-width:0">
+<sc-if value="{{ on.rules }}" hint-placeholder-val="{{ true }}">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+    <div><div style="font-size:18px;font-weight:700">Booth 1 · Blood sugar &amp; BP</div><div style="color:#5B6B7A">4 doctors · 2 campaign guests. Rules decide who each patient can be called by.</div></div>
+    <button onClick="{{ saveRules }}" style="height:38px;padding:0 16px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:700;cursor:pointer" style-hover="background:#023A60">Save rules</button>
+  </div>
+  <div style="display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap">
+    <div style="flex:3 1 640px;min-width:0;display:flex;flex-direction:column;gap:16px">
+      <section style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:8px">
+        <b style="font-size:14px">Distribution method</b>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:8px">
+          <sc-for list="{{ methods }}" as="m" hint-placeholder-count="4">
+            <button onClick="{{ m.pick }}" style="display:flex;gap:10px;align-items:flex-start;text-align:left;padding:10px 12px;border-radius:9px;border:1.5px solid {{ m.bd }};background:{{ m.bg }};cursor:pointer;color:#10273A">
+              <span style="width:16px;height:16px;border-radius:99px;border:2px solid #02548A;display:grid;place-items:center;flex:none;margin-top:2px"><span style="width:8px;height:8px;border-radius:99px;background:{{ m.dot }}"></span></span>
+              <span style="line-height:1.35"><b>{{ m.label }}</b><sc-if value="{{ m.rec }}" hint-placeholder-val="{{ false }}"> <span style="font-size:12px;font-weight:700;color:#1D7A46;background:#E3F4EA;border-radius:99px;padding:1px 7px">Recommended</span></sc-if><br><span style="font-size:13px;color:#5B6B7A">{{ m.sub }}</span></span>
+            </button>
+          </sc-for>
+        </div>
+      </section>
+      <section style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;overflow:hidden">
+        <div style="padding:12px 16px;border-bottom:1px solid #E6EFF5;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><div><b style="font-size:14px">Rules</b> <span style="color:#5B6B7A">· checked top to bottom, first match wins</span></div><button onClick="{{ addRule }}" style="height:30px;padding:0 12px;border-radius:8px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;cursor:pointer">+ Add rule</button></div>
+        <sc-for list="{{ rules }}" as="r" hint-placeholder-count="3">
+          <div style="padding:12px 16px;border-bottom:1px solid #EEF3F6;display:flex;flex-direction:column;gap:8px">
+            <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+              <span style="width:24px;height:24px;border-radius:6px;background:#E6EFF5;color:#02548A;display:grid;place-items:center;font-weight:700;font-size:13px;flex:none">{{ r.n }}</span>
+              <b style="color:#5B6B7A;font-size:13px">IF patient</b>
+              <select value="{{ r.field }}" onChange="{{ r.onField }}" style="height:32px;border:1px solid #C9D6E0;border-radius:7px;padding:0 6px;font-size:13px;background:#fff"><option value="gender">gender</option><option value="age">age</option><option value="priority">priority</option></select>
+              <select value="{{ r.op }}" onChange="{{ r.onOp }}" style="height:32px;border:1px solid #C9D6E0;border-radius:7px;padding:0 6px;font-size:13px;background:#fff"><sc-for list="{{ r.ops }}" as="o" hint-placeholder-count="1"><option value="{{ o.v }}">{{ o.l }}</option></sc-for></select>
+              <sc-if value="{{ r.hasVals }}" hint-placeholder-val="{{ true }}"><select value="{{ r.val }}" onChange="{{ r.onVal }}" style="height:32px;border:1px solid #C9D6E0;border-radius:7px;padding:0 6px;font-size:13px;background:#fff"><sc-for list="{{ r.vals }}" as="o" hint-placeholder-count="2"><option value="{{ o.v }}">{{ o.l }}</option></sc-for></select></sc-if>
+              <sc-if value="{{ r.isAge }}" hint-placeholder-val="{{ false }}"><input value="{{ r.val }}" onChange="{{ r.onAge }}" style="width:56px;height:32px;border:1px solid #C9D6E0;border-radius:7px;padding:0 8px;font-size:13px"></input><span style="font-size:13px;color:#5B6B7A">years</span></sc-if>
+              <b style="color:#5B6B7A;font-size:13px">THEN send to</b>
+              <select value="{{ r.target }}" onChange="{{ r.onTarget }}" style="height:32px;border:1px solid #C9D6E0;border-radius:7px;padding:0 6px;font-size:13px;background:#fff"><option value="docs">these doctors</option><option value="booth">another booth</option></select>
+              <sc-if value="{{ r.isBooth }}" hint-placeholder-val="{{ false }}"><select value="{{ r.booth }}" onChange="{{ r.onBooth }}" style="height:32px;border:1px solid #C9D6E0;border-radius:7px;padding:0 6px;font-size:13px;background:#fff"><sc-for list="{{ boothOpts }}" as="o" hint-placeholder-count="2"><option value="{{ o.v }}">{{ o.l }}</option></sc-for></select></sc-if>
+              <div style="margin-left:auto;display:flex;gap:4px">
+                <button onClick="{{ r.up }}" title="Move up" style="width:28px;height:28px;border-radius:6px;border:1px solid #DCE6ED;background:#fff;cursor:pointer;color:#33485A">↑</button>
+                <button onClick="{{ r.down }}" title="Move down" style="width:28px;height:28px;border-radius:6px;border:1px solid #DCE6ED;background:#fff;cursor:pointer;color:#33485A">↓</button>
+                <button onClick="{{ r.remove }}" title="Delete rule" style="width:28px;height:28px;border-radius:6px;border:1px solid #F3C9C4;background:#fff;cursor:pointer;color:#B42318">×</button>
+              </div>
+            </div>
+            <sc-if value="{{ r.isDocs }}" hint-placeholder-val="{{ true }}">
+              <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding-left:32px">
+                <sc-for list="{{ r.chips }}" as="c" hint-placeholder-count="4"><button onClick="{{ c.toggle }}" style="height:28px;padding:0 10px;border-radius:99px;border:1px solid {{ c.bd }};background:{{ c.bg }};color:{{ c.fg }};font-weight:600;font-size:13px;cursor:pointer">{{ c.g }} {{ c.name }}<span style="font-weight:400;opacity:.8">{{ c.guest }}</span></button></sc-for>
+              </div>
+              <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding-left:32px">
+                <div style="display:flex;background:#F1F6F9;border-radius:7px;padding:2px"><sc-for list="{{ r.modes }}" as="m" hint-placeholder-count="2"><button onClick="{{ m.pick }}" style="height:26px;padding:0 10px;border:none;border-radius:5px;background:{{ m.bg }};color:{{ m.fg }};box-shadow:{{ m.sh }};font-weight:600;font-size:13px;cursor:pointer">{{ m.label }}</button></sc-for></div>
+                <sc-if value="{{ r.isPrefer }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;color:#33485A">fall back to any doctor after</span><input value="{{ r.mins }}" onChange="{{ r.onMins }}" style="width:48px;height:28px;border:1px solid #C9D6E0;border-radius:6px;padding:0 6px;font-size:13px"></input><span style="font-size:13px;color:#33485A">min wait</span></sc-if>
+                <span style="font-size:13px;color:#5B6B7A">{{ r.modeHint }}</span>
+                <span style="font-size:13px;color:#B42318;font-weight:600">{{ r.warn }}</span>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </section>
+      <section style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <button onClick="{{ toggleSep }}" style="display:flex;gap:10px;align-items:center;border:none;background:none;padding:0;cursor:pointer;color:#10273A"><span style="width:36px;height:20px;border-radius:99px;background:{{ sepTrk }};position:relative;flex:none"><span style="position:absolute;top:2px;left:{{ sepKnob }};width:16px;height:16px;border-radius:99px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.2)"></span></span><b>Separate male &amp; female queues</b></button>
+          <span style="font-size:13px;color:#5B6B7A;text-wrap:pretty">{{ sepText }}</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <b>Priority to the front of the queue</b>
+          <div style="display:flex;gap:6px;flex-wrap:wrap"><sc-for list="{{ prioOpts }}" as="p" hint-placeholder-count="3"><button onClick="{{ p.toggle }}" style="height:28px;padding:0 10px;border-radius:99px;border:1px solid {{ p.bd }};background:{{ p.bg }};color:{{ p.fg }};font-weight:600;font-size:13px;cursor:pointer">{{ p.mark }}{{ p.label }}</button></sc-for></div>
+        </div>
+      </section>
+    </div>
+    <section style="flex:2 1 380px;min-width:0;background:#fff;border:1px solid #DCE6ED;border-radius:10px;overflow:hidden;position:sticky;top:120px">
+      <div style="padding:12px 16px;border-bottom:1px solid #E6EFF5"><b style="font-size:14px">Live preview</b> <span style="color:#5B6B7A">· 10 sample patients with the current rules</span></div>
+      <sc-for list="{{ preview }}" as="p" hint-placeholder-count="10">
+        <div style="display:grid;grid-template-columns:64px minmax(0,1fr);gap:10px;padding:8px 16px;border-bottom:1px solid #EEF3F6;align-items:center">
+          <span style="text-align:center;font-weight:700;font-size:14px;border-radius:6px;padding:3px 0;background:{{ p.qBg }};color:{{ p.qFg }}">{{ p.token }}</span>
+          <div style="min-width:0;line-height:1.3">
+            <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap"><b>{{ p.name }}</b><span style="font-size:13px;color:#5B6B7A">{{ p.meta }}</span><sc-if value="{{ p.prio }}" hint-placeholder-val="{{ false }}"><span style="font-size:12px;font-weight:700;color:#A34F00;background:#FFF0E0;border-radius:99px;padding:0 7px">Priority</span></sc-if></div>
+            <div style="font-size:13px;color:{{ p.destC }}">→ {{ p.dest }}</div>
+            <div style="font-size:12px;color:#5B6B7A">{{ p.rule }}</div>
+          </div>
+        </div>
+      </sc-for>
+    </section>
+  </div>
+</sc-if>
+
+<sc-if value="{{ on.desk }}" hint-placeholder-val="{{ false }}">
+  <div style="display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap">
+    <section style="flex:2 1 460px;min-width:0;background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:12px">
+      <b style="font-size:16px">Register patient</b>
+      <div style="display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1.4fr) 90px;gap:10px">
+        <label style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Name *</span><input value="{{ form.name }}" onChange="{{ fOn.name }}" placeholder="Full name" style="height:40px;border:1px solid #C9D6E0;border-radius:8px;padding:0 10px;font-size:14px;outline:none" style-focus="border-color:#0EA5E9;box-shadow:0 0 0 3px rgba(14,165,233,.18)"></input></label>
+        <label style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Mobile</span><input value="{{ form.phone }}" onChange="{{ fOn.phone }}" placeholder="01XXXXXXXXX" style="height:40px;border:1px solid #C9D6E0;border-radius:8px;padding:0 10px;font-size:14px;outline:none"></input></label>
+        <label style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Age *</span><input value="{{ form.age }}" onChange="{{ fOn.age }}" placeholder="Years" style="height:40px;border:1px solid #C9D6E0;border-radius:8px;padding:0 10px;font-size:14px;outline:none"></input></label>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end">
+        <div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Gender *</span><div style="display:flex;gap:6px"><sc-for list="{{ fG }}" as="g" hint-placeholder-count="2"><button onClick="{{ g.pick }}" style="width:96px;height:40px;border-radius:8px;border:1px solid {{ g.bd }};background:{{ g.bg }};color:{{ g.fg }};font-weight:700;cursor:pointer">{{ g.label }}</button></sc-for></div></div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap"><sc-for list="{{ fFlags }}" as="f" hint-placeholder-count="2"><button onClick="{{ f.toggle }}" style="height:32px;padding:0 12px;border-radius:99px;border:1px solid {{ f.bd }};background:{{ f.bg }};color:{{ f.fg }};font-weight:600;font-size:13px;cursor:pointer">{{ f.mark }}{{ f.label }}</button></sc-for></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Problem</span><div style="display:flex;gap:6px;flex-wrap:wrap"><sc-for list="{{ fProb }}" as="p" hint-placeholder-count="6"><button onClick="{{ p.pick }}" style="height:30px;padding:0 12px;border-radius:99px;border:1px solid {{ p.bd }};background:{{ p.bg }};color:{{ p.fg }};font-weight:600;font-size:13px;cursor:pointer">{{ p.label }}</button></sc-for></div></div>
+      <sc-if value="{{ sugg.ready }}" hint-placeholder-val="{{ false }}">
+        <div style="background:#F1F6F9;border-radius:10px;padding:12px 14px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:center">
+          <div style="text-align:center;line-height:1"><div style="font-size:12px;color:#5B6B7A;font-weight:600">NEXT TOKEN</div><div style="font-size:30px;font-weight:800;color:#02548A">{{ sugg.token }}</div></div>
+          <div style="line-height:1.45"><b>{{ sugg.booth }} · {{ sugg.queue }}</b><sc-if value="{{ sugg.prio }}" hint-placeholder-val="{{ false }}"> <span style="font-size:12px;font-weight:700;color:#A34F00;background:#FFF0E0;border-radius:99px;padding:1px 7px">Priority</span></sc-if><div style="font-size:13px;color:#33485A">{{ sugg.assignText }}</div><div style="font-size:13px;color:#5B6B7A">{{ sugg.rule }}</div></div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ form.err }}" hint-placeholder-val="{{ false }}"><div style="font-size:13px;color:#B42318;background:#FDECEC;border-radius:8px;padding:8px 12px">{{ form.err }}</div></sc-if>
+      <button onClick="{{ register }}" style="height:46px;border-radius:10px;border:none;background:#02548A;color:#fff;font-weight:700;font-size:16px;cursor:pointer" style-hover="background:#023A60">Issue token &amp; print slip</button>
+    </section>
+    <div style="flex:1 1 300px;min-width:280px;display:flex;flex-direction:column;gap:16px">
+      <sc-if value="{{ hasSlip }}" hint-placeholder-val="{{ false }}">
+        <div style="background:#DDE5EB;border-radius:12px;padding:20px;display:flex;flex-direction:column;align-items:center;gap:10px">
+          <div style="width:260px;background:#fff;box-shadow:0 6px 18px rgba(2,40,70,.16);padding:14px;color:#000;display:flex;flex-direction:column;gap:8px;text-align:center;line-height:1.3">
+            <div style="font-weight:700">POPULAR HOSPITAL · পপুলার হসপিটাল</div>
+            <div style="font-size:10.5px">Free Diabetes &amp; BP Camp · ২৮ নভেম্বর ২০২৬</div>
+            <div style="border-top:1px dashed #000"></div>
+            <div style="font-size:10.5px;font-weight:600;letter-spacing:1px">TOKEN · টোকেন</div>
+            <div style="font-size:54px;font-weight:800;line-height:1">{{ slip.token }}</div>
+            <div style="font-size:10.5px">{{ slip.ahead }} ahead · আপনার আগে {{ slip.ahead }} জন</div>
+            <div style="border-top:1px dashed #000"></div>
+            <div style="font-size:11px;text-align:left;display:grid;grid-template-columns:58px 1fr;row-gap:3px"><span>Name</span><b>{{ slip.name }}</b><span>Booth</span><span>{{ slip.booth }} · {{ slip.boothBn }}</span><span>Doctor</span><span>{{ slip.doc }}</span><span>Time</span><span>{{ slip.time }}</span></div>
+            <div style="border-top:1px dashed #000"></div>
+            <div style="font-size:10px">Watch the screen for your token. স্ক্রিনে টোকেন দেখুন।</div>
+          </div>
+          <button onClick="{{ printSlip }}" style="height:36px;padding:0 14px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:600;cursor:pointer">Print again</button>
+        </div>
+      </sc-if>
+      <section style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;overflow:hidden">
+        <div style="padding:10px 14px;border-bottom:1px solid #E6EFF5;font-weight:700">Latest registrations</div>
+        <sc-for list="{{ recent }}" as="r" hint-placeholder-count="5"><div style="display:grid;grid-template-columns:60px minmax(0,1fr) auto;gap:8px;padding:8px 14px;border-bottom:1px solid #EEF3F6;align-items:center"><b>{{ r.token }}</b><span style="min-width:0">{{ r.name }} <span style="color:#5B6B7A;font-size:13px">{{ r.meta }}</span></span><span style="font-size:13px;color:#5B6B7A">{{ r.st }}</span></div></sc-for>
+      </section>
+    </div>
+  </div>
+</sc-if>
+
+<sc-if value="{{ on.doctor }}" hint-placeholder-val="{{ false }}">
+  <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"><span style="font-size:13px;color:#5B6B7A">Viewing as</span>
+    <sc-for list="{{ docTabs }}" as="d" hint-placeholder-count="5"><button onClick="{{ d.pick }}" style="display:flex;gap:8px;align-items:center;padding:6px 12px;border-radius:9px;border:1px solid {{ d.bd }};background:{{ d.bg }};cursor:pointer;text-align:left;line-height:1.2"><span style="width:8px;height:8px;border-radius:99px;background:{{ d.dot }}"></span><span><b style="font-size:13px;color:{{ d.fg }}">{{ d.label }}</b><br><span style="font-size:12px;color:{{ d.sfg }}">{{ d.sub }}</span></span></button></sc-for>
+  </div>
+  <div style="display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap">
+    <section style="flex:1 1 360px;min-width:0;background:#fff;border:1px solid #DCE6ED;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><div><b style="font-size:16px">{{ vd.name }}</b><div style="font-size:13px;color:#5B6B7A">{{ vd.desk }} · Booth 1</div></div><sc-if value="{{ vd.down }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;font-weight:700;color:#B42318;background:#FDECEC;border-radius:99px;padding:2px 9px">Unavailable</span></sc-if></div>
+      <sc-if value="{{ hasCur }}" hint-placeholder-val="{{ true }}">
+        <div style="border:2px solid #FF8000;border-radius:12px;padding:16px;display:flex;gap:16px;align-items:center;background:#FFF8F0">
+          <div style="line-height:1;text-align:center"><div style="font-size:12px;font-weight:700;color:#A34F00">WITH YOU</div><div style="font-size:40px;font-weight:800;color:#FF8000">{{ cur.token }}</div></div>
+          <div style="flex:1;min-width:0;line-height:1.4"><b style="font-size:16px">{{ cur.name }}</b><div style="font-size:13px;color:#33485A">{{ cur.meta }}</div><div style="font-size:13px;color:#5B6B7A">{{ cur.since }}</div></div>
+          <button onClick="{{ cur.transfer }}" style="height:32px;padding:0 12px;border-radius:8px;border:1px solid #DCE6ED;background:#fff;color:#33485A;font-weight:600;cursor:pointer">Transfer</button>
+        </div>
+      </sc-if>
+      <sc-if value="{{ noCur }}" hint-placeholder-val="{{ false }}"><div style="border:1px dashed #BFD3E1;border-radius:12px;padding:18px;text-align:center;color:#5B6B7A">No patient with you. Press Call next.</div></sc-if>
+      <sc-if value="{{ vd.up }}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{ callNext }}" style="height:64px;border-radius:12px;border:none;background:#02548A;color:#fff;font-weight:800;font-size:20px;cursor:pointer" style-hover="background:#023A60">Call next →</button>
+        <button onClick="{{ openUnavail }}" style="height:38px;border-radius:9px;border:1px solid #F3C9C4;background:#fff;color:#B42318;font-weight:600;cursor:pointer" style-hover="background:#FDECEC">I’m unavailable</button>
+      </sc-if>
+      <sc-if value="{{ vd.down }}" hint-placeholder-val="{{ false }}"><button onClick="{{ back }}" style="height:48px;border-radius:12px;border:none;background:#1D7A46;color:#fff;font-weight:700;font-size:16px;cursor:pointer">I’m back · resume calling</button></sc-if>
+    </section>
+    <section style="flex:1 1 380px;min-width:0;background:#fff;border:1px solid #DCE6ED;border-radius:12px;overflow:hidden">
+      <div style="padding:12px 16px;border-bottom:1px solid #E6EFF5;display:flex;justify-content:space-between"><b>Waiting for you</b><span style="color:#5B6B7A">{{ myQN }} eligible · {{ methodName }}</span></div>
+      <sc-if value="{{ noQ }}" hint-placeholder-val="{{ false }}"><div style="padding:24px;text-align:center;color:#5B6B7A">No eligible patients waiting.</div></sc-if>
+      <sc-for list="{{ myQ }}" as="p" hint-placeholder-count="4">
+        <div style="display:grid;grid-template-columns:24px 64px minmax(0,1fr) auto;gap:10px;padding:9px 16px;border-bottom:1px solid #EEF3F6;align-items:center">
+          <span style="color:#5B6B7A;font-weight:600">{{ p.pos }}</span><b style="font-size:14px">{{ p.token }}</b>
+          <div style="min-width:0;line-height:1.3"><div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap"><b>{{ p.name }}</b><sc-if value="{{ p.prio }}" hint-placeholder-val="{{ false }}"><span style="font-size:12px;font-weight:700;color:#A34F00;background:#FFF0E0;border-radius:99px;padding:0 7px">Priority</span></sc-if></div><div style="font-size:13px;color:#5B6B7A">{{ p.meta }} · waiting {{ p.wait }}</div><div style="font-size:12px;color:#5B6B7A">{{ p.rule }}</div></div>
+          <button onClick="{{ p.transfer }}" style="height:28px;padding:0 10px;border-radius:6px;border:1px solid #DCE6ED;background:#fff;color:#33485A;font-weight:600;font-size:13px;cursor:pointer">Transfer</button>
+        </div>
+      </sc-for>
+    </section>
+  </div>
+</sc-if>
+
+<sc-if value="{{ on.board }}" hint-placeholder-val="{{ false }}">
+  <sc-if value="{{ noAlerts }}" hint-placeholder-val="{{ false }}"><div style="background:#E3F4EA;color:#1D7A46;border-radius:10px;padding:10px 14px;font-weight:600">All queues are moving. No alerts.</div></sc-if>
+  <div style="display:flex;flex-direction:column;gap:6px"><sc-for list="{{ alerts }}" as="a" hint-placeholder-count="2"><div style="background:{{ a.bg }};color:{{ a.c }};border-radius:10px;padding:9px 14px;font-weight:600">⚠ {{ a.t }}</div></sc-for></div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px">
+    <sc-for list="{{ lanes }}" as="l" hint-placeholder-count="3">
+      <section style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;overflow:hidden">
+        <div style="padding:10px 14px;background:{{ l.bg }};color:{{ l.fg }};display:flex;justify-content:space-between;align-items:center"><b>{{ l.label }}</b><span style="font-weight:700">{{ l.n }} waiting</span></div>
+        <div style="padding:12px 14px;display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;justify-content:space-between;font-size:13px"><span style="color:#5B6B7A">Longest wait</span><b style="color:{{ l.lc }}">{{ l.longest }}</b></div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap"><sc-for list="{{ l.now }}" as="n" hint-placeholder-count="2"><span style="font-size:13px;border-radius:6px;padding:2px 8px;background:#FFF0E0;color:#A34F00;font-weight:700">{{ n.desk }} · {{ n.t }}</span></sc-for></div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center"><span style="font-size:13px;color:#5B6B7A">Next</span><sc-for list="{{ l.next }}" as="n" hint-placeholder-count="3"><span style="font-size:13px;font-weight:700;border:1px solid #DCE6ED;border-radius:6px;padding:1px 8px">{{ n.t }}</span></sc-for></div>
+        </div>
+      </section>
+    </sc-for>
+  </div>
+  <section style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;overflow:hidden">
+    <div style="overflow-x:auto">
+    <table style="width:100%;border-collapse:collapse;min-width:720px">
+      <thead><tr>
+        <th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:9px 16px;background:#F7FAFC;border-bottom:1px solid #E1E9EF">Doctor</th>
+        <th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:9px 12px;background:#F7FAFC;border-bottom:1px solid #E1E9EF">Booth</th>
+        <th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:9px 12px;background:#F7FAFC;border-bottom:1px solid #E1E9EF">Status</th>
+        <th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:9px 12px;background:#F7FAFC;border-bottom:1px solid #E1E9EF">Now</th>
+        <th style="text-align:right;font-size:13px;font-weight:600;color:#5B6B7A;padding:9px 12px;background:#F7FAFC;border-bottom:1px solid #E1E9EF">Seen</th>
+        <th style="text-align:right;font-size:13px;font-weight:600;color:#5B6B7A;padding:9px 12px;background:#F7FAFC;border-bottom:1px solid #E1E9EF">Waiting</th>
+        <th style="text-align:right;font-size:13px;font-weight:600;color:#5B6B7A;padding:9px 16px;background:#F7FAFC;border-bottom:1px solid #E1E9EF">Avg per patient</th>
+      </tr></thead>
+      <tbody>
+        <sc-for list="{{ docRows }}" as="d" hint-placeholder-count="5">
+          <tr>
+            <td style="padding:9px 16px;border-bottom:1px solid #EEF3F6"><b>{{ d.name }}</b> <span style="color:#5B6B7A;font-size:13px">{{ d.desk }}</span><sc-if value="{{ d.guest }}" hint-placeholder-val="{{ false }}"> <span style="font-size:12px;font-weight:600;color:#0369A1;background:#E0F2FE;border-radius:99px;padding:0 7px">Campaign guest</span></sc-if></td>
+            <td style="padding:9px 12px;border-bottom:1px solid #EEF3F6;color:#33485A">{{ d.booth }}</td>
+            <td style="padding:9px 12px;border-bottom:1px solid #EEF3F6"><span style="font-size:13px;font-weight:600;padding:2px 9px;border-radius:99px;background:{{ d.stBg }};color:{{ d.stFg }}">{{ d.st }}</span></td>
+            <td style="padding:9px 12px;border-bottom:1px solid #EEF3F6;font-weight:700;color:#FF8000">{{ d.now }}</td>
+            <td style="padding:9px 12px;border-bottom:1px solid #EEF3F6;text-align:right">{{ d.seen }}</td>
+            <td style="padding:9px 12px;border-bottom:1px solid #EEF3F6;text-align:right;font-weight:700">{{ d.waiting }}</td>
+            <td style="padding:9px 16px;border-bottom:1px solid #EEF3F6;text-align:right">{{ d.avg }}</td>
+          </tr>
+        </sc-for>
+      </tbody>
+    </table>
+    </div>
+  </section>
+</sc-if>
+
+<sc-if value="{{ on.tv }}" hint-placeholder-val="{{ false }}">
+  <div style="background:#011B2E;color:#fff;border-radius:14px;padding:24px;min-height:620px;display:flex;flex-direction:column;gap:20px">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><b style="font-size:26px">{{ tvTitle }}</b><span style="font-size:30px;font-weight:700;font-variant-numeric:tabular-nums">{{ clock }}</span></div>
+    <div style="flex:1;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px">
+      <sc-for list="{{ tvLanes }}" as="l" hint-placeholder-count="3">
+        <section style="background:#022A47;border-radius:14px;overflow:hidden;display:flex;flex-direction:column">
+          <div style="padding:12px 18px;background:{{ l.bg }};color:{{ l.fg }};font-size:22px;font-weight:800">{{ l.title }}</div>
+          <div style="padding:16px 18px;display:flex;flex-direction:column;gap:12px;flex:1">
+            <div style="font-size:15px;color:#7CC8F0;font-weight:600">{{ tvNow }}</div>
+            <sc-for list="{{ l.now }}" as="n" hint-placeholder-count="2"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid #0B3B5E;padding-bottom:10px"><div style="line-height:1.2"><div style="font-size:20px;font-weight:700">{{ n.desk }}</div><div style="font-size:14px;color:#9FC3DA">{{ n.doc }}</div></div><div style="font-size:64px;font-weight:800;color:#FF8000;line-height:1">{{ n.t }}</div></div></sc-for>
+            <sc-if value="{{ l.noNow }}" hint-placeholder-val="{{ false }}"><div style="font-size:18px;color:#6E92AA">{{ tvWait }}</div></sc-if>
+            <div style="margin-top:auto;display:flex;gap:8px;align-items:center"><span style="font-size:15px;color:#9FC3DA">{{ tvNext }}</span><sc-for list="{{ l.next }}" as="n" hint-placeholder-count="3"><span style="flex:1;text-align:center;background:#011B2E;border-radius:8px;padding:6px 0;font-size:26px;font-weight:700">{{ n.t }}</span></sc-for></div>
+          </div>
+        </section>
+      </sc-for>
+    </div>
+  </div>
+</sc-if>
+
+<sc-if value="{{ transferOn }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;inset:0;background:rgba(2,30,50,.38);z-index:50;display:grid;place-items:center;padding:16px">
+    <div style="width:440px;max-width:100%;background:#fff;border-radius:12px;box-shadow:0 20px 48px rgba(2,40,70,.25);display:flex;flex-direction:column">
+      <div style="padding:16px 20px;border-bottom:1px solid #E6EFF5"><b style="font-size:16px">Transfer {{ tp.token }} · {{ tp.name }}</b></div>
+      <div style="padding:18px 20px;display:flex;flex-direction:column;gap:12px">
+        <label style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Send to</span><select value="{{ transfer.to }}" onChange="{{ onTTo }}" style="height:38px;border:1px solid #C9D6E0;border-radius:8px;padding:0 10px;font-size:14px;background:#fff"><sc-for list="{{ tOpts }}" as="o" hint-placeholder-count="4"><option value="{{ o.v }}">{{ o.l }}</option></sc-for></select></label>
+        <label style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Reason</span><input value="{{ transfer.reason }}" onChange="{{ onTReason }}" style="height:38px;border:1px solid #C9D6E0;border-radius:8px;padding:0 10px;font-size:14px;outline:none"></input></label>
+        <span style="font-size:13px;color:#5B6B7A">The patient keeps their token and their place by registration time.</span>
+      </div>
+      <div style="padding:14px 20px;border-top:1px solid #E6EFF5;display:flex;justify-content:flex-end;gap:8px"><button onClick="{{ closeTransfer }}" style="height:36px;padding:0 14px;border-radius:8px;border:none;background:transparent;color:#5B6B7A;font-weight:600;cursor:pointer">Cancel</button><button onClick="{{ doTransfer }}" style="height:36px;padding:0 16px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:600;cursor:pointer">Transfer</button></div>
+    </div>
+  </div>
+</sc-if>
+
+<sc-if value="{{ unavailOn }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;inset:0;background:rgba(2,30,50,.38);z-index:50;display:grid;place-items:center;padding:16px">
+    <div style="width:520px;max-width:100%;background:#fff;border-radius:12px;box-shadow:0 20px 48px rgba(2,40,70,.25);display:flex;flex-direction:column;max-height:90vh">
+      <div style="padding:16px 20px;border-bottom:1px solid #E6EFF5"><b style="font-size:16px">Mark {{ vd.name }} unavailable?</b><div style="font-size:13px;color:#5B6B7A">Waiting patients are redistributed using the booth rules.</div></div>
+      <div style="padding:8px 0;overflow:auto">
+        <sc-if value="{{ noMoves }}" hint-placeholder-val="{{ false }}"><div style="padding:16px 20px;color:#5B6B7A">No waiting patients depend on this doctor.</div></sc-if>
+        <sc-for list="{{ moves }}" as="m" hint-placeholder-count="3"><div style="display:grid;grid-template-columns:64px minmax(0,1fr);gap:10px;padding:8px 20px;border-bottom:1px solid #EEF3F6"><b>{{ m.token }}</b><div style="line-height:1.35">{{ m.name }}<div style="font-size:13px;color:{{ m.toC }}">→ {{ m.to }}</div></div></div></sc-for>
+      </div>
+      <div style="padding:14px 20px;border-top:1px solid #E6EFF5;display:flex;justify-content:flex-end;gap:8px"><button onClick="{{ closeUnavail }}" style="height:36px;padding:0 14px;border-radius:8px;border:none;background:transparent;color:#5B6B7A;font-weight:600;cursor:pointer">Keep me available</button><button onClick="{{ confirmUnavail }}" style="height:36px;padding:0 16px;border-radius:8px;border:none;background:#B42318;color:#fff;font-weight:600;cursor:pointer">Mark unavailable</button></div>
+    </div>
+  </div>
+</sc-if>
+  </main>
+  <sc-if value="{{ toast }}" hint-placeholder-val="{{ false }}"><div style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#10273A;color:#fff;padding:10px 16px;border-radius:10px;font-weight:600;box-shadow:0 10px 28px rgba(2,40,70,.25);z-index:60;max-width:90vw">{{ toast }}</div></sc-if>
+<sc-if value="{{ idxShow }}" hint-placeholder-val="{{ true }}"><a href="Prototype%20Index.dc.html" class="idx-link no-print" style="position:fixed;right:12px;bottom:12px;z-index:80;font-size:13px;font-weight:600;color:#5B6B7A;background:rgba(255,255,255,.9);border:1px solid #DCE6ED;border-radius:99px;padding:4px 10px;text-decoration:none">← Index</a></sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;startTab&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;rules&quot;,&quot;desk&quot;,&quot;doctor&quot;,&quot;board&quot;,&quot;tv&quot;],&quot;default&quot;:&quot;rules&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Prototype&quot;}}">
+class Component extends DCLogic {
+  TABS=[['rules','Distribution rules','Admin'],['desk','Desk registration','Campaign desk'],['doctor','Doctor view','Doctor'],['board','Live board','Admin'],['tv','Campaign TV','Lobby screen']];
+  DOCS=[
+    {id:'d1',name:'Dr. Farhana Rahman',bn:'ডা. ফারহানা রহমান',g:'F',booth:'b1',desk:'Desk 1',guest:false,avg:7},
+    {id:'dn',name:'Dr. Nasima Haque',bn:'ডা. নাসিমা হক',g:'F',booth:'b1',desk:'Desk 2',guest:true,avg:8},
+    {id:'d2',name:'Dr. Tanvir Hasan',bn:'ডা. তানভীর হাসান',g:'M',booth:'b1',desk:'Desk 3',guest:false,avg:6},
+    {id:'da',name:'Dr. Anisur Rahman',bn:'ডা. আনিসুর রহমান',g:'M',booth:'b1',desk:'Desk 4',guest:true,avg:7},
+    {id:'d4',name:'Dr. Mahbub Alam',bn:'ডা. মাহবুব আলম',g:'M',booth:'b2',desk:'Desk 5',guest:false,avg:9}
+  ];
+  BOOTHS=[{id:'b1',name:'Blood sugar & BP',bn:'রক্তে শর্করা ও রক্তচাপ'},{id:'b2',name:'Child health',bn:'শিশু স্বাস্থ্য'}];
+  SAMPLE=[['Rokeya Begum',52,'F',{}],['Abdul Karim',67,'M',{}],['Mitu Akter',28,'F',{pregnant:true}],['Jahid Hasan',36,'M',{}],['Sumaiya Islam',7,'F',{}],['Habibur Rahman',71,'M',{}],['Nasrin Sultana',44,'F',{}],['Imran Hossain',9,'M',{}],['Monir Uddin',58,'M',{disabled:true}],['Shirin Akhter',63,'F',{}]];
+  PROBLEMS=['Diabetes check','Blood pressure','Chest discomfort','Follow-up','Child check-up','Other'];
+  state={
+    tab:(()=>{ try{ const h=(window.location.hash||'').slice(1); if(['rules','desk','doctor','board','tv'].includes(h)) return h; }catch(e){} return this.props.startTab||'rules'; })(), now:615, booth:'b1', viewDoc:'d1', toast:'', bn:false,
+    cfg:{method:'shared',sep:true,prio:{elderly:true,pregnant:true,disabled:true},rules:[
+      {id:1,field:'age',op:'<',val:'12',target:'booth',booth:'b2',docs:[],mode:'strict',mins:'20'},
+      {id:2,field:'gender',op:'=',val:'F',target:'docs',booth:'b1',docs:['d1','dn'],mode:'strict',mins:'20'},
+      {id:3,field:'gender',op:'=',val:'M',target:'docs',booth:'b1',docs:['d2','da'],mode:'prefer',mins:'20'}
+    ]},
+    avail:{d1:true,dn:true,d2:true,da:true,d4:true},
+    pts:this.seed(), seen:{d1:6,dn:4,d2:7,da:5,d4:3},
+    form:{name:'',phone:'',age:'',g:'F',problem:'Diabetes check',pregnant:false,disabled:false,err:''}, lastIssued:null,
+    transfer:null, unavail:null
+  };
+  seed(){
+    const rows=[
+      ['F','001','Parvin Akter',48,'F',560,'done','d1'],['F','002','Laila Arjuman',39,'F',566,'done','dn'],['F','003','Shahana Parvin',55,'F',575,'with','d1'],['F','004','Tania Sarker',31,'F',582,'with','dn'],['F','005','Jesmin Ara',66,'F',588,'waiting',null],['F','006','Ruma Chowdhury',42,'F',594,'waiting',null],['F','007','Fatema Khanam',45,'F',601,'waiting',null],
+      ['M','001','Kamal Uddin',62,'M',562,'done','d2'],['M','002','Sohel Rana',41,'M',570,'with','d2'],['M','003','Nazmul Huda',53,'M',578,'with','da'],['M','004','Faruk Ahmed',70,'M',596,'waiting',null],['M','005','Belal Hossain',58,'M',603,'waiting',null],
+      ['P','001','Raisa Karim',6,'F',584,'with','d4'],['P','002','Tahsin Ahmed',10,'M',598,'waiting',null]
+    ];
+    return rows.map((r,i)=>({id:i+1,q:r[0],token:r[0]+'-'+r[1],name:r[2],age:r[3],g:r[4],reg:r[5],status:r[6],doc:r[7],assigned:null,flags:{},problem:'Diabetes check',note:'',forced:null,booth:r[0]==='P'?'b2':'b1'}));
+  }
+  componentDidMount(){ this._l=setInterval(()=>{ if(this.state.tab==='tv') this.setState(s=>({bn:!s.bn})); },8000); }
+  componentDidUpdate(pp){ if(this.props.startTab&&pp.startTab!==this.props.startTab) this.setState({tab:this.props.startTab}); }
+  componentWillUnmount(){ clearInterval(this._l); clearTimeout(this._t); }
+  toast(m){ clearTimeout(this._t); this.setState({toast:m}); this._t=setTimeout(()=>this.setState({toast:''}),2800); }
+  fmt(t){ const h=Math.floor(t/60),m=t%60; return (((h+11)%12)+1)+':'+String(m).padStart(2,'0')+(h<12?' am':' pm'); }
+  docBy(id){ return this.DOCS.find(d=>d.id===id); }
+  isPrio(p,cfg){ const c=(cfg||this.state.cfg).prio; return (c.elderly&&p.age>=65)||(c.pregnant&&p.flags.pregnant)||(c.disabled&&p.flags.disabled); }
+  cond(r,p){ if(r.field==='gender') return p.g===r.val; if(r.field==='age') return r.op==='<'?p.age<+r.val:p.age>=+r.val; if(r.field==='priority') return r.val==='elderly'?p.age>=65:!!p.flags[r.val]; return false; }
+  route(p,cfg,avail,wait){
+    cfg=cfg||this.state.cfg; avail=avail||this.state.avail;
+    const up=id=>avail[id]!==false;
+    const boothDocs=b=>this.DOCS.filter(d=>d.booth===b&&up(d.id)).map(d=>d.id);
+    if(p.forced) return {set:[p.forced].filter(up),rule:null,booth:p.booth,label:'Transferred'};
+    const r=cfg.rules.find(x=>this.cond(x,p));
+    if(!r) return {set:boothDocs('b1'),rule:null,booth:'b1',label:'No rule · any doctor in booth'};
+    if(r.target==='booth') return {set:boothDocs(r.booth),rule:r,booth:r.booth,label:'Rule '+(cfg.rules.indexOf(r)+1)+' · '+this.BOOTHS.find(b=>b.id===r.booth).name};
+    let set=r.docs.filter(up); const fb=r.mode==='prefer'&&(wait||0)>=+r.mins;
+    if(fb) set=boothDocs('b1');
+    return {set,rule:r,booth:'b1',fallback:fb,label:'Rule '+(cfg.rules.indexOf(r)+1)+(r.mode==='strict'?' · Strict':fb?' · fallback to any doctor':' · Prefer, any doctor after '+r.mins+' min')};
+  }
+  queueOf(p,cfg,res){ cfg=cfg||this.state.cfg; res=res||this.route(p,cfg); if(res.booth==='b2') return 'P'; if(!cfg.sep) return 'C'; return p.g==='F'?'F':'M'; }
+  waitingFor(docId,S){
+    S=S||this.state;
+    return S.pts.filter(p=>p.status==='waiting').filter(p=>{ const r=this.route(p,S.cfg,S.avail,S.now-p.reg); if(S.cfg.method!=='shared'&&p.assigned) return p.assigned===docId; return r.set.includes(docId); })
+      .sort((a,b)=>(this.isPrio(b,S.cfg)?1:0)-(this.isPrio(a,S.cfg)?1:0)||a.reg-b.reg);
+  }
+  loadOf(id,pts){ return pts.filter(p=>p.status==='waiting'&&p.assigned===id).length; }
+  pickAssign(p,cfg,avail,pts,rr){
+    const r=this.route(p,cfg,avail,0); if(!r.set.length) return null;
+    if(cfg.method==='least') return r.set.slice().sort((a,b)=>this.loadOf(a,pts)-this.loadOf(b,pts))[0];
+    if(cfg.method==='rr') return r.set[(rr||0)%r.set.length];
+    return null;
+  }
+  callNext(id){
+    const S=this.state; if(S.avail[id]===false){ this.toast('You are marked unavailable'); return; }
+    const q=this.waitingFor(id); const nx=q[0];
+    let pts=S.pts.map(p=>p.status==='with'&&p.doc===id?{...p,status:'done'}:p);
+    const wasWith=S.pts.some(p=>p.status==='with'&&p.doc===id);
+    if(!nx){ this.setState({pts,seen:wasWith?{...S.seen,[id]:S.seen[id]+1}:S.seen,now:S.now+1}); this.toast('No one waiting for '+this.docBy(id).name); return; }
+    pts=pts.map(p=>p.id===nx.id?{...p,status:'with',doc:id,called:S.now}:p);
+    this.setState({pts,seen:wasWith?{...S.seen,[id]:S.seen[id]+1}:S.seen,now:S.now+2});
+    this.toast(nx.token+' · '+nx.name+' → '+this.docBy(id).desk);
+  }
+  setCfg(o){ this.setState(s=>({cfg:{...s.cfg,...o}})); }
+  setRule(id,o){ this.setState(s=>({cfg:{...s.cfg,rules:s.cfg.rules.map(r=>r.id===id?{...r,...o}:r)}})); }
+  register(){
+    const S=this.state, F=S.form, ph=F.phone.replace(/\D/g,'');
+    if(!F.name.trim()||!(+F.age>=0&&F.age!=='')) return this.setState({form:{...F,err:'Enter name and age'}});
+    if(ph&&!/^01[3-9]\d{8}$/.test(ph)) return this.setState({form:{...F,err:'Mobile must be 11 digits, e.g. 01712345678'}});
+    const p={id:Date.now(),name:F.name.trim(),age:+F.age,g:F.g,reg:S.now,status:'waiting',doc:null,assigned:null,flags:{pregnant:F.g==='F'&&F.pregnant,disabled:F.disabled},problem:F.problem,note:'',forced:null};
+    const res=this.route(p); const q=this.queueOf(p,S.cfg,res); p.booth=res.booth; p.q=q;
+    const n=S.pts.filter(x=>x.q===q).length+1; p.token=q+'-'+String(n).padStart(3,'0');
+    p.assigned=this.pickAssign(p,S.cfg,S.avail,S.pts,S.pts.length);
+    this.setState({pts:[...S.pts,p],lastIssued:p.id,form:{name:'',phone:'',age:'',g:F.g,problem:'Diabetes check',pregnant:false,disabled:false,err:''},now:S.now+1});
+    this.toast('Token '+p.token+' issued · slip sent to printer');
+  }
+  movesIfUnavailable(id){
+    const S=this.state, av={...S.avail,[id]:false};
+    return S.pts.filter(p=>p.status==='waiting').map(p=>{ const before=this.route(p,S.cfg,S.avail,S.now-p.reg); if(!(before.set.includes(id)||p.assigned===id)) return null; const after=this.route(p,S.cfg,av,S.now-p.reg); let to; if(S.cfg.method!=='shared'){ to=after.set.slice().sort((a,b)=>this.loadOf(a,S.pts)-this.loadOf(b,S.pts))[0]; } return {p,after,to}; }).filter(Boolean);
+  }
+  renderVals(){
+    const S=this.state, cfg=S.cfg, on={}; this.TABS.forEach(t=>on[t[0]]=S.tab===t[0]);
+    const tabs=this.TABS.map(([k,l,r])=>({label:l,role:r,fg:S.tab===k?'#02548A':'#33485A',bd:S.tab===k?'#02548A':'transparent',go:()=>this.setState({tab:k})}));
+    const dn=id=>(this.docBy(id)||{}).name||'—';
+    // D2
+    const methods=[['shared','Shared queue · “Call next”','Recommended. One queue per lane; each doctor calls the next eligible patient.'],['least','Least load','Assign at registration to the eligible doctor with the fewest waiting.'],['rr','Round-robin','Assign at registration to eligible doctors in turn.'],['manual','Manual','Desk staff pick a doctor for each patient.']].map(([k,l,s])=>({label:l,sub:s,rec:k==='shared',bd:cfg.method===k?'#02548A':'#DCE6ED',bg:cfg.method===k?'#F1F6F9':'#fff',dot:cfg.method===k?'#02548A':'#fff',pick:()=>this.setCfg({method:k})}));
+    const b1Docs=this.DOCS.filter(d=>d.booth==='b1');
+    const rules=cfg.rules.map((r,i)=>{
+      const vals=r.field==='gender'?[['F','Female'],['M','Male']]:r.field==='priority'?[['elderly','Elderly (65+)'],['pregnant','Pregnant'],['disabled','Disabled']]:null;
+      return {...r,n:String(i+1),isAge:r.field==='age',hasVals:!!vals,vals:(vals||[]).map(([v,l])=>({v,l})),ops:(r.field==='age'?[['<','is under'],['>=','is at least']]:[['=','is']]).map(([v,l])=>({v,l})),
+        isDocs:r.target==='docs',isBooth:r.target==='booth',isPrefer:r.mode==='prefer'&&r.target==='docs',
+        chips:b1Docs.map(d=>{ const s=r.docs.includes(d.id); return {name:d.name.replace('Dr. ',''),g:d.g==='F'?'♀':'♂',guest:d.guest?' · guest':'',bg:s?'#02548A':'#fff',fg:s?'#fff':'#33485A',bd:s?'#02548A':'#C9D6E0',toggle:()=>this.setRule(r.id,{docs:s?r.docs.filter(x=>x!==d.id):[...r.docs,d.id]})}; }),
+        modes:[['strict','Strict'],['prefer','Prefer']].map(([k,l])=>({label:l,bg:r.mode===k?'#fff':'transparent',fg:r.mode===k?'#02548A':'#5B6B7A',sh:r.mode===k?'0 1px 2px rgba(2,40,70,.15)':'none',pick:()=>this.setRule(r.id,{mode:k})})),
+        modeHint:r.target==='booth'?'Routes to that booth’s doctors':r.mode==='strict'?'Only these doctors':'Any doctor after '+r.mins+' min wait',
+        onField:e=>{ const f=e.target.value; this.setRule(r.id,{field:f,op:f==='age'?'<':'=',val:f==='gender'?'F':f==='age'?'12':'elderly'}); },
+        onOp:e=>this.setRule(r.id,{op:e.target.value}),onVal:e=>this.setRule(r.id,{val:e.target.value}),onAge:e=>this.setRule(r.id,{val:e.target.value.replace(/\D/g,'').slice(0,3)}),
+        onTarget:e=>this.setRule(r.id,{target:e.target.value}),onBooth:e=>this.setRule(r.id,{booth:e.target.value}),onMins:e=>this.setRule(r.id,{mins:e.target.value.replace(/\D/g,'').slice(0,3)}),
+        up:()=>{ if(i===0) return; const rs=cfg.rules.slice(); [rs[i-1],rs[i]]=[rs[i],rs[i-1]]; this.setCfg({rules:rs}); },
+        down:()=>{ if(i===cfg.rules.length-1) return; const rs=cfg.rules.slice(); [rs[i+1],rs[i]]=[rs[i],rs[i+1]]; this.setCfg({rules:rs}); },
+        remove:()=>this.setCfg({rules:cfg.rules.filter(x=>x.id!==r.id)}),
+        warn:r.target==='docs'&&r.docs.length===0?'Pick at least one doctor':''};
+    });
+    const boothOpts=this.BOOTHS.map(b=>({v:b.id,l:b.name}));
+    const prioOpts=[['elderly','Elderly (65+)'],['pregnant','Pregnant'],['disabled','Disabled']].map(([k,l])=>({label:l,on:cfg.prio[k],bg:cfg.prio[k]?'#02548A':'#fff',fg:cfg.prio[k]?'#fff':'#33485A',bd:cfg.prio[k]?'#02548A':'#C9D6E0',mark:cfg.prio[k]?'✓ ':'',toggle:()=>this.setCfg({prio:{...cfg.prio,[k]:!cfg.prio[k]}})}));
+    const counters={};
+    const preview=this.SAMPLE.map(([name,age,g,flags],i)=>{ const p={name,age,g,flags,forced:null}; const r=this.route(p,cfg,{}, 0); const q=this.queueOf(p,cfg,r); counters[q]=(counters[q]||0)+1; const pr=this.isPrio(p,cfg); const dest=r.set.length?r.set.map(x=>dn(x).replace('Dr. ','')).join(' / '):'No doctor available'; return {n:String(i+1),name,meta:age+' y · '+(g==='F'?'F':'M')+(flags.pregnant?' · pregnant':'')+(flags.disabled?' · disabled':''),token:q+'-'+String(counters[q]).padStart(3,'0'),qBg:q==='F'?'#FCE7F3':q==='M'?'#E0F2FE':q==='P'?'#FFF0E0':'#E6EFF5',qFg:q==='F'?'#9D174D':q==='M'?'#0369A1':q==='P'?'#A34F00':'#02548A',dest,destC:r.set.length?'#10273A':'#B42318',rule:r.label,prio:pr}; });
+    // D3
+    const F=S.form, fOn={name:e=>this.setState({form:{...F,name:e.target.value,err:''}}),phone:e=>this.setState({form:{...F,phone:e.target.value,err:''}}),age:e=>this.setState({form:{...F,age:e.target.value.replace(/\D/g,'').slice(0,3),err:''}})};
+    const fG=[['F','Female'],['M','Male']].map(([k,l])=>({label:l,bg:F.g===k?'#E6EFF5':'#fff',bd:F.g===k?'#02548A':'#C9D6E0',fg:F.g===k?'#02548A':'#33485A',pick:()=>this.setState({form:{...F,g:k}})}));
+    const fProb=this.PROBLEMS.map(x=>({label:x,bg:F.problem===x?'#02548A':'#fff',fg:F.problem===x?'#fff':'#33485A',bd:F.problem===x?'#02548A':'#DCE6ED',pick:()=>this.setState({form:{...F,problem:x}})}));
+    const fFlags=[['pregnant','Pregnant'],['disabled','Disabled']].filter(([k])=>k!=='pregnant'||F.g==='F').map(([k,l])=>({label:l,bg:F[k]?'#02548A':'#fff',fg:F[k]?'#fff':'#33485A',bd:F[k]?'#02548A':'#C9D6E0',mark:F[k]?'✓ ':'',toggle:()=>this.setState({form:{...F,[k]:!F[k]}})}));
+    const draft={name:F.name||'—',age:+F.age||0,g:F.g,flags:{pregnant:F.pregnant,disabled:F.disabled},forced:null};
+    const dr=this.route(draft); const dq=this.queueOf(draft,cfg,dr);
+    const nextTok=dq+'-'+String(S.pts.filter(x=>x.q===dq).length+1).padStart(3,'0');
+    const sugg={ready:!!F.name.trim()&&F.age!=='',booth:this.BOOTHS.find(b=>b.id===dr.booth).name,queue:{F:'Female queue',M:'Male queue',P:'Children queue',C:'Single queue'}[dq],token:nextTok,docs:dr.set.length?dr.set.map(dn).join(', '):'No available doctor',rule:dr.label,prio:this.isPrio(draft,cfg),assignText:cfg.method==='shared'?'Next available of: '+dr.set.map(x=>dn(x).replace('Dr. ','')).join(', '):'Assigned at issue'};
+    const lp=S.pts.find(p=>p.id===S.lastIssued);
+    const slip=lp?{token:lp.token,name:lp.name,booth:this.BOOTHS.find(b=>b.id===lp.booth).name,boothBn:this.BOOTHS.find(b=>b.id===lp.booth).bn,doc:lp.assigned?dn(lp.assigned):'Next available doctor',docBn:lp.assigned?this.docBy(lp.assigned).bn:'পরবর্তী খালি ডাক্তার',ahead:String(S.pts.filter(p=>p.status==='waiting'&&p.q===lp.q&&p.reg<lp.reg).length),time:this.fmt(lp.reg)}:null;
+    const recent=S.pts.slice().sort((a,b)=>b.reg-a.reg).slice(0,6).map(p=>({token:p.token,name:p.name,meta:p.age+' y · '+p.g,at:this.fmt(p.reg),st:p.status==='waiting'?'Waiting':p.status==='with'?'With '+dn(p.doc).replace('Dr. ',''):'Seen'}));
+    // D4
+    const V=S.viewDoc, vd=this.docBy(V), vUp=S.avail[V]!==false;
+    const docTabs=this.DOCS.map(d=>({label:d.name.replace('Dr. ',''),sub:d.desk+(d.guest?' · guest':''),bg:V===d.id?'#02548A':'#fff',fg:V===d.id?'#fff':'#10273A',sfg:V===d.id?'#CFE3F1':'#6B7C8C',bd:V===d.id?'#02548A':'#DCE6ED',dot:S.avail[d.id]===false?'#B42318':'#1D7A46',pick:()=>this.setState({viewDoc:d.id})}));
+    const cur=S.pts.find(p=>p.status==='with'&&p.doc===V);
+    const myQ=this.waitingFor(V).map((p,i)=>{ const r=this.route(p,cfg,S.avail,S.now-p.reg); return {pos:String(i+1),token:p.token,name:p.name,meta:p.age+' y · '+(p.g==='F'?'Female':'Male')+' · '+p.problem,wait:(S.now-p.reg)+' min',prio:this.isPrio(p,cfg),rule:r.label,transfer:()=>this.setState({transfer:{pid:p.id,to:'',reason:'Needs specialist'}})}; });
+    const curV=cur?{token:cur.token,name:cur.name,meta:cur.age+' y · '+(cur.g==='F'?'Female':'Male')+' · '+cur.problem,since:'Called '+this.fmt(cur.called||cur.reg),transfer:()=>this.setState({transfer:{pid:cur.id,to:'',reason:'Needs specialist'}})}:null;
+    const T=S.transfer, tp=T?S.pts.find(p=>p.id===T.pid):null;
+    const tOpts=[{v:'',l:'Choose doctor or booth'}].concat(this.DOCS.filter(d=>d.id!==V&&S.avail[d.id]!==false).map(d=>({v:'doc:'+d.id,l:d.name+' · '+d.desk}))).concat(this.BOOTHS.map(b=>({v:'booth:'+b.id,l:'Booth · '+b.name})));
+    const doTransfer=()=>{ if(!T.to) return this.toast('Choose where to send the patient'); const [k,v]=T.to.split(':'); const pts=S.pts.map(p=>p.id===T.pid?{...p,status:'waiting',doc:null,forced:k==='doc'?v:null,booth:k==='booth'?v:p.booth,assigned:k==='doc'?v:null,note:'Transferred by '+vd.name.replace('Dr. ','')+': '+T.reason,reg:p.reg}:p); this.setState({pts,transfer:null}); this.toast(tp.token+' transferred'); };
+    const U=S.unavail;
+    const moves=U?this.movesIfUnavailable(V).map(m=>({token:m.p.token,name:m.p.name,to:m.to?dn(m.to):m.after.set.length?m.after.set.map(x=>dn(x).replace('Dr. ','')).join(' / '):'No eligible doctor — desk will reassign',toC:(m.to||m.after.set.length)?'#10273A':'#B42318'})):[];
+    const confirmUnavail=()=>{ const av={...S.avail,[V]:false}; let pts=S.pts.map(p=>p.status==='with'&&p.doc===V?{...p,status:'waiting',doc:null}:p); if(cfg.method!=='shared') pts=pts.map(p=>{ if(p.status==='waiting'&&p.assigned===V){ const r=this.route(p,cfg,av,S.now-p.reg); const to=r.set.slice().sort((a,b)=>this.loadOf(a,pts)-this.loadOf(b,pts))[0]||null; return {...p,assigned:to}; } return p; }); this.setState({avail:av,pts,unavail:null}); this.toast(vd.name+' marked unavailable · '+moves.length+' patients redistributed'); };
+    // D5
+    const lanes=['F','M','P'].concat(cfg.sep?[]:['C']).map(q=>{ const w=S.pts.filter(p=>p.q===q&&p.status==='waiting'); const longest=w.length?Math.max(...w.map(p=>S.now-p.reg)):0; return {q,label:{F:'Female queue',M:'Male queue',P:'Children queue',C:'Single queue'}[q],bn:{F:'মহিলা',M:'পুরুষ',P:'শিশু',C:'সাধারণ'}[q],n:String(w.length),longest:longest+' min',lc:longest>20?'#B42318':'#10273A',next:w.sort((a,b)=>(this.isPrio(b,cfg)?1:0)-(this.isPrio(a,cfg)?1:0)||a.reg-b.reg).slice(0,4).map(p=>({t:p.token,pr:this.isPrio(p,cfg)})),bg:q==='F'?'#FCE7F3':q==='M'?'#E0F2FE':'#FFF0E0',fg:q==='F'?'#9D174D':q==='M'?'#0369A1':'#A34F00',now:this.DOCS.filter(d=>{ const c=S.pts.find(p=>p.status==='with'&&p.doc===d.id); return c&&c.q===q; }).map(d=>({desk:d.desk,t:S.pts.find(p=>p.status==='with'&&p.doc===d.id).token}))}; }).filter(l=>l.q!=='C'||!cfg.sep).filter(l=>cfg.sep||l.q==='C'||l.q==='P');
+    const docRows=this.DOCS.map(d=>{ const c=S.pts.find(p=>p.status==='with'&&p.doc===d.id); const up=S.avail[d.id]!==false; return {name:d.name,desk:d.desk,booth:this.BOOTHS.find(b=>b.id===d.booth).name,guest:d.guest,st:!up?'Unavailable':c?'With patient':'Free',stBg:!up?'#FDECEC':c?'#FFF0E0':'#E3F4EA',stFg:!up?'#B42318':c?'#A34F00':'#1D7A46',now:c?c.token:'—',seen:String(S.seen[d.id]),waiting:String(up?this.waitingFor(d.id).length:0),avg:d.avg+' min'}; });
+    const alerts=[]; lanes.forEach(l=>{ if(parseInt(l.longest)>20) alerts.push({t:l.label+' wait > 20 min ('+l.longest+')',c:'#B42318',bg:'#FDECEC'}); });
+    S.pts.filter(p=>p.status==='waiting').forEach(p=>{ const r=this.route(p,cfg,S.avail,S.now-p.reg); if(!r.set.length) alerts.push({t:p.token+' '+p.name+' has no available doctor ('+r.label+')',c:'#B42318',bg:'#FDECEC'}); });
+    this.DOCS.filter(d=>S.avail[d.id]===false).forEach(d=>alerts.push({t:d.name+' is unavailable',c:'#A34F00',bg:'#FFF0E0'}));
+    // D6
+    const B=S.bn, tvLanes=lanes.map(l=>({title:B?l.bn+' সারি':l.label,bg:l.bg,fg:l.fg,now:this.DOCS.map(d=>{ const c=S.pts.find(p=>p.status==='with'&&p.doc===d.id); return c&&c.q===l.q?{desk:B?d.desk.replace('Desk','ডেস্ক'):d.desk,t:c.token,doc:B?d.bn:d.name}:null; }).filter(Boolean),next:l.next.slice(0,3),noNow:!this.DOCS.some(d=>{ const c=S.pts.find(p=>p.status==='with'&&p.doc===d.id); return c&&c.q===l.q; })}));
+    return {
+      idxShow:S.tab!=='tv',on,tabs,clock:this.fmt(S.now),tick:()=>this.setState({now:S.now+5}),toast:S.toast,
+      methods,rules,boothOpts,prioOpts,sep:cfg.sep,sepTrk:cfg.sep?'#02548A':'#C9D6E0',sepKnob:cfg.sep?'18px':'2px',toggleSep:()=>this.setCfg({sep:!cfg.sep}),sepText:cfg.sep?'Female tokens F-001, male tokens M-001. Children go to their booth with P- tokens.':'One queue, tokens C-001. Gender rules still decide which doctor calls each patient.',
+      addRule:()=>this.setCfg({rules:[...cfg.rules,{id:Date.now(),field:'priority',op:'=',val:'elderly',target:'docs',booth:'b1',docs:['d1','d2'],mode:'prefer',mins:'10'}]}),
+      saveRules:()=>this.toast('Distribution rules saved · applied to new registrations'),
+      preview,
+      form:F,fOn,fG,fProb,fFlags,sugg,register:()=>this.register(),hasSlip:!!slip,slip:slip||{},recent,printSlip:()=>this.toast('Slip printed · Camp desk printer'),
+      docTabs,vd:{...vd,up:vUp,down:!vUp},cur:curV||{},hasCur:!!curV,noCur:!curV,myQ,noQ:myQ.length===0,myQN:String(myQ.length),
+      callNext:()=>this.callNext(V),openUnavail:()=>this.setState({unavail:true}),back:()=>{ this.setState({avail:{...S.avail,[V]:true}}); this.toast(vd.name+' is available again'); },
+      transferOn:!!T,transfer:T||{},tp:tp||{},tOpts,onTTo:e=>this.setState({transfer:{...T,to:e.target.value}}),onTReason:e=>this.setState({transfer:{...T,reason:e.target.value}}),closeTransfer:()=>this.setState({transfer:null}),doTransfer,
+      unavailOn:!!U,moves,noMoves:moves.length===0,confirmUnavail,closeUnavail:()=>this.setState({unavail:null}),methodName:{shared:'shared queue',least:'least load',rr:'round-robin',manual:'manual'}[cfg.method],
+      lanes,docRows,alerts,noAlerts:alerts.length===0,
+      tvLanes,tvTitle:B?'বিনামূল্যে ডায়াবেটিস ও রক্তচাপ পরীক্ষা ক্যাম্প':'Free Diabetes & BP Screening Camp',tvNow:B?'এখন সেবা দেওয়া হচ্ছে':'Now serving',tvNext:B?'পরবর্তী':'Next',tvWait:B?'ডাকার জন্য অপেক্ষা করুন':'Waiting for doctor'
+    };
+  }
+}
+
+</script>
+</body>
+</html>

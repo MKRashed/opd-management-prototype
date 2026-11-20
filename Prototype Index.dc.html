@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800&amp;display=swap">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#F1F6F9;font-family:'Noto Sans Bengali',sans-serif;-webkit-font-smoothing:antialiased}
+button{font-family:inherit}
+a{color:#02548A;text-decoration:none}
+input:focus,select:focus,textarea:focus{box-shadow:0 0 0 3px rgba(14,165,233,.3) !important}
+button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outline-offset:2px}
+</style>
+</helmet>
+<div style="min-height:100vh;color:#10273A;font-size:14px;line-height:1.55;font-family:'Noto Sans Bengali',sans-serif">
+
+  <!-- Top bar -->
+  <div style="background:#fff;border-bottom:1px solid #DCE6ED">
+    <div style="max-width:1200px;margin:0 auto;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+      <div style="display:flex;gap:10px;align-items:center">
+        <span style="width:36px;height:36px;border-radius:10px;background:#02548A;color:#fff;display:grid;place-items:center;font-weight:800;font-size:14px">M</span>
+        <div style="line-height:1.2"><div style="font-weight:700;font-size:16px">Medinote</div><div style="font-size:12px;color:#5B6B7A">IPMS OPD platform</div></div>
+      </div>
+      <nav style="display:flex;gap:4px;align-items:center;flex-wrap:wrap">
+        <a href="#stories" style="padding:6px 12px;border-radius:8px;color:#33485A;font-weight:600;font-size:13px" style-hover="background:#F1F6F9">Demo stories</a>
+        <a href="#modules" style="padding:6px 12px;border-radius:8px;color:#33485A;font-weight:600;font-size:13px" style-hover="background:#F1F6F9">All screens</a>
+        <button onClick="{{ reset }}" style="height:34px;padding:0 12px;border-radius:8px;border:1px solid #DCE6ED;background:#fff;color:#5B6B7A;font-weight:600;font-size:13px;cursor:pointer;white-space:nowrap" style-hover="background:#F1F6F9;color:#10273A">Reset demo data</button>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header style="background:linear-gradient(135deg,#02548A 0%,#023A60 100%);color:#fff;overflow:hidden">
+    <div style="max-width:1200px;margin:0 auto;padding:56px 24px 72px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(380px,100%),1fr));gap:48px;align-items:center">
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <span style="align-self:flex-start;font-size:13px;font-weight:600;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:99px;padding:4px 14px">Interactive prototype · Popular Hospital demo</span>
+        <h1 style="margin:0;font-size:clamp(32px,5vw,48px);line-height:1.1;font-weight:800;letter-spacing:-.01em">Hospital OPD, from booking to prescription</h1>
+        <p style="margin:0;font-size:20px;color:#CFE3F1;font-weight:500">অনলাইন সিরিয়াল থেকে প্রেসক্রিপশন — এক প্ল্যাটফর্মে</p>
+        <p style="margin:0;font-size:16px;color:#CFE3F1;max-width:520px">One connected system for reception, doctors, patients and health camps. Click through the real flows below. All data is fictional and can be reset at any time.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:6px">
+          <a href="{{ heroStart }}" style="height:48px;padding:0 22px;border-radius:10px;background:#FF8000;color:#1A0C00;font-weight:700;font-size:16px;display:inline-flex;align-items:center;white-space:nowrap" style-hover="background:#FF962E">Start guided demo →</a>
+          <a href="{{ heroSite }}" style="height:48px;padding:0 20px;border-radius:10px;border:1px solid rgba(255,255,255,.45);color:#fff;font-weight:600;font-size:16px;display:inline-flex;align-items:center;white-space:nowrap" style-hover="background:rgba(255,255,255,.1)">View patient website</a>
+        </div>
+      </div>
+
+      <!-- Live queue mock -->
+      <div style="position:relative;justify-self:center;width:100%;max-width:440px">
+        <div style="background:#fff;color:#10273A;border-radius:16px;box-shadow:0 24px 60px rgba(0,20,40,.35);overflow:hidden">
+          <div style="padding:14px 18px;border-bottom:1px solid #EEF3F6;display:flex;justify-content:space-between;align-items:center;gap:8px">
+            <b style="font-size:14px">Today’s queue</b>
+            <span style="font-size:12px;font-weight:600;color:#1D7A46;background:#E3F4EA;border-radius:99px;padding:2px 10px;white-space:nowrap">● Live</span>
+          </div>
+          <div style="padding:18px;display:flex;gap:14px;align-items:center">
+            <span role="img" aria-label="Dr. Farhana Rahman" style="width:56px;height:56px;border-radius:12px;background:#E6EFF5 url('assets/avatars/farhana-rahman.svg') center/cover no-repeat;flex:none"></span>
+            <div style="flex:1;min-width:0;line-height:1.35">
+              <div style="font-weight:700;font-size:16px">Dr. Farhana Rahman</div>
+              <div style="font-size:13px;color:#5B6B7A">Medicine · Room 201</div>
+            </div>
+            <div style="text-align:center;line-height:1.1">
+              <div style="font-size:12px;color:#5B6B7A">Now serving</div>
+              <div style="font-size:32px;font-weight:800;color:#FF8000;font-variant-numeric:tabular-nums">M-014</div>
+            </div>
+          </div>
+          <div style="padding:0 18px 18px;display:flex;gap:8px;align-items:center">
+            <span style="font-size:12px;color:#5B6B7A;white-space:nowrap">Next</span>
+            <span style="flex:1;text-align:center;background:#F1F6F9;border-radius:8px;padding:6px 0;font-weight:700">M-015</span>
+            <span style="flex:1;text-align:center;background:#F1F6F9;border-radius:8px;padding:6px 0;font-weight:700">M-016</span>
+            <span style="flex:1;text-align:center;background:#F1F6F9;border-radius:8px;padding:6px 0;font-weight:700">M-017</span>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #EEF3F6;text-align:center">
+            <div style="padding:12px 4px"><div style="font-size:20px;font-weight:800">79</div><div style="font-size:12px;color:#5B6B7A">Booked today</div></div>
+            <div style="padding:12px 4px;border-left:1px solid #EEF3F6;border-right:1px solid #EEF3F6"><div style="font-size:20px;font-weight:800;color:#02548A">19</div><div style="font-size:12px;color:#5B6B7A">Waiting</div></div>
+            <div style="padding:12px 4px"><div style="font-size:20px;font-weight:800;color:#1D7A46">33</div><div style="font-size:12px;color:#5B6B7A">Done</div></div>
+          </div>
+        </div>
+        <div style="position:absolute;left:-18px;bottom:-26px;background:#fff;color:#10273A;border-radius:12px;box-shadow:0 12px 30px rgba(0,20,40,.3);padding:10px 14px;display:flex;gap:10px;align-items:center;max-width:270px">
+          <span style="width:32px;height:32px;border-radius:99px;background:#E3F4EA;color:#1D7A46;display:grid;place-items:center;font-weight:800;flex:none">✓</span>
+          <span style="font-size:13px;line-height:1.3"><b>Token M-018 sent by SMS</b><br><span style="color:#5B6B7A">Booked online · 10:40 am</span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main style="max-width:1200px;margin:0 auto;padding:0 24px 72px;display:flex;flex-direction:column;gap:56px">
+
+    <!-- Highlights -->
+    <section style="margin-top:-28px;position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px">
+      <sc-for list="{{ highlights }}" as="h" hint-placeholder-count="4">
+        <div style="background:#fff;border:1px solid #DCE6ED;border-radius:14px;padding:18px;display:flex;gap:14px;align-items:flex-start;box-shadow:0 6px 18px rgba(2,40,70,.06)">
+          <span style="width:44px;height:44px;border-radius:12px;background:#E6EFF5;display:grid;place-items:center;flex:none"><img src="{{ h.icon }}" alt="" style="width:24px;height:24px"></span>
+          <div style="line-height:1.4"><div style="font-weight:700;font-size:16px">{{ h.title }}</div><div style="font-size:13px;color:#5B6B7A;margin-top:2px">{{ h.desc }}</div></div>
+        </div>
+      </sc-for>
+    </section>
+
+    <!-- Demo stories -->
+    <section id="stories" style="display:flex;flex-direction:column;gap:20px;scroll-margin-top:24px">
+      <div><div style="font-size:13px;font-weight:700;color:#FF8000;letter-spacing:.06em">GUIDED DEMO</div><h2 style="margin:4px 0 0;font-size:28px;line-height:1.2">Four stories, end to end</h2><div style="color:#5B6B7A;font-size:16px;margin-top:6px">Each story opens on its first screen and continues across the apps. Use Reset demo data to replay stories 1 and 2.</div></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:16px">
+        <sc-for list="{{ flows }}" as="f" hint-placeholder-count="4">
+          <div style="background:#fff;border:1px solid #DCE6ED;border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:14px" style-hover="border-color:#9FC0D6;box-shadow:0 10px 28px rgba(2,40,70,.08)">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+              <span style="width:36px;height:36px;border-radius:10px;background:#02548A;color:#fff;display:grid;place-items:center;font-weight:800;font-size:16px">{{ f.n }}</span>
+              <span style="font-size:12px;font-weight:600;color:#02548A;background:#E6EFF5;border-radius:99px;padding:2px 10px;white-space:nowrap">{{ f.who }}</span>
+            </div>
+            <div style="line-height:1.3"><div style="font-weight:700;font-size:18px">{{ f.title }}</div><div style="font-size:13px;color:#5B6B7A;margin-top:4px">{{ f.sub }}</div></div>
+            <ol style="margin:0;padding:12px 0 0;list-style:none;display:flex;flex-direction:column;gap:2px;border-top:1px solid #EEF3F6">
+              <sc-for list="{{ f.steps }}" as="s" hint-placeholder-count="4">
+                <li><a href="{{ s.href }}" style="display:flex;gap:10px;align-items:baseline;padding:5px 6px;border-radius:6px;color:#33485A;font-size:13px" style-hover="background:#F1F6F9;color:#02548A"><span style="color:#5B6B7A;font-weight:700;font-size:12px;flex:none">{{ s.i }}</span>{{ s.label }}</a></li>
+              </sc-for>
+            </ol>
+            <a href="{{ f.start }}" style="margin-top:auto;height:40px;border-radius:10px;background:#02548A;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;white-space:nowrap" style-hover="background:#023A60">Start story →</a>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- Modules -->
+    <section id="modules" style="display:flex;flex-direction:column;gap:20px;scroll-margin-top:24px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
+        <div><div style="font-size:13px;font-weight:700;color:#FF8000;letter-spacing:.06em">EXPLORE</div><h2 style="margin:4px 0 0;font-size:28px;line-height:1.2">Every screen, by app</h2><div style="color:#5B6B7A;font-size:16px;margin-top:6px">{{ totalScreens }} screens across {{ groupCount }} apps. Open any one directly.</div></div>
+        <button onClick="{{ toggleUrls }}" style="height:36px;padding:0 14px;border-radius:8px;border:1px solid #DCE6ED;background:{{ urlBtnBg }};color:#33485A;font-weight:600;font-size:13px;cursor:pointer;white-space:nowrap">{{ urlBtnLabel }}</button>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(340px,100%),1fr));gap:16px;align-items:start">
+        <sc-for list="{{ groups }}" as="g" hint-placeholder-count="8">
+          <div style="background:#fff;border:1px solid #DCE6ED;border-radius:14px;overflow:hidden">
+            <div style="padding:16px 18px;display:flex;gap:14px;align-items:center;border-bottom:1px solid #EEF3F6">
+              <span style="width:44px;height:44px;border-radius:12px;background:#E6EFF5;display:grid;place-items:center;flex:none"><img src="{{ g.icon }}" alt="" style="width:24px;height:24px"></span>
+              <div style="flex:1;min-width:0;line-height:1.3"><div style="font-weight:700;font-size:16px">{{ g.title }}</div><div style="font-size:13px;color:#5B6B7A">{{ g.sub }}</div></div>
+              <span style="font-size:12px;font-weight:600;color:#5B6B7A;background:#F1F6F9;border-radius:99px;padding:2px 10px;white-space:nowrap">{{ g.count }}</span>
+            </div>
+            <div style="padding:6px">
+              <sc-for list="{{ g.items }}" as="i" hint-placeholder-count="5">
+                <a href="{{ i.href }}" title="{{ i.url }}" style="display:flex;flex-direction:column;padding:8px 12px;border-radius:8px;color:#10273A" style-hover="background:#F1F6F9">
+                  <span style="display:flex;justify-content:space-between;gap:8px;align-items:baseline"><b style="color:#02548A;font-size:14px">{{ i.name }}</b><span style="color:#5B6B7A;font-size:13px">→</span></span>
+                  <span style="color:#5B6B7A;font-size:13px;line-height:1.4">{{ i.desc }}</span>
+                  <sc-if value="{{ showUrls }}" hint-placeholder-val="{{ false }}"><code style="font-family:ui-monospace,Menlo,monospace;font-size:12px;color:#7A8B99;word-break:break-all;margin-top:2px">{{ i.url }}</code></sc-if>
+                </a>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+  </main>
+
+  <footer style="border-top:1px solid #DCE6ED;background:#fff">
+    <div style="max-width:1200px;margin:0 auto;padding:20px 24px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px;color:#5B6B7A">
+      <span>Medinote · IPMS OPD interactive prototype · Demo tenant: Popular Hospital (popular.ipms.health)</span>
+      <span>All names, patients and numbers are fictional.</span>
+    </div>
+  </footer>
+
+  <sc-if value="{{ toast }}" hint-placeholder-val="{{ false }}"><div style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#10273A;color:#fff;padding:10px 16px;border-radius:10px;font-weight:600;z-index:60;box-shadow:0 10px 28px rgba(2,40,70,.25)">{{ toast }}</div></sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state={toast:'',showUrls:false};
+  icon(inner){ return 'data:image/svg+xml;utf8,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#02548A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'+inner+'</svg>'); }
+  renderVals(){
+    const O='IPMS%20OPD.dc.html#', DA='Doctor%20App.dc.html#', DM='Doctor%20Mobile.dc.html#', CO='Campaign%20Ops.dc.html#', PW='Public%20Website.dc.html#', PA='Publicity%20Admin.dc.html#';
+    const H='popular.ipms.health', D='ipms.health/doctor';
+    const it=(name,desc,url,href)=>({name,desc,url,href});
+    const I={
+      admin:this.icon('<path d="M3 21h18M5 21V8l7-5 7 5v13M10 21v-4h4v4M12 8v5M9.5 10.5h5"/>'),
+      reception:this.icon('<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4h6v3H9zM9 12h6M9 16h4"/>'),
+      desktop:this.icon('<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/>'),
+      mobile:this.icon('<rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/>'),
+      camp:this.icon('<path d="M3 20 12 4l9 16zM12 4v16M8.5 20 12 14l3.5 6"/>'),
+      web:this.icon('<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/>'),
+      tv:this.icon('<rect x="3" y="6" width="18" height="12" rx="2"/><path d="M8 21h8M8 3l4 3 4-3"/>'),
+      grid:this.icon('<rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/>'),
+      sms:this.icon('<path d="M4 5h16v11H9l-5 4z"/><path d="M8 10h8M8 13h5"/>'),
+      queue:this.icon('<path d="M4 7h10M4 12h10M4 17h10"/><circle cx="18.5" cy="7" r="1.5"/><circle cx="18.5" cy="12" r="1.5"/><circle cx="18.5" cy="17" r="1.5"/>'),
+      doctor:this.icon('<circle cx="12" cy="7" r="4"/><path d="M5 21v-2a7 7 0 0 1 14 0v2M9 14v3a3 3 0 0 0 6 0"/>')
+    };
+    const step=(arr)=>arr.map((s,k)=>({...s,i:String(k+1).padStart(2,'0')}));
+    const flows=[
+      {n:'1',who:'Admin + doctor',title:'Invite a doctor, get bookable',sub:'Invite → accept on mobile → set schedule → reception books',start:O+'invites',steps:step([{label:'Admin sees Dr. Ayesha’s pending invite',href:O+'invites'},{label:'Doctor opens SMS link and accepts on mobile',href:DM+'invite'},{label:'Doctor sets OPD schedule and publishes',href:DA+'wizard'},{label:'Reception books her slots',href:O+'book'}])},
+      {n:'2',who:'Admin + doctor',title:'Create a profile, doctor claims it',sub:'Unclaimed profile → SMS link → OTP → password',start:O+'adddoctor',steps:step([{label:'Admin searches 99999, creates profile',href:O+'adddoctor'},{label:'Doctor claims via SMS link, OTP, password',href:DM+'claim'},{label:'Admin sees “schedule pending”',href:O+'doctors'}])},
+      {n:'3',who:'Reception',title:'A patient’s day at the OPD',sub:'Search → register → book → token → arrived → prescription',start:O+'patients',steps:step([{label:'Search, or register on no match',href:O+'patients'},{label:'Book department → doctor → slot',href:O+'book'},{label:'Print token slip, mark arrived',href:O+'token'},{label:'View and print a prescription',href:O+'rx'}])},
+      {n:'4',who:'Health camp',title:'Run a free health camp',sub:'Gender rules → F-/M- tokens → call next → redistribute',start:CO+'rules',steps:step([{label:'Set booth rules and separate queues',href:CO+'rules'},{label:'Register a female and a male patient',href:CO+'desk'},{label:'Doctors press Call next; one goes unavailable',href:CO+'doctor'},{label:'Watch the live board and camp TV',href:CO+'board'}])}
+    ];
+    const highlights=[
+      {icon:I.sms,title:'Online booking',desc:'Patients pick a doctor and slot; token arrives by SMS.'},
+      {icon:I.queue,title:'Live OPD queue',desc:'Reception, doctors and the waiting-room TV stay in sync.'},
+      {icon:I.doctor,title:'Doctor app',desc:'Doctors join by invite, set hours and call the next patient.'},
+      {icon:I.camp,title:'Health camps',desc:'Separate female and male queues with smart booth rules.'}
+    ];
+    const groups=[
+      {icon:I.admin,title:'Hospital admin',sub:'For the admin team',items:[
+        it('Login','Hospital logo, mobile number and password',H+'/login',O+'login'),
+        it('Departments','List, add and edit with Bangla name and room',H+'/admin/departments',O+'depts'),
+        it('Doctors','Status chips: Invited, schedule pending, Active, Left, Unclaimed, Campaign guest',H+'/admin/doctors',O+'doctors'),
+        it('Add doctor','Search IPMS by BMDC or phone, invite, or create an unclaimed profile',H+'/admin/doctors/new',O+'adddoctor'),
+        it('Invitations','Pending, accepted, declined, expired and cancelled, with countdown',H+'/admin/doctors/invitations',O+'invites'),
+        it('Doctor detail','Profile, read-only schedule, load, tabs, remove with reassignment',H+'/admin/doctors/:id',O+'doctor'),
+        it('Staff','Add Admin, Receptionist or Campaign desk; deactivate',H+'/admin/staff',O+'staff'),
+        it('Roles & permissions','Permission grid per role; locked rules',H+'/admin/roles',O+'roles'),
+        it('Reports','Patients by doctor and department, chart, table, export',H+'/admin/reports',O+'reports'),
+        it('Settings','Logo, name, address, MRN prefix, token format, SMS balance',H+'/admin/settings',O+'settings'),
+        it('Audit log','Who viewed or changed which record, paged',H+'/admin/audit',O+'audit'),
+        it('SMS broadcast','Audience, Bangla composer with SMS count, schedule',H+'/admin/sms',PA+'sms'),
+        it('Notices & articles','Editor with author, cover, home-page pin',H+'/admin/content',PA+'content'),
+        it('Gallery manager','Albums, captions, add and remove photos',H+'/admin/content/gallery',PA+'gallery'),
+        it('Permission denied','Shown when a receptionist opens an admin page',H+'/403',O+'denied')]},
+      {icon:I.reception,title:'Reception',sub:'For the front desk',items:[
+        it('Dashboard','Today’s counts, alerts, doctor status board',H+'/reception',O+'dashboard'),
+        it('Patient search & register','Phone, name or MRN; shared-phone picker; quick register',H+'/reception/patients',O+'patients'),
+        it('Patient directory','Sortable, paged table with bulk actions',H+'/reception/patients?view=directory',O+'directory'),
+        it('Patient record','Details, visits, prescriptions, history',H+'/reception/patients/:mrn',O+'patient'),
+        it('Book appointment','Department → doctor → date and slot → confirm drawer',H+'/reception/book',O+'book'),
+        it('Token slip','80mm thermal and A5 print preview',H+'/reception/appointments/:id/token',O+'token'),
+        it('Today’s queue','Per-doctor tables, views, bulk actions, sorting',H+'/reception/queue',O+'queue'),
+        it('Needs reschedule','Bookings hit by a doctor’s schedule change',H+'/reception/queue/needs-reschedule',O+'needs'),
+        it('Prescription','Read-only view with print and PDF',H+'/reception/prescriptions/:id',O+'rx')]},
+      {icon:I.desktop,title:'Doctor app (desktop)',sub:'Inside IPMS · Dr. Ayesha Siddiqua',items:[
+        it('Appointments','OPD · Popular Hospital badge, chamber filter, Call next',D+'/appointments',DA+'appointments'),
+        it('Invitation detail','Hospital, department, membership, data policy, accept or decline',D+'/invites/:token',DA+'invite'),
+        it('Schedule set-up wizard','After accepting: weekly hours, slots, holidays, publish',D+'/hospitals/popular/schedule?setup=1',DA+'wizard'),
+        it('OPD schedule','Edit hours; hospital name and address locked',D+'/hospitals/popular/schedule',DA+'schedule'),
+        it('My hospitals','Each hospital with status; left hospital greyed',D+'/hospitals',DA+'chambers'),
+        it('Notifications','Invites and hospital updates',D+'/notifications',DA+'notifications')]},
+      {icon:I.mobile,title:'Doctor mobile',sub:'Phone screens',items:[
+        it('Invite page','SMS link → sign in → accept or decline with reason','ipms.health/i/:token',DM+'invite'),
+        it('Invite expired','Expired link state','ipms.health/i/:token',DM+'expired'),
+        it('Invite already used','Used link state','ipms.health/i/:token',DM+'used'),
+        it('Claim profile','Review prefilled profile → OTP → password → auto-accept','ipms.health/c/:token',DM+'claim')]},
+      {icon:I.camp,title:'Health camp',sub:'Campaign · 28 Nov',items:[
+        it('Campaign list','Banner, dates, venue, registrations',H+'/admin/campaigns',PA+'campaigns'),
+        it('Create / edit campaign','Booths with hospital and guest doctors, limit',H+'/admin/campaigns/:id/edit',PA+'edit'),
+        it('Distribution rules','Method, rule builder, M/F queues, priority, live preview',H+'/admin/campaigns/:id/distribution',CO+'rules'),
+        it('Desk registration','Quick form → booth suggestion → token slip',H+'/camp/:id/desk',CO+'desk'),
+        it('Doctor camp view','Own queue, Call next, transfer, unavailable',D+'/camps/:id',CO+'doctor'),
+        it('Live board','Per-doctor and per-queue numbers, alerts',H+'/admin/campaigns/:id/live',CO+'board'),
+        it('Registrations','Filters, check-in, link to visit and prescription',H+'/admin/campaigns/:id/registrations',PA+'registrations')]},
+      {icon:I.web,title:'Patient website',sub:'Public, no login',items:[
+        it('Home','Banner, departments, doctors, camps, notices, map',H+'/',PW+'home'),
+        it('Doctors','Directory with department filter',H+'/doctors',PW+'doctors'),
+        it('Doctor profile','OPD days and times, Book',H+'/doctors/:slug',PW+'doctor'),
+        it('Online booking','Department → doctor → slot → phone OTP → token',H+'/book',PW+'book'),
+        it('Campaign page','Banner, booths, registration, share, QR',H+'/camps/:slug',PW+'campaign'),
+        it('Notices & articles','List of notices and health articles',H+'/notices',PW+'notices'),
+        it('Article','Article detail',H+'/notices/:slug',PW+'article'),
+        it('Gallery','Photo gallery',H+'/gallery',PW+'gallery')]},
+      {icon:I.tv,title:'TV displays',sub:'Waiting-room screens',items:[
+        it('OPD queue TV','Now serving and next 3 per doctor; offline banner',H+'/tv/opd','TV%20Display.dc.html'),
+        it('Campaign TV','Separate female and male lanes',H+'/tv/camp/:id',CO+'tv')]},
+      {icon:I.grid,title:'Design system',sub:'UI building blocks',items:[
+        it('Component sheet','Buttons, chips, inputs, tables, slot grid, token card, rule row, queue lane','—','Component%20Sheet.dc.html')]}
+    ].map(g=>({...g,count:g.items.length+(g.items.length===1?' screen':' screens')}));
+    const totalScreens=groups.reduce((n,g)=>n+g.items.length,0);
+    const S=this.state;
+    return {flows,highlights,groups,totalScreens,groupCount:groups.length,
+      heroStart:O+'patients',heroSite:PW+'home',
+      showUrls:S.showUrls,urlBtnLabel:S.showUrls?'Hide URLs':'Show URLs',urlBtnBg:S.showUrls?'#E6EFF5':'#fff',
+      toggleUrls:()=>this.setState({showUrls:!S.showUrls}),
+      toast:S.toast,
+      reset:()=>{ try{ localStorage.removeItem('ipms_demo_flow'); }catch(e){} this.setState({toast:'Demo data reset'}); setTimeout(()=>this.setState({toast:''}),2200); }};
+  }
+}
+
+</script>
+</body>
+</html>

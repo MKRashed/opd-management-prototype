@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700&amp;display=swap">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#F1F6F9;font-family:'Noto Sans Bengali',sans-serif;-webkit-font-smoothing:antialiased}
+button,input,select{font-family:inherit}
+a{color:#02548A;text-decoration:none}
+a:hover{color:#023A60;text-decoration:underline}
+html:not([data-lang="bn"]) .bn{display:none !important}
+html[data-lang="bn"] .en{display:none !important}
+@media print{.idx-link{display:none !important}}
+input:focus,select:focus,textarea:focus{box-shadow:0 0 0 3px rgba(14,165,233,.3) !important}
+button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outline-offset:2px}
+</style>
+</helmet>
+<div style="display:flex;min-height:100vh;color:#10273A;font-size:14px;line-height:1.45;font-family:'Noto Sans Bengali',sans-serif">
+  <aside style="width:220px;flex:none;background:#fff;border-right:1px solid #DCE6ED;display:flex;flex-direction:column;position:sticky;top:0;height:100vh">
+    <div style="padding:16px;display:flex;gap:10px;align-items:center;border-bottom:1px solid #E6EFF5">
+      <div style="width:34px;height:34px;border-radius:9px;background:#02548A;color:#fff;display:grid;place-items:center;font-weight:700;font-size:13px">IP</div>
+      <div><div style="font-weight:700;font-size:14px">IPMS</div><div style="font-size:12px;color:#5B6B7A">Doctor workspace</div></div>
+    </div>
+    <nav style="flex:1;padding:12px 10px;display:flex;flex-direction:column;gap:2px">
+      <sc-for list="{{ nav }}" as="n" hint-placeholder-count="4">
+        <button onClick="{{ n.go }}" style="display:flex;justify-content:space-between;align-items:center;width:100%;padding:8px 10px;border:none;border-radius:8px;background:{{ n.bg }};color:{{ n.fg }};cursor:pointer;text-align:left" style-hover="background:#E6EFF5">
+          <span style="display:flex;flex-direction:column;line-height:1.25"><span class="en" style="font-weight:600">{{ n.label }}</span><span class="bn" style="font-size:12px;color:#5B6B7A">{{ n.bn }}</span></span>
+          <sc-if value="{{ n.badge }}" hint-placeholder-val="{{ false }}"><span style="min-width:18px;height:18px;border-radius:99px;background:#FF8000;color:#fff;font-size:12px;font-weight:700;display:grid;place-items:center;padding:0 5px">{{ n.badge }}</span></sc-if>
+        </button>
+      </sc-for>
+    </nav>
+    <div style="padding:12px 16px;border-top:1px solid #E6EFF5;display:flex;gap:10px;align-items:center">
+      <span role="img" aria-label="Dr. Ayesha Siddiqua" style="width:32px;height:32px;border-radius:99px;background:#E6EFF5 url('assets/avatars/ayesha-siddiqua.svg') center/cover no-repeat;flex:none"></span>
+      <div style="line-height:1.25"><div style="font-weight:600;font-size:13px">Dr. Ayesha Siddiqua</div><div style="font-size:12px;color:#5B6B7A">BMDC A-60488</div></div>
+    </div>
+  </aside>
+  <main style="flex:1;min-width:0;display:flex;flex-direction:column">
+    <header style="height:60px;background:#fff;border-bottom:1px solid #DCE6ED;display:flex;align-items:center;gap:12px;padding:0 24px;position:sticky;top:0;z-index:5">
+      <div style="flex:1;display:flex;align-items:baseline;gap:8px"><span class="en" style="font-size:18px;font-weight:700">{{ title.en }}</span><span class="bn" style="color:#5B6B7A;font-size:14px">{{ title.bn }}</span></div>
+      <button onClick="{{ go.notifications }}" title="Notifications" style="position:relative;width:36px;height:36px;border-radius:9px;border:1px solid #DCE6ED;background:#fff;cursor:pointer;display:grid;place-items:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#33485A" stroke-width="2"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 8 3 8H3s3-1 3-8"></path><path d="M10 20a2 2 0 0 0 4 0"></path></svg><sc-if value="{{ bell }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;top:-4px;right:-4px;min-width:16px;height:16px;border-radius:99px;background:#FF8000;color:#fff;font-size:11px;font-weight:700;display:grid;place-items:center;padding:0 4px">{{ bell }}</span></sc-if></button><span style="font-size:13px;color:#5B6B7A">Thu, 19 Nov 2026</span>
+      <a href="IPMS%20OPD.dc.html" style="font-size:13px">Hospital app ↗</a>
+    </header>
+    <div style="padding:20px 24px 60px;display:flex;flex-direction:column;gap:16px;min-width:0">
+
+<sc-if value="{{ showInviteCard }}" hint-placeholder-val="{{ true }}">
+  <div style="background:#fff;border:1.5px solid #0EA5E9;border-radius:12px;padding:16px 18px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;box-shadow:0 4px 16px rgba(14,165,233,.12)">
+    <div role="img" aria-label="Popular Hospital" style="width:52px;height:52px;flex:none;border-radius:12px;background:#02548A url('assets/logo/hospital-mark.svg') center/cover no-repeat;color:#fff;display:grid;place-items:center;font-weight:700"></div>
+    <div style="flex:1;min-width:260px;line-height:1.45">
+      <div style="font-size:12px;font-weight:700;color:#0369A1;text-transform:uppercase;letter-spacing:.6px"><span class="en">Hospital invitation</span><span class="bn">আমন্ত্রণ</span></div>
+      <div style="font-size:16px;font-weight:700">Popular Hospital invited you to join their OPD (Medicine dept)</div>
+      <div class="bn" style="font-size:13px;color:#33485A">পপুলার হসপিটাল আপনাকে তাদের ওপিডিতে (মেডিসিন বিভাগ) যোগ দিতে আমন্ত্রণ জানিয়েছে</div>
+      <div style="font-size:13px;color:#5B6B7A;margin-top:4px">House 16, Road 2, Dhanmondi, Dhaka · Sent by Md. Jalal Uddin (Hospital admin) · 16 Nov 2026</div>
+      <div style="font-size:13px;color:#5B6B7A;margin-top:6px;text-wrap:pretty">If you accept, hospital reception can book patients into the OPD slots you publish and view or print the prescriptions you write there. You set and change your own schedule.</div>
+    </div>
+    <div style="display:flex;gap:8px">
+      <button onClick="{{ go.invite }}" style="height:38px;padding:0 16px;border-radius:8px;border:none;background:transparent;color:#02548A;font-weight:600;cursor:pointer">View details</button><button onClick="{{ openDecline }}" style="height:38px;padding:0 16px;border-radius:8px;border:1px solid #DCE6ED;background:#fff;color:#33485A;font-weight:600;cursor:pointer" style-hover="background:#F7FAFC">Decline</button>
+      <button onClick="{{ accept }}" style="height:38px;padding:0 18px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:600;cursor:pointer" style-hover="background:#023A60"><span class="en">Accept</span><span class="bn">গ্রহণ করুন</span></button>
+    </div>
+  </div>
+</sc-if>
+
+<sc-if value="{{ on.invite }}" hint-placeholder-val="{{ false }}">
+  <div style="max-width:760px;width:100%;align-self:center;background:#fff;border:1px solid #DCE6ED;border-radius:14px;overflow:hidden">
+    <div style="padding:24px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;border-bottom:1px solid #E6EFF5">
+      <div role="img" aria-label="Popular Hospital" style="width:64px;height:64px;border-radius:14px;background:#02548A url('assets/logo/hospital-mark.svg') center/cover no-repeat;color:#fff;display:grid;place-items:center;font-weight:700;font-size:20px"></div>
+      <div style="flex:1;min-width:220px;line-height:1.4"><b style="font-size:20px">Popular Hospital</b><div style="color:#5B6B7A">House 16, Road 2, Dhanmondi, Dhaka 1205</div><div style="font-size:13px;color:#5B6B7A">Invited by Md. Jalal Uddin (Hospital admin) · 16 Nov 2026 · expires in 4 days</div></div>
+      <span style="font-size:13px;font-weight:700;padding:3px 10px;border-radius:99px;background:{{ invChipBg }};color:{{ invChipFg }}">{{ invChip }}</span>
+    </div>
+    <div style="padding:24px;display:flex;flex-direction:column;gap:16px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px">
+        <div style="background:#F1F6F9;border-radius:10px;padding:12px"><div style="font-size:13px;color:#5B6B7A">Department</div><b>Medicine</b></div>
+        <div style="background:#F1F6F9;border-radius:10px;padding:12px"><div style="font-size:13px;color:#5B6B7A">Membership type</div><b>OPD doctor</b></div>
+        <div style="background:#F1F6F9;border-radius:10px;padding:12px"><div style="font-size:13px;color:#5B6B7A">Room</div><b>203, 2nd floor</b></div>
+      </div>
+      <div style="border:1px solid #BFD3E1;border-radius:12px;padding:14px 16px;background:#F7FAFC;display:flex;gap:12px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#02548A" stroke-width="2" style="flex:none;margin-top:2px"><path d="M12 3l8 3v6c0 4.5-3.4 8.4-8 9-4.6-.6-8-4.5-8-9V6l8-3z"></path></svg><div style="line-height:1.5"><b>Data policy</b><br>Patient data belongs to the hospital. If you leave, you keep read-only access to prescriptions you wrote.</div></div>
+      <ul style="margin:0;padding-left:18px;color:#33485A;line-height:1.7"><li>You set your own OPD days, hours and slot length.</li><li>Reception books patients only into slots you publish.</li><li>Hospital staff can view and print your prescriptions but can’t edit them.</li></ul>
+      <sc-if value="{{ showInviteCard }}" hint-placeholder-val="{{ true }}"><div style="display:flex;gap:8px;justify-content:flex-end"><button onClick="{{ openDecline }}" style="height:42px;padding:0 18px;border-radius:9px;border:1px solid #DCE6ED;background:#fff;color:#33485A;font-weight:600;cursor:pointer">Decline</button><button onClick="{{ accept }}" style="height:42px;padding:0 20px;border-radius:9px;border:none;background:#02548A;color:#fff;font-weight:700;cursor:pointer" style-hover="background:#023A60">Accept invitation</button></div></sc-if>
+      <a href="Doctor%20Mobile.dc.html" style="font-size:13px;font-weight:600">See this invite on mobile, including expired and already-used links ↗</a>
+    </div>
+  </div>
+</sc-if>
+
+<sc-if value="{{ on.appointments }}" hint-placeholder-val="{{ true }}">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+    <div style="display:flex;gap:6px;flex-wrap:wrap">
+      <sc-for list="{{ chFilters }}" as="f" hint-placeholder-count="3"><button onClick="{{ f.pick }}" style="height:32px;padding:0 12px;border-radius:99px;border:1px solid {{ f.bd }};background:{{ f.bg }};color:{{ f.fg }};font-weight:600;font-size:13px;cursor:pointer">{{ f.label }} <span style="opacity:.7">{{ f.n }}</span></button></sc-for>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center">
+      <div style="text-align:right;line-height:1.2"><div style="font-size:12px;color:#5B6B7A"><span class="en">Now with you</span><span class="bn">এখন</span></div><div style="font-weight:700;font-size:16px;color:#FF8000">{{ nowText }}</div></div>
+      <button onClick="{{ callNext }}" style="height:40px;padding:0 18px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:8px" style-hover="background:#023A60"><span class="en">Call next</span><span class="bn">পরবর্তী ডাকুন →</span></button>
+    </div>
+  </div>
+  <sc-if value="{{ callMsg }}" hint-placeholder-val="{{ false }}"><div style="font-size:13px;color:#33485A;background:#E6EFF5;border-radius:8px;padding:8px 12px">{{ callMsg }}</div></sc-if>
+  <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;overflow:hidden">
+    <div style="overflow-x:auto">
+    <table style="width:100%;border-collapse:collapse;min-width:720px">
+      <thead><tr>
+        <th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:9px 16px;background:#F7FAFC;border-bottom:1px solid #E1E9EF">Serial</th>
+        <th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:9px 12px;background:#F7FAFC;border-bottom:1px solid #E1E9EF">Time</th>
+        <th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:9px 12px;background:#F7FAFC;border-bottom:1px solid #E1E9EF">Patient</th>
+        <th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:9px 12px;background:#F7FAFC;border-bottom:1px solid #E1E9EF">Chamber</th>
+        <th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:9px 12px;background:#F7FAFC;border-bottom:1px solid #E1E9EF">Status</th>
+        <th style="padding:9px 16px;background:#F7FAFC;border-bottom:1px solid #E1E9EF"></th>
+      </tr></thead>
+      <tbody>
+        <sc-for list="{{ rows }}" as="r" hint-placeholder-count="8">
+          <tr style="background:{{ r.bg }}">
+            <td style="padding:9px 16px;border-bottom:1px solid #EEF3F6;font-weight:700;font-size:14px">{{ r.serial }}</td>
+            <td style="padding:9px 12px;border-bottom:1px solid #EEF3F6;white-space:nowrap">{{ r.time }}</td>
+            <td style="padding:9px 12px;border-bottom:1px solid #EEF3F6"><div style="font-weight:600">{{ r.name }}</div><div style="font-size:13px;color:#5B6B7A">{{ r.meta }}</div></td>
+            <td style="padding:9px 12px;border-bottom:1px solid #EEF3F6">
+              <sc-if value="{{ r.isOpd }}" hint-placeholder-val="{{ false }}"><span style="display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:700;padding:2px 9px;border-radius:6px;background:#02548A;color:#fff;white-space:nowrap">OPD · Popular Hospital</span></sc-if>
+              <sc-if value="{{ r.isPvt }}" hint-placeholder-val="{{ true }}"><span style="font-size:13px;color:#33485A;white-space:nowrap">Private chamber · Mirpur</span></sc-if>
+            </td>
+            <td style="padding:9px 12px;border-bottom:1px solid #EEF3F6"><span style="display:inline-flex;font-size:13px;font-weight:600;padding:2px 9px;border-radius:99px;background:{{ r.cBg }};color:{{ r.cFg }};white-space:nowrap">{{ r.status }}</span></td>
+            <td style="padding:9px 16px;border-bottom:1px solid #EEF3F6;text-align:right"><sc-if value="{{ r.isNow }}" hint-placeholder-val="{{ false }}"><button style="height:28px;padding:0 12px;border-radius:6px;border:none;background:#FF8000;color:#fff;font-weight:700;font-size:13px;cursor:pointer">Write Rx</button></sc-if></td>
+          </tr>
+        </sc-for>
+      </tbody>
+    </table>
+    </div>
+    <sc-if value="{{ noRows }}" hint-placeholder-val="{{ false }}"><div style="padding:28px;text-align:center;color:#5B6B7A">No appointments in this chamber today.</div></sc-if>
+  </div>
+</sc-if>
+
+<sc-if value="{{ on.chambers }}" hint-placeholder-val="{{ false }}">
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px;align-items:start">
+    <sc-for list="{{ chambers }}" as="c" hint-placeholder-count="3">
+      <div style="background:{{ c.bg }};border:1px solid #DCE6ED;border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:10px;opacity:{{ c.op }}">
+        <div style="display:flex;justify-content:space-between;gap:8px;align-items:flex-start">
+          <div style="display:flex;gap:10px;align-items:center"><div style="width:40px;height:40px;border-radius:10px;background:{{ c.logoBg }};color:#fff;display:grid;place-items:center;font-weight:700;font-size:13px">{{ c.ini }}</div><div style="line-height:1.3"><div style="font-weight:700">{{ c.name }}</div><div style="font-size:13px;color:#5B6B7A">{{ c.addr }}</div></div></div>
+          <span style="font-size:12px;font-weight:700;padding:2px 8px;border-radius:99px;background:{{ c.chipBg }};color:{{ c.chipFg }};white-space:nowrap">{{ c.chip }}</span>
+        </div>
+        <div style="font-size:13px;color:#33485A">{{ c.hours }}</div>
+        <sc-if value="{{ c.isLeft }}" hint-placeholder-val="{{ false }}">
+          <div style="background:#E9EDF0;border-radius:8px;padding:10px 12px;font-size:13px;color:#33485A;display:flex;gap:8px;align-items:flex-start"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B6B7A" stroke-width="2" style="flex:none;margin-top:2px"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg><span>Left on 12 Oct 2026 — read-only access to your prescriptions<br><span class="bn" style="color:#5B6B7A">১২ অক্টোবর ২০২৬ ছেড়েছেন — শুধু আপনার প্রেসক্রিপশন দেখতে পারবেন</span></span></div>
+          <button style="align-self:flex-start;height:32px;padding:0 12px;border-radius:8px;border:1px solid #C9D6E0;background:#fff;color:#33485A;font-weight:600;cursor:pointer">View my prescriptions (148)</button>
+        </sc-if>
+        <sc-if value="{{ c.isOpd }}" hint-placeholder-val="{{ false }}"><button onClick="{{ go.schedule }}" style="align-self:flex-start;height:32px;padding:0 12px;border-radius:8px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;cursor:pointer" style-hover="background:#F1F6F9">Edit OPD schedule</button></sc-if>
+      </div>
+    </sc-for>
+  </div>
+</sc-if>
+
+<sc-if value="{{ on.schedule }}" hint-placeholder-val="{{ false }}">
+  <sc-if value="{{ notMember }}" hint-placeholder-val="{{ false }}">
+    <div style="background:#fff;border:1px dashed #BFD3E1;border-radius:10px;padding:32px;text-align:center;color:#5B6B7A"><b style="color:#10273A">No hospital OPD chamber yet</b><div>Accept the Popular Hospital invitation to set up your OPD schedule.</div></div>
+  </sc-if>
+  <sc-if value="{{ isMember }}" hint-placeholder-val="{{ true }}">
+  <sc-if value="{{ wizard }}" hint-placeholder-val="{{ false }}">
+    <div style="background:#fff;border:1.5px solid #0EA5E9;border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:10px">
+      <b style="font-size:16px">Set your OPD schedule at Popular Hospital</b>
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:13px">
+        <span style="display:flex;gap:6px;align-items:center"><span style="width:22px;height:22px;border-radius:99px;background:#02548A;color:#fff;display:grid;place-items:center;font-size:12px;font-weight:700">✓</span>Invitation accepted</span><span style="width:32px;height:2px;background:#02548A"></span>
+        <span style="display:flex;gap:6px;align-items:center"><span style="width:22px;height:22px;border-radius:99px;background:#02548A;color:#fff;display:grid;place-items:center;font-size:12px;font-weight:700">2</span><b>Weekly hours, slots, holidays</b></span><span style="width:32px;height:2px;background:#DCE6ED"></span>
+        <span style="display:flex;gap:6px;align-items:center;color:#5B6B7A"><span style="width:22px;height:22px;border-radius:99px;border:1.5px solid #C9D6E0;display:grid;place-items:center;font-size:12px;font-weight:700">3</span>Publish · become bookable</span>
+      </div>
+    </div>
+  </sc-if>
+    <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:14px 16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px">
+    <div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Hospital</span><div style="height:36px;border:1px solid #DCE6ED;background:#F7FAFC;border-radius:8px;padding:0 10px;display:flex;align-items:center;justify-content:space-between;color:#33485A">Popular Hospital · Medicine OPD<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8596A4" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg></div></div>
+    <div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Address</span><div style="height:36px;border:1px solid #DCE6ED;background:#F7FAFC;border-radius:8px;padding:0 10px;display:flex;align-items:center;justify-content:space-between;color:#33485A;gap:8px"><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">House 16, Road 2, Dhanmondi, Dhaka 1205 · Room 203</span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8596A4" stroke-width="2" style="flex:none"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg></div></div>
+    <div style="grid-column:1/-1;font-size:13px;color:#5B6B7A">Name, address and room are managed by the hospital. Hours, slots and holidays are yours to set.</div>
+  </div>
+  <div style="display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap">
+    <div style="flex:2 1 560px;min-width:0;background:#fff;border:1px solid #DCE6ED;border-radius:10px;overflow:hidden">
+      <div style="padding:12px 16px;border-bottom:1px solid #E6EFF5;font-weight:700"><span class="en">Weekly hours</span><span class="bn">সাপ্তাহিক সময়</span></div>
+      <sc-for list="{{ days }}" as="d" hint-placeholder-count="7">
+        <div style="display:grid;grid-template-columns:150px minmax(0,1fr);gap:12px;align-items:center;padding:10px 16px;border-bottom:1px solid #EEF3F6">
+          <button onClick="{{ d.toggle }}" style="display:flex;gap:10px;align-items:center;border:none;background:transparent;cursor:pointer;padding:0;text-align:left;color:#10273A">
+            <span style="width:36px;height:20px;border-radius:99px;background:{{ d.trk }};position:relative;flex:none"><span style="position:absolute;top:2px;left:{{ d.knob }};width:16px;height:16px;border-radius:99px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.2)"></span></span>
+            <span style="line-height:1.2"><b>{{ d.day }}</b><br><span class="bn" style="font-size:12px;color:#5B6B7A">{{ d.bn }}</span></span>
+          </button>
+          <sc-if value="{{ d.on }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+              <select value="{{ d.start }}" onChange="{{ d.onStart }}" style="height:34px;border:1px solid #C9D6E0;border-radius:8px;padding:0 8px;font-size:14px;background:#fff"><sc-for list="{{ times }}" as="t" hint-placeholder-count="3"><option value="{{ t.v }}">{{ t.l }}</option></sc-for></select>
+              <span style="color:#5B6B7A">to</span>
+              <select value="{{ d.end }}" onChange="{{ d.onEnd }}" style="height:34px;border:1px solid #C9D6E0;border-radius:8px;padding:0 8px;font-size:14px;background:#fff"><sc-for list="{{ times }}" as="t" hint-placeholder-count="3"><option value="{{ t.v }}">{{ t.l }}</option></sc-for></select>
+              <span style="font-size:13px;color:#5B6B7A;margin-left:6px">{{ d.count }}</span>
+              <sc-if value="{{ d.bad }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;color:#B42318">End must be after start</span></sc-if>
+            </div>
+          </sc-if>
+          <sc-if value="{{ d.off }}" hint-placeholder-val="{{ false }}"><span style="color:#5B6B7A">{{ d.offText }}</span></sc-if>
+        </div>
+      </sc-for>
+    </div>
+    <div style="flex:1 1 300px;min-width:280px;display:flex;flex-direction:column;gap:16px">
+      <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:12px">
+        <b><span class="en">Slots</span><span class="bn">স্লট</span></b>
+        <div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Slot length</span><div style="display:flex;background:#F1F6F9;border-radius:8px;padding:3px"><sc-for list="{{ lens }}" as="l" hint-placeholder-count="4"><button onClick="{{ l.pick }}" style="flex:1;height:30px;border:none;border-radius:6px;background:{{ l.bg }};color:{{ l.fg }};box-shadow:{{ l.sh }};font-weight:600;font-size:13px;cursor:pointer">{{ l.label }}</button></sc-for></div></div>
+        <label style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Max patients per day</span><input value="{{ maxP }}" onChange="{{ onMax }}" style="height:36px;border:1px solid #C9D6E0;border-radius:8px;padding:0 10px;font-size:14px;width:100px;outline:none"></input></label>
+        <div style="font-size:13px;color:#33485A;background:#F1F6F9;border-radius:8px;padding:10px 12px">{{ summary }}</div>
+      </div>
+      <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:10px">
+        <b><span class="en">Holidays &amp; exceptions</span><span class="bn">ছুটি</span></b>
+        <sc-for list="{{ exc }}" as="x" hint-placeholder-count="2"><div style="display:flex;justify-content:space-between;gap:8px;align-items:center;padding:8px 10px;border:1px solid #EEF3F6;border-radius:8px"><span><b>{{ x.date }}</b> <span style="color:#5B6B7A">· {{ x.note }}</span></span><button onClick="{{ x.remove }}" style="border:none;background:none;color:#B42318;cursor:pointer;font-size:13px;font-weight:600">Remove</button></div></sc-for>
+        <div style="display:flex;gap:6px;flex-wrap:wrap"><input type="date" value="{{ newExc.date }}" onChange="{{ onExcDate }}" style="height:34px;border:1px solid #C9D6E0;border-radius:8px;padding:0 8px;font-size:13px"></input><input value="{{ newExc.note }}" onChange="{{ onExcNote }}" placeholder="Reason" style="flex:1;min-width:100px;height:34px;border:1px solid #C9D6E0;border-radius:8px;padding:0 8px;font-size:13px;outline:none"></input><button onClick="{{ addExc }}" style="height:34px;padding:0 12px;border-radius:8px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;cursor:pointer">Add</button></div>
+      </div>
+    </div>
+  </div>
+  <div style="position:sticky;bottom:0;background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;box-shadow:0 -4px 16px rgba(2,40,70,.06)">
+    <span style="font-size:13px;color:{{ pubC }}">{{ pubText }}</span>
+    <button onClick="{{ publish }}" style="height:40px;padding:0 18px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:700;cursor:pointer" style-hover="background:#023A60"><span class="en">Publish schedule</span><span class="bn">প্রকাশ করুন</span></button>
+  </div>
+  </sc-if>
+</sc-if>
+
+<sc-if value="{{ on.notifications }}" hint-placeholder-val="{{ false }}">
+  <div style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;overflow:hidden">
+    <sc-for list="{{ notes }}" as="n" hint-placeholder-count="4">
+      <div style="display:flex;gap:12px;padding:12px 16px;border-bottom:1px solid #EEF3F6;align-items:flex-start;background:{{ n.bg }}">
+        <span style="width:8px;height:8px;border-radius:99px;background:{{ n.dot }};margin-top:7px;flex:none"></span>
+        <div style="flex:1;line-height:1.4"><div style="font-weight:600">{{ n.title }}</div><div style="font-size:13px;color:#5B6B7A">{{ n.sub }}</div></div>
+        <span style="font-size:13px;color:#5B6B7A;white-space:nowrap">{{ n.when }}</span>
+      </div>
+    </sc-for>
+  </div>
+</sc-if>
+
+    </div>
+  </main>
+  <sc-if value="{{ declineOpen }}" hint-placeholder-val="{{ false }}"><div style="position:fixed;inset:0;background:rgba(2,30,50,.38);z-index:50;display:grid;place-items:center;padding:16px"><div style="width:420px;max-width:100%;background:#fff;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:10px"><b style="font-size:16px">Decline Popular Hospital’s invitation?</b><span style="color:#5B6B7A;font-size:13px">The hospital admin will see your reason.</span><sc-for list="{{ reasons }}" as="r" hint-placeholder-count="4"><button onClick="{{ r.pick }}" style="display:flex;gap:10px;align-items:center;text-align:left;padding:10px 12px;border-radius:9px;border:1.5px solid {{ r.bd }};background:{{ r.bg }};cursor:pointer;color:#10273A"><span style="width:16px;height:16px;border-radius:99px;border:2px solid #02548A;display:grid;place-items:center;flex:none"><span style="width:8px;height:8px;border-radius:99px;background:{{ r.dot }}"></span></span>{{ r.label }}</button></sc-for><div style="display:flex;justify-content:flex-end;gap:8px;margin-top:6px"><button onClick="{{ closeDecline }}" style="height:36px;padding:0 14px;border-radius:8px;border:none;background:transparent;color:#5B6B7A;font-weight:600;cursor:pointer">Cancel</button><button onClick="{{ decline }}" style="height:36px;padding:0 16px;border-radius:8px;border:none;background:#B42318;color:#fff;font-weight:600;cursor:pointer">Decline</button></div></div></div></sc-if>
+  <sc-if value="{{ toast }}" hint-placeholder-val="{{ false }}"><div style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#10273A;color:#fff;padding:10px 16px;border-radius:10px;font-weight:600;box-shadow:0 10px 28px rgba(2,40,70,.25);z-index:60">{{ toast }}</div></sc-if>
+<a href="Prototype%20Index.dc.html" class="idx-link no-print" style="position:fixed;right:12px;bottom:12px;z-index:80;font-size:13px;font-weight:600;color:#5B6B7A;background:rgba(255,255,255,.9);border:1px solid #DCE6ED;border-radius:99px;padding:4px 10px;text-decoration:none">← Index</a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;startScreen&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;appointments&quot;,&quot;chambers&quot;,&quot;schedule&quot;,&quot;notifications&quot;],&quot;default&quot;:&quot;appointments&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Prototype&quot;},&quot;inviteState&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;pending&quot;,&quot;accepted&quot;,&quot;declined&quot;],&quot;default&quot;:&quot;pending&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Prototype&quot;}}">
+class Component extends DCLogic {
+  langInit = (()=>{ try{ const l='en'; document.documentElement.setAttribute('data-lang',l); return l; }catch(e){ return 'en'; } })();
+  setLang(l){ try{ localStorage.setItem('ipms_lang',l); }catch(e){} document.documentElement.setAttribute('data-lang',l); this.setState({lang:l}); }
+  renderVals(){ const v=this.renderVals0(); const l=(this.state&&this.state.lang)||this.langInit; const a=k=>l===k; return {...v,lang:{enBg:a('en')?'#fff':'transparent',enFg:a('en')?'#02548A':'#5B6B7A',enSh:a('en')?'0 1px 2px rgba(2,40,70,.15)':'none',bnBg:a('bn')?'#fff':'transparent',bnFg:a('bn')?'#02548A':'#5B6B7A',bnSh:a('bn')?'0 1px 2px rgba(2,40,70,.15)':'none',toEn:()=>this.setLang('en'),toBn:()=>this.setLang('bn')}}; }
+  DAYS=[[6,'Saturday','শনিবার'],[0,'Sunday','রবিবার'],[1,'Monday','সোমবার'],[2,'Tuesday','মঙ্গলবার'],[3,'Wednesday','বুধবার'],[4,'Thursday','বৃহস্পতিবার'],[5,'Friday','শুক্রবার']];
+  state = {
+    ...this.boot(),
+    filter:'all', cur:null, callMsg:'', toast:'',
+    days:{6:{on:true,s:960,e:1140},0:{on:true,s:960,e:1140},1:{on:true,s:960,e:1140},2:{on:true,s:960,e:1140},3:{on:true,s:960,e:1140},4:{on:false,s:960,e:1140},5:{on:false,s:960,e:1140}},
+    len:15, max:'12', declineOpen:false, reason:0, dirty:false,
+    exc:[{date:'Wed, 16 Dec 2026',note:'Victory Day'},{date:'Sun, 27 Dec 2026',note:'Personal leave'}], newExc:{date:'',note:''},
+    appts:this.mkAppts()
+  };
+  componentDidUpdate(pp){ if(this.props.startScreen&&pp.startScreen!==this.props.startScreen) this.setState({screen:this.props.startScreen}); if(this.props.inviteState&&pp.inviteState!==this.props.inviteState) this.setState({invite:this.props.inviteState,published:this.props.inviteState==='accepted'}); }
+  componentWillUnmount(){ clearTimeout(this._t); }
+  boot(){ let fl={}, h=''; try{ fl=JSON.parse(localStorage.getItem('ipms_demo_flow')||'{}'); h=(window.location.hash||'').slice(1); }catch(e){} const a=fl.ayesha||''; const inv=this.props.inviteState||(a==='accepted'||a==='scheduled'?'accepted':a.startsWith('declined')?'declined':'pending'); const wiz=h==='wizard'&&inv==='accepted'&&a!=='scheduled'; return {screen:wiz||h==='wizard'?'schedule':(h&&['appointments','chambers','schedule','notifications','invite'].includes(h)?h:(this.props.startScreen||'appointments')),invite:inv,published:a==='scheduled',wizard:wiz}; }
+  flag(v){ try{ const o=JSON.parse(localStorage.getItem('ipms_demo_flow')||'{}'); o.ayesha=v; localStorage.setItem('ipms_demo_flow',JSON.stringify(o)); }catch(e){} }
+  fmt(t){ const h=Math.floor(t/60),m=t%60; return (((h+11)%12)+1)+':'+String(m).padStart(2,'0')+(h<12?' am':' pm'); }
+  mkAppts(){
+    const opd=[['Habibur Rahman',66,'M','Follow-up','Done'],['Fatema Khanam',45,'F','New','Done'],['Arif Chowdhury',39,'M','New','Absent'],['Ruma Chowdhury',31,'F','Follow-up','Done'],['Belal Hossain',58,'M','New','Done'],['Laila Arjuman',36,'F','New','In consultation'],['Sajib Sarker',27,'M','Follow-up','Waiting'],['Jesmin Ara',49,'F','New','Waiting'],['Kamal Uddin',62,'M','Follow-up','Waiting'],['Tania Sarker',24,'F','New','Booked'],['Sohel Rana',41,'M','New','Booked']];
+    const pvt=[['Nazmul Huda',53,'M','Follow-up','Booked'],['Rehana Yasmin',38,'F','New','Booked'],['Faruk Ahmed',70,'M','Follow-up','Booked'],['Moushumi Das',29,'F','New','Booked'],['Mizanur Rahman',47,'M','New','Booked']];
+    const out=[];
+    opd.forEach((p,i)=>out.push({id:'o'+i,ch:'opd',serial:'A-'+String(i+1).padStart(2,'0'),t:960+i*15,name:p[0],age:p[1],g:p[2],type:p[3],status:p[4]}));
+    pvt.forEach((p,i)=>out.push({id:'p'+i,ch:'pvt',serial:'#'+(i+1),t:1200+i*15,name:p[0],age:p[1],g:p[2],type:p[3],status:p[4]}));
+    return out;
+  }
+  toast(m){ clearTimeout(this._t); this.setState({toast:m}); this._t=setTimeout(()=>this.setState({toast:''}),2600); }
+  callNext(){
+    const S=this.state, member=S.invite==='accepted';
+    const list=S.appts.filter(a=>(member||a.ch==='pvt')&&(S.filter==='all'||a.ch===S.filter)).sort((a,b)=>a.t-b.t);
+    const nx=list.find(a=>a.status==='Waiting')||list.find(a=>a.status==='Booked');
+    if(!nx){ this.setState({callMsg:'No one is waiting in this chamber.'}); return; }
+    const appts=S.appts.map(a=>a.status==='In consultation'&&a.ch===nx.ch?{...a,status:'Done'}:a.id===nx.id?{...a,status:'In consultation'}:a);
+    this.setState({appts,callMsg:nx.ch==='opd'?'Called '+nx.serial+' · '+nx.name+'. Token shown on the Popular Hospital TV display.':'Called '+nx.serial+' · '+nx.name+'.'});
+  }
+  renderVals0(){
+    const S=this.state, member=S.invite==='accepted';
+    const go={}; ['appointments','chambers','schedule','notifications','invite'].forEach(k=>go[k]=()=>this.setState({screen:k}));
+    const on={}; ['appointments','chambers','schedule','notifications','invite'].forEach(k=>on[k]=S.screen===k);
+    const pending=S.invite==='pending';
+    const nav=[['appointments','Appointments','অ্যাপয়েন্টমেন্ট'],['chambers','My hospitals',''],['schedule','OPD schedule','ওপিডি সময়সূচি'],['notifications','Notifications','নোটিফিকেশন']].map(([k,l,b])=>({label:l,bn:b,bg:S.screen===k?'#E6EFF5':'transparent',fg:S.screen===k?'#02548A':'#10273A',badge:k==='notifications'&&pending?'1':'',go:go[k]}));
+    const T={appointments:["Today's appointments",'আজকের অ্যাপয়েন্টমেন্ট'],chambers:['My hospitals',''],invite:['Invitation · Popular Hospital',''],schedule:['OPD schedule · Popular Hospital','ওপিডি সময়সূচি'],notifications:['Notifications','নোটিফিকেশন']}[S.screen];
+    const vis=S.appts.filter(a=>member||a.ch==='pvt');
+    const C={Done:['#E3F4EA','#1D7A46'],Absent:['#FDECEC','#B42318'],'In consultation':['#FFF0E0','#A34F00'],Waiting:['#E0F2FE','#0369A1'],Booked:['#E6EFF5','#02548A']};
+    const rows=vis.filter(a=>S.filter==='all'||a.ch===S.filter).sort((a,b)=>a.t-b.t).map(a=>({...a,time:this.fmt(a.t),meta:a.age+' y · '+(a.g==='F'?'Female':'Male')+' · '+a.type,isOpd:a.ch==='opd',isPvt:a.ch==='pvt',cBg:C[a.status][0],cFg:C[a.status][1],isNow:a.status==='In consultation',bg:a.status==='In consultation'?'#FFF8F0':'#fff'}));
+    const chFilters=[['all','All chambers'],['opd','OPD · Popular Hospital'],['pvt','Private · Mirpur']].filter(x=>member||x[0]!=='opd').map(([k,l])=>({label:l,n:k==='all'?vis.length:vis.filter(a=>a.ch===k).length,bg:S.filter===k?'#02548A':'#fff',fg:S.filter===k?'#fff':'#33485A',bd:S.filter===k?'#02548A':'#DCE6ED',pick:()=>this.setState({filter:k,callMsg:''})}));
+    const now=vis.filter(a=>a.status==='In consultation'&&(S.filter==='all'||a.ch===S.filter));
+    const chambers=[
+      {name:'Private chamber · Mirpur',status:'Active',addr:'Mirpur Diagnostic Centre, Section 10, Mirpur, Dhaka',ini:'GR',logoBg:'#0EA5E9',chip:'Active',chipBg:'#E3F4EA',chipFg:'#1D7A46',hours:'Sat–Thu · 8:00 pm – 10:00 pm · managed by you',bg:'#fff',op:'1',isLeft:false,isOpd:false},
+      ...(member?[{name:'Popular Hospital · Medicine OPD',addr:'House 16, Road 2, Dhanmondi · Room 203',ini:'PH',logoBg:'#02548A',chip:S.published?'Hospital OPD':'Schedule not published',chipBg:S.published?'#E6EFF5':'#FFF0E0',chipFg:S.published?'#02548A':'#A34F00',hours:S.published?'Sat–Thu · 4:00 pm – 7:00 pm · reception books your published slots':'Publish your hours so reception can start booking',bg:'#fff',op:'1',isLeft:false,isOpd:true}]:[]),
+      {name:'Shefa General Hospital · OPD',addr:'Plot 4, Section 6, Mirpur, Dhaka',ini:'SG',logoBg:'#8596A4',chip:'Left',chipBg:'#DDE3E8',chipFg:'#5B6B7A',hours:'Previously Sun, Tue · 4:00 pm – 7:00 pm',bg:'#F4F6F8',op:'.85',isLeft:true,isOpd:false}
+    ];
+    const times=[]; for(let t=420;t<=1320;t+=30) times.push({v:String(t),l:this.fmt(t)});
+    let weekly=0;
+    const days=this.DAYS.map(([k,d,b])=>{ const x=S.days[k], n=x.on&&x.e>x.s?Math.floor((x.e-x.s)/S.len):0; weekly+=Math.min(n,+S.max||n); const upd=o=>this.setState({days:{...S.days,[k]:{...x,...o}},dirty:true}); return {day:d,bn:b,on:x.on,off:!x.on,offText:k===5?'Weekly off':'No OPD',start:String(x.s),end:String(x.e),count:n?n+' slots':'',bad:x.on&&x.e<=x.s,trk:x.on?'#02548A':'#C9D6E0',knob:x.on?'18px':'2px',toggle:()=>upd({on:!x.on}),onStart:e=>upd({s:+e.target.value}),onEnd:e=>upd({e:+e.target.value})}; });
+    const lens=[5,10,15,20].map(l=>({label:l+' min',bg:S.len===l?'#fff':'transparent',fg:S.len===l?'#02548A':'#5B6B7A',sh:S.len===l?'0 1px 2px rgba(2,40,70,.15)':'none',pick:()=>this.setState({len:l,dirty:true})}));
+    const invChip=S.invite==='accepted'?'Accepted':S.invite==='declined'?'Declined':'Pending', invChipBg=S.invite==='accepted'?'#E3F4EA':S.invite==='declined'?'#EEF1F4':'#E0F2FE', invChipFg=S.invite==='accepted'?'#1D7A46':S.invite==='declined'?'#5B6B7A':'#0369A1';
+    const notes=[
+      ...(pending?[{title:'Popular Hospital invited you to join their OPD (Medicine dept)',sub:'Accept or decline from the card above',when:'16 Nov',dot:'#FF8000',bg:'#FFFBF5'}]:[]),
+      ...(member?[{title:'You joined Popular Hospital OPD',sub:S.published?'Schedule published. Reception can now book your slots.':'Next: publish your OPD schedule',when:'Today',dot:'#0EA5E9',bg:'#fff'}]:[]),
+      ...(S.invite==='declined'?[{title:'You declined Popular Hospital’s invitation',sub:'The hospital admin has been notified',when:'Today',dot:'#9AABB8',bg:'#fff'}]:[]),
+      {title:'Shefa General Hospital: your access changed to read-only',sub:'You left on 12 Oct 2026. Your 148 prescriptions remain viewable.',when:'12 Oct',dot:'#9AABB8',bg:'#fff'},
+      {title:'New follow-up booked at Mirpur chamber',sub:'Faruk Ahmed · Thu 19 Nov, 8:30 pm',when:'Yesterday',dot:'#9AABB8',bg:'#fff'}
+    ];
+    return {
+      on,go,nav,title:{en:T[0],bn:T[1]},showInviteCard:pending&&(S.screen==='appointments'||S.screen==='notifications'),
+      accept:()=>{ this.flag('accepted'); this.setState({invite:'accepted',screen:'schedule',dirty:true,wizard:true}); this.toast('Joined Popular Hospital OPD · set your schedule'); },
+      openDecline:()=>this.setState({declineOpen:true}),closeDecline:()=>this.setState({declineOpen:false}),declineOpen:!!S.declineOpen,
+      reasons:['My schedule is full','Location is too far','I’ll join later','Other'].map((r,i)=>({label:r,bd:S.reason===i?'#02548A':'#DCE6ED',bg:S.reason===i?'#F1F6F9':'#fff',dot:S.reason===i?'#02548A':'#fff',pick:()=>this.setState({reason:i})})),
+      decline:()=>{ const r=['My schedule is full','Location is too far','I’ll join later','Other'][S.reason||0]; this.flag('declined:'+r); this.setState({invite:'declined',declineOpen:false,screen:'appointments'}); this.toast('Invitation declined · reason sent'); },
+      bell:pending?'1':'',wizard:!!S.wizard&&member,
+      chFilters,rows,noRows:rows.length===0,nowText:now.length?now.map(a=>a.serial+' '+a.name.split(' ')[0]).join(', '):'—',callNext:()=>this.callNext(),callMsg:S.callMsg,
+      chambers,isMember:member,notMember:!member,days,times,lens,maxP:S.max,onMax:e=>this.setState({max:e.target.value.replace(/\D/g,'').slice(0,3),dirty:true}),
+      summary:weekly+' bookable slots per week · '+S.len+'-minute slots, capped at '+(S.max||'—')+' patients per day',
+      exc:S.exc.map((x,i)=>({...x,remove:()=>this.setState({exc:S.exc.filter((_,j)=>j!==i),dirty:true})})),
+      newExc:S.newExc,onExcDate:e=>this.setState({newExc:{...S.newExc,date:e.target.value}}),onExcNote:e=>this.setState({newExc:{...S.newExc,note:e.target.value}}),
+      addExc:()=>{ if(!S.newExc.date) return; const d=new Date(S.newExc.date); const lbl=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][d.getDay()]+', '+d.getDate()+' '+['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()]+' '+d.getFullYear(); this.setState({exc:[...S.exc,{date:lbl,note:S.newExc.note||'Unavailable'}],newExc:{date:'',note:''},dirty:true}); },
+      pubText:S.dirty?'Unsaved changes. Reception keeps booking against your last published schedule until you publish.':S.published?'Published 19 Nov 2026. Reception can book any free slot in these hours.':'Not published yet.',
+      pubC:S.dirty?'#A34F00':'#1D7A46',
+      publish:()=>{ this.flag('scheduled'); this.setState({published:true,dirty:false,wizard:false}); this.toast('Published · you are now bookable at Popular Hospital'); },
+      invChip,invChipBg,invChipFg,notes,toast:S.toast
+    };
+  }
+}
+
+</script>
+</body>
+</html>

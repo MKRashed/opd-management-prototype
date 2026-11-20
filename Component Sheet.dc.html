@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800&amp;display=swap">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#F1F6F9;font-family:'Noto Sans Bengali',sans-serif;-webkit-font-smoothing:antialiased}
+button,input,select{font-family:inherit}
+a{color:#02548A;text-decoration:none}
+a:hover{color:#023A60;text-decoration:underline}
+@media print{.idx-link{display:none !important}}
+input:focus,select:focus,textarea:focus{box-shadow:0 0 0 3px rgba(14,165,233,.3) !important}
+button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outline-offset:2px}
+</style>
+</helmet>
+<div style="max-width:1200px;margin:0 auto;padding:32px 24px 64px;display:flex;flex-direction:column;gap:20px;color:#10273A;font-size:14px;line-height:1.45;font-family:'Noto Sans Bengali',sans-serif">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap">
+    <div><div style="font-size:24px;font-weight:700">IPMS OPD · Components</div><div style="color:#5B6B7A">Noto Sans Bengali · Navy #02548A · Hover #023A60 · Sky #0EA5E9 · Orange #FF8000 (now serving only)</div></div>
+    <a href="IPMS%20OPD.dc.html" style="font-weight:600">Open prototype →</a>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px">
+    <div style="display:flex;flex-direction:column;gap:4px"><div style="height:56px;border-radius:8px;background:#02548A"></div><b>Navy</b><span style="color:#5B6B7A">#02548A</span></div>
+    <div style="display:flex;flex-direction:column;gap:4px"><div style="height:56px;border-radius:8px;background:#023A60"></div><b>Navy hover</b><span style="color:#5B6B7A">#023A60</span></div>
+    <div style="display:flex;flex-direction:column;gap:4px"><div style="height:56px;border-radius:8px;background:#0EA5E9"></div><b>Sky</b><span style="color:#5B6B7A">#0EA5E9</span></div>
+    <div style="display:flex;flex-direction:column;gap:4px"><div style="height:56px;border-radius:8px;background:#FF8000"></div><b>Orange</b><span style="color:#5B6B7A">#FF8000</span></div>
+    <div style="display:flex;flex-direction:column;gap:4px"><div style="height:56px;border-radius:8px;background:#E6EFF5;border:1px solid #DCE6ED"></div><b>Tint 1</b><span style="color:#5B6B7A">#E6EFF5</span></div>
+    <div style="display:flex;flex-direction:column;gap:4px"><div style="height:56px;border-radius:8px;background:#F1F6F9;border:1px solid #DCE6ED"></div><b>Tint 2</b><span style="color:#5B6B7A">#F1F6F9</span></div>
+    <div style="display:flex;flex-direction:column;gap:4px"><div style="height:56px;border-radius:8px;background:#10273A"></div><b>Ink</b><span style="color:#5B6B7A">#10273A</span></div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:16px;align-items:start">
+    <section style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:14px">
+      <b style="font-size:16px">Buttons</b>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+        <button style="height:36px;padding:0 14px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:600;cursor:pointer" style-hover="background:#023A60">Primary</button>
+        <button style="height:36px;padding:0 14px;border-radius:8px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;cursor:pointer" style-hover="background:#F1F6F9">Secondary</button>
+        <button style="height:36px;padding:0 12px;border-radius:8px;border:none;background:transparent;color:#5B6B7A;font-weight:600;cursor:pointer">Ghost</button>
+        <button style="height:36px;padding:0 14px;border-radius:8px;border:1px solid #F3C9C4;background:#fff;color:#B42318;font-weight:600;cursor:pointer" style-hover="background:#FDECEC">Cancel</button>
+        <button disabled="" style="height:36px;padding:0 14px;border-radius:8px;border:none;background:#C9D6E0;color:#fff;font-weight:600;cursor:not-allowed">Disabled</button>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+        <button style="height:28px;padding:0 10px;border-radius:6px;border:none;background:#02548A;color:#fff;font-weight:600;font-size:13px;cursor:pointer">Arrived</button>
+        <button style="height:28px;padding:0 10px;border-radius:6px;border:1px solid #DCE6ED;background:#fff;color:#33485A;font-weight:600;font-size:13px;cursor:pointer">Reschedule</button>
+        <button style="height:28px;padding:0 10px;border-radius:6px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;font-size:13px;cursor:pointer">View Rx</button>
+        <button style="height:42px;padding:0 18px;border-radius:8px;border:none;background:#02548A;color:#fff;font-weight:700;cursor:pointer">Confirm &amp; print token</button>
+      </div>
+      <span style="color:#5B6B7A;font-size:13px">36px default, 28px in table rows, 42px for drawer and form footers.</span>
+    </section>
+
+    <section style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:12px">
+      <b style="font-size:16px">Status chips</b>
+      <div style="display:flex;gap:6px;flex-wrap:wrap">
+        <span style="font-size:13px;font-weight:600;padding:2px 9px;border-radius:99px;background:#E6EFF5;color:#02548A">Booked</span>
+        <span style="font-size:13px;font-weight:600;padding:2px 9px;border-radius:99px;background:#E0F2FE;color:#0369A1">Arrived</span>
+        <span style="font-size:13px;font-weight:600;padding:2px 9px;border-radius:99px;background:#FFF0E0;color:#A34F00">In consultation</span>
+        <span style="font-size:13px;font-weight:600;padding:2px 9px;border-radius:99px;background:#E3F4EA;color:#1D7A46">Done</span>
+        <span style="font-size:13px;font-weight:600;padding:2px 9px;border-radius:99px;background:#FDECEC;color:#B42318">Absent</span>
+        <span style="font-size:13px;font-weight:600;padding:2px 9px;border-radius:99px;background:#EEF1F4;color:#5B6B7A">Cancelled</span>
+      </div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap">
+        <span style="display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;padding:1px 8px;border-radius:99px;background:#E3F4EA;color:#1D7A46"><span style="width:6px;height:6px;border-radius:99px;background:#1D7A46"></span>In chamber</span>
+        <span style="display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;padding:1px 8px;border-radius:99px;background:#EEF1F4;color:#5B6B7A"><span style="width:6px;height:6px;border-radius:99px;background:#5B6B7A"></span>Not yet arrived</span>
+        <span style="display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;padding:1px 8px;border-radius:99px;background:#E6EFF5;color:#02548A"><span style="width:6px;height:6px;border-radius:99px;background:#02548A"></span>Done for today</span>
+      </div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap">
+        <span style="font-size:13px;font-weight:600;padding:2px 9px;border-radius:99px;background:#E0F2FE;color:#0369A1">Invited</span>
+        <span style="font-size:13px;font-weight:600;padding:2px 9px;border-radius:99px;background:#E3F4EA;color:#1D7A46">Active</span>
+        <span style="font-size:13px;font-weight:600;padding:2px 9px;border-radius:99px;background:#EEF1F4;color:#5B6B7A">Left</span>
+        <span style="font-size:13px;font-weight:600;padding:2px 9px;border-radius:99px;background:#F0F9F3;color:#1D7A46">Active – schedule pending</span>
+        <span style="font-size:13px;font-weight:600;padding:2px 9px;border-radius:99px;background:#FFF6EC;color:#7A3D00">Unclaimed profile</span>
+        <span style="font-size:13px;font-weight:600;padding:2px 9px;border-radius:99px;background:#EEF2FF;color:#3730A3">Campaign guest</span>
+        <span style="font-size:13px;font-weight:700;padding:2px 9px;border-radius:6px;background:#02548A;color:#fff">OPD · Popular Hospital</span>
+        <span style="font-size:13px;font-weight:700;color:#02548A;background:#E6EFF5;border-radius:6px;padding:1px 8px">PH-000231</span>
+      </div>
+    </section>
+
+    <section style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:12px">
+      <b style="font-size:16px">Inputs</b>
+      <label style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Mobile *</span><input value="01712-458930" style="height:36px;border:1px solid #C9D6E0;border-radius:8px;padding:0 10px;font-size:14px;outline:none" style-focus="border-color:#0EA5E9;box-shadow:0 0 0 3px rgba(14,165,233,.18)"></input></label>
+      <label style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Full name *</span><input value="" placeholder="e.g. Shafiqul Alam" style="height:36px;border:1px solid #E3A29B;border-radius:8px;padding:0 10px;font-size:14px;outline:none"></input><span style="font-size:13px;color:#B42318">Enter the patient’s name</span></label>
+      <div style="display:flex;flex-direction:column;gap:5px"><span style="font-size:13px;font-weight:600;color:#33485A">Locked (set by hospital)</span><div style="height:36px;border:1px solid #DCE6ED;background:#F7FAFC;border-radius:8px;padding:0 10px;display:flex;align-items:center;justify-content:space-between;color:#5B6B7A">popular.ipms.health<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8596A4" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg></div></div>
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+        <div style="display:flex;background:#F1F6F9;border-radius:8px;padding:3px"><button style="height:30px;padding:0 12px;border:none;border-radius:6px;background:#fff;color:#02548A;box-shadow:0 1px 2px rgba(2,40,70,.15);font-weight:600;font-size:13px">80mm thermal</button><button style="height:30px;padding:0 12px;border:none;border-radius:6px;background:transparent;color:#5B6B7A;font-weight:600;font-size:13px">A5 sheet</button></div>
+        <span style="width:36px;height:20px;border-radius:99px;background:#02548A;position:relative;display:inline-block"><span style="position:absolute;top:2px;left:18px;width:16px;height:16px;border-radius:99px;background:#fff"></span></span>
+        <div style="display:flex;background:#F1F6F9;border:1px solid #DCE6ED;border-radius:8px;padding:2px"><button style="height:28px;padding:0 10px;border:none;border-radius:6px;background:#fff;color:#02548A;box-shadow:0 1px 2px rgba(2,40,70,.15);font-weight:700;font-size:13px">EN</button><button style="height:28px;padding:0 10px;border:none;border-radius:6px;background:transparent;color:#5B6B7A;font-weight:700;font-size:13px">বাংলা</button></div>
+      </div>
+    </section>
+
+    <section style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:12px">
+      <b style="font-size:16px">Slot grid</b>
+      <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px">
+        <button style="height:44px;border-radius:8px;border:1px solid #9FC0D6;background:#fff;color:#02548A;font-weight:600;font-size:14px">10:40</button>
+        <button style="height:44px;border-radius:8px;border:1px solid #02548A;background:#02548A;color:#fff;font-weight:600;font-size:14px">10:50</button>
+        <button style="height:44px;border-radius:8px;border:1px solid #E1E8ED;background:#EEF2F5;color:#9AABB8;text-decoration:line-through;font-weight:600;font-size:14px">11:00</button>
+        <button style="height:44px;border-radius:8px;border:1px solid #E1E8ED;background:repeating-linear-gradient(135deg,#F4F6F8 0 5px,#E3E8EC 5px 10px);color:#7D8E9C;font-weight:600;font-size:14px">11:10</button>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;font-size:13px;color:#5B6B7A;text-align:center"><span>Available</span><span>Selected</span><span>Booked</span><span>Blocked by doctor</span></div>
+      <div style="border:1px dashed #BFD3E1;border-radius:10px;padding:16px;text-align:center"><b>No slots available</b><div style="color:#5B6B7A;font-size:13px">Every published slot on this day is booked.</div></div>
+    </section>
+
+    <section style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;overflow:hidden;grid-column:1/-1">
+      <div style="padding:12px 16px;border-bottom:1px solid #E6EFF5"><b style="font-size:16px">Queue table</b></div>
+      <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;min-width:680px">
+        <thead><tr><th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:7px 16px;border-bottom:1px solid #E1E9EF">Token</th><th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:7px 12px;border-bottom:1px solid #E1E9EF">Patient</th><th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:7px 12px;border-bottom:1px solid #E1E9EF">MRN</th><th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:7px 12px;border-bottom:1px solid #E1E9EF">Slot</th><th style="text-align:left;font-size:13px;font-weight:600;color:#5B6B7A;padding:7px 12px;border-bottom:1px solid #E1E9EF">Status</th><th style="text-align:right;font-size:13px;font-weight:600;color:#5B6B7A;padding:7px 16px;border-bottom:1px solid #E1E9EF">Actions</th></tr></thead>
+        <tbody>
+          <tr style="background:#FFF8F0"><td style="padding:8px 16px;border-bottom:1px solid #EEF3F6;font-weight:700;font-size:14px">M-12</td><td style="padding:8px 12px;border-bottom:1px solid #EEF3F6;font-weight:600">Laila Arjuman</td><td style="padding:8px 12px;border-bottom:1px solid #EEF3F6">PH-000264</td><td style="padding:8px 12px;border-bottom:1px solid #EEF3F6">10:30 am</td><td style="padding:8px 12px;border-bottom:1px solid #EEF3F6"><span style="font-size:13px;font-weight:600;padding:2px 9px;border-radius:99px;background:#FFF0E0;color:#A34F00">In consultation</span></td><td style="padding:8px 16px;border-bottom:1px solid #EEF3F6;text-align:right;color:#A34F00;font-weight:600;font-size:13px">With doctor now</td></tr>
+          <tr><td style="padding:8px 16px;border-bottom:1px solid #EEF3F6;font-weight:700;font-size:14px">M-13</td><td style="padding:8px 12px;border-bottom:1px solid #EEF3F6;font-weight:600">Sajib Sarker</td><td style="padding:8px 12px;border-bottom:1px solid #EEF3F6">PH-000315</td><td style="padding:8px 12px;border-bottom:1px solid #EEF3F6">10:40 am</td><td style="padding:8px 12px;border-bottom:1px solid #EEF3F6"><span style="font-size:13px;font-weight:600;padding:2px 9px;border-radius:99px;background:#E6EFF5;color:#02548A">Booked</span></td><td style="padding:8px 16px;border-bottom:1px solid #EEF3F6"><div style="display:flex;gap:6px;justify-content:flex-end"><button style="height:28px;padding:0 10px;border-radius:6px;border:none;background:#02548A;color:#fff;font-weight:600;font-size:13px">Arrived</button><button style="height:28px;padding:0 10px;border-radius:6px;border:1px solid #DCE6ED;background:#fff;color:#33485A;font-weight:600;font-size:13px">Absent</button><button style="height:28px;padding:0 10px;border-radius:6px;border:1px solid #DCE6ED;background:#fff;color:#33485A;font-weight:600;font-size:13px">Reschedule</button><button style="height:28px;padding:0 10px;border-radius:6px;border:1px solid #F3C9C4;background:#fff;color:#B42318;font-weight:600;font-size:13px">Cancel</button></div></td></tr>
+        </tbody>
+      </table>
+      </div>
+    </section>
+
+    <section style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:12px">
+      <b style="font-size:16px">Token card</b>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:flex-start">
+        <div style="width:200px;background:#fff;border:1px solid #DCE6ED;box-shadow:0 4px 12px rgba(2,40,70,.12);padding:12px;color:#000;text-align:center;line-height:1.2">
+          <div style="font-weight:700;font-size:13px">POPULAR HOSPITAL</div>
+          <div style="border-top:1px dashed #000;margin:8px 0"></div>
+          <div style="font-size:11px;font-weight:600;letter-spacing:1px">TOKEN</div>
+          <div style="font-size:42px;font-weight:700">M-17</div>
+          <div style="border-top:1px dashed #000;margin:8px 0"></div>
+          <div style="font-size:11px;text-align:left">Dr. Farhana Rahman<br>Room 201 · 11:40 am<br>PH-000231</div>
+        </div>
+        <div style="width:200px;background:#022A47;border:3px solid #FF8000;border-radius:12px;padding:12px;color:#fff;text-align:center;line-height:1.1">
+          <div style="font-size:11px;color:#7CC8F0;font-weight:600">NOW SERVING</div>
+          <div style="font-size:48px;font-weight:800;color:#FF8000;margin:6px 0">C-08</div>
+          <div style="font-size:12px;color:#C9DDEA">Room 305 · Dr. Nusrat Jahan</div>
+        </div>
+      </div>
+    </section>
+
+    <section style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:10px">
+      <b style="font-size:16px">Banners &amp; states</b>
+      <div style="background:#FFF6EC;border:1px solid #FBE3C8;border-radius:10px;padding:10px 14px;font-weight:700;color:#7A3D00">Read only — written by Dr. Farhana Rahman</div>
+      <div style="background:#FDECEC;border:1px solid #F3C9C4;border-radius:10px;padding:10px 14px"><b style="color:#B42318">Slot no longer available</b><div style="font-size:13px;color:#7A1A12">10:40 am was booked by Rubel Hossain (Desk 2) a moment ago.</div></div>
+      <div style="background:#FFB020;color:#1A1200;border-radius:10px;padding:10px 14px;font-weight:700">Connection lost — reconnecting…</div>
+      <div style="background:#EEF1F4;border-radius:10px;padding:10px 14px;color:#33485A">Left on 12 Oct 2026 — read-only access to your prescriptions</div>
+      <div style="display:flex;flex-direction:column;gap:6px;padding:12px;border:1px solid #EEF3F6;border-radius:10px"><div style="height:12px;width:55%;border-radius:6px;background:#E6EFF5"></div><div style="height:10px;width:80%;border-radius:6px;background:#F1F6F9"></div><span style="font-size:13px;color:#5B6B7A">Loading skeleton</span></div>
+    </section>
+    <section style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:10px;grid-column:1/-1">
+      <b style="font-size:16px">Rule-builder row</b>
+      <div style="border:1px solid #E6EFF5;border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:8px">
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <span style="width:24px;height:24px;border-radius:6px;background:#E6EFF5;color:#02548A;display:grid;place-items:center;font-weight:700;font-size:13px">2</span>
+          <b style="color:#5B6B7A;font-size:13px">IF patient</b>
+          <select style="height:32px;border:1px solid #C9D6E0;border-radius:7px;padding:0 6px;font-size:13px;background:#fff"><option>gender</option></select>
+          <select style="height:32px;border:1px solid #C9D6E0;border-radius:7px;padding:0 6px;font-size:13px;background:#fff"><option>is</option></select>
+          <select style="height:32px;border:1px solid #C9D6E0;border-radius:7px;padding:0 6px;font-size:13px;background:#fff"><option>Male</option></select>
+          <b style="color:#5B6B7A;font-size:13px">THEN send to</b>
+          <select style="height:32px;border:1px solid #C9D6E0;border-radius:7px;padding:0 6px;font-size:13px;background:#fff"><option>these doctors</option></select>
+          <div style="margin-left:auto;display:flex;gap:4px"><button style="width:28px;height:28px;border-radius:6px;border:1px solid #DCE6ED;background:#fff">↑</button><button style="width:28px;height:28px;border-radius:6px;border:1px solid #DCE6ED;background:#fff">↓</button><button style="width:28px;height:28px;border-radius:6px;border:1px solid #F3C9C4;background:#fff;color:#B42318">×</button></div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;padding-left:32px"><span style="height:28px;padding:0 10px;border-radius:99px;background:#02548A;color:#fff;font-weight:600;font-size:13px;display:inline-flex;align-items:center">♂ Tanvir Hasan</span><span style="height:28px;padding:0 10px;border-radius:99px;background:#02548A;color:#fff;font-weight:600;font-size:13px;display:inline-flex;align-items:center">♂ Anisur Rahman · guest</span><span style="height:28px;padding:0 10px;border-radius:99px;border:1px solid #C9D6E0;color:#33485A;font-weight:600;font-size:13px;display:inline-flex;align-items:center">♀ Farhana Rahman</span></div>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding-left:32px"><div style="display:flex;background:#F1F6F9;border-radius:7px;padding:2px"><span style="height:26px;padding:0 10px;border-radius:5px;color:#5B6B7A;font-weight:600;font-size:13px;display:inline-flex;align-items:center">Strict</span><span style="height:26px;padding:0 10px;border-radius:5px;background:#fff;color:#02548A;box-shadow:0 1px 2px rgba(2,40,70,.15);font-weight:600;font-size:13px;display:inline-flex;align-items:center">Prefer</span></div><span style="font-size:13px;color:#33485A">fall back to any doctor after <b>20</b> min wait</span></div>
+      </div>
+    </section>
+    <section style="background:#fff;border:1px solid #DCE6ED;border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:10px;grid-column:1/-1">
+      <b style="font-size:16px">Queue lanes</b>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px">
+        <div style="border:1px solid #DCE6ED;border-radius:12px;overflow:hidden"><div style="padding:10px 14px;background:#FCE7F3;color:#9D174D;display:flex;justify-content:space-between"><b>Female queue</b><b>3 waiting</b></div><div style="padding:12px 14px;display:flex;flex-direction:column;gap:8px"><div style="display:flex;justify-content:space-between;font-size:13px"><span style="color:#5B6B7A">Longest wait</span><b style="color:#B42318">27 min</b></div><div style="display:flex;gap:6px"><span style="font-size:13px;border-radius:6px;padding:2px 8px;background:#FFF0E0;color:#A34F00;font-weight:700">Desk 1 · F-003</span></div><div style="display:flex;gap:6px;align-items:center"><span style="font-size:13px;color:#5B6B7A">Next</span><span style="font-weight:700;border:1px solid #DCE6ED;border-radius:6px;padding:1px 8px">F-005</span><span style="font-weight:700;border:1px solid #DCE6ED;border-radius:6px;padding:1px 8px">F-006</span></div></div></div>
+        <div style="border:1px solid #DCE6ED;border-radius:12px;overflow:hidden"><div style="padding:10px 14px;background:#E0F2FE;color:#0369A1;display:flex;justify-content:space-between"><b>Male queue</b><b>2 waiting</b></div><div style="padding:12px 14px;display:flex;flex-direction:column;gap:8px"><div style="display:flex;justify-content:space-between;font-size:13px"><span style="color:#5B6B7A">Longest wait</span><b>19 min</b></div><div style="display:flex;gap:6px"><span style="font-size:13px;border-radius:6px;padding:2px 8px;background:#FFF0E0;color:#A34F00;font-weight:700">Desk 3 · M-002</span></div><div style="display:flex;gap:6px;align-items:center"><span style="font-size:13px;color:#5B6B7A">Next</span><span style="font-weight:700;border:1px solid #DCE6ED;border-radius:6px;padding:1px 8px">M-004</span></div></div></div>
+        <div style="background:#022A47;border-radius:12px;overflow:hidden;color:#fff"><div style="padding:10px 14px;background:#FCE7F3;color:#9D174D;font-weight:800">Female · TV lane</div><div style="padding:12px 14px;display:flex;justify-content:space-between;align-items:center"><span><b>Desk 1</b><br><span style="font-size:12px;color:#9FC3DA">Dr. Farhana Rahman</span></span><span style="font-size:40px;font-weight:800;color:#FF8000">F-003</span></div></div>
+      </div>
+    </section>
+  </div>
+<a href="Prototype%20Index.dc.html" class="idx-link no-print" style="position:fixed;right:12px;bottom:12px;z-index:80;font-size:13px;font-weight:600;color:#5B6B7A;background:rgba(255,255,255,.9);border:1px solid #DCE6ED;border-radius:99px;padding:4px 10px;text-decoration:none">← Index</a>
+</div>
+</x-dc>
+</body>
+</html>
