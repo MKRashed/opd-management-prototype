@@ -21,6 +21,33 @@ html[data-lang="bn"] .en{display:none !important}
 @media print{.idx-link{display:none !important}}
 input:focus,select:focus,textarea:focus{box-shadow:0 0 0 3px rgba(14,165,233,.3) !important}
 button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outline-offset:2px}
+/* motion */
+@keyframes pw-up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes pw-in{from{opacity:0;transform:translateY(24px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes pw-rise{from{opacity:0;translate:0 28px}to{opacity:1;translate:none}}
+@keyframes pw-dot{0%,100%{box-shadow:0 0 0 0 rgba(29,122,70,.45)}50%{box-shadow:0 0 0 6px rgba(29,122,70,0)}}
+.pw-hero-copy>*{animation:pw-up .7s cubic-bezier(.2,.7,.2,1) both}
+.pw-hero-copy>*:nth-child(2){animation-delay:.08s}.pw-hero-copy>*:nth-child(3){animation-delay:.16s}
+.pw-hero-copy>*:nth-child(4){animation-delay:.24s}.pw-hero-copy>*:nth-child(5){animation-delay:.32s}
+.pw-hero-art{animation:pw-in .9s cubic-bezier(.2,.7,.2,1) .15s both;box-shadow:0 20px 40px -24px rgba(2,84,138,.45)}
+.pw-live{display:inline-block;width:8px;height:8px;border-radius:50%;background:#1D7A46;margin-right:6px;vertical-align:1px;animation:pw-dot 2s ease-in-out infinite}
+.pw-btn{transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease}
+.pw-btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px -8px rgba(2,84,138,.55)}
+.pw-btn:active{transform:translateY(0);box-shadow:none}
+.pw-card{transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.pw-card:hover{transform:translateY(-4px);box-shadow:0 14px 28px -16px rgba(16,39,58,.35)}
+.pw-card img{transition:transform .5s ease}
+.pw-card:hover img{transform:scale(1.05)}
+.pw-banner{transition:transform .25s ease,box-shadow .25s ease}
+.pw-banner:hover{transform:translateY(-3px);box-shadow:0 18px 36px -18px rgba(2,84,138,.6)}
+.pw-arrow{display:inline-block;transition:transform .2s ease}
+.pw-card:hover .pw-arrow{transform:translateX(4px)}
+@supports (animation-timeline:view()){
+  .pw-reveal{animation:pw-rise linear both;animation-timeline:view();animation-range:entry 0% entry 35%}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important}
+}
 </style>
 </helmet>
 <div style="font-family:'Noto Sans Bengali',sans-serif;color:#10273A;font-size:14px;line-height:1.5;min-height:100vh;display:flex;flex-direction:column;background:#fff">
@@ -49,27 +76,27 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
 <sc-if value="{{ on.home }}" hint-placeholder-val="{{ true }}">
   <section style="background:#F1F6F9">
     <div style="max-width:1200px;margin:0 auto;padding:48px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:40px;align-items:center">
-      <div style="display:flex;flex-direction:column;gap:16px">
-        <span style="align-self:flex-start;font-size:13px;font-weight:600;color:#02548A;background:#fff;border:1px solid #DCE6ED;border-radius:99px;padding:3px 12px">Outpatient department · Sat–Thu</span>
+      <div class="pw-hero-copy" style="display:flex;flex-direction:column;gap:16px">
+        <span style="align-self:flex-start;font-size:13px;font-weight:600;color:#02548A;background:#fff;border:1px solid #DCE6ED;border-radius:99px;padding:3px 12px"><span class="pw-live"></span>Outpatient department · Sat–Thu</span>
         <h1 style="margin:0;font-size:clamp(28px,6vw,40px);line-height:1.15;font-weight:700;text-wrap:balance">See a specialist in Dhanmondi without the wait</h1>
         <p class="bn" style="margin:0;font-size:18px;color:#33485A">বিশেষজ্ঞ ডাক্তারের সিরিয়াল নিন অনলাইনে — বাসা থেকেই</p>
         <p style="margin:0;color:#5B6B7A;max-width:500px;text-wrap:pretty">Pick a department and doctor, choose a free time, and confirm with your mobile number. Your token number arrives by SMS.</p>
         <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px">
-          <button onClick="{{ startBooking }}" style="height:48px;padding:0 22px;border-radius:12px;border:none;background:#02548A;color:#fff;font-weight:700;font-size:16px;cursor:pointer" style-hover="background:#023A60"><span class="en">Book appointment</span><span class="bn">সিরিয়াল নিন</span></button>
-          <button onClick="{{ go.doctors }}" style="height:48px;padding:0 20px;border-radius:12px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;font-size:16px;cursor:pointer" style-hover="background:#E6EFF5">Find a doctor</button>
+          <button class="pw-btn" onClick="{{ startBooking }}" style="height:48px;padding:0 22px;border-radius:12px;border:none;background:#02548A;color:#fff;font-weight:700;font-size:16px;cursor:pointer" style-hover="background:#023A60"><span class="en">Book appointment</span><span class="bn">সিরিয়াল নিন</span></button>
+          <button class="pw-btn" onClick="{{ go.doctors }}" style="height:48px;padding:0 20px;border-radius:12px;border:1px solid #BFD3E1;background:#fff;color:#02548A;font-weight:600;font-size:16px;cursor:pointer" style-hover="background:#E6EFF5">Find a doctor</button>
         </div>
       </div>
-      <div style="position:relative;height:360px;border-radius:16px;overflow:hidden"><image-slot id="pub-hero" src="assets/img/hospital-hero.svg" shape="rounded" radius="16" placeholder="Hospital building or OPD photo"></image-slot></div>
+      <div class="pw-hero-art" style="position:relative;height:360px;border-radius:16px;overflow:hidden"><image-slot id="pub-hero" src="assets/img/hospital-hero.svg" shape="rounded" radius="16" placeholder="Hospital building or OPD photo"></image-slot></div>
     </div>
   </section>
   <section style="max-width:1200px;margin:0 auto;padding:48px 24px 0;display:flex;flex-direction:column;gap:20px">
     <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap"><h2 style="margin:0;font-size:24px"><span class="en">Departments</span><span class="bn" style="font-weight:500;color:#5B6B7A;font-size:18px">বিভাগসমূহ</span></h2></div>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">
       <sc-for list="{{ depts }}" as="d" hint-placeholder-count="6">
-        <button onClick="{{ d.pick }}" style="text-align:left;background:#fff;border:1px solid #DCE6ED;border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:4px;cursor:pointer;color:#10273A" style-hover="border-color:#02548A;box-shadow:0 0 0 3px #E6EFF5">
+        <button class="pw-card pw-reveal" onClick="{{ d.pick }}" style="text-align:left;background:#fff;border:1px solid #DCE6ED;border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:4px;cursor:pointer;color:#10273A" style-hover="border-color:#02548A;box-shadow:0 0 0 3px #E6EFF5">
           <span style="font-size:16px;font-weight:700"><span class="en">{{ d.name }}</span><span class="bn" style="font-weight:500;color:#5B6B7A">{{ d.bn }}</span></span>
           <span style="font-size:14px;color:#5B6B7A">{{ d.desc }}</span>
-          <span style="font-size:13px;color:#02548A;font-weight:600;margin-top:6px">{{ d.count }} →</span>
+          <span style="font-size:13px;color:#02548A;font-weight:600;margin-top:6px">{{ d.count }} <span class="pw-arrow">→</span></span>
         </button>
       </sc-for>
     </div>
@@ -78,7 +105,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
     <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap"><h2 style="margin:0;font-size:24px"><span class="en">Our doctors</span><span class="bn" style="font-weight:500;color:#5B6B7A;font-size:18px">আমাদের ডাক্তার</span></h2><button onClick="{{ go.doctors }}" style="border:none;background:none;color:#02548A;font-weight:600;cursor:pointer">All doctors →</button></div>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px">
       <sc-for list="{{ featured }}" as="d" hint-placeholder-count="4">
-        <div style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;overflow:hidden;display:flex;flex-direction:column">
+        <div class="pw-card pw-reveal" style="background:#fff;border:1px solid #DCE6ED;border-radius:12px;overflow:hidden;display:flex;flex-direction:column">
           <button onClick="{{ d.open }}" style="border:none;padding:0;cursor:pointer;height:180px;background:#E6EFF5;display:block;overflow:hidden"><img src="{{ d.photo }}" alt="{{ d.name }}" style="width:100%;height:100%;object-fit:cover;display:block"></button>
           <div style="padding:14px;display:flex;flex-direction:column;gap:2px;flex:1">
             <button onClick="{{ d.open }}" style="border:none;background:none;padding:0;text-align:left;cursor:pointer;font-weight:700;font-size:16px;color:#10273A">{{ d.name }}</button>
@@ -91,7 +118,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
     </div>
   </section>
   <section style="max-width:1200px;margin:0 auto;padding:48px 24px 0">
-    <button onClick="{{ go.campaign }}" style="width:100%;border:none;padding:0;cursor:pointer;text-align:left;background:#02548A;border-radius:16px;overflow:hidden;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));color:#fff">
+    <button class="pw-banner pw-reveal" onClick="{{ go.campaign }}" style="width:100%;border:none;padding:0;cursor:pointer;text-align:left;background:#02548A;border-radius:16px;overflow:hidden;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));color:#fff">
       <div style="padding:32px;display:flex;flex-direction:column;gap:10px">
         <span style="align-self:flex-start;background:#FF8000;color:#1A0C00;font-weight:700;font-size:13px;border-radius:99px;padding:3px 12px">Upcoming health camp · Free</span>
         <span style="font-size:26px;font-weight:700;line-height:1.2">Free Diabetes &amp; Blood Pressure Screening Camp</span>
@@ -119,7 +146,11 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
       <div><b>Hotline</b> 09613-787801 · <b>Emergency</b> 01819-787800</div>
       <div><b>OPD</b> Sat–Thu, 8:00 am – 9:00 pm · Friday closed</div>
     </div>
-    <div style="min-height:240px;border-radius:16px;background:repeating-linear-gradient(135deg,#E6EFF5 0 12px,#F1F6F9 12px 24px);border:1px solid #DCE6ED;display:grid;place-items:center;color:#5B6B7A;font-size:14px;text-align:center;padding:16px">Map embed · Dhanmondi Road 2<br>(Google Maps)</div>
+    <div class="pw-reveal" style="position:relative;min-height:280px;border-radius:16px;overflow:hidden;background:repeating-linear-gradient(135deg,#E6EFF5 0 12px,#F1F6F9 12px 24px);border:1px solid #DCE6ED;display:grid;place-items:center;color:#5B6B7A;font-size:14px;text-align:center;padding:16px">
+      <span>Loading map · House 16, Road 2, Dhanmondi<br>(needs internet)</span>
+      <iframe title="Map: House 16, Road 2, Dhanmondi, Dhaka 1205" src="https://maps.google.com/maps?q=House%2016%2C%20Road%202%2C%20Dhanmondi%2C%20Dhaka%201205&z=16&output=embed" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>
+      <a href="https://www.google.com/maps/search/?api=1&query=House%2016%2C%20Road%202%2C%20Dhanmondi%2C%20Dhaka%201205" target="_blank" rel="noopener" style="position:absolute;right:12px;bottom:12px;background:#fff;color:#02548A;font-weight:700;font-size:13px;border-radius:8px;padding:8px 12px;box-shadow:0 4px 12px -4px rgba(16,39,58,.35);text-decoration:none">Get directions ↗</a>
+    </div>
   </section>
 </sc-if>
 
@@ -184,7 +215,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #0EA5E9 !important;outlin
 
     <sc-if value="{{ s1 }}" hint-placeholder-val="{{ true }}">
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">
-        <sc-for list="{{ bkDepts }}" as="d" hint-placeholder-count="6"><button onClick="{{ d.pick }}" style="text-align:left;background:#fff;border:1px solid #DCE6ED;border-radius:12px;padding:18px;cursor:pointer;color:#10273A;display:flex;flex-direction:column;gap:2px" style-hover="border-color:#02548A;box-shadow:0 0 0 3px #E6EFF5"><b class="en" style="font-size:16px">{{ d.name }}</b><span class="bn" style="color:#5B6B7A">{{ d.bn }}</span><span style="font-size:13px;color:#5B6B7A;margin-top:4px">{{ d.desc }}</span></button></sc-for>
+        <sc-for list="{{ bkDepts }}" as="d" hint-placeholder-count="6"><button class="pw-card pw-reveal" onClick="{{ d.pick }}" style="text-align:left;background:#fff;border:1px solid #DCE6ED;border-radius:12px;padding:18px;cursor:pointer;color:#10273A;display:flex;flex-direction:column;gap:2px" style-hover="border-color:#02548A;box-shadow:0 0 0 3px #E6EFF5"><b class="en" style="font-size:16px">{{ d.name }}</b><span class="bn" style="color:#5B6B7A">{{ d.bn }}</span><span style="font-size:13px;color:#5B6B7A;margin-top:4px">{{ d.desc }}</span></button></sc-for>
       </div>
     </sc-if>
 
