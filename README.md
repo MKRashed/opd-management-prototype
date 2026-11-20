@@ -37,6 +37,6 @@ Open `http://localhost:8000/`. Use an HTTP server because the runtime fetches pa
 
 ## Runtime dependencies
 
-The runtime downloads React, React DOM and Babel from unpkg, and fonts from Google Fonts. Visitors need internet access to these services.
+React 18.3.1, React DOM and Babel standalone 7.29.0 are served from `vendor/`, and the Noto Sans Bengali font (SIL Open Font License) from `vendor/fonts/`. The prototype needs no internet connection once it is served locally. Keep the `vendor/` folder when you copy or push the project.
 
 This is a demonstration using fictional data and browser storage. GitHub Pages supplies static hosting; production authentication, shared persistent data and server operations require a separate backend.
